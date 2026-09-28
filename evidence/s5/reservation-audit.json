@@ -1,0 +1,32 @@
+[
+  {
+    "id": "way/810356690",
+    "use": "Ginza platform/roof envelope",
+    "status": "used",
+    "present": true
+  },
+  {
+    "id": "way/904652357",
+    "use": "Hachiko exit envelope; JR station context",
+    "status": "used",
+    "present": true
+  },
+  {
+    "id": "way/904652318",
+    "use": "Indoor Central Paid Area: deferred, not a separate station mass",
+    "status": "untouched",
+    "present": true
+  },
+  {
+    "id": "way/904734439",
+    "use": "Keio station: outside JR/Ginza scope",
+    "status": "untouched",
+    "present": true
+  },
+  {
+    "id": "way/1350895889",
+    "use": "New South Exit: outside Hachiko core scope",
+    "status": "untouched",
+    "present": true
+  }
+]

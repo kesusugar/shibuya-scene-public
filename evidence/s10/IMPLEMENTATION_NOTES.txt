@@ -1,0 +1,35 @@
+RUN S10 — implementation notes
+Base commit: f47b140fd8f3e9bb19b4d37403dd2a44b36f2cc3 / Visual QA version 4.
+
+Scope
+Independent procedural pedestrian simulation only. No reference assets/code copied.
+S2 ground, S3 buildings, S4 heroes, S5/S6 station, S7 signage and S8 fixtures are input geometry, not remodeled.
+S9 changes are confined to SignalController: pedestrian occupancy and two-second clearance hold force vehicle RED, and remaining green becomes zero while held. Vehicle movement/routing code is unchanged.
+
+Navigation
+Surface OSM footways and pedestrian areas plus S2 sidewalk polygons form the walkable domain.
+A 1.25m lattice produces short obstacle-checked edges. Mapped crossing paths bridge verified curb nodes in both directions; main/diagonal paths have multiple lateral tracks.
+S7 ground-level signs, generic/hero masses, structural supports, S6 ground props and HIGH S8 fixtures are obstacles.
+Conservative 0.1m cached walkability cells include extra boundary clearance. Elevated footways, station interiors and steps are excluded.
+A* paths span multiple edges; destination changes occur at route completion, not every frame.
+Disconnected tiny components are excluded from spawning. Rejected crossing connections are recorded as capacity limits.
+No pavement or map expansion is added; OSM plaza/footway walkers use the existing ground elevation convention.
+
+Crowd
+11 archetypes use eight shared procedural part geometries and one material, with per-instance colors, proportions and accessories.
+480 pooled actor objects; 420 / 210 / 95 requested citizens. HIGH starts with 64 idle, 36 milling, small family groups and ambient/crossing walkers.
+Fixed 30Hz simulation; mid 15Hz and far 5Hz movement, idle 2Hz. Distance is classified once per second. Display interpolation and reduced far animation avoid heavy full updates for every actor.
+Spatial cells bound neighbor checks. Movement candidates must pass walkability, solid, vehicle and pedestrian clearance tests. Boundary safety takes precedence over avoidance.
+TTL/stuck/invalid-route/profile changes recycle pooled states. Camera-near respawn candidates are deferred. Geometry identities persist across tiers.
+
+Signals
+New crossing admissions require the S9 crossing API to report a known crossing, vehicle clearance and WALK; admissions stop for the last five seconds.
+Existing crossing actors finish after the nominal WALK phase. Their signal group remains vehicle RED until the final actor exits plus two seconds.
+Crossing exit space is reserved against incoming non-crossers. Nearby curb waiters yield toward the sidewalk interior using the same collision and walkability checks; crossing actors never block one another solely through exit reservations. Admissions that never leave safe curb ground are released when WALK ends. Nearby vehicles are also checked before entry and each move.
+Debug shows actor IDs, archetypes, routes, destination, queues, groups, cells, radii, LOD and signal state; visual graph is debug-only.
+
+Evidence interpretation
+CPU triangles and mesh-batch counts are not measured GPU drawCalls. Node CPU timings are not browser FPS.
+S9 reference recovery counts: 62 route-end relocations and 18 long-stop recoveries / 180 seconds.
+Browser connection failures are recorded separately and do not imply console error zero or visual PASS.
+S11+ (Trains, Day/Night, Nightglow, postprocess, broad polish) and GTA mechanics remain absent.

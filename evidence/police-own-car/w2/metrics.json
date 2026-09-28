@@ -1,0 +1,18 @@
+{
+  "what": "PLAN-POLICE-AND-OWN-CAR W2 (pursuit, giving way, officers, arrest), device check",
+  "date": "2026-09-25",
+  "machine": "the user's Windows 11 PC, Chrome (visible tab, driven by Claude in Chrome), npm run dev:local",
+  "how": "HIGH night, player mode, standing still; a crime fed to __SHIBUYA_POLICE__.wanted.crime(); positions sampled every 4 s wall time (~5 fps, dt clamped, so ~0.5x game time)",
+  "road_field": {"build": "spread over ~100 frames after entering player mode", "fps_while_building": 4.6, "fps_after": 4.6, "drawCalls": 435},
+  "star2_chase_m": {
+   "patrol_cars": [[167,172],[149,159],[116,130],[84,101],[55,74],[31,48],[5,12],[5,4],[5,4],[4,4]],
+   "officers": [[],[48.4],[40.6,39.8,47.7],[32.8,32,39.9,122.3],[25.3,24.5,32.4,114.8],[18.1,17.4,25.3,107.7],[11,10.3,18.2,100.5],[4.2,3.6,11.4,93.7],[1,0.9,4.6,86.9],[1,0.9,2.2]]
+  },
+  "arrest": "two officers at arm's reach for 2 s with the player not fighting: 逮捕 dialog (night-arrested.jpg); もう一度 respawned the player 4.7 m from the koban at 100 HP with the stars cleared (night-respawn-at-koban.jpg)",
+  "found_and_fixed_on_device": [
+   "officers stopped 4 m short: the civilian fight loop only acts on people standing on pavement, so officers on the road never closed in. Units now own officers entirely and the fight loop skips them",
+   "the arrested player respawned at the start point: revive() re-places the player, so the koban placement moved after it"
+  ],
+  "consoleErrors": 0,
+  "not_checked": ["an arrest in a car on the device (tested)", "giving way seen from the street (tested)", "officers' uniforms close up (tested: navy top and trousers, no pattern)", "the baton on the device (tested)"]
+}

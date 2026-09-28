@@ -1,0 +1,5 @@
+S8 build: PASS
+Command: node /root/.codex/plugins/cache/openai-curated-remote/sites/0.1.52/scripts/build-site.mjs
+vinext build / Vite 8.0.13: all five build stages succeeded; process exit 0.
+Warnings: proxy environment, client bundle >500kB, route static classification unknown.
+No build errors. Renderer resolution and profiles unchanged.

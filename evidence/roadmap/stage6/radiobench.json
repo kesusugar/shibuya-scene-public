@@ -1,0 +1,20 @@
+{
+ "url": "http://<local>/qa/gta-upgrade/radiobench.html",
+ "ready": true,
+ "bench": {
+  "lines": [
+   "city: rms 0.097 peak 0.650 notes 368 energy low/lowmid/highmid/high 50%/38%/10%/1%",
+   "hiphop: rms 0.097 peak 0.614 notes 162 energy low/lowmid/highmid/high 78%/19%/2%/0%",
+   "house: rms 0.097 peak 0.584 notes 378 energy low/lowmid/highmid/high 70%/26%/3%/1%",
+   "wave: rms 0.097 peak 0.745 notes 252 energy low/lowmid/highmid/high 62%/30%/6%/2%",
+   "rock: rms 0.100 peak 0.493 notes 432 energy low/lowmid/highmid/high 52%/34%/11%/2%",
+   "trap: rms 0.098 peak 0.273 notes 174 energy low/lowmid/highmid/high 90%/10%/0%/0%"
+  ],
+  "size": [
+   1600,
+   960
+  ]
+ },
+ "console": [],
+ "errors": 0
+}

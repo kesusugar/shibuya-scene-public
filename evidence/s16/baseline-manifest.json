@@ -1,0 +1,64 @@
+{
+  "status": "BLOCKED_WEBGL2",
+  "baseCommit": "55ea9aaae484b935e49f42d039a36383623504a8",
+  "implementationCommit": "git commit containing this manifest",
+  "visualQaVersion": "resolve saved version for implementation commit",
+  "baselineEstablished": false,
+  "cameraStates": [
+    {
+      "camera": "CAM02",
+      "time": "DAY",
+      "tier": "medium",
+      "dprCap": 1.25,
+      "actualDpr": null,
+      "image": null
+    },
+    {
+      "camera": "CAM03",
+      "time": "DAY",
+      "tier": "medium",
+      "dprCap": 1.25,
+      "actualDpr": null,
+      "image": null
+    },
+    {
+      "camera": "CAM03",
+      "time": "NIGHT",
+      "tier": "medium",
+      "dprCap": 1.25,
+      "actualDpr": null,
+      "image": null
+    },
+    {
+      "camera": "CAM04",
+      "time": "NIGHT",
+      "tier": "medium",
+      "dprCap": 1.25,
+      "actualDpr": null,
+      "image": null
+    },
+    {
+      "camera": "CAM05",
+      "time": "DAY",
+      "tier": "medium",
+      "dprCap": 1.25,
+      "actualDpr": null,
+      "image": null
+    },
+    {
+      "camera": "CAM07",
+      "time": "NIGHT",
+      "tier": "medium",
+      "dprCap": 1.25,
+      "actualDpr": null,
+      "image": null
+    }
+  ],
+  "gpu": {
+    "fps": null,
+    "triangles": null,
+    "drawCalls": null
+  },
+  "browserEvidence": "browser-blocked.jpg",
+  "note": "UI capture only; WebGL2 unavailable. Not a scene baseline. No visual-match PASS claimed."
+}

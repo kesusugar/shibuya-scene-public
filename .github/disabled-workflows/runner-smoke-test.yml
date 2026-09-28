@@ -1,0 +1,60 @@
+# DISABLED for the public repository -- see .github/disabled-workflows/README.md.
+# GitHub only runs workflows under .github/workflows/; this file is kept here to restore later.
+name: runner-smoke-test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  smoke-test:
+    # Public-release hardening: never on a self-hosted runner while the repository is public.
+    if: ${{ github.event.repository.private }}
+    runs-on: self-hosted
+    timeout-minutes: 10
+
+    steps:
+      - name: Verify Windows runner
+        shell: powershell
+        run: |
+          if ($env:RUNNER_OS -ne 'Windows') {
+            throw "Expected a Windows runner, but RUNNER_OS is '$env:RUNNER_OS'."
+          }
+          Write-Host "Runner OS: $env:RUNNER_OS"
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show tool versions
+        shell: powershell
+        run: |
+          node --version
+          npm --version
+          git --version
+
+      - name: Verify Chrome or Edge
+        shell: powershell
+        run: |
+          $browserCandidates = @(
+            @{ Name = 'Chrome'; Path = "$env:ProgramFiles\Google\Chrome\Application\chrome.exe" },
+            @{ Name = 'Chrome'; Path = "${env:ProgramFiles(x86)}\Google\Chrome\Application\chrome.exe" },
+            @{ Name = 'Chrome'; Path = "$env:LOCALAPPDATA\Google\Chrome\Application\chrome.exe" },
+            @{ Name = 'Edge'; Path = "$env:ProgramFiles\Microsoft\Edge\Application\msedge.exe" },
+            @{ Name = 'Edge'; Path = "${env:ProgramFiles(x86)}\Microsoft\Edge\Application\msedge.exe" },
+            @{ Name = 'Edge'; Path = "$env:LOCALAPPDATA\Microsoft\Edge\Application\msedge.exe" }
+          )
+
+          $browser = $browserCandidates |
+            Where-Object { $_.Path -and (Test-Path -LiteralPath $_.Path) } |
+            Select-Object -First 1
+
+          if (-not $browser) {
+            throw 'Chrome or Edge was not found in the standard installation locations.'
+          }
+
+          Write-Host "$($browser.Name) found: $($browser.Path)"
+
+      - name: Show commit SHA
+        shell: powershell
+        run: |
+          Write-Host "GitHub SHA: $env:GITHUB_SHA"
+          Write-Host "Checked out SHA: $(git rev-parse HEAD)"

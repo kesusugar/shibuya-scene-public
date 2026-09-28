@@ -1,0 +1,14 @@
+✔ S12 one TimeState controls sky exposure sun/moon ambient and restores DAY (3.170266ms)
+✔ S12 existing signage and vehicle lamp materials respond without adding meshes (2.104324ms)
+✔ S12 windows use deterministic partial occupancy and toggle only a shared uniform (0.654605ms)
+✔ S12 late module loads inherit NIGHT; removal and environment toggles restore owned state (0.591893ms)
+✔ S12 train window and end lamps preserve clipping geometry counts and movement (79.907688ms)
+✔ S12 profiles retain crowd train and traffic source ownership; no S13 or GTA (1.298055ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 255.715245

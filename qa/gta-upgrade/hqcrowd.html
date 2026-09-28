@@ -1,0 +1,123 @@
+<!doctype html><meta charset="utf-8"><title>HQ mass crowd</title>
+<style>html,body{margin:0;background:#8e97a3}canvas{display:block}
+#l{position:fixed;left:10px;top:10px;color:#10151b;font:12px/1.55 monospace;white-space:pre;z-index:9}</style>
+<div id="l">loading…</div>
+<!--
+  RUN 7A. Does the bone-atlas crowd actually draw and animate in a browser, at count?
+  /qa/gta-upgrade/hqcrowd.html?count=512&lod=L1&hit=0
+  hit=N knocks N of them down on load, to show mass reaction in one frame.
+-->
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as T from 'three';
+import {createHQCrowd,STATE} from '/src/life/hq-crowd.mjs';
+import {createCrowdGrid,applyVehicleThreat} from '/src/life/hq-threat.mjs';
+import {appearanceOf,ARCHETYPES} from '/src/life/appearance.mjs';
+
+const q=new URLSearchParams(location.search);
+const count=+(q.get('count')??256), lod=q.get('lod')??'L1', hit=+(q.get('hit')??0);
+const W=1400,H=760;
+
+const renderer=new T.WebGLRenderer({antialias:true});
+renderer.setSize(W,H);renderer.shadowMap.enabled=false;
+document.body.appendChild(renderer.domElement);
+const scene=new T.Scene();scene.background=new T.Color(0x8e97a3);
+scene.add(new T.HemisphereLight(0xdfe9f5,0x60656d,2.0));
+const key=new T.DirectionalLight(0xfff3e6,2.2);key.position.set(6,12,8);scene.add(key);
+const floor=new T.Mesh(new T.PlaneGeometry(400,400).rotateX(-Math.PI/2),
+ new T.MeshStandardMaterial({color:0x8d949c,roughness:.98}));scene.add(floor);
+
+const manifest=await (await fetch('/public/data/crowd/hq-crowd.json')).json();
+const bin=await (await fetch('/public/data/crowd/hq-crowd.bin')).arrayBuffer();
+const laneOf=new Map(manifest.archetypes.map((a,i)=>[a.id,i]));
+
+const t0=performance.now();
+const crowd=createHQCrowd(manifest,bin,{capacity:Math.ceil(count*0.42)+16,lod});
+const block=q.get('block')==='1';
+const side=Math.ceil(Math.sqrt(count));
+for(let id=0;id<count;id++){
+ const look=appearanceOf(id);
+ let x,z,heading;
+ if(block){ // a scramble-crossing block, for the vehicle test
+  x=((id%side)-side/2)*1.15;z=(Math.floor(id/side)-side/2)*1.15;heading=Math.PI;
+ }else{
+  const angle=id*2.399963,radius=1.6+Math.sqrt(id)*0.95;
+  x=Math.cos(angle)*radius;z=Math.sin(angle)*radius;heading=angle+Math.PI/2;
+ }
+ crowd.spawn(id,look,laneOf.get(look.archetype.id)??0,{x,z,heading,speed:1.35});
+}
+// A car, if asked for: ?car=14 drives it through the block at 14 m/s.
+const carSpeed=+(q.get('car')??0);
+const grid=carSpeed?createCrowdGrid():null;
+const scratch=[];
+const car={x:0,z:+(q.get("carz")??(-side*1.15/2-14)),heading:0,speed:carSpeed};
+let carMesh=null;
+if(carSpeed){
+ carMesh=new T.Mesh(new T.BoxGeometry(1.9,1.35,4.4),
+  new T.MeshStandardMaterial({color:0x8d2f28,roughness:.45,metalness:.2}));
+ carMesh.position.set(car.x,.68,car.z);scene.add(carMesh);
+}
+scene.add(crowd.root);
+const buildMs=performance.now()-t0;
+
+for(let k=0;k<hit&&k<crowd.population;k++){
+ const a=k*1.7;
+ crowd.setState(k,STATE.KNOCKDOWN,{impulseX:Math.cos(a)*7,impulseZ:Math.sin(a)*7,impulseY:3.2,force:true});
+}
+
+const camera=new T.PerspectiveCamera(42,W/H,.1,400);
+if(carSpeed){camera.position.set(14,9.5,20);camera.lookAt(0,0.8,0);}
+else{camera.position.set(0,2.15,13);camera.lookAt(0,1.0,-6);}
+
+let last=performance.now(),frames=0,acc=0,fps=0;
+const panel=document.getElementById('l');
+function frame(now){
+ const dt=Math.min(.05,(now-last)/1000);last=now;
+ if(carSpeed){
+  car.z+=carSpeed*dt;
+  if(car.z>side*1.15/2+16)car.z=carStart;
+  if(q.get("freeze")==="1")car.z=+q.get("carz");
+  carMesh.position.set(car.x,.68,car.z);
+  grid.rebuild(crowd);
+  applyVehicleThreat(crowd,grid,car,dt,scratch);
+ }
+ for(let i=0;i<crowd.population;i++){
+  const s=crowd.state;
+  if(s.behaviour[i]===STATE.NORMAL){
+   s.x[i]+=Math.sin(s.heading[i])*s.speed[i]*dt;
+   s.z[i]+=Math.cos(s.heading[i])*s.speed[i]*dt;
+  }else if(s.behaviour[i]===STATE.FLEE||s.behaviour[i]===STATE.AVOID){
+   // Run away from the car, so the avoidance is visible and not just a clip change.
+   const ax=s.x[i]-car.x,az=s.z[i]-car.z,d=Math.hypot(ax,az)||1;
+   s.x[i]+=(ax/d)*(s.behaviour[i]===STATE.FLEE?4.0:1.9)*dt;
+   s.z[i]+=(az/d)*(s.behaviour[i]===STATE.FLEE?4.0:1.9)*dt;
+   s.heading[i]=Math.atan2(ax,az);
+  }
+ }
+ crowd.update(dt,{time:now/1000});
+ renderer.render(scene,camera);
+ acc+=dt;frames++;
+ if(acc>=.5){fps=frames/acc;frames=0;acc=0;
+  const got=crowd.inspect(),info=renderer.info.render;
+  panel.textContent=
+   `RUN 7A HQ mass crowd -- LOD ${lod}\n`
+  +`citizens      ${got.population}\n`
+  +`draw calls    ${info.calls}  (crowd lanes ${got.drawCalls})\n`
+  +`triangles     ${info.triangles.toLocaleString()}\n`
+  +`skeletons     ${got.skeletons}      mixers ${got.mixers}\n`
+  +`CPU update    ${got.updateMs} ms/frame\n`
+  +`build         ${buildMs.toFixed(1)} ms\n`
+  +`programs      ${renderer.info.programs?.length??'?'}\n`
+  +`SwiftShader    ${fps.toFixed(1)} fps  (NOT an acceptance signal)\n`
+  +`archetypes    ${JSON.stringify(got.byArchetype)}\n`
+  +`states        ${Object.entries(got.byState).filter(([,v])=>v).map(([k,v])=>k+':'+v).join(' ')}`;
+  window.__STATS__=JSON.stringify({population:got.population,draws:info.calls,
+   triangles:info.triangles,skeletons:got.skeletons,mixers:got.mixers,
+   updateMs:got.updateMs,buildMs:+buildMs.toFixed(1),fps:+fps.toFixed(1),
+   byState:got.byState,byArchetype:got.byArchetype});
+ }
+ requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+window.__READY__=true;
+</script>

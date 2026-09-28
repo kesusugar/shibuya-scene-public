@@ -1,0 +1,181 @@
+{
+  "comment": [
+    "Upstream humanoid source for the Shibuya character pipeline.",
+    "Nothing in this file is redistributed by this repository. `npm run fetch:character`",
+    "downloads these files into assets/character/upstream/ (git-ignored) and refuses to",
+    "continue unless every sha256 matches. Only the converted, Shibuya-specific output of",
+    "scripts/convert-character.mjs is committed.",
+    "quaternius.com and quaternius.itch.io are unreachable from the build environment, so",
+    "the transport is a pinned public GitHub mirror. The transport is not the licence",
+    "evidence: every byte is checked against a hash that independent third parties recorded",
+    "for the contents of the official archive. See docs/CHARACTER-ASSET-PROVENANCE.md."
+  ],
+  "packs": [
+    {
+      "id": "ual1",
+      "name": "Universal Animation Library [Standard]",
+      "author": "Quaternius",
+      "animation_credit": "Gonzalo Furnier",
+      "licence": "CC0-1.0",
+      "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_page": "https://quaternius.com/packs/universalanimationlibrary.html",
+      "itch_page": "https://quaternius.itch.io/universal-animation-library",
+      "official_archive": {
+        "name": "Universal Animation Library[Standard].zip",
+        "bytes": 15904933,
+        "sha256": "cc73fc4e495b82958207316596317a3f40b9fa38065bde1027937452da537724"
+      },
+      "transport": {
+        "repo": "chmajster/WroclawTheGame",
+        "commit": "0d1b0c2016759dc32a1e77391edab50331faf3df",
+        "prefix": "SourceAssets/Animations/Quaternius/UniversalAnimationLibrary1"
+      },
+      "files": [
+        {
+          "file": "License.txt",
+          "bytes_lf": 297,
+          "sha256_lf": "d77329b05c4c206e76c83285ecdd1e5f2b3df2350ec80657ebdb5a706a0fc0de",
+          "sha256_crlf": "6d01f55c6e4c49a2c9963e147e561945ae2c83958c8ca667d90a6bffdbfac061",
+          "text": true
+        },
+        {
+          "file": "README.txt",
+          "sha256_lf": "179f2b6a09ba516650aab0d89d2e573a7486ee49ae1518cc6941400510db4e69",
+          "text": true
+        },
+        {
+          "file": "UAL1_Standard.glb",
+          "bytes": 7618436,
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "use": "animation clips; root motion disabled, which is what a simulation-driven character wants"
+        },
+        {
+          "file": "UAL1_Standard_RM.glb",
+          "sha256": "be684571ed655a1b892c2c07e6e2aeca053b606c442d34004adaf1d944090d01",
+          "use": "root-motion variant, read only to measure each locomotion clip's authored ground speed; not shipped"
+        }
+      ]
+    },
+    {
+      "id": "ubc",
+      "name": "Universal Base Characters [Standard]",
+      "author": "Quaternius",
+      "licence": "CC0-1.0",
+      "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_page": "https://quaternius.com/packs/universalbasecharacters.html",
+      "transport": {
+        "repo": "chmajster/WroclawTheGame",
+        "commit": "0d1b0c2016759dc32a1e77391edab50331faf3df",
+        "prefix": "SourceAssets/Characters/Quaternius/UniversalBaseCharacters"
+      },
+      "files": [
+        {
+          "file": "License_Standard.txt",
+          "bytes_lf": 784,
+          "sha256_lf": "e08f717c3cfd999f4b44f2be4522b11a3ac3c0e5b6364b3a8788d25d4c90ff94",
+          "sha256_crlf": "0f4beaf0fe360a7732e58bbe3dbf60a2422367fbea60cb9ea4add968f383268e",
+          "text": true
+        },
+        {
+          "file": "BaseCharacters/Superhero_Male_FullBody.gltf",
+          "bytes": 30989,
+          "sha256": "e7fcea214ecf8855afbf910b50de6f9c7d1decfb71ca28bad8a4481452dafeb4"
+        },
+        {
+          "file": "BaseCharacters/Superhero_Male_FullBody.bin",
+          "bytes": 720076,
+          "sha256": "459003f9745853ae562a85506a2b94dd56515c1f37728f9fa3d2ce1a3e4cd92f"
+        },
+        {
+          "file": "BaseCharacters/Superhero_Female_FullBody.gltf",
+          "bytes": 31656,
+          "sha256": "adedf28000a0716f689b009a70314506fc62f827498f77ba852acb5610f3f3f4"
+        },
+        {
+          "file": "BaseCharacters/Superhero_Female_FullBody.bin",
+          "bytes": 990808,
+          "sha256": "3a8220a485b33d05d879115a50697728b45a151781106033afb8b8c243fca208"
+        },
+        {
+          "file": "BaseCharacters/T_Superhero_Male_Dark.png",
+          "bytes": 1384380,
+          "sha256": "df680cbc1967a61e85998bfafb8f7bc0a36dd604bb3266486c4b06b1a184bb45"
+        },
+        {
+          "file": "BaseCharacters/T_Superhero_Female_Dark_BaseColor.png",
+          "bytes": null,
+          "sha256": "d366843ee7d9e9f37ec87a0e1c98c7f2e45573c08eeb80a51a6d9344e68cf288"
+        },
+        {
+          "file": "BaseCharacters/T_Eye_Brown.png",
+          "bytes": 35958,
+          "sha256": "d08e3356a83211bc6ca21fe3a8e39f4b5c1a3b8f85457fc2c0fb57be09935025"
+        },
+        {
+          "file": "BaseCharacters/T_Hair_1_BaseColor.png",
+          "bytes": 1570376,
+          "sha256": "bc7aa863bd22ab0a995cd838cceb4d3a5186ee54ee2fb0108fad85d20c057e6e"
+        },
+        {
+          "file": "Hairstyles/Hair_SimpleParted.gltf",
+          "sha256": "fe0f354d7f95d83d38e15c60794dcc063fa4d60550706f3d7ba51491cdc07c56"
+        },
+        {
+          "file": "Hairstyles/Hair_SimpleParted.bin",
+          "sha256": "ecd7c81959f3985d6254458a440daaaa18a8bfbb1dbe111c68a04a72374d54db"
+        },
+        {
+          "file": "Hairstyles/Hair_Buzzed.gltf",
+          "sha256": "6e709c691d4feccda9788df917bf9604e751f02da21cee2bc81bcc3d26b3b580"
+        },
+        {
+          "file": "Hairstyles/Hair_Buzzed.bin",
+          "sha256": "5d4b5452ff879ed1d516694be57d1106c070c7133e747a8c9432b01ebf20e908"
+        },
+        {
+          "file": "Hairstyles/Hair_Long.gltf",
+          "sha256": "27e2c63e8f98c79fb600268ffcc92b36c621b8653b5a7dcbadb08328f3f887a9"
+        },
+        {
+          "file": "Hairstyles/Hair_Long.bin",
+          "sha256": "268fd531d2c2ac321783d36fcf106d15c5c76e8923eec2c8704d5fe9de953589"
+        }
+      ]
+    }
+  ],
+  "corroboration": [
+    {
+      "claim": "UAL1_Standard.glb sha256",
+      "value": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "independent_records": [
+        "EveryoneHATEme/near-laugh resources/characters/manifest.json",
+        "ridermw/bevy-concept-world assets/characters/quaternius/asset.lock.ron",
+        "RamonLinares/atlas-09 assets/animations/quaternius/provenance.json",
+        "clash-art/clash packages/director-ui/assets/starter-library/motions/UAL1_Standard.LICENSE.txt",
+        "chmajster/WroclawTheGame SourceAssets/Animations/Quaternius/UniversalAnimationLibrary1/asset.json"
+      ]
+    },
+    {
+      "claim": "UAL1 bundled License.txt sha256 (CRLF, as shipped)",
+      "value": "6d01f55c6e4c49a2c9963e147e561945ae2c83958c8ca667d90a6bffdbfac061",
+      "independent_records": [
+        "EveryoneHATEme/near-laugh manifest.json included_license_sha256, recorded after CRC-verifying the official itch.io zip"
+      ]
+    },
+    {
+      "claim": "UBC bundled License_Standard.txt sha256 (CRLF, as shipped)",
+      "value": "0f4beaf0fe360a7732e58bbe3dbf60a2422367fbea60cb9ea4add968f383268e",
+      "independent_records": [
+        "ryan321/couchgames sdk/examples/sunbreak/assets/sources.json original_sha256"
+      ]
+    },
+    {
+      "claim": "Superhero_Male_FullBody.gltf / .bin sha256",
+      "value": "e7fcea214ecf8855afbf910b50de6f9c7d1decfb71ca28bad8a4481452dafeb4 / 459003f9745853ae562a85506a2b94dd56515c1f37728f9fa3d2ce1a3e4cd92f",
+      "independent_records": [
+        "ryan321/couchgames sources.json",
+        "chmajster/WroclawTheGame asset.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+RUN S10 browser QA — UNVERIFIED
+Supervised preview started successfully. Initial navigation to the internal preview completed.
+Console capture: CDP operation get tabs timed out after 20000ms.
+One read-only recovery inspection: CDP operation refresh tabs timed out after 20000ms.
+No further retries. No application changes were made to compensate for the browser timeout.
+Application console error count, actual WebGL, HIGH FPS/GPU drawCalls, CAM-02/03/05/07 screenshots and CAM-04/06 visual regression remain UNVERIFIED.
+Simulation tests and CPU geometry counts are separate from browser evidence.

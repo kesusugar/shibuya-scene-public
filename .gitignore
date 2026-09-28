@@ -1,0 +1,112 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+/actions-runner/
+next-env.d.ts
+/dist/
+/.wrangler/
+/.sites-runtime/
+/outputs/
+/work/
+/qa/*
+# ...except the cost benches, which are where the RUN 2 and RUN 3 measurements come from.
+!/qa/gta-upgrade/
+/qa/gta-upgrade/*
+!/qa/gta-upgrade/charbench.html
+!/qa/gta-upgrade/vehiclebench.html
+!/qa/gta-upgrade/carbench.html
+!/qa/gta-upgrade/sync-cost.mjs
+!/qa/gta-upgrade/contact-cost.mjs
+!/qa/gta-upgrade/punchbench.html
+!/qa/gta-upgrade/weaponbench.html
+!/qa/gta-upgrade/weaponbench-capture.mjs
+!/qa/gta-upgrade/cmu-weaponbench.html
+!/qa/gta-upgrade/hitbench.html
+!/qa/gta-upgrade/weapons-scene.mjs
+!/qa/gta-upgrade/page-capture.mjs
+!/qa/gta-upgrade/sword-timing.mjs
+!/qa/gta-upgrade/locomotionbench.html
+!/qa/gta-upgrade/footikbench.html
+!/qa/gta-upgrade/footik-contact.mjs
+!/qa/gta-upgrade/clip-audit.mjs
+!/qa/gta-upgrade/clipbench.html
+!/qa/gta-upgrade/runbench.html
+!/qa/gta-upgrade/runcompare.html
+!/qa/gta-upgrade/penetration-definitions.mjs
+!/qa/gta-upgrade/poolprobe.mjs
+!/qa/gta-upgrade/tierprobe.mjs
+!/qa/gta-upgrade/asset-audit.mjs
+!/qa/gta-upgrade/bindcheck.mjs
+!/qa/gta-upgrade/lineup.html
+!/qa/gta-upgrade/hqcrowd.html
+!/qa/gta-upgrade/lodpop.mjs
+!/qa/gta-upgrade/signalcycle.mjs
+!/qa/gta-upgrade/punch-timing.mjs
+!/qa/gta-upgrade/clearance-cost.mjs
+!/qa/gta-upgrade/combat-cost.mjs
+!/qa/gta-upgrade/occupancy-cost.mjs
+!/qa/gta-upgrade/hq-vehicle.mjs
+!/qa/gta-upgrade/hq-ladder.mjs
+!/qa/gta-upgrade/feet-compare.mjs
+!/qa/gta-upgrade/archetype-feet.mjs
+
+# character pipeline: upstream downloads are verified, never committed
+/assets/character/upstream/
+# audio pipeline (RUN 12.1): upstream downloads are verified, never committed
+/assets/audio/upstream/
+# ground textures (RUN 12.3): upstream downloads are verified, never committed
+/assets/textures/upstream/
+
+# public-release hardening
+# logs (intentional QA evidence logs under evidence/ stay tracked)
+*.log
+!/evidence/**/*.log
+# secrets and local credentials
+.dev.vars
+.dev.vars.*
+*.key
+*.p12
+*.pfx
+*.local
+.claude/settings.local.json
+# editors and OS files
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+# git bundles used for hand-offs
+*.bundle

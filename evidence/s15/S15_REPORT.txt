@@ -1,0 +1,49 @@
+RUN S15 — Construction / Cranes
+Base: 5a99556ef27a5927115cce75ca49ff1e9bcc92fc / Visual QA v9 / 238 tests PASS.
+Current commit and new Visual QA version are reported in delivery.
+
+Selected rooftop refurbishment zones on four existing generic OSM hosts:
+way/116710255, way/120105804, way/129061813, way/136587834.
+Procedural scene composition, not a claim of real current construction sites.
+No building replacement or street occupation. Each full crane remains over its host roof.
+Footprint search reserves an interior area clear of the existing S3 rooftop props.
+All added geometry starts above 36.64m; crane tops remain below 90m.
+
+Profile    Cranes  Zones  Instances  Added triangles  Max added draw calls
+HIGH       4       4      572        6,864            3
+MEDIUM     3       3      399        4,788            2
+LOW        1       2       71          852            2
+Counts are CPU geometry budgets, not a new GPU/frame measurement.
+Two shared geometries, two shared materials; instanced structural parts, markers and cones.
+No textures, point/spot lights, shadows, per-frame animation or per-frame allocations.
+Tier switches change instance counts on the same pools, without scene rebuilds.
+
+Crane: tower posts/sections, lattice jib/counter-jib, counterweight, cab, trolley,
+static hanging cable and hook. Zones: opaque temporary perimeter panels, safety markers,
+small roof-service scaffolds/platforms/sheets; HIGH additionally adds cones/material stacks.
+These are limited rooftop repair scaffolds, not facade-wide wrapping or Hero masking.
+DAY neutral materials; NIGHT existing TimeState drives red warning emission (.65) on crane tips
+and selected perimeter markers. No new simulation and no S13 effect changes.
+Construction module ON/OFF and crane/zone counts use the existing debug UI.
+
+Placement audit: projected part envelopes have zero overlap area with S2 roads/crosswalks,
+8m rail corridors, reserved Hero/station footprints. Existing rooftop prop intersections: 0.
+All parts fit their host roof; no ground traffic/crowd occupancy or route changes.
+Camera composition and minor signage/visual overlap remain subject to visual QA.
+S9/S10/S11 source, profiles, navigation and S14 DPR/frame caps unchanged.
+S7 placement/count data untouched. Existing DAY/NIGHT/Wet Night behavior retained.
+
+Validation: 241 tests executed, 241 PASS, 0 FAIL (272.4 seconds).
+Test definitions: 238 baseline + 6 S15 = 244; the three long simulations were filtered
+out with --test-skip-pattern and not rerun. Do not interpret this as a fresh 244-test PASS.
+S9/S10 bounded regression and S13/S14 regression PASS. Generated S8 timing evidence restored.
+Long simulations are excluded as explicitly instructed: S9/S10 180-second audits and S11
+120-second audit are not rerun. Their test definitions and previous PASS evidence are retained.
+Build PASS. Browser tab discovery succeeded; MEDIUM DAY Overview navigation timed out once.
+No retries. S15 WebGL/console/FPS/visual DAY/NIGHT/composition checks remain UNVERIFIED.
+User S14 HIGH ~38.8 FPS is historical baseline; no S15 FPS estimate or performance PASS claimed.
+
+Existing untracked validation logs preserved and excluded from commits. No subagents used.
+Existing owner-private Visual QA Site is the authorized update target; URL/version in delivery.
+S16 Visual Match, S17 Final Performance, S18 Release and GTA are not implemented.
+STOP after saving and Visual QA publication.

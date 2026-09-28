@@ -1,0 +1,33 @@
+RUN S2 完了 — Ground / Roads / Sidewalks / Scramble
+
+基準: 添付4ファイル。S0条件付きPASS、S1 PASSを維持。S2のみ。
+実装: 道路幅/union/surface、歩道、縁石上面・側面、ramp、主要・斜め・通常横断歩道、zebra、停止線、lane guide/arrow、点字誘導帯、procedural materials、merge/統計。
+
+roadSourceCount: 266
+roadPolygonCount: 199
+unionPolygonCount: 4
+sidewalkPolygonCount: 62
+crossingCount: 67
+mainCrossings: 4
+diagonalCrossings: 1
+normalCrossings: 62
+zebraStripeCount: 790
+tactileCount: 12
+buildTimeMs: 8437
+roadTris: 2433
+sidewalkTris: 9295
+curbTris: 33937
+totalGroundTris: 47829
+approximateDrawCalls: 5
+triangulationFailures: 0
+discardedDegenerate: 21
+
+道路地表対象266件（範囲外含む）、clip後199件。
+最終Geometry: NaN/Infinity 0、index範囲外0、退化triangle 0。微小形状21件は生成段階で除外・記録。X/Z±250m。中心道路被覆・S1ランドマーク座標維持を確認。
+59/59 tests PASS（既存42+追加17）、build PASS。
+観測したアプリ由来Console Error 0（拡張機能由来ログは別扱い）。
+Ground ready、OSM読込、Ground OFF/ON、CAM01/02/03選択操作を確認。
+CAM01/02/03描画画像は取得不可。WebGL2/FPSは環境制約で未検証。CPU平面図保存。
+GPU実測draw callsではなく材質batch数5。CPU生成時間は検証機依存、同期処理。
+既知制約: 歩道幅/道路幅fallback、中央アンカー形状、signal由来横断方向はPOC近似。
+サブエージェント不使用。S3以降/GTA実装なし、デプロイなし。S2でSTOP。

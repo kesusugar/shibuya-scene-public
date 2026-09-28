@@ -1,0 +1,255 @@
+<!doctype html><meta charset="utf-8"><title>foot ik</title>
+<!--
+  Foot IK, measured and photographed.
+  A synthetic ground stands in for Shibuya's: flat road at 2 cm, pavement at 15 cm, and a ramp
+  between them over 1.5 m, which are the real numbers from src/ground/config.mjs. That gives a
+  kerb step, a slope and flat ground without waiting ten minutes for the city, and the surface
+  is queried through the same heightExact interface the game's context exposes.
+  Serve the repository root: /qa/gta-upgrade/footikbench.html?scene=curb&ik=1
+  ?perf=1 skips the photographs and measures instead: solver cost per frame with the IK on
+  against the same walk with it off, ground queries per frame, and heap growth over a long
+  run. Rendering is left out of the timing -- this environment's software renderer would
+  drown a 40 microsecond solve.
+-->
+<style>html,body{margin:0;background:#1b1f26;overflow:hidden}canvas{display:block}
+#l{position:fixed;left:8px;top:6px;color:#e6edf5;font:11px/1.45 monospace;white-space:pre;z-index:9;text-shadow:0 1px 2px #000}
+.tick{position:absolute;color:#9fb0c2;font:10px monospace;z-index:9;text-shadow:0 1px 3px #000}
+.row{position:absolute;color:#cfd8e3;font:11px monospace;z-index:9;text-shadow:0 1px 3px #000}</style>
+<div id="l">loading…</div>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as T from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+import {humanoidCitizen} from '/src/player/character-asset.mjs';
+import {createPlayerFigure} from '/src/player/figure.mjs';
+import {createPlayer,PLAYER} from '/src/player/controller.mjs';
+import {createContactShadows} from '/src/life/shadows.mjs';
+
+const P=new URLSearchParams(location.search);
+const IK=P.get('ik')!=='0';
+const SCENE=P.get('scene')??'curb';
+const COLUMNS=Number(P.get('columns')??6);
+const CELL=Number(P.get('cell')??240);
+
+// Shibuya's real surface numbers: GROUND.curb .15, road .02, GROUND.rampDepth 1.5.
+const CURB=.15,ROAD=.02,RAMP=1.5;
+// The kerb runs along x = 0: pavement at x < 0, road at x > 0.
+const surfaces={
+ flat:()=>CURB,
+ road:()=>ROAD,
+ curb:x=>x<0?CURB:ROAD,
+ ramp:x=>x<-RAMP?CURB:x>0?ROAD:ROAD+(CURB-ROAD)*(-x/RAMP)
+};
+const surface=surfaces[SCENE]??surfaces.curb;
+const ctx={
+ heightExact:(x)=>surface(x),
+ height:(x)=>surface(Math.round(x*4)/4),
+ solid:()=>false,safe:()=>true,onRoad:x=>x>0
+};
+
+const SCENARIOS={
+ // Facing along the kerb, so left and right land either side of it.
+ curb:{name:'kerb: one foot up, one down',heading:0,start:[0,-1],
+  input:{forward:0,strafe:0,running:false},at:[.3,.6,.9,1.3,1.8,2.4],view:'front'},
+ // Down the ramp means from the pavement towards the road, which is +x here. The controller
+ // advances by (sin h, cos h) -- see the `advance` call in src/player/controller.mjs -- so +x
+ // is a heading of +PI/2. Worth reading there rather than inferring: a guess at this sign
+ // walked the character backwards along flat pavement and produced a set of ramp numbers that
+ // were really flat-ground numbers, which is the kind of wrong that looks fine.
+ ramp:{name:'kerb ramp, walking down it',heading:Math.PI/2,start:[-2.6,0],
+  input:{forward:1,strafe:0,running:false},at:[.6,1.1,1.5,1.9,2.3,2.8],view:'side'},
+ flat:{name:'walking, flat pavement',heading:0,start:[-4,-6],
+  input:{forward:1,strafe:0,running:false},at:[1.2,1.35,1.5,1.65,1.8,1.95],view:'side'},
+ road:{name:'running, flat road',heading:0,start:[4,-10],
+  input:{forward:1,strafe:0,running:true},at:[1.6,1.7,1.8,1.9,2.0,2.1],view:'side'}
+};
+const scenario=SCENARIOS[SCENE]??SCENARIOS.curb;
+
+const W=COLUMNS*CELL,H=CELL;
+const renderer=new T.WebGLRenderer({antialias:true});
+renderer.setSize(W,H);renderer.outputColorSpace=T.SRGBColorSpace;
+renderer.toneMapping=T.ACESFilmicToneMapping;renderer.setScissorTest(true);
+document.body.appendChild(renderer.domElement);
+const scene=new T.Scene();scene.background=new T.Color(0x232830);
+const pmrem=new T.PMREMGenerator(renderer);
+scene.environment=pmrem.fromScene(new RoomEnvironment(),.04).texture;
+scene.add(new T.HemisphereLight(0xcfe0ff,0x3a3f47,1.5));
+const key=new T.DirectionalLight(0xfff4e2,2.2);key.position.set(3,6,4);scene.add(key);
+
+// The ground, drawn from the same function the solver queries, so what you see is what it read.
+{
+ const g=new T.PlaneGeometry(24,24,192,2).rotateX(-Math.PI/2);
+ const p=g.attributes.position;
+ for(let i=0;i<p.count;i++)p.setY(i,surface(p.getX(i)));
+ g.computeVertexNormals();
+ scene.add(new T.Mesh(g,new T.MeshStandardMaterial({color:0x5b626c,roughness:.95})));
+ // A short painted strip on the kerb, as a height reference beside the feet. Kept to two
+ // metres: a 24 m strip seen from ankle height along the kerb becomes a yellow wedge across
+ // the whole frame and hides the foot it was drawn to help read.
+ const line=new T.Mesh(new T.PlaneGeometry(.06,2).rotateX(-Math.PI/2),
+  new T.MeshBasicMaterial({color:0xe4c15a}));
+ line.position.set(-.03,CURB+.002,-2.2);scene.add(line);
+}
+const shadow=createContactShadows(1);scene.add(shadow.mesh);
+
+const report=await (await fetch('/public/data/character/citizen.json')).json();
+const bytes=await (await fetch('/public/data/character/citizen.glb')).arrayBuffer();
+const gltf=await new Promise((res,rej)=>new GLTFLoader().parse(bytes,'',res,rej));
+const asset=humanoidCitizen(gltf,report);
+const figure=createPlayerFigure(asset,undefined,{ctx});
+figure.footIK?.setEnabled(IK);
+scene.add(figure.root);
+
+const player=createPlayer(ctx,{start:scenario.start,heading:scenario.heading});
+player.place(scenario.start[0],scenario.start[1],scenario.heading);
+
+const camera=new T.PerspectiveCamera(30,CELL/CELL,.05,90);
+const DT=1/60;
+const probe=new T.Vector3();
+const bones={};
+figure.root.traverse(o=>{if(o.isBone)bones[o.name]=o;});
+
+/**
+ * How far each sole is from the surface under it, in millimetres.
+ *
+ * Measured at the ball of the foot rather than the ankle: the ankle-to-sole distance changes
+ * with ankle pitch, so measuring there conflates a tilted foot with a floating one, and the
+ * ball is what a planted foot is actually standing on.
+ */
+const BALL_TO_SOLE=.0215;
+function contactError(){
+ const out=[];
+ for(const name of ['ball_l','ball_r']){
+  const bone=bones[name];if(!bone)continue;
+  bone.updateWorldMatrix(true,false);
+  probe.setFromMatrixPosition(bone.matrixWorld);
+  out.push((probe.y-BALL_TO_SOLE-surface(probe.x))*1000);
+ }
+ return out;
+}
+
+// ---------------------------------------------------------------------------------------
+// STEP 10 -- the performance budget. Timed without rendering, because what is being measured
+// is the solver, and SwiftShader's frame cost is three orders of magnitude larger.
+if(P.get('perf')==='1'){
+ const FRAMES=Number(P.get('frames')??3600);
+ const measure=on=>{
+  figure.footIK?.setEnabled(on);
+  figure.reset();
+  const p2=createPlayer(ctx,{start:scenario.start,heading:scenario.heading});
+  p2.place(scenario.start[0],scenario.start[1],scenario.heading);
+  // Warm up: the first frames pay for shape transitions and the gait's first blend.
+  for(let i=0;i<240;i++){p2.setTouch(scenario.input);p2.step(DT);figure.update(p2.state,DT);}
+  const heap0=performance.memory?.usedJSHeapSize??0;
+  let queries=0;
+  const each=new Float64Array(FRAMES);
+  for(let i=0;i<FRAMES;i++){
+   p2.setTouch(scenario.input);p2.step(DT);
+   const t0=performance.now();
+   figure.update(p2.state,DT);
+   each[i]=performance.now()-t0;
+   queries+=figure.footIK?.stats.queries??0;
+  }
+  const heap1=performance.memory?.usedJSHeapSize??0;
+  const sorted=Array.from(each).sort((a,b)=>a-b);
+  return {on,
+   mean:each.reduce((a,b)=>a+b,0)/FRAMES,
+   median:sorted[FRAMES>>1],
+   p95:sorted[Math.floor(FRAMES*.95)],
+   worst:sorted[FRAMES-1],
+   queries:queries/FRAMES,
+   heapPerFrame:(heap1-heap0)/FRAMES};
+ };
+ const off=measure(false),on=measure(true);
+ const ms=v=>v.toFixed(4).padStart(8);
+ document.getElementById('l').textContent=
+  `foot IK performance -- ${scenario.name}, ${FRAMES} frames, render excluded\n`+
+  `                     mean      median      p95      worst   queries/f   heap B/f\n`+
+  `figure.update off ${ms(off.mean)} ${ms(off.median)} ${ms(off.p95)} ${ms(off.worst)}`+
+  `   ${off.queries.toFixed(2).padStart(6)}   ${off.heapPerFrame.toFixed(1).padStart(8)}\n`+
+  `figure.update on  ${ms(on.mean)} ${ms(on.median)} ${ms(on.p95)} ${ms(on.worst)}`+
+  `   ${on.queries.toFixed(2).padStart(6)}   ${on.heapPerFrame.toFixed(1).padStart(8)}\n`+
+  `foot IK cost      ${ms(on.mean-off.mean)} ${ms(on.median-off.median)} `+
+  `${ms(on.p95-off.p95)} ${ms(on.worst-off.worst)} ms/frame\n`+
+  `at 60 Hz that is ${(100*60*(on.mean-off.mean)/1000).toFixed(2)}% of one core; `+
+  `a 16.7 ms frame has room for ${Math.floor(16.7/Math.max(1e-6,on.mean-off.mean))} of them.`;
+ document.title='ready';
+}else{
+
+const samples=[];
+const tally={frames:0,solved:0,queries:0,skipped:0,pelvis:0,worst:0};
+let elapsed=0,column=0;
+const total=scenario.at[scenario.at.length-1]+.1;
+while(elapsed<total&&column<=scenario.at.length){
+ player.setTouch(scenario.input);
+ player.step(DT);
+ figure.update(player.state,DT);
+
+ shadow.begin();
+ shadow.add(player.state.x,player.state.y,player.state.z,PLAYER.radius*1.35,0);
+ shadow.end();
+ elapsed+=DT;
+ // The stance foot is the one that should be on the ground; record its error every frame.
+ const [le,re]=contactError();
+ const st=figure.gait.stance();
+ const phase=figure.gait.phase;
+ // Totals, not the last frame. figure.footIK.stats is rewritten every frame, so reading it
+ // after the loop reports whatever the final frame happened to be doing -- which for a
+ // scenario that walks off the end of a ramp onto flat road is "nothing", and reads as a
+ // solver that never ran.
+ tally.frames++;
+ tally.solved+=figure.footIK?.stats.solved??0;
+ tally.queries+=figure.footIK?.stats.queries??0;
+ tally.skipped+=figure.footIK?.stats.skipped??0;
+ tally.pelvis=Math.max(tally.pelvis,figure.footIK?.stats.pelvisDrop??0);
+ tally.worst=Math.max(tally.worst,figure.footIK?.stats.maxError??0);
+ const lw=((phase)%1+1)%1<=st.duty?1:0;
+ const rw=((phase-st.offset)%1+1)%1<=st.duty?1:0;
+ if(lw)samples.push(Math.abs(le));
+ if(rw)samples.push(Math.abs(re));
+ if(column<scenario.at.length&&elapsed>=scenario.at[column]){
+  const s=player.state,cx=column*CELL;
+  renderer.setViewport(cx,0,CELL,CELL);renderer.setScissor(cx,0,CELL,CELL);
+  // Along the kerb, at ankle height, a little to the road side.
+  //
+  // Five framings were spent on this. The character stands facing along the kerb with its feet
+  // 34 cm apart across it, so a camera off to either side stacks one leg in front of the
+  // other; only a low view down the kerb separates them, and only an eye at ankle height makes
+  // 13 cm of height difference read as 13 cm.
+  //
+  // What this frame does, which the earlier ones did not: with the solver off the pavement-side
+  // foot is not in shot at all, because it is 137 mm in the air and above the crop. With the
+  // solver on it appears, standing on the pavement. The absence IS the before.
+  if(scenario.view==='front'){camera.position.set(s.x+.42,.30,s.z+1.95);camera.lookAt(s.x,.09,s.z);}
+  else{
+   // Square on to the path, wherever the path points: the side offset is perpendicular to
+   // forward (sin h, cos h), which is (cos h, -sin h), not a fixed +x. A scenario that walks
+   // along x was otherwise photographed head on, where a stride is a foreshortened smudge.
+   const h=scenario.heading,px=Math.cos(h)*3.2,pz=-Math.sin(h)*3.2;
+   camera.position.set(s.x+px,.85,s.z+pz);camera.lookAt(s.x,.55,s.z);
+  }
+  camera.up.set(0,1,0);
+  camera.updateProjectionMatrix();
+  renderer.render(scene,camera);
+  const tick=document.createElement('div');tick.className='tick';
+  tick.textContent=`${scenario.at[column].toFixed(2)}s  L${le.toFixed(0)} R${re.toFixed(0)} mm`;
+  tick.style.left=(cx+5)+'px';tick.style.top=(CELL-16)+'px';
+  document.body.appendChild(tick);
+  column++;
+ }
+}
+samples.sort((a,b)=>a-b);
+const mean=samples.reduce((a,b)=>a+b,0)/Math.max(1,samples.length);
+const p95=samples[Math.floor(samples.length*.95)]??0;
+document.getElementById('l').textContent=
+ `${scenario.name}   foot IK ${IK?'ON':'OFF'}\n`+
+ `stance contact error: mean ${mean.toFixed(1)} mm, p95 ${p95.toFixed(1)} mm, worst ${(samples.at(-1)??0).toFixed(1)} mm  (${samples.length} samples)\n`+
+ `solver over ${tally.frames} frames: usable ${figure.footIK?.usable} · `+
+ `${tally.solved} leg-solves (${(tally.solved/Math.max(1,tally.frames)).toFixed(2)}/frame), `+
+ `${tally.queries} ground queries, ${tally.skipped} abandoned, `+
+ `deepest pelvis ${(1000*tally.pelvis).toFixed(0)} mm, worst residual ${(1000*tally.worst).toFixed(1)} mm\n`+
+ `stance: duty ${figure.gait.stance().duty.toFixed(2)} offset ${figure.gait.stance().offset.toFixed(2)} phase ${figure.gait.phase.toFixed(2)}`;
+document.title='ready';
+}
+</script>

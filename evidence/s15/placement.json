@@ -1,0 +1,53 @@
+{
+  "zones": [
+    {
+      "id": "refurbishment-0",
+      "hostKey": "way/116710255:0:0",
+      "point": [
+        -200.36810068757916,
+        10.659933061226237
+      ],
+      "base": 37.05,
+      "height": 24
+    },
+    {
+      "id": "refurbishment-1",
+      "hostKey": "way/120105804:0:0",
+      "point": [
+        128.74792783198518,
+        -55.46136628396775
+      ],
+      "base": 47.65,
+      "height": 26
+    },
+    {
+      "id": "refurbishment-2",
+      "hostKey": "way/129061813:0:0",
+      "point": [
+        -70.08370308917779,
+        -106.4328062547791
+      ],
+      "base": 36.65,
+      "height": 28
+    },
+    {
+      "id": "refurbishment-3",
+      "hostKey": "way/136587834:0:0",
+      "point": [
+        -143.7185552718154,
+        40.013489581689775
+      ],
+      "base": 49.449999999999996,
+      "height": 30
+    }
+  ],
+  "audit": {
+    "road": 0,
+    "crosswalk": 0,
+    "rail": 0,
+    "heroStation": 0,
+    "rooftopProps": 0
+  },
+  "minimumY": 36.64999848604202,
+  "navigation": "All parts contained on existing generic roofs above 36m; no ground occupancy or route edits."
+}

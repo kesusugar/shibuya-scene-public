@@ -1,0 +1,18 @@
+{
+ "url": "http://<local>/qa/gta-upgrade/hitbench.html",
+ "ready": true,
+ "bench": {
+  "lines": [
+   "side view; the blow comes from the front-right (travels -z, +x). rows: flinch head/body/legs, then killed head/body/legs",
+   "flinch head: 0s pelvis 0.84 | 0.06s pelvis 0.84 | 0.12s pelvis 0.84 | 0.2s pelvis 0.84 | 0.35s pelvis 0.84",
+   "flinch body: 0s pelvis 0.84 | 0.06s pelvis 0.84 | 0.12s pelvis 0.84 | 0.2s pelvis 0.84 | 0.35s pelvis 0.84",
+   "flinch legs: 0s pelvis 0.84 | 0.06s pelvis 0.84 | 0.12s pelvis 0.84 | 0.2s pelvis 0.84 | 0.35s pelvis 0.84",
+   "killed head: 0s pelvis 0.84 | 0.25s pelvis 0.77 | 0.5s pelvis 0.18 | 0.9s pelvis 0.53 | 2s pelvis 0.51 | asleep false",
+   "killed body: 0s pelvis 0.84 | 0.25s pelvis 0.77 | 0.5s pelvis 0.15 | 0.9s pelvis 0.17 | 2s pelvis 0.31 | asleep false",
+   "killed legs: 0s pelvis 0.84 | 0.25s pelvis 0.78 | 0.5s pelvis 0.23 | 0.9s pelvis 0.57 | 2s pelvis 0.35 | asleep false"
+  ],
+  "calls": 6
+ },
+ "console": [],
+ "errors": 0
+}

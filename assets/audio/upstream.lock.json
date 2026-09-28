@@ -1,0 +1,894 @@
+{
+ "comment": [
+  "Upstream audio for the Shibuya scene (RUN 12.1). Every source is CC0-1.0, checked on its own page.",
+  "`npm run fetch:audio` downloads these into assets/audio/upstream/ (git-ignored) and refuses to",
+  "continue unless every sha256 matches. `npm run convert:audio` trims, loudness-normalises and",
+  "encodes the clips below into public/audio/, which is what the repository ships (CC0 permits it).",
+  "Clip `start`/`end` are seconds into the decoded source; `member` names a file inside a zip."
+ ],
+ "sources": [
+  {
+   "id": "fs-31791",
+   "provider": "freesound",
+   "sound_id": 31791,
+   "title": "cross_road_shibuya.mp3",
+   "author": "Heigh-hoo",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/31791/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/31/31791_21830-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 2017763,
+    "sha256": "e4e77c5fde52502468fd3307a9695708437300a1badd375ae79ef99eb14c510f"
+   }
+  },
+  {
+   "id": "fs-18443",
+   "provider": "freesound",
+   "sound_id": 18443,
+   "title": "ginza_ambience.aif",
+   "author": "Heigh-hoo",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/18443/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/18/18443_21830-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 614330,
+    "sha256": "869eaa0f59cc984a9d089d13c7c865b96f845d5dd6885302cb8f72030ee61f03"
+   }
+  },
+  {
+   "id": "fs-98154",
+   "provider": "freesound",
+   "sound_id": 98154,
+   "title": "CuckooSignal.wav",
+   "author": "hrhk",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/98154/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/98/98154_1301136-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 464396,
+    "sha256": "73e648fcec777fc7b5432abb781114883cb55724637f1d1736328f61798f851f"
+   }
+  },
+  {
+   "id": "fs-60013",
+   "provider": "freesound",
+   "sound_id": 60013,
+   "title": "Whoosh",
+   "author": "qubodup",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/60013/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/60/60013_71257-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 11897,
+    "sha256": "ebdb219e7f36f7e1aecdb045d6d8bdad059119af319863777c7302a69fa41a92"
+   }
+  },
+  {
+   "id": "fs-389590",
+   "provider": "freesound",
+   "sound_id": 389590,
+   "title": "Swing Woosh",
+   "author": "Jofae",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/389590/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/389/389590_6512973-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 9131,
+    "sha256": "8f82bf9847a8d6e77e335ca52550eb53616767acf52f73fa24a99d07b696fe0f"
+   }
+  },
+  {
+   "id": "fs-59988",
+   "provider": "freesound",
+   "sound_id": 59988,
+   "title": "SWOSH-01 44.1kHz",
+   "author": "qubodup",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/59988/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/59/59988_71257-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 8819,
+    "sha256": "462db6522c276f6d39f18c1ee1b4f3127f6c1ac3780e43a4791d8de2d881fc0a"
+   }
+  },
+  {
+   "id": "fs-118513",
+   "provider": "freesound",
+   "sound_id": 118513,
+   "title": "Punch_02.wav",
+   "author": "thefsoundman",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/118513/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/118/118513_2136023-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 9807,
+    "sha256": "3843df72e4433db9cf6ebc68314494ad843b6ab97c2f16df33728cb4488504a3"
+   }
+  },
+  {
+   "id": "fs-390462",
+   "provider": "freesound",
+   "sound_id": 390462,
+   "title": "Punch in the face",
+   "author": "Huminaatio",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/390462/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/390/390462_1325505-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 18048,
+    "sha256": "285ba66f5ad88d7e3a9c2b03345b87938ee720c8fc7b7711efd3eefd95d5bdf2"
+   }
+  },
+  {
+   "id": "fs-244513",
+   "provider": "freesound",
+   "sound_id": 244513,
+   "title": "Realistic Punch",
+   "author": "JewTwinz",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/244513/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/244/244513_2756077-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 10800,
+    "sha256": "98a8e3bfe4fc1d739799703eb906759c862a6435592510f199e09a17d5f2338d"
+   }
+  },
+  {
+   "id": "fs-104183",
+   "provider": "freesound",
+   "sound_id": 104183,
+   "title": "punch.wav",
+   "author": "Ekokubza123",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/104183/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/104/104183_1690027-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 28598,
+    "sha256": "b29ad6aad23836ef999671337dc3e39ec183177e8bf8320b191fadbd7c6dd5c9"
+   }
+  },
+  {
+   "id": "fs-257928",
+   "provider": "freesound",
+   "sound_id": 257928,
+   "title": "Body Thud.wav",
+   "author": "Kane53126",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/257928/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/257/257928_4206108-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 40224,
+    "sha256": "3ec661217352a93a165c6f9c6cf1173502ad0d4640e9d83ac02d22a4cb014821"
+   }
+  },
+  {
+   "id": "fs-346695",
+   "provider": "freesound",
+   "sound_id": 346695,
+   "title": "Body fall_01.wav",
+   "author": "deleted_user_2104797",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/346695/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/346/346695_2104797-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 37632,
+    "sha256": "013d0976b6e73606c4d0c2cb9c10ad5a0caac60d179d2f3a8099b41699846856"
+   }
+  },
+  {
+   "id": "fs-504626",
+   "provider": "freesound",
+   "sound_id": 504626,
+   "title": "BODY FALL - V HVY - DIRT",
+   "author": "leonelmail",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/504626/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/504/504626_4437257-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 41172,
+    "sha256": "336a44d95279173764073a9b2d4d7e12f4167cfb0c1ad5c58e316895e129c6bb"
+   }
+  },
+  {
+   "id": "fs-447922",
+   "provider": "freesound",
+   "sound_id": 447922,
+   "title": "Thud / Falling on wooden floor / Snapping, breaking neck",
+   "author": "Breviceps",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/447922/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/447/447922_9159316-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 12004,
+    "sha256": "6331fd16f24655b2ab232a1f2d17808098e0b967277b138026439e6ee54b3c44"
+   }
+  },
+  {
+   "id": "fs-151624",
+   "provider": "freesound",
+   "sound_id": 151624,
+   "title": "Clank Car Crash Collision",
+   "author": "qubodup",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/151624/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/151/151624_71257-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 14716,
+    "sha256": "bdd232131b376d6b674e9a4c008eef9e94b1e65d797296b3bd06448b8b3a5944"
+   }
+  },
+  {
+   "id": "fs-592388",
+   "provider": "freesound",
+   "sound_id": 592388,
+   "title": "Car Crash (with Glass)",
+   "author": "magnuswaker",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/592388/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/592/592388_11537497-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 50112,
+    "sha256": "0169d0fe29c4aba3cf1b0dd94c186a5fb917e9eef975c9a1485568d4a325d822"
+   }
+  },
+  {
+   "id": "fs-420356",
+   "provider": "freesound",
+   "sound_id": 420356,
+   "title": "Crash.wav",
+   "author": "CogFireStudios",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/420356/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/420/420356_7614679-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 63610,
+    "sha256": "40edf8270a95bf779aead6339bf02f9c6ff4c58bb9a76403fa77e400dab2bce3"
+   }
+  },
+  {
+   "id": "fs-104026",
+   "provider": "freesound",
+   "sound_id": 104026,
+   "title": "Tires Squeaking.aif",
+   "author": "RutgerMuller",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/104026/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/104/104026_179538-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 45120,
+    "sha256": "0bfe34b01bbfcbf782b88a1cb7df7b88f58ed30ad9c3d6bf1fe08234a9e8fe47"
+   }
+  },
+  {
+   "id": "fs-233558",
+   "provider": "freesound",
+   "sound_id": 233558,
+   "title": "[SFX] car screech 2",
+   "author": "waveplaySFX",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/233558/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/233/233558_1676145-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 38341,
+    "sha256": "9c83ba6e632daf7ee428e5fb941e99a22054fa2135047b0ecb13c574971abfc0"
+   }
+  },
+  {
+   "id": "fs-536769",
+   "provider": "freesound",
+   "sound_id": 536769,
+   "title": "Tire.ogg",
+   "author": "egomassive",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/536769/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/536/536769_1415754-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 35280,
+    "sha256": "cec73d7ff9f9f08a76a34f18215a3cdff32e6404306338eea72feecc4e08a4b4"
+   }
+  },
+  {
+   "id": "fs-434878",
+   "provider": "freesound",
+   "sound_id": 434878,
+   "title": "Car Honking",
+   "author": "MicktheMicGuy",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/434878/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/434/434878_3388578-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 17424,
+    "sha256": "47524b84fbb311d3817dc31b76cfbcab1a083990706fc217d3796252c0dcc8f7"
+   }
+  },
+  {
+   "id": "fs-423990",
+   "provider": "freesound",
+   "sound_id": 423990,
+   "title": "Car horn beep beep two beeps honk honk",
+   "author": "AmishRob",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/423990/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/423/423990_4023430-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 19726,
+    "sha256": "fefe1775d0d2ab066390ac89140e3bf5d1a31bd84da0770bc1e527970854a8ff"
+   }
+  },
+  {
+   "id": "fs-32417",
+   "provider": "freesound",
+   "sound_id": 32417,
+   "title": "car_horn.wav",
+   "author": "KRAFTWERK2K1",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/32417/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/32/32417_276701-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 22560,
+    "sha256": "fa8b7fc937980796d204cc3686fb0c435445b62354c8d19e10f6002243440718"
+   }
+  },
+  {
+   "id": "fs-170243",
+   "provider": "freesound",
+   "sound_id": 170243,
+   "title": "Car Horn.wav",
+   "author": "BeatsbyCasper",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/170243/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/170/170243_3147538-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 11899,
+    "sha256": "3b6cafd24e8ccb1bd3554b232bfcaa280fb38a3c70152e6691996150b48a9a88"
+   }
+  },
+  {
+   "id": "fs-235592",
+   "provider": "freesound",
+   "sound_id": 235592,
+   "title": "Girl_Scream.wav",
+   "author": "tcrocker68",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/235592/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/235/235592_3396115-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 48624,
+    "sha256": "6268007ec60585e38e604c3dcda40b2b044a570d7f079d94dac3d2eba69062ec"
+   }
+  },
+  {
+   "id": "fs-241573",
+   "provider": "freesound",
+   "sound_id": 241573,
+   "title": "short scream.wav",
+   "author": "Reitanna",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/241573/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/241/241573_950925-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 25536,
+    "sha256": "d54e93155591774573219cdfd4a683efb5f2f0e36fa14c71a8a120fa006ad484"
+   }
+  },
+  {
+   "id": "fs-845164",
+   "provider": "freesound",
+   "sound_id": 845164,
+   "title": "Woman Screaming",
+   "author": "DanJFilms",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/845164/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/845/845164_11030713-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 81792,
+    "sha256": "9a87a16571fb929dc1523ca619a04340c05ccb3325d0bee6d61c6f3e04eab0dd"
+   }
+  },
+  {
+   "id": "fs-169628",
+   "provider": "freesound",
+   "sound_id": 169628,
+   "title": "Male voice screaming loudly",
+   "author": "Dinsfire",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/169628/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/169/169628_1183243-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 145646,
+    "sha256": "a3cefa660e91db3afd0921c2ca200118e7d7a3e6004348fcc045fd8964097a10"
+   }
+  },
+  {
+   "id": "fs-341908",
+   "provider": "freesound",
+   "sound_id": 341908,
+   "title": "Gasp.",
+   "author": "bacruz666",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/341908/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/341/341908_5395569-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 28064,
+    "sha256": "ece7e532707a49fc545400eead12b85bbf373cdc120448ec2a4a584290795822"
+   }
+  },
+  {
+   "id": "fs-207779",
+   "provider": "freesound",
+   "sound_id": 207779,
+   "title": "Gasp.wav",
+   "author": "Dvideoguy",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/207779/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/207/207779_2046066-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 33503,
+    "sha256": "19e6fbad3ad935b5b7c726ccfb02fc598afdaa4998ac3a6e0e8028af93ea3101"
+   }
+  },
+  {
+   "id": "fs-416838",
+   "provider": "freesound",
+   "sound_id": 416838,
+   "title": "Grunt2 - Death Pain.wav",
+   "author": "tonsil5",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/416838/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/416/416838_8247784-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 41541,
+    "sha256": "ff0eef4e4d953286aec159572a766f16eac33346d701d2ef3530a1a06383f9e5"
+   }
+  },
+  {
+   "id": "fs-416839",
+   "provider": "freesound",
+   "sound_id": 416839,
+   "title": "Grunt1 - Death Pain.wav",
+   "author": "tonsil5",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/416839/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/416/416839_8247784-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own",
+    "bytes": 26089,
+    "sha256": "2c95137fbe752dbeb2f9ab5272ad2a8ab79643949164cd4e5ef7a4d6e45043eb"
+   }
+  },
+  {
+   "id": "kenney-impact",
+   "provider": "kenney",
+   "title": "Impact Sounds (1.0)",
+   "author": "Kenney",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://kenney.nl/assets/impact-sounds",
+   "transport": {
+    "url": "https://kenney.nl/media/pages/assets/impact-sounds/87b4ddecda-1677589768/kenney_impact-sounds.zip",
+    "bytes": 800850,
+    "sha256": "029d734af1582474edf3a694d1b0cebc97c1c152f2f39fa34d4c2bafc5de77f8",
+    "licence_file": "License.txt"
+   }
+  },
+  {
+   "id": "fs-427592",
+   "provider": "freesound",
+   "sound_id": 427592,
+   "title": "9mm pistol shot",
+   "author": "michorvath",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/427592/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/427/427592_3094998-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own (checked on its page 2026-09-25, PLAN-WEAPONS R13)",
+    "bytes": 39141,
+    "sha256": "8b7f20ce7c150556c49ad11bfbd0e014a68666991b5b3c063e47020d211a92b8"
+   }
+  },
+  {
+   "id": "fs-253736",
+   "provider": "freesound",
+   "sound_id": 253736,
+   "title": "Pistol Shot",
+   "author": "Kodack",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/253736/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/253/253736_2276808-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own (checked on its page 2026-09-25, PLAN-WEAPONS R13)",
+    "bytes": 50797,
+    "sha256": "d788583d9e83702fe9c2b177c4c1480c74fd2db858cf2e4b9ba178b631c2eea5"
+   }
+  },
+  {
+   "id": "fs-668348",
+   "provider": "freesound",
+   "sound_id": 668348,
+   "title": "handgun-one-shot.wav",
+   "author": "DeltaCode",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/668348/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/668/668348_3271378-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own (checked on its page 2026-09-25, PLAN-WEAPONS R13)",
+    "bytes": 12890,
+    "sha256": "dde238f5f024e6236ea6baa3ba610da34eff8997c02e5efc5dfd9cc18bd95980"
+   }
+  },
+  {
+   "id": "fs-683186",
+   "provider": "freesound",
+   "sound_id": 683186,
+   "title": "357 Magnum Revolver Gunshot",
+   "author": "Shark_Anthony",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/683186/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/683/683186_3692246-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own (checked on its page 2026-09-25, PLAN-WEAPONS R13)",
+    "bytes": 18076,
+    "sha256": "26562dda556fdf80f902055cd4fa4b3f1af1bcae02ad030a556c9c0e2cbfc7b1"
+   }
+  },
+  {
+   "id": "fs-345413",
+   "provider": "freesound",
+   "sound_id": 345413,
+   "title": "Bullet_Ricochet_01",
+   "author": "Artmasterrich",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://freesound.org/s/345413/",
+   "transport": {
+    "url": "https://cdn.freesound.org/previews/345/345413_4038846-hq.mp3",
+    "note": "Freesound high-quality preview (MP3); the licence is the sound's own (checked on its page 2026-09-25, PLAN-WEAPONS R13)",
+    "bytes": 17952,
+    "sha256": "fd05b50f2b9261fe96b70e6149a6dc5748914c8e13a87c0dc3bbe2c1674e5a8e"
+   }
+  }
+ ],
+ "clips": [
+  {
+   "name": "ambience-scramble",
+   "source": "fs-31791",
+   "kind": "ambience",
+   "loop": true,
+   "channels": 2,
+   "start": 4,
+   "end": 64
+  },
+  {
+   "name": "ambience-ginza",
+   "source": "fs-18443",
+   "kind": "ambience",
+   "loop": true,
+   "channels": 2,
+   "start": 0.5,
+   "end": 25.5
+  },
+  {
+   "name": "crossing-cuckoo",
+   "source": "fs-98154",
+   "kind": "crossing",
+   "loop": true,
+   "start": 0,
+   "end": 20
+  },
+  {
+   "name": "swing-0",
+   "source": "fs-60013",
+   "kind": "swing"
+  },
+  {
+   "name": "swing-1",
+   "source": "fs-389590",
+   "kind": "swing"
+  },
+  {
+   "name": "swing-2",
+   "source": "fs-59988",
+   "kind": "swing"
+  },
+  {
+   "name": "punch-0",
+   "source": "fs-118513",
+   "kind": "punch",
+   "end": 0.6
+  },
+  {
+   "name": "punch-1",
+   "source": "fs-390462",
+   "kind": "punch",
+   "end": 0.6
+  },
+  {
+   "name": "punch-2",
+   "source": "fs-244513",
+   "kind": "punch",
+   "end": 0.6
+  },
+  {
+   "name": "punch-3",
+   "source": "fs-104183",
+   "kind": "punch",
+   "end": 0.6
+  },
+  {
+   "name": "punch-4",
+   "source": "kenney-impact",
+   "kind": "punch",
+   "member": "Audio/impactPunch_heavy_000.ogg"
+  },
+  {
+   "name": "punch-5",
+   "source": "kenney-impact",
+   "kind": "punch",
+   "member": "Audio/impactPunch_heavy_002.ogg"
+  },
+  {
+   "name": "body-0",
+   "source": "fs-257928",
+   "kind": "body",
+   "end": 1.2
+  },
+  {
+   "name": "body-1",
+   "source": "fs-346695",
+   "kind": "body",
+   "end": 1.2
+  },
+  {
+   "name": "body-2",
+   "source": "fs-504626",
+   "kind": "body",
+   "end": 1.2
+  },
+  {
+   "name": "runover-0",
+   "source": "fs-447922",
+   "kind": "runover"
+  },
+  {
+   "name": "runover-1",
+   "source": "kenney-impact",
+   "kind": "runover",
+   "member": "Audio/impactPunch_heavy_003.ogg"
+  },
+  {
+   "name": "crash-0",
+   "source": "fs-151624",
+   "kind": "crash",
+   "end": 2
+  },
+  {
+   "name": "crash-1",
+   "source": "fs-592388",
+   "kind": "crash",
+   "end": 2
+  },
+  {
+   "name": "crash-2",
+   "source": "fs-420356",
+   "kind": "crash",
+   "end": 2
+  },
+  {
+   "name": "screech-0",
+   "source": "fs-104026",
+   "kind": "screech",
+   "end": 1.8
+  },
+  {
+   "name": "screech-1",
+   "source": "fs-233558",
+   "kind": "screech",
+   "end": 1.8
+  },
+  {
+   "name": "screech-2",
+   "source": "fs-536769",
+   "kind": "screech",
+   "end": 1.8
+  },
+  {
+   "name": "horn-0",
+   "source": "fs-434878",
+   "kind": "horn",
+   "end": 1.2
+  },
+  {
+   "name": "horn-1",
+   "source": "fs-423990",
+   "kind": "horn",
+   "end": 1.2
+  },
+  {
+   "name": "horn-2",
+   "source": "fs-32417",
+   "kind": "horn",
+   "end": 1.2
+  },
+  {
+   "name": "horn-3",
+   "source": "fs-170243",
+   "kind": "horn",
+   "end": 1.2
+  },
+  {
+   "name": "scream-0",
+   "source": "fs-235592",
+   "kind": "scream",
+   "end": 2.2
+  },
+  {
+   "name": "scream-1",
+   "source": "fs-241573",
+   "kind": "scream",
+   "end": 2.2
+  },
+  {
+   "name": "scream-2",
+   "source": "fs-845164",
+   "kind": "scream",
+   "end": 2.2
+  },
+  {
+   "name": "scream-3",
+   "source": "fs-169628",
+   "kind": "scream-low",
+   "end": 2.2
+  },
+  {
+   "name": "gasp-0",
+   "source": "fs-341908",
+   "kind": "gasp",
+   "end": 1.2
+  },
+  {
+   "name": "gasp-1",
+   "source": "fs-207779",
+   "kind": "gasp",
+   "end": 1.2
+  },
+  {
+   "name": "pain-0",
+   "source": "fs-416838",
+   "kind": "pain-low",
+   "end": 1
+  },
+  {
+   "name": "pain-1",
+   "source": "fs-416839",
+   "kind": "pain-low",
+   "end": 1
+  },
+  {
+   "name": "step-0",
+   "source": "kenney-impact",
+   "kind": "step",
+   "member": "Audio/footstep_concrete_000.ogg"
+  },
+  {
+   "name": "step-1",
+   "source": "kenney-impact",
+   "kind": "step",
+   "member": "Audio/footstep_concrete_001.ogg"
+  },
+  {
+   "name": "step-2",
+   "source": "kenney-impact",
+   "kind": "step",
+   "member": "Audio/footstep_concrete_002.ogg"
+  },
+  {
+   "name": "step-3",
+   "source": "kenney-impact",
+   "kind": "step",
+   "member": "Audio/footstep_concrete_003.ogg"
+  },
+  {
+   "name": "step-4",
+   "source": "kenney-impact",
+   "kind": "step",
+   "member": "Audio/footstep_concrete_004.ogg"
+  },
+  {
+   "name": "gunshot-0",
+   "source": "fs-427592",
+   "kind": "gunshot",
+   "end": 1.2
+  },
+  {
+   "name": "gunshot-1",
+   "source": "fs-253736",
+   "kind": "gunshot",
+   "end": 1.2
+  },
+  {
+   "name": "gunshot-2",
+   "source": "fs-668348",
+   "kind": "gunshot",
+   "end": 1.0
+  },
+  {
+   "name": "revolver-0",
+   "source": "fs-683186",
+   "kind": "gunshot-revolver",
+   "end": 1.0
+  },
+  {
+   "name": "ricochet-0",
+   "source": "fs-345413",
+   "kind": "ricochet",
+   "end": 0.8
+  }
+ ]
+}

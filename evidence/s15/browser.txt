@@ -1,0 +1,6 @@
+S15 Visual QA: BLOCKED / UNVERIFIED.
+Tab discovery succeeded, showing the S15 preview title.
+Attempted MEDIUM / CAM-01 Overview / DAY navigation.
+Navigation returned: js execution timed out; kernel reset. No retry.
+S15 crane composition, warnings at NIGHT, FPS, WebGL and console error count remain unverified.
+User-provided S14 HIGH 38.8 FPS screenshot is baseline evidence only, not S15 performance.

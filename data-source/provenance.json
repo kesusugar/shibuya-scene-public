@@ -1,0 +1,9 @@
+{
+  "provider": "OpenStreetMap",
+  "retrievedAt": "2026-09-08",
+  "endpoint": "https://www.openstreetmap.org/api/0.6/map?bbox=139.6965,35.6564,139.7046,35.6626",
+  "xmlBytes": 5251081,
+  "xmlSha256": "b586282f80108802e1cf2ff51ef74c611cece03408cc52aaacb4703fa095cde7",
+  "license": "ODbL-1.0",
+  "copyright": "https://www.openstreetmap.org/copyright"
+}

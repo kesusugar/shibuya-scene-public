@@ -1,0 +1,16 @@
+{
+ "url": "http://<local>/qa/gta-upgrade/stage1bench.html",
+ "ready": true,
+ "bench": {
+  "lines": [
+   "marks: {\"holes\":15,\"casings\":10,\"mags\":1,\"pools\":1,\"smoke\":0}",
+   "draw: {\"draws\":1,\"reloads\":0,\"drops\":0} shown smg",
+   "reload: {\"draws\":0,\"reloads\":1,\"drops\":1} dropped 1",
+   "context lost: false"
+  ],
+  "lost": false,
+  "calls": 10
+ },
+ "console": [],
+ "errors": 0
+}

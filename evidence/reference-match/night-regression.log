@@ -1,0 +1,14 @@
+✔ S13 selected wet geometry follows flat mapped surfaces, avoids markings/buildings and has no overlapping pools (6942.817102ms)
+✔ S13 tier changes reuse two geometry batches; DAY and environment OFF disable effects (0.960744ms)
+✔ S13 wet asphalt and vehicle emission restore exact S12 DAY values without mesh changes (2.376212ms)
+✔ S13 Hero/commercial signs vary via vertex attribute; existing window/train shader hooks remain composable (1.535409ms)
+✔ S13 bloom has bounded extra passes, reduced MED target, LOW/DAY bypass and restored render state/stats (1.738864ms)
+✔ S13 disposal restores baseline and releases pooled resources exactly once (0.657939ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 31514.068601

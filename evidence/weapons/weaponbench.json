@@ -1,0 +1,36 @@
+{
+ "url": "http://<local>/qa/gta-upgrade/weaponbench.html",
+ "ready": true,
+ "bench": {
+  "poses": [
+   "holstered",
+   "katana-idle",
+   "katana-cut",
+   "pistol-aim",
+   "pistol-aim-walk",
+   "pistol-shoot",
+   "pistol-reload",
+   "revolver-aim",
+   "revolver-shot",
+   "roll",
+   "crouch-walk"
+  ],
+  "lines": [
+   "front | player's right | behind | player's left",
+   "holstered: fists: pistol at the hip, katana on the back",
+   "katana-idle: katana drawn, standing (Sword_Idle)  | grip-to-palm 0.7 cm",
+   "katana-cut: katana cut at its peak (0.447s of 1.533s)  | grip-to-palm 0.7 cm",
+   "pistol-aim: pistol aimed, standing  | grip-to-palm 1.3 cm  | muzzle ray passes 0.0 cm from the target",
+   "pistol-aim-walk: pistol aimed while walking, target 45° left of the walk  | grip-to-palm 1.3 cm  | muzzle ray passes 0.0 cm from the target",
+   "pistol-shoot: pistol shot, at the recoil (0.1 s in)  | grip-to-palm 1.3 cm  | muzzle ray passes 0.0 cm from the target",
+   "pistol-reload: pistol reload, half way  | grip-to-palm 1.3 cm  | muzzle ray passes 430.4 cm from the target",
+   "revolver-aim: officer: revolver aimed (W3)  | grip-to-palm 1.3 cm  | muzzle ray passes 0.0 cm from the target",
+   "revolver-shot: officer: revolver shot, at the recoil  | grip-to-palm 1.3 cm  | muzzle ray passes 0.0 cm from the target",
+   "roll: roll, 0.45 s in (the dodge window)",
+   "crouch-walk: crouched, creeping with the pistol out  | grip-to-palm 1.3 cm  | muzzle ray passes 595.2 cm from the target"
+  ],
+  "calls": 8
+ },
+ "console": [],
+ "errors": 0
+}

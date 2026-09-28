@@ -1,0 +1,270 @@
+{
+  "base": "b0a9257",
+  "tiers": {
+    "high": {
+      "fixtureCount": 369,
+      "categories": {
+        "signal": 19,
+        "tree": 26,
+        "box": 54,
+        "pole": 76,
+        "bin": 14,
+        "bollard": 29,
+        "rail": 28,
+        "vending": 36,
+        "light": 41,
+        "planter": 23,
+        "information": 14,
+        "bench": 9
+      },
+      "regions": {
+        "frontage": 36,
+        "secondary": 147,
+        "peripheral": 79,
+        "dogenzaka": 49,
+        "scramble": 13,
+        "station": 2,
+        "centerGai": 43
+      },
+      "cableRuns": 35,
+      "cableSegments": 280,
+      "osmTrees": 4,
+      "rejected": 761,
+      "major": 0,
+      "minor": 0,
+      "generationMs": 119401,
+      "tier": "high",
+      "triangles": 31460,
+      "materials": 9,
+      "geometries": 5,
+      "textures": 1,
+      "atlasDimensions": [
+        1024,
+        1024
+      ],
+      "atlasMode": "cpu-placeholder",
+      "instances": 1276,
+      "batches": 14,
+      "debugBatches": 0,
+      "pointLights": 0,
+      "buildTimeMs": 64,
+      "checks": {
+        "box": {
+          "nonFinite": 0,
+          "badIndices": 0,
+          "degenerate": 0,
+          "bounds": {
+            "minX": -0.5,
+            "maxX": 0.5,
+            "minY": -0.5,
+            "maxY": 0.5,
+            "minZ": -0.5,
+            "maxZ": 0.5
+          }
+        },
+        "cylinder": {
+          "nonFinite": 0,
+          "badIndices": 0,
+          "degenerate": 0,
+          "bounds": {
+            "minX": -0.5,
+            "maxX": 0.5,
+            "minY": -0.5,
+            "maxY": 0.5,
+            "minZ": -0.5,
+            "maxZ": 0.5
+          }
+        },
+        "sphere": {
+          "nonFinite": 0,
+          "badIndices": 0,
+          "degenerate": 0,
+          "bounds": {
+            "minX": -0.5,
+            "maxX": 0.5,
+            "minY": -0.5,
+            "maxY": 0.5,
+            "minZ": -0.5,
+            "maxZ": 0.5
+          }
+        }
+      }
+    },
+    "medium": {
+      "fixtureCount": 252,
+      "categories": {
+        "signal": 19,
+        "tree": 17,
+        "box": 39,
+        "bin": 11,
+        "pole": 49,
+        "bollard": 19,
+        "rail": 19,
+        "vending": 20,
+        "light": 27,
+        "planter": 15,
+        "information": 11,
+        "bench": 6
+      },
+      "regions": {
+        "frontage": 29,
+        "secondary": 96,
+        "peripheral": 51,
+        "dogenzaka": 36,
+        "scramble": 10,
+        "station": 1,
+        "centerGai": 29
+      },
+      "cableRuns": 21,
+      "cableSegments": 84,
+      "osmTrees": 2,
+      "rejected": 515,
+      "major": 0,
+      "minor": 0,
+      "generationMs": 59287,
+      "tier": "medium",
+      "triangles": 23154,
+      "materials": 9,
+      "geometries": 5,
+      "textures": 1,
+      "atlasDimensions": [
+        512,
+        512
+      ],
+      "atlasMode": "cpu-placeholder",
+      "instances": 925,
+      "batches": 14,
+      "debugBatches": 0,
+      "pointLights": 0,
+      "buildTimeMs": 23,
+      "checks": {
+        "box": {
+          "nonFinite": 0,
+          "badIndices": 0,
+          "degenerate": 0,
+          "bounds": {
+            "minX": -0.5,
+            "maxX": 0.5,
+            "minY": -0.5,
+            "maxY": 0.5,
+            "minZ": -0.5,
+            "maxZ": 0.5
+          }
+        },
+        "cylinder": {
+          "nonFinite": 0,
+          "badIndices": 0,
+          "degenerate": 0,
+          "bounds": {
+            "minX": -0.5,
+            "maxX": 0.5,
+            "minY": -0.5,
+            "maxY": 0.5,
+            "minZ": -0.5,
+            "maxZ": 0.5
+          }
+        },
+        "sphere": {
+          "nonFinite": 0,
+          "badIndices": 0,
+          "degenerate": 0,
+          "bounds": {
+            "minX": -0.5,
+            "maxX": 0.5,
+            "minY": -0.5,
+            "maxY": 0.5,
+            "minZ": -0.5,
+            "maxZ": 0.5
+          }
+        }
+      }
+    },
+    "low": {
+      "fixtureCount": 55,
+      "categories": {
+        "signal": 19,
+        "bollard": 11,
+        "rail": 9,
+        "light": 16
+      },
+      "regions": {
+        "frontage": 7,
+        "secondary": 12,
+        "peripheral": 16,
+        "dogenzaka": 14,
+        "scramble": 2,
+        "station": 1,
+        "centerGai": 3
+      },
+      "cableRuns": 0,
+      "cableSegments": 0,
+      "osmTrees": 0,
+      "rejected": 132,
+      "major": 0,
+      "minor": 0,
+      "generationMs": 11520,
+      "tier": "low",
+      "triangles": 9576,
+      "materials": 8,
+      "geometries": 3,
+      "textures": 1,
+      "atlasDimensions": [
+        256,
+        256
+      ],
+      "atlasMode": "cpu-placeholder",
+      "instances": 350,
+      "batches": 8,
+      "debugBatches": 0,
+      "pointLights": 0,
+      "buildTimeMs": 12,
+      "checks": {
+        "box": {
+          "nonFinite": 0,
+          "badIndices": 0,
+          "degenerate": 0,
+          "bounds": {
+            "minX": -0.5,
+            "maxX": 0.5,
+            "minY": -0.5,
+            "maxY": 0.5,
+            "minZ": -0.5,
+            "maxZ": 0.5
+          }
+        },
+        "cylinder": {
+          "nonFinite": 0,
+          "badIndices": 0,
+          "degenerate": 0,
+          "bounds": {
+            "minX": -0.5,
+            "maxX": 0.5,
+            "minY": -0.5,
+            "maxY": 0.5,
+            "minZ": -0.5,
+            "maxZ": 0.5
+          }
+        },
+        "sphere": {
+          "nonFinite": 0,
+          "badIndices": 0,
+          "degenerate": 0,
+          "bounds": {
+            "minX": -0.5,
+            "maxX": 0.5,
+            "minY": -0.5,
+            "maxY": 0.5,
+            "minZ": -0.5,
+            "maxZ": 0.5
+          }
+        }
+      }
+    }
+  },
+  "audit": {
+    "major": 0,
+    "minor": 0,
+    "minorCategories": {},
+    "findings": []
+  }
+}

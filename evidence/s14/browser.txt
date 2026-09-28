@@ -1,0 +1,6 @@
+S14 browser QA: BLOCKED / UNVERIFIED.
+Tab discovery succeeded and showed the current S14 preview title.
+Navigation attempted: MEDIUM, CAM-03 Scramble, DAY.
+Navigation failed: Runtime.addBinding timed out. No retries or alternative browser path.
+NIGHT button, camera interaction, console, WebGL, FPS and visual DAY/NIGHT comparison remain unverified.
+No measured GPU/performance improvement or real-device usability PASS is claimed.

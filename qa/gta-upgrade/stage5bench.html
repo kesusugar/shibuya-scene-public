@@ -1,0 +1,77 @@
+<!doctype html><meta charset="utf-8"><title>stage 5 bench</title>
+<link rel="stylesheet" href="/app/globals.css">
+<style>html,body{margin:0;background:#20242b;overflow:hidden;font-family:Arial,sans-serif}
+.cell{position:absolute;width:960px;height:540px;overflow:hidden;transform:translateZ(0);background:linear-gradient(#5d6f80,#2a3440)}
+.cell>.cap{position:absolute;left:8px;bottom:6px;z-index:99;color:#fff;font:12px monospace;text-shadow:0 1px 2px #000}
+#top{position:absolute;left:0;top:1080px}
+#l{position:fixed;left:8px;top:8px;color:#dfe6ef;font:11px/1.45 monospace;white-space:pre;z-index:999;text-shadow:0 1px 2px #000}</style>
+<div id="l">loading…</div>
+<!--
+  Roadmap stage 5, on the game's own HUD (play-ui.mjs) and mission board (game/missions.mjs).
+  Four HUD states: the board with the five missions and the money; a chase running (target, time
+  left, progress); at the shop's door (the counter and the save); a mission complete and paid.
+  Below, top-down on the real HIGH map: a chase run -- the target car driving away over the
+  carriageway field (red) and the player's car (white) closing until it gives up; and a snatch --
+  the thief's route (orange) from the victim to where they were tackled.
+
+  `node qa/gta-upgrade/weaponbench-capture.mjs out.png "" stage5bench.html` saves it.
+-->
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/","polygon-clipping":"/node_modules/polygon-clipping/dist/polygon-clipping.esm.js","splaytree":"/node_modules/splaytree/dist/splaytree.js","robust-predicates":"/node_modules/robust-predicates/index.js"}}</script>
+<script type="module">
+import * as T from 'three';
+import {createPlayUI} from '/src/player/play-ui.mjs';
+import {createMissionBoard,MISSIONS} from '/src/game/missions.mjs';
+import {createWallet} from '/src/game/economy.mjs';
+import {shopDoor} from '/src/game/shop.mjs';
+import {restoreGroundModel} from '/src/ground/model.mjs';
+import {restoreTrafficGraph} from '/src/traffic/graph.mjs';
+import {TrafficSimulation} from '/src/traffic/simulation.mjs';
+import {restorePedestrianNetwork} from '/src/life/network.mjs';
+
+const pack=await (await fetch('/public/data/shibuya-static-models.json')).json(),data=await (await fetch('/public/data/shibuya-scene-data.json')).json();
+const ground=restoreGroundModel(pack.ground),network=restorePedestrianNetwork(pack.life.high,ground);
+const lines=[];
+const cells=[[0,0],[960,0],[0,540],[960,540]];
+const hud=(i,caption)=>{const div=document.createElement('div');div.className='cell';div.style.left=cells[i][0]+'px';div.style.top=cells[i][1]+'px';document.body.appendChild(div);
+ const ui=createPlayUI(network,new T.Group(),{});const root=[...document.querySelectorAll('.play-hud')].at(-1);div.appendChild(root);
+ const cap=document.createElement('div');cap.className='cap';cap.textContent=caption;div.appendChild(cap);ui.show();return ui;};
+const me={x:-20,z:36,heading:0,speed:0,alive:true,health:78};
+const door=shopDoor(network.ctx);
+// 1: the board.
+{const ui=hud(0,'the board: five missions, the money');ui.setMoney(5000,0);ui.setShopDoor(door);ui.setMission({status:'idle'});ui.update(1,me,null,false,null);}
+// 2: a chase running.
+{const ui=hud(1,'a chase running: the target, the time, closing in');ui.setMoney(5000,0);
+ ui.setMission({id:'chase',name:'追跡',status:'running',target:{x:me.x+42,z:me.z-20,label:'逃走車'},progress:.45,remaining:96,reward:8000});ui.update(1,{...me},null,true,null);}
+// 3: at the shop.
+{const ui=hud(2,'at the shop door: the counter, the save');ui.setMoney(12500,30);ui.setShopDoor(door);ui.setMission({status:'idle'});ui.setShop(true,'防弾ベストを買った');ui.update(1,{...me,x:door.x,z:door.z},null,false,null);}
+// 4: complete.
+{const ui=hud(3,'a mission complete and paid');ui.setMoney(19500,0);ui.setMission({id:'snatch',name:'ひったくり犯を追え',status:'complete',reason:'犯人を取り押さえ、バッグを取り返した',reward:6500});ui.update(1,me,null,false,null);}
+
+// The chase and the snatch, top-down.
+const graph=restoreTrafficGraph(pack.traffic.high);graph.ground=ground;graph.data=data;
+const sim=new TrafficSimulation(graph,{tier:'high',street:pack.street.high});sim.refill(true);
+const board=createMissionBoard(network),car={x:0,z:20,heading:0,alive:true},world={player:car,driving:true,car,traffic:sim};
+board.start('chase',world);const target=sim.pool.find(v=>v.active&&v.missionTarget);const tTrack=[],pTrack=[];
+for(let i=0;i<30*8;i++){board.tick(1/30,world);if(i%6===0){tTrack.push([target.x,target.z]);pTrack.push([car.x,car.z]);}}
+for(let i=0;i<30*60&&board.snapshot().status==='running';i++){const dx=target.x-car.x,dz=target.z-car.z,d=Math.hypot(dx,dz);if(d>4){const k=Math.min(d-4,16/30)/d;car.x+=dx*k;car.z+=dz*k;}
+ board.tick(1/30,world);if(i%6===0){tTrack.push([target.x,target.z]);pTrack.push([car.x,car.z]);}}
+lines.push('chase: '+board.snapshot().status+' '+board.snapshot().reason);
+const people=[{id:0,active:true,x:20,z:30,heading:0,archetype:'office'},{id:1,active:true,x:24,z:31,heading:0,archetype:'office'}];
+const crowd={time:0,pool:people,say(){},step(dt){crowd.time+=dt;for(const p of people){const f=p.follow;if(!f)continue;const dx=f.x-p.x,dz=f.z-p.z,d=Math.hypot(dx,dz),s=Math.min(d,f.speed*dt);if(s>0){p.x+=dx/d*s;p.z+=dz/d*s;}}}};
+const b2=createMissionBoard(network),runner={x:12,z:24,heading:0,alive:true},w2={player:runner,crowd};b2.start('snatch',w2);
+const thief=people.find(p=>p.missionRole==='thief'),sTrack=[],rTrack=[];
+for(let i=0;i<30*40&&b2.snapshot().status==='running';i++){const dx=thief.x-runner.x,dz=thief.z-runner.z,d=Math.hypot(dx,dz);if(d>.5){runner.x+=dx/d*4.2/30;runner.z+=dz/d*4.2/30;}
+ b2.tick(1/30,w2);crowd.step(1/30);if(i%6===0){sTrack.push([thief.x,thief.z]);rTrack.push([runner.x,runner.z]);}}
+lines.push('snatch: '+b2.snapshot().status+' '+b2.snapshot().reason);
+const c2=document.createElement('canvas');c2.id='top';c2.width=1920;c2.height=520;document.body.appendChild(c2);const g=c2.getContext('2d');
+g.fillStyle='#0c1821';g.fillRect(0,0,1920,520);const S=2.2,X=x=>960+x*S,Z=z=>250+z*S;
+g.strokeStyle='#354d5b';g.lineWidth=1;for(const l of graph.lanes){const P=l.path;g.beginPath();for(let i=0;i<P.x.length;i++)g[i?'lineTo':'moveTo'](X(P.x[i]),Z(P.z[i]));g.stroke();}
+const line=(t,col,w)=>{g.strokeStyle=col;g.lineWidth=w;g.beginPath();t.forEach(([x,z],i)=>g[i?'lineTo':'moveTo'](X(x),Z(z)));g.stroke();};
+line(tTrack,'#ff4b3a',3);line(pTrack,'#ffffff',2);line(sTrack,'#ffa23a',3);line(rTrack,'#9fe0b8',2);
+g.fillStyle='#ffd23f';g.beginPath();g.arc(X(door.x),Z(door.z),6,0,7);g.fill();
+g.fillStyle='#dfe6ef';g.font='13px monospace';g.fillText('top-down, north up. chase: target (red) driving away, the player\'s car (white) closing; snatch: thief (orange) and the player on foot (green); yellow: the shop door',12,506);
+document.body.style.height='1600px';
+document.getElementById('l').textContent=lines.join('\n');
+window.__BENCH__={lines,size:[1920,1600]};
+document.title='ready';
+</script>

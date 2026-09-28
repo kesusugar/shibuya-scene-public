@@ -1,0 +1,45 @@
+{
+  "seconds": 120,
+  "checks": 7200,
+  "maxStep": 0.6000000000000227,
+  "tier": "high",
+  "routeCount": 3,
+  "sets": 3,
+  "JR": 2,
+  "Ginza": 1,
+  "stops": 4,
+  "departures": 4,
+  "recycles": 3,
+  "trains": [
+    {
+      "id": 0,
+      "type": "JR",
+      "route": "JR:way/146060265+way/146060273+way/211954209+way/211954421+way/853258588+way/853258594",
+      "speed": 12,
+      "state": "running",
+      "distance": 89.24999999999967,
+      "stop": 362.05,
+      "direction": 1
+    },
+    {
+      "id": 1,
+      "type": "Ginza",
+      "route": "Ginza:way/759134299+way/834249968",
+      "speed": 3.2800000000000025,
+      "state": "running",
+      "distance": 56.90600000000001,
+      "stop": 50.1,
+      "direction": 1
+    },
+    {
+      "id": 2,
+      "type": "JR",
+      "route": "JR:way/146060331+way/146060379+way/146060426+way/853258589+way/853258593",
+      "speed": 0,
+      "state": "waiting",
+      "distance": 584.3402889098434,
+      "stop": 363.05,
+      "direction": -1
+    }
+  ]
+}

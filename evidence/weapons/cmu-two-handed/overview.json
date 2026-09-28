@@ -1,0 +1,20 @@
+{
+ "url": "http://<local>/qa/gta-upgrade/cmu-weaponbench.html",
+ "ready": true,
+ "bench": {
+  "clips": [
+   "katana-cut",
+   "rifle-raise",
+   "rifle-shouldered"
+  ],
+  "lines": [
+   "three-quarter front (player's right) / right side; columns are clip time",
+   "katana: CMU 02_07 overhead cut (source 6.2-8.4 s, the cut replayed at 2x): 0.20s 0.45s 0.60s 0.68s 0.75s 0.82s 0.95s 1.50s | measured {\"leftMissCm\":4.4,\"handsApartSourceM\":0.168,\"handsApartTargetM\":0.15,\"wristDeg\":{\"right\":{\"bendMedian\":50,\"bendMax\":62,\"twistMax\":36},\"left\":{\"bendMedian\":21,\"bendMax\":32,\"twistMax\":38}},\"gripPeakMs\":6.7,\"trunkMaxDeg\":{\"captured\":52,\"kept\":36}}",
+   "short gun (proxy 仮): CMU 80_03 low ready to shouldered aim (source 1.9-7.0 s): 0.00s 0.50s 0.90s 1.40s 2.20s 3.20s 4.20s 5.00s | measured {\"leftMissCm\":0,\"handsApartSourceM\":0.442,\"handsApartTargetM\":0.28,\"wristDeg\":{\"right\":{\"bendMedian\":28,\"bendMax\":34,\"twistMax\":28},\"left\":{\"bendMedian\":12,\"bendMax\":20,\"twistMax\":24}},\"gripPeakMs\":1.4,\"eyeToSightLineCm\":{\"median\":0.1,\"max\":2.1}}",
+   "short gun (proxy 仮): 80_03 shouldered hold, looped (source 4.2-6.8 s): 0.00s 0.40s 0.80s 1.20s 1.60s 2.00s 2.30s 2.60s | measured {\"leftMissCm\":0,\"handsApartSourceM\":0.437,\"handsApartTargetM\":0.28,\"wristDeg\":{\"right\":{\"bendMedian\":28,\"bendMax\":32,\"twistMax\":11},\"left\":{\"bendMedian\":11,\"bendMax\":14,\"twistMax\":8}},\"gripPeakMs\":0.7,\"eyeToSightLineCm\":{\"median\":0.1,\"max\":0.4}}"
+  ],
+  "calls": 13
+ },
+ "console": [],
+ "errors": 0
+}

@@ -1,0 +1,55 @@
+{
+  "what": "Player crowd contact, device check (docs/PLAN-PLAYER-CROWD-CONTACT.md, Step D)",
+  "date": "2026-09-24/25",
+  "machine": "the user's Windows 11 PC, Chrome (visible tab, driven by Claude in Chrome), npm run dev:local",
+  "url": "http://127.0.0.1:5174/?qa=1&tier=high&time=day&camera=scramble",
+  "code": "branch claude/player-crowd-contact; walk re-run after 50cc98e, fights and car after e90b84f",
+  "first_walk_before_fixes": {
+    "note": "found the bugs fixed in 50cc98e: people walked through the player; the player died in ~8 s of fights",
+    "minGap_m": 0.137,
+    "trappedSeconds": 1.1
+  },
+  "walk_60s": {
+    "how": "touch forward input, heading re-aimed every 2 s at the centroid of people 1.5-10 m away (into the densest crowd); HP topped up to 100 each 0.25 s so fights did not end the walk",
+    "first_40s_pedestrian_green": {"minGap_m": 0.552, "minBetweenFrames_m": 0.544, "trappedSeconds": 1.5, "bumps": 87, "fights": 25},
+    "whole_60s_green_then_NS": {"minGap_m": 0.496, "minBetweenFrames_m": 0.496, "trappedSeconds": 6.1, "bumps": 178, "dodges": 247, "fights": 49, "settled": 1350, "hpLostToFights_last20s": 275},
+    "targets": {"minGap_m": ">= 0.5", "trappedSeconds": "< 1.5"},
+    "verdict": "minGap met on the green and 4 mm short over the full 60 s; trappedSeconds missed (6.1 s): after the green the steering walked into kerb crowds packed on the cast's 0.32 m slot grid, where the player shoves through at 0.45 m/s",
+    "signals": "kept cycling: the hold at the end of the pedestrian phase was 6 cast members still walking 6-40 m from the player (the normal clear-out), then PEDESTRIAN -> NS"
+  },
+  "fps": {
+    "observe_mode": [10.9, 11.3, 11.3, 11.2, 11.3, 12.0],
+    "player_mode_standing_in_crowd": [6.28, 7.19],
+    "player_mode_walking_in_crowd": [6.74, 7.43],
+    "contact_lastMs_mean_in_browser": [0.027, 0.041, 0.084, 0.146],
+    "verdict": "walking in the crowd is not slower than standing in it: the contact cost is within noise at ~150 ms frames. The PC runs HIGH at 6-7 fps in player mode, with or without this change."
+  },
+  "left_right": {
+    "keyboard_D_on_foot": {"alongCameraRight": 1.0},
+    "keyboard_A_on_foot": {"alongCameraRight": -0.92},
+    "car_W_D": {"headingChange_rad": -2.888, "lateralToRight_m": 14.33},
+    "car_W_A": {"headingChange_rad": 0.195, "lateralToRight_m": -0.14},
+    "touch_pad": "not driven on a phone here (same setTouch path as the tests); the phone check is after merge"
+  },
+  "fight_to_the_end": {
+    "player_takes_four": "HP bar 100 -> 75 (green) -> 50 (amber) -> 25 (red) -> 0, then the game-over dialog (game-over-fight.jpg); もう一度 revived at 100",
+    "pedestrian_takes_four": "an isolated pedestrian: 100 -> 75 -> 50 -> 25 -> 0 and down (struck) on the 4th punch; every blow landed on them"
+  },
+  "car_hits": {
+    "before_fix_e90b84f": "a van stopped on the player and hit again after the grace: 100 -> 50 in 2.5 s",
+    "after": [
+      {"hp": 75, "thrown_m": 1.28, "carSpeed_ms": 5.6, "secondHitWithin3s": false},
+      {"hp": 50, "thrown_m": 1.4},
+      {"hp": 25, "thrown_m": 1.49},
+      {"hp": 0, "dialog": "ゲームオーバー / 車に轢かれました（taxi） / もう一度"}
+    ],
+    "screenshots": ["car-hit-hp75.jpg", "game-over-car.jpg"]
+  },
+  "console": {
+    "errors": 0,
+    "exceptions": 0,
+    "role_alert_banners": 0,
+    "shader_messages": "2 warnings, no errors: THREE.WebGLProgram info log 'warning X4122: sum of ... cannot be represented accurately in double precision' (D3D/ANGLE precision notice). This branch changes no shader; not traced further."
+  },
+  "not_checked_here": ["the touch pad on a real phone (GitHub Pages after merge)", "phone cost"]
+}

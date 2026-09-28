@@ -1,0 +1,920 @@
+{
+ "version": 1,
+ "rate": 44100,
+ "targets": {
+  "oneShot": -12,
+  "ambience": -20,
+  "crossing": -16,
+  "peak": -1
+ },
+ "encoderDelay": 0.0251,
+ "generator": "scripts/convert-audio.mjs",
+ "clips": [
+  {
+   "name": "ambience-scramble",
+   "kind": "ambience",
+   "file": "ambience-scramble.mp3",
+   "loop": true,
+   "channels": 2,
+   "duration": 58.8,
+   "lead": 0.0251,
+   "gainDb": -0.01,
+   "levelDb": -25.77,
+   "peakDb": -1,
+   "bytes": 823588,
+   "source": {
+    "id": "fs-31791",
+    "title": "cross_road_shibuya.mp3",
+    "author": "Heigh-hoo",
+    "page": "https://freesound.org/s/31791/",
+    "licence": "CC0-1.0"
+   },
+   "loopStart": 0.0251,
+   "loopEnd": 58.8251
+  },
+  {
+   "name": "ambience-ginza",
+   "kind": "ambience",
+   "file": "ambience-ginza.mp3",
+   "loop": true,
+   "channels": 2,
+   "duration": 23.8,
+   "lead": 0.0251,
+   "gainDb": 9.12,
+   "levelDb": -27.71,
+   "peakDb": -1,
+   "bytes": 333897,
+   "source": {
+    "id": "fs-18443",
+    "title": "ginza_ambience.aif",
+    "author": "Heigh-hoo",
+    "page": "https://freesound.org/s/18443/",
+    "licence": "CC0-1.0"
+   },
+   "loopStart": 0.0251,
+   "loopEnd": 23.8251
+  },
+  {
+   "name": "crossing-cuckoo",
+   "kind": "crossing",
+   "file": "crossing-cuckoo.mp3",
+   "loop": true,
+   "channels": 1,
+   "duration": 19.94,
+   "lead": 0.0251,
+   "gainDb": 3.03,
+   "levelDb": -17.04,
+   "peakDb": -1,
+   "bytes": 239804,
+   "source": {
+    "id": "fs-98154",
+    "title": "CuckooSignal.wav",
+    "author": "hrhk",
+    "page": "https://freesound.org/s/98154/",
+    "licence": "CC0-1.0"
+   },
+   "loopStart": 0.0251,
+   "loopEnd": 19.9651
+  },
+  {
+   "name": "swing-0",
+   "kind": "swing",
+   "file": "swing-0.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.4098,
+   "lead": 0.0251,
+   "gainDb": -0.27,
+   "levelDb": -12,
+   "peakDb": -4.67,
+   "bytes": 5329,
+   "source": {
+    "id": "fs-60013",
+    "title": "Whoosh",
+    "author": "qubodup",
+    "page": "https://freesound.org/s/60013/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "swing-1",
+   "kind": "swing",
+   "file": "swing-1.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.1586,
+   "lead": 0.0251,
+   "gainDb": 14.5,
+   "levelDb": -12.14,
+   "peakDb": -1,
+   "bytes": 2508,
+   "source": {
+    "id": "fs-389590",
+    "title": "Swing Woosh",
+    "author": "Jofae",
+    "page": "https://freesound.org/s/389590/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "swing-2",
+   "kind": "swing",
+   "file": "swing-2.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.2421,
+   "lead": 0.0251,
+   "gainDb": -0.87,
+   "levelDb": -12,
+   "peakDb": -2.75,
+   "bytes": 3448,
+   "source": {
+    "id": "fs-59988",
+    "title": "SWOSH-01 44.1kHz",
+    "author": "qubodup",
+    "page": "https://freesound.org/s/59988/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "punch-0",
+   "kind": "punch",
+   "file": "punch-0.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.1978,
+   "lead": 0.0247,
+   "gainDb": -7.06,
+   "levelDb": -12,
+   "peakDb": -7.14,
+   "bytes": 2821,
+   "source": {
+    "id": "fs-118513",
+    "title": "Punch_02.wav",
+    "author": "thefsoundman",
+    "page": "https://freesound.org/s/118513/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "punch-1",
+   "kind": "punch",
+   "file": "punch-1.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.4492,
+   "lead": 0.0254,
+   "gainDb": -7.9,
+   "levelDb": -12,
+   "peakDb": -6.94,
+   "bytes": 5956,
+   "source": {
+    "id": "fs-390462",
+    "title": "Punch in the face",
+    "author": "Huminaatio",
+    "page": "https://freesound.org/s/390462/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "punch-2",
+   "kind": "punch",
+   "file": "punch-2.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.2533,
+   "lead": 0.0242,
+   "gainDb": -1.48,
+   "levelDb": -12,
+   "peakDb": -1.1,
+   "bytes": 3448,
+   "source": {
+    "id": "fs-244513",
+    "title": "Realistic Punch",
+    "author": "JewTwinz",
+    "page": "https://freesound.org/s/244513/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "punch-3",
+   "kind": "punch",
+   "file": "punch-3.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.2272,
+   "lead": 0.0251,
+   "gainDb": -4.38,
+   "levelDb": -12,
+   "peakDb": -4.85,
+   "bytes": 3135,
+   "source": {
+    "id": "fs-104183",
+    "title": "punch.wav",
+    "author": "Ekokubza123",
+    "page": "https://freesound.org/s/104183/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "punch-4",
+   "kind": "punch",
+   "file": "punch-4.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.3608,
+   "lead": 0.0253,
+   "gainDb": -3.52,
+   "levelDb": -12,
+   "peakDb": -4.49,
+   "bytes": 4702,
+   "source": {
+    "id": "kenney-impact",
+    "title": "Impact Sounds (1.0)",
+    "author": "Kenney",
+    "page": "https://kenney.nl/assets/impact-sounds",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "punch-5",
+   "kind": "punch",
+   "file": "punch-5.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.2732,
+   "lead": 0.0254,
+   "gainDb": -4.16,
+   "levelDb": -12,
+   "peakDb": -5.14,
+   "bytes": 3762,
+   "source": {
+    "id": "kenney-impact",
+    "title": "Impact Sounds (1.0)",
+    "author": "Kenney",
+    "page": "https://kenney.nl/assets/impact-sounds",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "body-0",
+   "kind": "body",
+   "file": "body-0.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.9611,
+   "lead": 0.0254,
+   "gainDb": -9.12,
+   "levelDb": -12,
+   "peakDb": -9.36,
+   "bytes": 11912,
+   "source": {
+    "id": "fs-257928",
+    "title": "Body Thud.wav",
+    "author": "Kane53126",
+    "page": "https://freesound.org/s/257928/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "body-1",
+   "kind": "body",
+   "file": "body-1.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.2011,
+   "lead": 0.0254,
+   "gainDb": 1.15,
+   "levelDb": -12,
+   "peakDb": -2.12,
+   "bytes": 2821,
+   "source": {
+    "id": "fs-346695",
+    "title": "Body fall_01.wav",
+    "author": "deleted_user_2104797",
+    "page": "https://freesound.org/s/346695/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "body-2",
+   "kind": "body",
+   "file": "body-2.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 1.1133,
+   "lead": 0.05,
+   "gainDb": -0.27,
+   "levelDb": -12.82,
+   "peakDb": -1,
+   "bytes": 13793,
+   "source": {
+    "id": "fs-504626",
+    "title": "BODY FALL - V HVY - DIRT",
+    "author": "leonelmail",
+    "page": "https://freesound.org/s/504626/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "runover-0",
+   "kind": "runover",
+   "file": "runover-0.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.3594,
+   "lead": 0.0251,
+   "gainDb": -1,
+   "levelDb": -12.41,
+   "peakDb": -1,
+   "bytes": 4702,
+   "source": {
+    "id": "fs-447922",
+    "title": "Thud / Falling on wooden floor / Snapping, breaking neck",
+    "author": "Breviceps",
+    "page": "https://freesound.org/s/447922/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "runover-1",
+   "kind": "runover",
+   "file": "runover-1.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.271,
+   "lead": 0.0254,
+   "gainDb": -3.79,
+   "levelDb": -12,
+   "peakDb": -4.68,
+   "bytes": 3762,
+   "source": {
+    "id": "kenney-impact",
+    "title": "Impact Sounds (1.0)",
+    "author": "Kenney",
+    "page": "https://kenney.nl/assets/impact-sounds",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "crash-0",
+   "kind": "crash",
+   "file": "crash-0.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.5398,
+   "lead": 0.0233,
+   "gainDb": -4.99,
+   "levelDb": -12,
+   "peakDb": -5.58,
+   "bytes": 6896,
+   "source": {
+    "id": "fs-151624",
+    "title": "Clank Car Crash Collision",
+    "author": "qubodup",
+    "page": "https://freesound.org/s/151624/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "crash-1",
+   "kind": "crash",
+   "file": "crash-1.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 1.9959,
+   "lead": 0.0247,
+   "gainDb": -1.62,
+   "levelDb": -12,
+   "peakDb": -2.08,
+   "bytes": 24451,
+   "source": {
+    "id": "fs-592388",
+    "title": "Car Crash (with Glass)",
+    "author": "magnuswaker",
+    "page": "https://freesound.org/s/592388/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "crash-2",
+   "kind": "crash",
+   "file": "crash-2.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 1.9994,
+   "lead": 0.025,
+   "gainDb": 2.6,
+   "levelDb": -12,
+   "peakDb": -1.5,
+   "bytes": 24451,
+   "source": {
+    "id": "fs-420356",
+    "title": "Crash.wav",
+    "author": "CogFireStudios",
+    "page": "https://freesound.org/s/420356/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "screech-0",
+   "kind": "screech",
+   "file": "screech-0.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 1.5223,
+   "lead": 0.0251,
+   "gainDb": 0.71,
+   "levelDb": -12,
+   "peakDb": -2.51,
+   "bytes": 18808,
+   "source": {
+    "id": "fs-104026",
+    "title": "Tires Squeaking.aif",
+    "author": "RutgerMuller",
+    "page": "https://freesound.org/s/104026/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "screech-1",
+   "kind": "screech",
+   "file": "screech-1.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 1.0106,
+   "lead": 0.0258,
+   "gainDb": -3.58,
+   "levelDb": -12,
+   "peakDb": -3.58,
+   "bytes": 12539,
+   "source": {
+    "id": "fs-233558",
+    "title": "[SFX] car screech 2",
+    "author": "waveplaySFX",
+    "page": "https://freesound.org/s/233558/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "screech-2",
+   "kind": "screech",
+   "file": "screech-2.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 1.6458,
+   "lead": 0.0283,
+   "gainDb": 3.27,
+   "levelDb": -12,
+   "peakDb": -2.2,
+   "bytes": 20376,
+   "source": {
+    "id": "fs-536769",
+    "title": "Tire.ogg",
+    "author": "egomassive",
+    "page": "https://freesound.org/s/536769/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "horn-0",
+   "kind": "horn",
+   "file": "horn-0.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.524,
+   "lead": 0.0251,
+   "gainDb": -0.45,
+   "levelDb": -12,
+   "peakDb": -3.36,
+   "bytes": 6896,
+   "source": {
+    "id": "fs-434878",
+    "title": "Car Honking",
+    "author": "MicktheMicGuy",
+    "page": "https://freesound.org/s/434878/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "horn-1",
+   "kind": "horn",
+   "file": "horn-1.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.4245,
+   "lead": 0.0251,
+   "gainDb": -6.4,
+   "levelDb": -12,
+   "peakDb": -6.4,
+   "bytes": 5642,
+   "source": {
+    "id": "fs-423990",
+    "title": "Car horn beep beep two beeps honk honk",
+    "author": "AmishRob",
+    "page": "https://freesound.org/s/423990/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "horn-2",
+   "kind": "horn",
+   "file": "horn-2.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.9194,
+   "lead": 0.0251,
+   "gainDb": 16.59,
+   "levelDb": -12,
+   "peakDb": -3.58,
+   "bytes": 11598,
+   "source": {
+    "id": "fs-32417",
+    "title": "car_horn.wav",
+    "author": "KRAFTWERK2K1",
+    "page": "https://freesound.org/s/32417/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "horn-3",
+   "kind": "horn",
+   "file": "horn-3.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.404,
+   "lead": 0.0251,
+   "gainDb": 5.03,
+   "levelDb": -12,
+   "peakDb": -1.04,
+   "bytes": 5329,
+   "source": {
+    "id": "fs-170243",
+    "title": "Car Horn.wav",
+    "author": "BeatsbyCasper",
+    "page": "https://freesound.org/s/170243/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "scream-0",
+   "kind": "scream",
+   "file": "scream-0.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 1.9902,
+   "lead": 0.0327,
+   "gainDb": 4.64,
+   "levelDb": -12,
+   "peakDb": -4.15,
+   "bytes": 24451,
+   "source": {
+    "id": "fs-235592",
+    "title": "Girl_Scream.wav",
+    "author": "tcrocker68",
+    "page": "https://freesound.org/s/235592/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "scream-1",
+   "kind": "scream",
+   "file": "scream-1.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.684,
+   "lead": 0.0251,
+   "gainDb": -6.55,
+   "levelDb": -12,
+   "peakDb": -7.44,
+   "bytes": 8777,
+   "source": {
+    "id": "fs-241573",
+    "title": "short scream.wav",
+    "author": "Reitanna",
+    "page": "https://freesound.org/s/241573/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "scream-2",
+   "kind": "scream",
+   "file": "scream-2.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 1.871,
+   "lead": 0.0251,
+   "gainDb": -1.35,
+   "levelDb": -12,
+   "peakDb": -2.18,
+   "bytes": 22883,
+   "source": {
+    "id": "fs-845164",
+    "title": "Woman Screaming",
+    "author": "DanJFilms",
+    "page": "https://freesound.org/s/845164/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "scream-3",
+   "kind": "scream-low",
+   "file": "scream-3.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 2.1493,
+   "lead": 0.025,
+   "gainDb": -4.95,
+   "levelDb": -12,
+   "peakDb": -6.16,
+   "bytes": 26331,
+   "source": {
+    "id": "fs-169628",
+    "title": "Male voice screaming loudly",
+    "author": "Dinsfire",
+    "page": "https://freesound.org/s/169628/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "gasp-0",
+   "kind": "gasp",
+   "file": "gasp-0.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.6426,
+   "lead": 0.0251,
+   "gainDb": 0.87,
+   "levelDb": -12,
+   "peakDb": -1.14,
+   "bytes": 8150,
+   "source": {
+    "id": "fs-341908",
+    "title": "Gasp.",
+    "author": "bacruz666",
+    "page": "https://freesound.org/s/341908/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "gasp-1",
+   "kind": "gasp",
+   "file": "gasp-1.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 1.1439,
+   "lead": 0.0251,
+   "gainDb": 8.08,
+   "levelDb": -12,
+   "peakDb": -3.63,
+   "bytes": 14106,
+   "source": {
+    "id": "fs-207779",
+    "title": "Gasp.wav",
+    "author": "Dvideoguy",
+    "page": "https://freesound.org/s/207779/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "pain-0",
+   "kind": "pain-low",
+   "file": "pain-0.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.6358,
+   "lead": 0.0252,
+   "gainDb": 1.4,
+   "levelDb": -12,
+   "peakDb": -2.8,
+   "bytes": 8150,
+   "source": {
+    "id": "fs-416838",
+    "title": "Grunt2 - Death Pain.wav",
+    "author": "tonsil5",
+    "page": "https://freesound.org/s/416838/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "pain-1",
+   "kind": "pain-low",
+   "file": "pain-1.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.3271,
+   "lead": 0.0251,
+   "gainDb": -1.19,
+   "levelDb": -12,
+   "peakDb": -2.44,
+   "bytes": 4389,
+   "source": {
+    "id": "fs-416839",
+    "title": "Grunt1 - Death Pain.wav",
+    "author": "tonsil5",
+    "page": "https://freesound.org/s/416839/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "step-0",
+   "kind": "step",
+   "file": "step-0.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.1059,
+   "lead": 0.0251,
+   "gainDb": 4.22,
+   "levelDb": -17.12,
+   "peakDb": -1,
+   "bytes": 1881,
+   "source": {
+    "id": "kenney-impact",
+    "title": "Impact Sounds (1.0)",
+    "author": "Kenney",
+    "page": "https://kenney.nl/assets/impact-sounds",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "step-1",
+   "kind": "step",
+   "file": "step-1.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.1047,
+   "lead": 0.0251,
+   "gainDb": 5.57,
+   "levelDb": -17.74,
+   "peakDb": -1,
+   "bytes": 1881,
+   "source": {
+    "id": "kenney-impact",
+    "title": "Impact Sounds (1.0)",
+    "author": "Kenney",
+    "page": "https://kenney.nl/assets/impact-sounds",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "step-2",
+   "kind": "step",
+   "file": "step-2.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.0668,
+   "lead": 0.0251,
+   "gainDb": 5.01,
+   "levelDb": -18.64,
+   "peakDb": -1,
+   "bytes": 1254,
+   "source": {
+    "id": "kenney-impact",
+    "title": "Impact Sounds (1.0)",
+    "author": "Kenney",
+    "page": "https://kenney.nl/assets/impact-sounds",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "step-3",
+   "kind": "step",
+   "file": "step-3.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.1105,
+   "lead": 0.0251,
+   "gainDb": 5.07,
+   "levelDb": -17.42,
+   "peakDb": -1,
+   "bytes": 1881,
+   "source": {
+    "id": "kenney-impact",
+    "title": "Impact Sounds (1.0)",
+    "author": "Kenney",
+    "page": "https://kenney.nl/assets/impact-sounds",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "step-4",
+   "kind": "step",
+   "file": "step-4.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.078,
+   "lead": 0.0251,
+   "gainDb": 4.33,
+   "levelDb": -17.09,
+   "peakDb": -1,
+   "bytes": 1254,
+   "source": {
+    "id": "kenney-impact",
+    "title": "Impact Sounds (1.0)",
+    "author": "Kenney",
+    "page": "https://kenney.nl/assets/impact-sounds",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "gunshot-0",
+   "kind": "gunshot",
+   "file": "gunshot-0.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 1.0763,
+   "lead": 0.0234,
+   "gainDb": -9.14,
+   "levelDb": -12,
+   "peakDb": -9.14,
+   "bytes": 13479,
+   "source": {
+    "id": "fs-427592",
+    "title": "9mm pistol shot",
+    "author": "michorvath",
+    "page": "https://freesound.org/s/427592/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "gunshot-1",
+   "kind": "gunshot",
+   "file": "gunshot-1.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 1.2,
+   "lead": 0.0175,
+   "gainDb": -10.27,
+   "levelDb": -12,
+   "peakDb": -10.27,
+   "bytes": 14733,
+   "source": {
+    "id": "fs-253736",
+    "title": "Pistol Shot",
+    "author": "Kodack",
+    "page": "https://freesound.org/s/253736/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "gunshot-2",
+   "kind": "gunshot",
+   "file": "gunshot-2.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.4543,
+   "lead": 0.0251,
+   "gainDb": -0.69,
+   "levelDb": -12.34,
+   "peakDb": -1,
+   "bytes": 5956,
+   "source": {
+    "id": "fs-668348",
+    "title": "handgun-one-shot.wav",
+    "author": "DeltaCode",
+    "page": "https://freesound.org/s/668348/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "revolver-0",
+   "kind": "gunshot-revolver",
+   "file": "revolver-0.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.618,
+   "lead": 0.025,
+   "gainDb": -1.19,
+   "levelDb": -12,
+   "peakDb": -1.25,
+   "bytes": 7837,
+   "source": {
+    "id": "fs-683186",
+    "title": "357 Magnum Revolver Gunshot",
+    "author": "Shark_Anthony",
+    "page": "https://freesound.org/s/683186/",
+    "licence": "CC0-1.0"
+   }
+  },
+  {
+   "name": "ricochet-0",
+   "kind": "ricochet",
+   "file": "ricochet-0.mp3",
+   "loop": false,
+   "channels": 1,
+   "duration": 0.5868,
+   "lead": 0.0252,
+   "gainDb": 1.94,
+   "levelDb": -17.33,
+   "peakDb": -1,
+   "bytes": 7523,
+   "source": {
+    "id": "fs-345413",
+    "title": "Bullet_Ricochet_01",
+    "author": "Artmasterrich",
+    "page": "https://freesound.org/s/345413/",
+    "licence": "CC0-1.0"
+   }
+  }
+ ]
+}

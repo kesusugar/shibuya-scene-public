@@ -1,0 +1,31 @@
+CMU Graphics Lab Motion Capture Database
+========================================
+
+Source:      CMU Graphics Lab Motion Capture Database, http://mocap.cs.cmu.edu
+Conversion:  Motionbuilder-friendly BVH conversion, 2010 release (READMEFIRST v1.1), by Bruce Hahne
+             (cgspeed). The files were taken from a mirror of that release
+             (github.com/una-dinosauria/cmu-mocap); see docs/RUN5-6-CMU-RUN-POC-2026-09-21.md.
+Terms:       evidence/run5-6-cmu/CMU-READMEFIRST.txt, "USAGE RIGHTS" (quoted from the file):
+
+  CMU places no restrictions on the use of the original dataset, and I (Bruce) place no
+  additional restrictions on the use of this particular BVH conversion.
+
+  Here's the relevant paragraph from mocap.cs.cmu.edu:
+
+    Use this data!  This data is free for use in research and commercial projects worldwide.
+    If you publish results obtained using this data, we would appreciate it if you would send
+    the citation to your published paper to [the address given in the file], and also would add
+    this text to your acknowledgments section: "The data used in this project was obtained from
+    mocap.cs.cmu.edu. The database was created with funding from NSF EIA-0196217."
+
+Acknowledgment (as requested):
+
+  The data used in this project was obtained from mocap.cs.cmu.edu.
+  The database was created with funding from NSF EIA-0196217.
+
+Used in this repository (retargeted and resampled onto the Quaternius character; the raw data is
+not redistributed):
+  - trial 02_07  katana guard and cut  (assets/character/cmu-weapons/katana-*.json)
+  - trial 80_03  rifle raise and shouldered hold  (assets/character/cmu-weapons/rifle-*.json)
+  - trial 16_45  running legs of the hybrid run  (assets/character/hybrid-run.json)
+  all baked into public/data/character/citizen.glb (clip provenance in public/data/character/citizen.json).

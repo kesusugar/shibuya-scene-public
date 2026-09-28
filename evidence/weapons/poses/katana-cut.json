@@ -1,0 +1,16 @@
+{
+ "url": "http://<local>/qa/gta-upgrade/weaponbench.html?pose=katana-cut",
+ "ready": true,
+ "bench": {
+  "poses": [
+   "katana-cut"
+  ],
+  "lines": [
+   "front | player's right | behind | player's left",
+   "katana-cut: katana cut at its peak (0.447s of 1.533s)  | grip-to-palm 0.7 cm"
+  ],
+  "calls": 8
+ },
+ "console": [],
+ "errors": 0
+}

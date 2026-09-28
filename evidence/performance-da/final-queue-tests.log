@@ -1,0 +1,20 @@
+✔ Task A read-only clipping queries preserve holes, edges, orientation and source arrays without slice (11.114594ms)
+✔ Task D asynchronous jobs serialize through completion and a paint boundary (0.854419ms)
+✔ Task D chunks preserve synchronous result and resume exactly once per yield (0.32319ms)
+✔ Task D disposal during asynchronous construction releases stale result (4.152526ms)
+✔ Task D disposal resolves all waiting promises during an in-flight async job (0.318363ms)
+✔ S14 valid quality and bounded DPR retain a MEDIUM default at high device DPR (2.026149ms)
+✔ S14 frame gate skips rendering and update work while preserving elapsed simulation time (0.467284ms)
+✔ S14 build queue yields one job at a time and cancels pending work on disposal (0.43756ms)
+✔ S14 deferred quality changes coalesce rapid input before rebuilding decorative modules (0.337661ms)
+✔ S14 scheduled module cannot resurrect after disable or disposal (0.594523ms)
+✔ S14 baked wet data matches source and day/night/postprocess switches preserve pooled objects (24.074135ms)
+✔ S14 existing dynamic profile counts and far throttling retained; no later effects/gameplay (0.803303ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 169.164086

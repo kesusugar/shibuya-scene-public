@@ -1,0 +1,6 @@
+S12 browser QA: BLOCKED / UNVERIFIED.
+Supervised preview startup succeeded. HIGH / CAM-02 day navigation completed.
+Console capture failed: CDP operation get tabs timed out after 20000ms.
+No repeated connection attempts or lighting changes to compensate for the timeout.
+DAY/NIGHT CAM-02/03, CAM-04, CAM-05 and CAM-07 visual results, shader rendering,
+console error count and FPS remain UNVERIFIED.

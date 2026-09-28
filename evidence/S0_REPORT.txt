@@ -1,0 +1,29 @@
+RUN S0 report — 2026-09-08
+Status: implementation saved; S0 acceptance pending.
+Input: all three supplied requirements / RUN plan / acceptance matrix files read.
+Scope: independent Shibuya Scene Reconstruction POC. Existing GTA project untouched; no GTA implementation, no deployment, no S1 implementation.
+
+Implemented: world/dynamic/overlay groups; initial HIGH/MEDIUM/LOW profiles; renderer.info stats panel; Orbit inspection camera and 8 required fixed cameras plus station view; module registry with only/skip selection, toggles, failure isolation and disposal; time state stub with callbacks.
+
+Browser evidence:
+- Page and controls render.
+- 8 fixed camera selection states verified; screenshots stored (UI only, not rendered scene validation). CAM07/08 recaptured under only=ground,buildings&skip=ground&camera=photo&time=day&tier=low following a browser connection interruption.
+- URL correctly selects LOW, Photo, explicit DAY; only buildings enabled.
+- Ground switch checked=true and false verified.
+- Photo click sets NIGHT; time transition covered by unit tests.
+- Cloud browser reported GL_VENDOR=Disabled / GL_RENDERER=Disabled / BindToCurrentSequence failed when WebGLRenderer was first constructed.
+- Added capability preflight and truthful unavailable state; no fallback rendering or invented FPS.
+- Final inspected error log contained browser-extension errors only, but full WebGL-path Console Error 0 remains UNVERIFIED.
+
+Acceptance:
+empty scene WebGL launch: BLOCKED
+camera control selection: PASS; rendered camera composition: BLOCKED
+stats panel: PASS; FPS/triangles/drawCalls/geometries/textures measurement: BLOCKED (N/A)
+module toggle and URL selection: PASS (stubs)
+time state: PASS (stub)
+Console Error 0 on graphics path: BLOCKED
+build and automated tests: see accompanying test log.
+
+No performance target claim: cloud environment is not the user's Windows/Iris Xe PC. No five-minute performance/resize/context restoration claim. S0 screenshots document unavailable graphics and are not evidence of visual reconstruction. Camera geographic calibration is pending S1+.
+
+Next action: validate this same S0 source in WebGL2-capable browser; inspect empty scene/grid, all cameras, stats, resize, reload and console. Do not deploy or begin S1 without instruction.

@@ -1,0 +1,11 @@
+{
+  "active": 371,
+  "assigned": 223,
+  "destinations": 49,
+  "regions": {
+    "station": 13,
+    "hachiko": 121,
+    "center-gai": 44,
+    "commercial": 193
+  }
+}

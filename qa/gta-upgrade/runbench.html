@@ -1,0 +1,158 @@
+<!doctype html><meta charset="utf-8"><title>run</title>
+<!--
+  The run, from four angles, at the speed the game actually uses.
+  RUN 5.5 STEP 4/9. Four camera views of one running character on flat road, plus the numbers
+  that describe what is being looked at. `?clip=` selects which clip drives the Run slot, so a
+  candidate can be photographed through the same harness as the incumbent.
+  Serve the repository root: /qa/gta-upgrade/runbench.html?view=side&speed=4.2
+-->
+<style>html,body{margin:0;background:#1b1f26;overflow:hidden}canvas{display:block}
+#l{position:fixed;left:8px;top:6px;color:#e6edf5;font:11px/1.45 monospace;white-space:pre;z-index:9;text-shadow:0 1px 2px #000}
+.tick{position:absolute;color:#9fb0c2;font:10px monospace;z-index:9;text-shadow:0 1px 3px #000}
+.row{position:absolute;color:#cfd8e3;font:11px monospace;z-index:9;text-shadow:0 1px 3px #000}</style>
+<div id="l">loading…</div>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as T from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+import {humanoidCitizen} from '/src/player/character-asset.mjs';
+import {createPlayerFigure} from '/src/player/figure.mjs';
+import {createPlayer,PLAYER} from '/src/player/controller.mjs';
+import {createContactShadows} from '/src/life/shadows.mjs';
+
+const P=new URLSearchParams(location.search);
+const SPEED=Number(P.get('speed')??PLAYER.run);
+const IK=P.get('ik')!=='0';
+const COLUMNS=Number(P.get('columns')??6);
+const CELL=Number(P.get('cell')??250);
+const LABEL=P.get('label')??'current';
+
+// Flat road at Shibuya's own 2 cm, so the floor is the same plane RUN 5 measured against.
+const ROAD=.02;
+const ctx={heightExact:()=>ROAD,height:()=>ROAD,solid:()=>false,safe:()=>true,onRoad:()=>true};
+
+// Four views of the same run. `feet` is the one that decides whether a foot is on the road.
+const VIEWS=[
+ {name:'side',        eye:[3.4,.95,0],    at:[0,.85,0]},
+ {name:'rear 3/4',    eye:[1.9,1.35,-2.6],at:[0,.85,0]},
+ {name:'front 3/4',   eye:[1.9,1.35,2.6], at:[0,.85,0]},
+ {name:'feet',        eye:[2.0,.18,.55],  at:[0,.06,0]}
+];
+
+const W=COLUMNS*CELL,H=VIEWS.length*CELL;
+const renderer=new T.WebGLRenderer({antialias:true});
+renderer.setSize(W,H);renderer.outputColorSpace=T.SRGBColorSpace;
+renderer.toneMapping=T.ACESFilmicToneMapping;renderer.setScissorTest(true);
+document.body.appendChild(renderer.domElement);
+const scene=new T.Scene();scene.background=new T.Color(0x232830);
+const pmrem=new T.PMREMGenerator(renderer);
+scene.environment=pmrem.fromScene(new RoomEnvironment(),.04).texture;
+scene.add(new T.HemisphereLight(0xcfe0ff,0x3a3f47,1.5));
+const key=new T.DirectionalLight(0xfff4e2,2.2);key.position.set(3,6,4);scene.add(key);
+{
+ const g=new T.PlaneGeometry(120,120).rotateX(-Math.PI/2);
+ const m=new T.Mesh(g,new T.MeshStandardMaterial({color:0x4e535b,roughness:.96}));
+ m.position.y=ROAD;scene.add(m);
+ const grid=new T.GridHelper(120,240,0x5f6874,0x555d68);grid.position.y=ROAD+.001;scene.add(grid);
+}
+const shadow=createContactShadows(1);scene.add(shadow.mesh);
+
+const report=await (await fetch('/public/data/character/citizen.json')).json();
+const bytes=await (await fetch('/public/data/character/citizen.glb')).arrayBuffer();
+const gltf=await new Promise((res,rej)=>new GLTFLoader().parse(bytes,'',res,rej));
+const asset=humanoidCitizen(gltf,report);
+const figure=createPlayerFigure(asset,undefined,{ctx});
+figure.footIK?.setEnabled(IK);
+scene.add(figure.root);
+
+const player=createPlayer(ctx,{start:[0,0],heading:0});
+player.place(0,0,0);
+const camera=new T.PerspectiveCamera(30,1,.05,200);
+const DT=1/60;
+const BALL_TO_SOLE=.0215;
+const probe=new T.Vector3();
+const sole=n=>{const b=figure.root.getObjectByName(n);if(!b)return 0;
+ b.updateWorldMatrix(true,false);return probe.setFromMatrixPosition(b.matrixWorld).y-BALL_TO_SOLE;};
+
+// Hold the requested speed: `forward` is an axis, so a speed below the run tier is reached by
+// asking for less of it rather than by changing PLAYER.run, which is fixed.
+const running=SPEED>PLAYER.walk;
+const forward=running?Math.min(1,SPEED/PLAYER.run):Math.min(1,SPEED/PLAYER.walk);
+const tick=()=>{player.setTouch({forward,strafe:0,running});player.step(DT);
+ figure.update(player.state,DT);figure.root.updateMatrixWorld(true);
+ shadow.begin();shadow.add(player.state.x,player.state.y,player.state.z,PLAYER.radius*1.35,0);shadow.end();};
+for(let i=0;i<420;i++)tick();      // settle: these are steady-state numbers, not a run-up
+
+// One full stride's worth of frames, photographed across every view at the same instants.
+const st0=figure.gait.stance();
+const cycle=figure.gait.period??1;
+const frames=[];
+{
+ const want=COLUMNS;
+ const span=Math.max(1,Math.round(cycle*60));
+ for(let i=0;i<span;i++){tick();
+  if(frames.length<want&&i%Math.max(1,Math.floor(span/want))===0)
+   frames.push({x:player.state.x,z:player.state.z,l:sole('ball_l'),r:sole('ball_r'),
+    phase:figure.gait.phase,speed:player.state.speed,action:figure.action});}
+}
+// Replay so each view sees the same poses.
+const stats={worst:0,mean:0,n:0};
+for(const [r,view] of VIEWS.entries()){
+ figure.reset();
+ const replay=createPlayer(ctx,{start:[0,0],heading:0});replay.place(0,0,0);
+ const step=()=>{replay.setTouch({forward,strafe:0,running});replay.step(DT);
+  figure.update(replay.state,DT);figure.root.updateMatrixWorld(true);
+  shadow.begin();shadow.add(replay.state.x,replay.state.y,replay.state.z,PLAYER.radius*1.35,0);shadow.end();};
+ for(let i=0;i<420;i++)step();
+ const cy=H-(r+1)*CELL;
+ const span=Math.max(1,Math.round(cycle*60));
+ let column=0;
+ for(let i=0;i<span&&column<COLUMNS;i++){
+  step();
+  if(i%Math.max(1,Math.floor(span/COLUMNS))!==0)continue;
+  const s=replay.state,cx=column*CELL;
+  const l=sole('ball_l'),rr=sole('ball_r');
+  const low=Math.min(l,rr),below=(ROAD-low)*1000;
+  if(r===0){stats.worst=Math.max(stats.worst,below);stats.mean+=Math.max(0,below);stats.n++;}
+  renderer.setViewport(cx,cy,CELL,CELL);renderer.setScissor(cx,cy,CELL,CELL);
+  camera.position.set(s.x+view.eye[0],view.eye[1],s.z+view.eye[2]);
+  camera.up.set(0,1,0);camera.lookAt(s.x+view.at[0],view.at[1],s.z+view.at[2]);
+  camera.updateProjectionMatrix();
+  renderer.render(scene,camera);
+  const tickEl=document.createElement('div');tickEl.className='tick';
+  tickEl.textContent=`${s.speed.toFixed(2)}m/s  sole ${below>0?('-'+below.toFixed(0)):'+'+(-below).toFixed(0)}mm`;
+  tickEl.style.left=(cx+5)+'px';tickEl.style.top=(H-cy-16)+'px';
+  document.body.appendChild(tickEl);
+  column++;
+ }
+ const nm=document.createElement('div');nm.className='row';
+ nm.textContent=view.name;
+ nm.style.left='5px';nm.style.top=(H-cy-CELL+4)+'px';
+ document.body.appendChild(nm);
+}
+const stride=figure.gait.stride??0;
+const step=stride/2, spm=120/cycle;
+// The reference, computed from the speed rather than remembered.
+//
+// At a fixed speed step length and cadence are the SAME FACT -- step = speed / (spm/60) -- so
+// a clip cannot get them wrong independently, and quoting both as separate defects double
+// counts one. The only free variable is cadence. People running at 4.2 m/s turn their legs
+// over at roughly 160-170 spm, which fixes the step; printing that range next to the measured
+// value is what stops a plausible-sounding pair of numbers being compared to a pair that never
+// described the same runner. An earlier note compared a running cadence against a WALKING step
+// length and concluded the clip was 2.4x too long; it is about 1.3x.
+const REF_SPM=[160,170];
+const refStep=REF_SPM.map(c=>SPEED/(c/60));            // [long, short]
+const ratio=step/((refStep[0]+refStep[1])/2);
+document.getElementById('l').textContent=
+ `RUN slot "${LABEL}"   target ${SPEED.toFixed(2)} m/s   foot IK ${IK?'on':'off'}   floor = road at ${ROAD*1000} mm\n`+
+ `measured: step ${step.toFixed(2)} m   cadence ${spm.toFixed(0)} spm   `+
+ `stride ${stride.toFixed(2)} m   cycle ${cycle.toFixed(3)} s   duty ${st0.duty.toFixed(3)}\n`+
+ `reference at ${SPEED.toFixed(1)} m/s: ${refStep[1].toFixed(2)}-${refStep[0].toFixed(2)} m `+
+ `at ${REF_SPM[1]}-${REF_SPM[0]} spm   ->  this clip is ${ratio.toFixed(2)}x the step, `+
+ `${(spm/((REF_SPM[0]+REF_SPM[1])/2)).toFixed(2)}x the cadence (one fact, two ways)\n`+
+ `sole below the road across one stride: worst ${stats.worst.toFixed(0)} mm, `+
+ `mean ${(stats.mean/Math.max(1,stats.n)).toFixed(0)} mm`;
+document.title='ready';
+</script>

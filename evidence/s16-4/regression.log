@@ -1,0 +1,20 @@
+✔ S12 one TimeState controls sky exposure sun/moon ambient and restores DAY (6.433647ms)
+✔ S12 existing signage and vehicle lamp materials respond without adding meshes (4.382204ms)
+✔ S12 windows use deterministic partial occupancy and toggle only a shared uniform (1.406813ms)
+✔ S12 late module loads inherit NIGHT; removal and environment toggles restore owned state (1.41847ms)
+✔ S12 train window and end lamps preserve clipping geometry counts and movement (195.052314ms)
+✔ S12 profiles retain crowd train and traffic source ownership; no S14 postprocess or GTA (2.967495ms)
+✔ S16.3 GTAO uses bounded samples, denoise and per-draw emitter exclusion without a mask scene pass (33.583675ms)
+✔ S16.3 high shadows and four non-shadow local lights follow DAY NIGHT and tier transitions (5.635814ms)
+✔ S16.3 rounded instanced crowd shares eight geometry pools and three response materials (24.28267ms)
+✔ S16.3 PBR wall glass shop and trim remain shared and differentiated (3273.208894ms)
+✔ S16.3 halos are limited to existing Hero screens and stay out of AO (2.997721ms)
+✔ S16.3 filtering is capped by renderer and removed roots restore shadow ownership (2.909217ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4027.91504

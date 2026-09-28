@@ -1,0 +1,18 @@
+{
+  "status": "BLOCKED",
+  "referenceSite": "Reference URL retrieval failed; supplied spec and conversation screenshots used. No source/assets copied.",
+  "browser": "Existing QA tab found; one preview navigation timed out. No retry.",
+  "console": "Not verified in this run because navigation did not complete.",
+  "priorEnvironment": "WebGL2 previously unavailable",
+  "gpuMetrics": null,
+  "cameras": [
+    "CAM03 DAY",
+    "CAM03 NIGHT",
+    "CAM02 DAY",
+    "CAM02 NIGHT",
+    "CAM01 NIGHT",
+    "CAM05 DAY/NIGHT"
+  ],
+  "baselineImages": [],
+  "acceptance": "User real-device rendered screenshots required for final visual PASS."
+}

@@ -1,0 +1,38 @@
+{
+  "high": {
+    "tier": "high",
+    "cranes": 4,
+    "zones": 4,
+    "instances": 572,
+    "triangles": 6864,
+    "drawCalls": 3,
+    "geometries": 2,
+    "materials": 2,
+    "textures": 0,
+    "lights": 0
+  },
+  "medium": {
+    "tier": "medium",
+    "cranes": 3,
+    "zones": 3,
+    "instances": 399,
+    "triangles": 4788,
+    "drawCalls": 2,
+    "geometries": 2,
+    "materials": 2,
+    "textures": 0,
+    "lights": 0
+  },
+  "low": {
+    "tier": "low",
+    "cranes": 1,
+    "zones": 2,
+    "instances": 71,
+    "triangles": 852,
+    "drawCalls": 2,
+    "geometries": 2,
+    "materials": 2,
+    "textures": 0,
+    "lights": 0
+  }
+}

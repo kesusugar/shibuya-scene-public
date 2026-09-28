@@ -1,0 +1,16 @@
+{
+ "url": "http://<local>/qa/gta-upgrade/weaponbench.html?pose=holstered",
+ "ready": true,
+ "bench": {
+  "poses": [
+   "holstered"
+  ],
+  "lines": [
+   "front | player's right | behind | player's left",
+   "holstered: fists: pistol at the hip, katana on the back"
+  ],
+  "calls": 7
+ },
+ "console": [],
+ "errors": 0
+}

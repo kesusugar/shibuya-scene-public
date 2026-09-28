@@ -1,0 +1,933 @@
+{
+ "query": "qa=1&perf=1&tier=high&time=day&camera=scramble",
+ "results": {
+  "a-idle": {
+   "note": "on foot, standing at the start, nothing happening",
+   "cpu": {
+    "frames": 120,
+    "mean": 17.99,
+    "p50": 17.1,
+    "p95": 31.9,
+    "max": 39.9,
+    "fps": 55.6
+   },
+   "sections": {
+    "s1-arsenal": 0.031,
+    "melee": 0.267,
+    "figure": 0.256,
+    "s6-radio": 0.004,
+    "s6-vehicle-visual": 0.046,
+    "player": 0.799,
+    "module:geo": 0.002,
+    "module:data": 0,
+    "module:ground": 0.002,
+    "module:buildings": 0.003,
+    "module:station": 0,
+    "module:signs": 0.001,
+    "module:streetscape": 0,
+    "module:traffic": 2.842,
+    "module:life": 13.091,
+    "module:trains": 0.043,
+    "module:construction": 0.002,
+    "module:environment": 0.002,
+    "module:nightglow": 0.001,
+    "module:postprocess": 0.001,
+    "module:perf": 0,
+    "module:camera": 0.001,
+    "module:heroes": 0,
+    "module:stationDetail": 0.001,
+    "hud": 0.022,
+    "s2-reactions": 0.006,
+    "s4-onlookers": 0.057,
+    "s4-aftermath": 0.091,
+    "s3-police": 0.665,
+    "s3-heli": 0,
+    "player-late": 0.972,
+    "drivers": 0.03,
+    "camera": 0.112,
+    "render": 0.037
+   },
+   "stars": 0,
+   "maxStars": 0,
+   "shots": 0,
+   "alive": true,
+   "crowd": 1978,
+   "near": {
+    "active": 8,
+    "capacity": 8,
+    "limit": 32,
+    "humanoidLimit": 8,
+    "ikLimit": 8,
+    "humanoidSlots": 8,
+    "humanoidsActive": 8,
+    "bakedActive": 0,
+    "footIK": 8,
+    "humanAssetReady": true,
+    "archetypes": 4,
+    "archetypeSlots": {
+     "casual": 2,
+     "long hair": 2,
+     "cropped": 2,
+     "short bob": 2
+    },
+    "matched": 2,
+    "rebuilds": 0,
+    "sharedGeometry": true,
+    "drawCallsUpperBound": 32,
+    "triangles": 126456
+   },
+   "hq": {
+    "population": 1969,
+    "lod": "L1",
+    "lods": [
+     "L0",
+     "L1",
+     "L2"
+    ],
+    "byLod": {
+     "L0": 247,
+     "L1": 251,
+     "L2": 1471
+    },
+    "drawCalls": 12,
+    "triangles": 8168908,
+    "vertices": 3889729,
+    "updateMs": 0.3,
+    "stateChanges": 335,
+    "skeletons": 0,
+    "mixers": 0,
+    "byState": {
+     "NORMAL": 1936,
+     "LOOK": 18,
+     "STARTLE": 0,
+     "AVOID": 0,
+     "FLEE": 6,
+     "HIT": 0,
+     "KNOCKDOWN": 0,
+     "DOWNED": 0,
+     "RECOVER": 9
+    },
+    "byArchetype": {
+     "casual": 382,
+     "long hair": 360,
+     "cropped": 370,
+     "short bob": 359
+    },
+    "hq": 1969,
+    "budget": 1978,
+    "moves": 504,
+    "syncMs": 1.7,
+    "threatMs": 0,
+    "candidates": 0,
+    "reacting": 24,
+    "down": 0,
+    "witnessMs": 0,
+    "witnessCandidates": 0,
+    "witnessReacted": 0,
+    "awarenessGridMs": 0.3,
+    "disowned": 0
+   }
+  },
+  "b-firefight": {
+   "note": "the submachine gun firing held into the crowd (marks, casings, smoke, blood, panic, ☆ rising)",
+   "cpu": {
+    "frames": 120,
+    "mean": 36.13,
+    "p50": 29.9,
+    "p95": 68,
+    "max": 120.9,
+    "fps": 27.7
+   },
+   "sections": {
+    "s1-arsenal": 1.493,
+    "melee": 0.102,
+    "figure": 0.537,
+    "s6-radio": 0.004,
+    "s6-vehicle-visual": 0.032,
+    "player": 2.388,
+    "module:geo": 0.004,
+    "module:data": 0.005,
+    "module:ground": 0.002,
+    "module:buildings": 0.002,
+    "module:station": 0.001,
+    "module:signs": 0.002,
+    "module:streetscape": 0.001,
+    "module:traffic": 5.088,
+    "module:life": 26.492,
+    "module:trains": 0.039,
+    "module:construction": 0,
+    "module:environment": 0.002,
+    "module:nightglow": 0.003,
+    "module:postprocess": 0.004,
+    "module:perf": 0.002,
+    "module:camera": 0.002,
+    "module:heroes": 0,
+    "module:stationDetail": 0.001,
+    "hud": 0.042,
+    "s2-reactions": 0.488,
+    "s4-onlookers": 0.001,
+    "s4-aftermath": 0.092,
+    "s3-police": 0.198,
+    "s3-heli": 0.002,
+    "player-late": 1.792,
+    "drivers": 0.053,
+    "camera": 0.138,
+    "render": 0.053
+   },
+   "stars": 2,
+   "maxStars": 2,
+   "shots": 60,
+   "alive": true,
+   "crowd": 1978,
+   "near": {
+    "active": 8,
+    "capacity": 8,
+    "limit": 32,
+    "humanoidLimit": 8,
+    "ikLimit": 8,
+    "humanoidSlots": 8,
+    "humanoidsActive": 8,
+    "bakedActive": 0,
+    "footIK": 8,
+    "humanAssetReady": true,
+    "archetypes": 4,
+    "archetypeSlots": {
+     "casual": 2,
+     "long hair": 2,
+     "cropped": 2,
+     "short bob": 2
+    },
+    "matched": 1,
+    "rebuilds": 0,
+    "sharedGeometry": true,
+    "drawCallsUpperBound": 32,
+    "triangles": 126456
+   },
+   "hq": {
+    "population": 1969,
+    "lod": "L1",
+    "lods": [
+     "L0",
+     "L1",
+     "L2"
+    ],
+    "byLod": {
+     "L0": 153,
+     "L1": 747,
+     "L2": 1069
+    },
+    "drawCalls": 12,
+    "triangles": 8616040,
+    "vertices": 3836883,
+    "updateMs": 0.3,
+    "stateChanges": 18203,
+    "skeletons": 0,
+    "mixers": 0,
+    "byState": {
+     "NORMAL": 528,
+     "LOOK": 1141,
+     "STARTLE": 22,
+     "AVOID": 11,
+     "FLEE": 132,
+     "HIT": 0,
+     "KNOCKDOWN": 0,
+     "DOWNED": 1,
+     "RECOVER": 134
+    },
+    "byArchetype": {
+     "casual": 293,
+     "long hair": 259,
+     "cropped": 266,
+     "short bob": 251
+    },
+    "hq": 1969,
+    "budget": 1978,
+    "moves": 1201,
+    "syncMs": 2.5,
+    "threatMs": 0,
+    "candidates": 0,
+    "reacting": 1300,
+    "down": 1,
+    "witnessMs": 1.3,
+    "witnessCandidates": 1542,
+    "witnessReacted": 3,
+    "awarenessGridMs": 0.3,
+    "disowned": 1
+   }
+  },
+  "c-wanted5": {
+   "note": "☆5 (as many crimes as it takes): the helicopter, units closing, roadblocks",
+   "cpu": {
+    "frames": 120,
+    "mean": 16.52,
+    "p50": 16.3,
+    "p95": 26.3,
+    "max": 29.3,
+    "fps": 60.5
+   },
+   "sections": {
+    "s1-arsenal": 0.031,
+    "melee": 0.173,
+    "figure": 0.25,
+    "s6-radio": 0.002,
+    "s6-vehicle-visual": 0.017,
+    "player": 0.782,
+    "module:geo": 0.002,
+    "module:data": 0.002,
+    "module:ground": 0.002,
+    "module:buildings": 0.001,
+    "module:station": 0.001,
+    "module:signs": 0.001,
+    "module:streetscape": 0,
+    "module:traffic": 2.55,
+    "module:life": 12.457,
+    "module:trains": 0.022,
+    "module:construction": 0.002,
+    "module:environment": 0.001,
+    "module:nightglow": 0.002,
+    "module:postprocess": 0.001,
+    "module:perf": 0,
+    "module:camera": 0.001,
+    "module:heroes": 0,
+    "module:stationDetail": 0,
+    "hud": 0.027,
+    "s2-reactions": 0.099,
+    "s4-onlookers": 0,
+    "s4-aftermath": 0.053,
+    "s3-police": 0.17,
+    "s3-heli": 0.002,
+    "player-late": 0.498,
+    "drivers": 0.022,
+    "camera": 0.104,
+    "render": 0.022
+   },
+   "stars": 3,
+   "maxStars": 3,
+   "shots": 60,
+   "alive": true,
+   "crowd": 1978,
+   "near": {
+    "active": 8,
+    "capacity": 8,
+    "limit": 32,
+    "humanoidLimit": 8,
+    "ikLimit": 8,
+    "humanoidSlots": 8,
+    "humanoidsActive": 8,
+    "bakedActive": 0,
+    "footIK": 8,
+    "humanAssetReady": true,
+    "archetypes": 4,
+    "archetypeSlots": {
+     "casual": 2,
+     "long hair": 2,
+     "cropped": 2,
+     "short bob": 2
+    },
+    "matched": 2,
+    "rebuilds": 0,
+    "sharedGeometry": true,
+    "drawCallsUpperBound": 32,
+    "triangles": 126456
+   },
+   "hq": {
+    "population": 1969,
+    "lod": "L1",
+    "lods": [
+     "L0",
+     "L1",
+     "L2"
+    ],
+    "byLod": {
+     "L0": 362,
+     "L1": 545,
+     "L2": 1062
+    },
+    "drawCalls": 12,
+    "triangles": 10480959,
+    "vertices": 5178205,
+    "updateMs": 0.3,
+    "stateChanges": 19568,
+    "skeletons": 0,
+    "mixers": 0,
+    "byState": {
+     "NORMAL": 1951,
+     "LOOK": 12,
+     "STARTLE": 0,
+     "AVOID": 0,
+     "FLEE": 5,
+     "HIT": 0,
+     "KNOCKDOWN": 0,
+     "DOWNED": 1,
+     "RECOVER": 0
+    },
+    "byArchetype": {
+     "casual": 288,
+     "long hair": 259,
+     "cropped": 266,
+     "short bob": 249
+    },
+    "hq": 1969,
+    "budget": 1978,
+    "moves": 1708,
+    "syncMs": 2,
+    "threatMs": 0,
+    "candidates": 0,
+    "reacting": 17,
+    "down": 1,
+    "witnessMs": 1.3,
+    "witnessCandidates": 1539,
+    "witnessReacted": 1089,
+    "awarenessGridMs": 0.3,
+    "disowned": 1
+   }
+  },
+  "d-aftermath": {
+   "note": "☆0 with the dead still down: onlookers, the ambulance and patrol car",
+   "cpu": {
+    "frames": 120,
+    "mean": 13.16,
+    "p50": 12.6,
+    "p95": 18.1,
+    "max": 67.5,
+    "fps": 76
+   },
+   "sections": {
+    "s1-arsenal": 0.019,
+    "melee": 0.163,
+    "figure": 0.096,
+    "s6-radio": 0,
+    "s6-vehicle-visual": 0.019,
+    "player": 0.881,
+    "module:geo": 0.005,
+    "module:data": 0.001,
+    "module:ground": 0.002,
+    "module:buildings": 0.001,
+    "module:station": 0,
+    "module:signs": 0.003,
+    "module:streetscape": 0.001,
+    "module:traffic": 2.421,
+    "module:life": 9.188,
+    "module:trains": 0.026,
+    "module:construction": 0,
+    "module:environment": 0.003,
+    "module:nightglow": 0.002,
+    "module:postprocess": 0.003,
+    "module:perf": 0.001,
+    "module:camera": 0.002,
+    "module:heroes": 0.001,
+    "module:stationDetail": 0.001,
+    "hud": 0.024,
+    "s2-reactions": 0.003,
+    "s4-onlookers": 0.062,
+    "s4-aftermath": 0.089,
+    "s3-police": 0.158,
+    "s3-heli": 0.002,
+    "player-late": 0.471,
+    "drivers": 0.02,
+    "camera": 0.082,
+    "render": 0.018
+   },
+   "stars": 0,
+   "maxStars": 0,
+   "shots": 60,
+   "alive": false,
+   "crowd": 1977,
+   "near": {
+    "active": 8,
+    "capacity": 8,
+    "limit": 32,
+    "humanoidLimit": 8,
+    "ikLimit": 8,
+    "humanoidSlots": 8,
+    "humanoidsActive": 8,
+    "bakedActive": 0,
+    "footIK": 8,
+    "humanAssetReady": true,
+    "archetypes": 4,
+    "archetypeSlots": {
+     "casual": 2,
+     "long hair": 2,
+     "cropped": 2,
+     "short bob": 2
+    },
+    "matched": 0,
+    "rebuilds": 0,
+    "sharedGeometry": true,
+    "drawCallsUpperBound": 32,
+    "triangles": 126456
+   },
+   "hq": {
+    "population": 1968,
+    "lod": "L1",
+    "lods": [
+     "L0",
+     "L1",
+     "L2"
+    ],
+    "byLod": {
+     "L0": 430,
+     "L1": 428,
+     "L2": 1110
+    },
+    "drawCalls": 12,
+    "triangles": 10920641,
+    "vertices": 5550187,
+    "updateMs": 0.2,
+    "stateChanges": 20035,
+    "skeletons": 0,
+    "mixers": 0,
+    "byState": {
+     "NORMAL": 1968,
+     "LOOK": 0,
+     "STARTLE": 0,
+     "AVOID": 0,
+     "FLEE": 0,
+     "HIT": 0,
+     "KNOCKDOWN": 0,
+     "DOWNED": 0,
+     "RECOVER": 0
+    },
+    "byArchetype": {
+     "casual": 299,
+     "long hair": 276,
+     "cropped": 272,
+     "short bob": 263
+    },
+    "hq": 1968,
+    "budget": 1978,
+    "moves": 1879,
+    "syncMs": 1.9,
+    "threatMs": 0,
+    "candidates": 0,
+    "reacting": 0,
+    "down": 0,
+    "witnessMs": 1.3,
+    "witnessCandidates": 1539,
+    "witnessReacted": 1089,
+    "awarenessGridMs": 0.2,
+    "disowned": 0
+   }
+  },
+  "e-bike-radio": {
+   "note": "riding the motorbike with the radio on (the rider figure, the bike model, the radio scheduling)",
+   "cpu": {
+    "frames": 120,
+    "mean": 16.18,
+    "p50": 16.3,
+    "p95": 25.5,
+    "max": 68.6,
+    "fps": 61.8
+   },
+   "sections": {
+    "s1-arsenal": 0.022,
+    "s6-radio": 0.006,
+    "s6-vehicle-visual": 0.022,
+    "player": 0.871,
+    "module:geo": 0.004,
+    "module:data": 0.002,
+    "module:ground": 0.004,
+    "module:buildings": 0.002,
+    "module:station": 0,
+    "module:signs": 0.003,
+    "module:streetscape": 0.001,
+    "module:traffic": 6.266,
+    "module:life": 8.269,
+    "module:trains": 0.03,
+    "module:construction": 0.002,
+    "module:environment": 0.003,
+    "module:nightglow": 0.002,
+    "module:postprocess": 0,
+    "module:perf": 0.001,
+    "module:camera": 0,
+    "module:heroes": 0.002,
+    "module:stationDetail": 0.001,
+    "hud": 0.026,
+    "s2-reactions": 0.004,
+    "s4-onlookers": 0.058,
+    "s4-aftermath": 0.052,
+    "s3-police": 0.213,
+    "s3-heli": 0.002,
+    "player-late": 0.503,
+    "drivers": 0.029,
+    "camera": 0.123,
+    "render": 0.025,
+    "melee": 0.027,
+    "figure": 0.143
+   },
+   "stars": 1,
+   "maxStars": 1,
+   "shots": 60,
+   "alive": true,
+   "crowd": 1977,
+   "near": {
+    "active": 8,
+    "capacity": 8,
+    "limit": 32,
+    "humanoidLimit": 8,
+    "ikLimit": 8,
+    "humanoidSlots": 8,
+    "humanoidsActive": 8,
+    "bakedActive": 0,
+    "footIK": 8,
+    "humanAssetReady": true,
+    "archetypes": 4,
+    "archetypeSlots": {
+     "casual": 2,
+     "long hair": 2,
+     "cropped": 2,
+     "short bob": 2
+    },
+    "matched": 0,
+    "rebuilds": 0,
+    "sharedGeometry": true,
+    "drawCallsUpperBound": 32,
+    "triangles": 126456
+   },
+   "hq": {
+    "population": 1968,
+    "lod": "L1",
+    "lods": [
+     "L0",
+     "L1",
+     "L2"
+    ],
+    "byLod": {
+     "L0": 222,
+     "L1": 463,
+     "L2": 1283
+    },
+    "drawCalls": 12,
+    "triangles": 8518951,
+    "vertices": 3960425,
+    "updateMs": 0.5,
+    "stateChanges": 20442,
+    "skeletons": 0,
+    "mixers": 0,
+    "byState": {
+     "NORMAL": 1962,
+     "LOOK": 0,
+     "STARTLE": 0,
+     "AVOID": 0,
+     "FLEE": 1,
+     "HIT": 0,
+     "KNOCKDOWN": 0,
+     "DOWNED": 0,
+     "RECOVER": 5
+    },
+    "byArchetype": {
+     "casual": 347,
+     "long hair": 328,
+     "cropped": 312,
+     "short bob": 296
+    },
+    "hq": 1968,
+    "budget": 1978,
+    "moves": 2647,
+    "syncMs": 2.9,
+    "threatMs": 0.6,
+    "candidates": 228,
+    "reacting": 1,
+    "down": 0,
+    "witnessMs": 1.3,
+    "witnessCandidates": 1539,
+    "witnessReacted": 1089,
+    "awarenessGridMs": 0.3,
+    "disowned": 0
+   }
+  },
+  "f-chase": {
+   "note": "a chase mission running (the target car driven over the road field), riding",
+   "cpu": {
+    "frames": 120,
+    "mean": 16.91,
+    "p50": 16.6,
+    "p95": 26.5,
+    "max": 72.7,
+    "fps": 59.1
+   },
+   "sections": {
+    "s1-arsenal": 0.024,
+    "melee": 0.042,
+    "figure": 0.192,
+    "s6-radio": 0.002,
+    "s6-vehicle-visual": 0.03,
+    "player": 0.498,
+    "module:geo": 0.001,
+    "module:data": 0.001,
+    "module:ground": 0.004,
+    "module:buildings": 0.002,
+    "module:station": 0.002,
+    "module:signs": 0.001,
+    "module:streetscape": 0.001,
+    "module:traffic": 6.574,
+    "module:life": 8.902,
+    "module:trains": 0.035,
+    "module:construction": 0.002,
+    "module:environment": 0.002,
+    "module:nightglow": 0.003,
+    "module:postprocess": 0,
+    "module:perf": 0,
+    "module:camera": 0,
+    "module:heroes": 0.001,
+    "module:stationDetail": 0.001,
+    "hud": 0.148,
+    "s5-missions": 0.026,
+    "s2-reactions": 0.003,
+    "s4-onlookers": 0.084,
+    "s4-aftermath": 0.048,
+    "s3-police": 0.207,
+    "s3-heli": 0.002,
+    "player-late": 0.637,
+    "drivers": 0.058,
+    "camera": 0.117,
+    "render": 0.028
+   },
+   "stars": 1,
+   "maxStars": 1,
+   "shots": 60,
+   "alive": true,
+   "crowd": 1976,
+   "near": {
+    "active": 8,
+    "capacity": 8,
+    "limit": 32,
+    "humanoidLimit": 8,
+    "ikLimit": 8,
+    "humanoidSlots": 8,
+    "humanoidsActive": 8,
+    "bakedActive": 0,
+    "footIK": 8,
+    "humanAssetReady": true,
+    "archetypes": 4,
+    "archetypeSlots": {
+     "casual": 2,
+     "long hair": 2,
+     "cropped": 2,
+     "short bob": 2
+    },
+    "matched": 1,
+    "rebuilds": 0,
+    "sharedGeometry": true,
+    "drawCallsUpperBound": 32,
+    "triangles": 126456
+   },
+   "hq": {
+    "population": 1967,
+    "lod": "L1",
+    "lods": [
+     "L0",
+     "L1",
+     "L2"
+    ],
+    "byLod": {
+     "L0": 0,
+     "L1": 520,
+     "L2": 1447
+    },
+    "drawCalls": 8,
+    "triangles": 6037109,
+    "vertices": 2320052,
+    "updateMs": 0.2,
+    "stateChanges": 20442,
+    "skeletons": 0,
+    "mixers": 0,
+    "byState": {
+     "NORMAL": 1967,
+     "LOOK": 0,
+     "STARTLE": 0,
+     "AVOID": 0,
+     "FLEE": 0,
+     "HIT": 0,
+     "KNOCKDOWN": 0,
+     "DOWNED": 0,
+     "RECOVER": 0
+    },
+    "byArchetype": {
+     "casual": 389,
+     "long hair": 356,
+     "cropped": 353,
+     "short bob": 349
+    },
+    "hq": 1967,
+    "budget": 1978,
+    "moves": 3049,
+    "syncMs": 1.6,
+    "threatMs": 0.6,
+    "candidates": 228,
+    "reacting": 0,
+    "down": 0,
+    "witnessMs": 1.3,
+    "witnessCandidates": 1539,
+    "witnessReacted": 1089,
+    "awarenessGridMs": 0.3,
+    "disowned": 0
+   }
+  }
+ },
+ "profiles": {
+  "b-firefight": [
+   [
+    "(program) :0",
+    15.9
+   ],
+   [
+    "(idle) :0",
+    9.2
+   ],
+   [
+    "query src/geo/core.mjs:232",
+    5.8
+   ],
+   [
+    "(garbage collector) :0",
+    4.5
+   ],
+   [
+    "height src/life/network.mjs:78",
+    4.1
+   ],
+   [
+    "vehicleOverlap src/life/simulation.mjs:240",
+    3.6
+   ],
+   [
+    "inRingFast src/life/network.mjs:18",
+    3.4
+   ],
+   [
+    "move src/life/choreography.mjs:174",
+    3.2
+   ],
+   [
+    "safe src/life/network.mjs:47",
+    2.9
+   ],
+   [
+    "blocked src/life/simulation.mjs:223",
+    2.9
+   ],
+   [
+    "move src/life/simulation.mjs:952",
+    2.7
+   ],
+   [
+    "safePose src/traffic/graph.mjs:41",
+    2.2
+   ],
+   [
+    "sync src/life/render.mjs:362",
+    2.1
+   ],
+   [
+    "sync src/life/hq-layer.mjs:228",
+    2
+   ],
+   [
+    "exports.jsxDEV node_modules/.vite-local/deps/react_jsx-dev-runtime.js:191",
+    1.8
+   ],
+   [
+    "updateMatrixWorld node_modules/.vite-local/deps/three.module-CFwxRC9E.js:9899",
+    1.7
+   ],
+   [
+    "step src/life/simulation.mjs:1197",
+    1.5
+   ],
+   [
+    "step src/traffic/simulation.mjs:466",
+    1.3
+   ],
+   [
+    "update src/life/simulation.mjs:1302",
+    1.2
+   ],
+   [
+    "clearAhead src/traffic/simulation.mjs:403",
+    1.1
+   ],
+   [
+    "updateWorldMatrix node_modules/.vite-local/deps/three.module-CFwxRC9E.js:9919",
+    0.9
+   ],
+   [
+    "update src/life/near-characters.mjs:192",
+    0.9
+   ],
+   [
+    "update src/life/render.mjs:550",
+    0.9
+   ],
+   [
+    "exports.jsx node_modules/.vite-local/deps/react_jsx-runtime.js:191",
+    0.9
+   ],
+   [
+    "fleeCrowded src/life/simulation.mjs:347",
+    0.7
+   ],
+   [
+    "futurePose src/traffic/simulation.mjs:386",
+    0.7
+   ],
+   [
+    "blocked src/traffic/simulation.mjs:168",
+    0.6
+   ],
+   [
+    "rebuildGrid src/traffic/simulation.mjs:158",
+    0.6
+   ],
+   [
+    "multiplyMatrices node_modules/.vite-local/deps/three.module-CFwxRC9E.js:8110",
+    0.6
+   ],
+   [
+    "boxOverlap src/traffic/path.mjs:54",
+    0.5
+   ],
+   [
+    "pace src/life/hq-crowd.mjs:743",
+    0.5
+   ],
+   [
+    "insert src/life/simulation.mjs:214",
+    0.5
+   ],
+   [
+    "update src/life/hq-crowd.mjs:816",
+    0.4
+   ],
+   [
+    "frame app/ShibuyaScene.tsx:2468",
+    0.4
+   ],
+   [
+    "gunfirePanic src/player/arsenal.mjs:41",
+    0.4
+   ],
+   [
+    "sync src/traffic/render.mjs:207",
+    0.3
+   ],
+   [
+    "(anon) src/life/near-characters.mjs:207",
+    0.3
+   ],
+   [
+    "rebuild src/life/simulation.mjs:219",
+    0.3
+   ],
+   [
+    "add src/life/shadows.mjs:72",
+    0.3
+   ],
+   [
+    "hitMarker src/player/play-ui.mjs:196",
+    0.3
+   ]
+  ]
+ },
+ "errors": []
+}

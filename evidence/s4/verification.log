@@ -1,0 +1,167 @@
+{
+  "heroes": {
+    "reservedCount": 14,
+    "s4TargetFootprints": 9,
+    "generatedFootprints": 9,
+    "landmarkGroups": 8,
+    "untouchedReserved": 5,
+    "unknownReserved": 0,
+    "missing": [],
+    "failures": [],
+    "heroTriangles": 33170,
+    "materials": 8,
+    "mergedBatches": 6,
+    "instancedBatches": 4,
+    "approximateDrawCalls": 10,
+    "geometries": 8,
+    "textures": 0,
+    "windowPanelInstances": 6983,
+    "detailInstances": 1436,
+    "rooftopInstances": 8,
+    "screenPlaceholders": 1,
+    "placeholderSurfaces": 7,
+    "signAnchors": 11,
+    "emissiveAnchors": 4,
+    "bounds": {
+      "minX": -250.12999755889177,
+      "maxX": 250,
+      "minY": 0.15000000596046448,
+      "maxY": 231.8560028076172,
+      "minZ": -187.2032913863659,
+      "maxZ": 250
+    },
+    "checks": {
+      "concreteLight": {
+        "nonFinite": 0,
+        "badIndices": 0,
+        "degenerate": 0,
+        "bounds": {
+          "minX": -250,
+          "maxX": 248.98146057128906,
+          "minY": 0.15000000596046448,
+          "maxY": 94.81999969482422,
+          "minZ": -187.13919067382812,
+          "maxZ": 249.72691345214844
+        }
+      },
+      "concreteDark": {
+        "nonFinite": 0,
+        "badIndices": 0,
+        "degenerate": 0,
+        "bounds": {
+          "minX": -247.05670166015625,
+          "maxX": 250,
+          "minY": 0.15000000596046448,
+          "maxY": 32.150001525878906,
+          "minZ": -184.53814697265625,
+          "maxZ": 250
+        }
+      },
+      "glass": {
+        "nonFinite": 0,
+        "badIndices": 0,
+        "degenerate": 0,
+        "bounds": {
+          "minX": -231.23707580566406,
+          "maxX": 241.96688842773438,
+          "minY": 28.149999618530273,
+          "maxY": 199.14999389648438,
+          "minZ": 92.37705993652344,
+          "maxZ": 246.2664794921875
+        }
+      },
+      "glassDark": {
+        "nonFinite": 0,
+        "badIndices": 0,
+        "degenerate": 0,
+        "bounds": {
+          "minX": -29.92474365234375,
+          "maxX": 184.93060302734375,
+          "minY": 38.650001525878906,
+          "maxY": 222.14999389648438,
+          "minZ": -56.28114700317383,
+          "maxZ": 157.6721954345703
+        }
+      },
+      "metal": {
+        "nonFinite": 0,
+        "badIndices": 0,
+        "degenerate": 0,
+        "bounds": {
+          "minX": -227.78208923339844,
+          "maxX": 240.21852111816406,
+          "minY": 6.150000095367432,
+          "maxY": 229.8560028076172,
+          "minZ": -101.60111999511719,
+          "maxZ": 245.42478942871094
+        }
+      },
+      "roof": {
+        "nonFinite": 0,
+        "badIndices": 0,
+        "degenerate": 0,
+        "bounds": {
+          "minX": -250,
+          "maxX": 250,
+          "minY": 6.150000095367432,
+          "maxY": 229.8560028076172,
+          "minZ": -187.13919067382812,
+          "maxZ": 250
+        }
+      }
+    },
+    "batches": {
+      "concreteLight": {
+        "type": "merged",
+        "triangles": 468
+      },
+      "concreteDark": {
+        "type": "merged",
+        "triangles": 318
+      },
+      "glass": {
+        "type": "merged",
+        "triangles": 84
+      },
+      "glassDark": {
+        "type": "merged",
+        "triangles": 38
+      },
+      "metal": {
+        "type": "merged",
+        "triangles": 222
+      },
+      "roof": {
+        "type": "merged",
+        "triangles": 828
+      },
+      "panels-glass": {
+        "type": "instanced",
+        "triangles": 12174,
+        "instances": 6087
+      },
+      "panels-glassDark": {
+        "type": "instanced",
+        "triangles": 1792,
+        "instances": 896
+      },
+      "panels-screenPlaceholder": {
+        "type": "instanced",
+        "triangles": 14,
+        "instances": 7
+      },
+      "detail": {
+        "type": "instanced",
+        "triangles": 17232,
+        "instances": 1436
+      }
+    },
+    "buildTimeMs": 72
+  },
+  "duplicates": [],
+  "s5Overlaps": [],
+  "combined": {
+    "triangles": 241924,
+    "approximateDrawCalls": 23
+  }
+}

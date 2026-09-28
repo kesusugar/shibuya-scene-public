@@ -1,0 +1,14 @@
+RUN S7 validation — 2026-09-09
+Source base df38109 + Sites metadata commit da77ce5.
+Final automated command: node --test tests/*.test.mjs
+Exit: 0
+tests 160 / suites 0 / pass 160 / fail 0 / cancelled 0 / skipped 0 / todo 0
+duration_ms 65461.854264
+Previous S0-S6 tests142 unchanged; S7 tests18 added.
+Earlier targeted S7 run: 17 pass / 1 fail (tower lower-zone upper bound).
+S7 placement height clamp fixed; final complete suite passes.
+Final build: build-site.mjs -> npm run build -> build-verified.sh -> vinext build.
+Exit: 0. All five build environments complete.
+Warnings: existing proxy/npm setting, chunk >500kB, static route classification Unknown.
+Runtime browser/console: unverified due CDP get-tabs/refresh-tabs timeout.
+No WebGL/FPS/visual PASS claim.

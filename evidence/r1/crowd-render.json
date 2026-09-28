@@ -1,0 +1,26 @@
+{
+  "population": 1978,
+  "body": {
+    "body0": 776,
+    "body1": 476,
+    "body2": 310,
+    "body3": 416
+  },
+  "head": 1978,
+  "hair": {
+    "hair0": 856,
+    "hair1": 880,
+    "hair2": 242
+  },
+  "accessories": {
+    "phone": 658,
+    "bag": 174,
+    "cane": 63,
+    "suitcase": 63,
+    "umbrella": 14
+  },
+  "geometries": 13,
+  "materials": 3,
+  "batches": 13,
+  "triangles": 894666
+}

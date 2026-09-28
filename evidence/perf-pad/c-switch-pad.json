@@ -1,0 +1,26 @@
+{
+ "url": "<local>/?qa=1&pad=1&tier=high&time=day&camera=scramble",
+ "waited": true,
+ "result": {
+  "profile": "switch",
+  "device": "pad",
+  "weapon": "pistol",
+  "aim": 1,
+  "shots": 1,
+  "rumble": [
+   {
+    "t": "dual-rumble",
+    "startDelay": 0,
+    "duration": 90,
+    "strongMagnitude": 0.35,
+    "weakMagnitude": 0.75
+   }
+  ],
+  "hint": "ZR 攻撃 · ZL 構える · L/R 武器 · A 装填 · Y 回避 · B 走る · X 乗る · Lスティック押し込み しゃがむ"
+ },
+ "console": {
+  "messages": 18,
+  "errors": 0,
+  "list": []
+ }
+}

@@ -1,0 +1,11 @@
+{
+  "what": "PLAN-LOOKS-AND-FLEET Step C (seven new street classes), device check",
+  "date": "2026-09-25",
+  "machine": "the user's Windows 11 PC, Chrome (visible tab, driven by Claude in Chrome), npm run dev:local",
+  "day_street": {"fps": 7.4, "drawCalls": 287, "triangles": 22466609, "note": "Step B was 285: the new types add geometry, not draw calls"},
+  "night_street": {"fps": 6.6, "drawCalls": 293, "consoleErrors": 0, "alert": false},
+  "active_types_day": {"taxi":13,"van":16,"sedan":16,"kei":12,"longVan":4,"police":2,"coupe":2,"cityTaxi":2,"tallKei":5,"bus":7,"keiTruck":1,"scooter":1,"truck2t":3,"minivan":7},
+  "tuned_on_device": "the patrol car's livery band moved from 0.70 to 0.58 of its height so the bonnet and boot lid are white above a black lower body (police-band-070-before.jpg -> police.jpg)",
+  "visual": ["police.jpg: black lower, white upper, red roof bar, nothing written", "truck2t-bus.jpg: the 2t truck's box and the green/cream bus", "minivans.jpg: tall minivans; near characters in patterns", "night-street.jpg"],
+  "not_checked": ["driving each new type by hand (tests take each one over and build its close-up model)", "MEDIUM/LOW", "the phone"]
+}

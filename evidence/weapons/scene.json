@@ -1,0 +1,500 @@
+{
+ "url": "<local>/?qa=1&tier=high&time=day&camera=scramble",
+ "viewport": [
+  960,
+  540
+ ],
+ "steps": [
+  {
+   "name": "00-scene",
+   "note": "the scene, observe mode",
+   "state": {
+    "melee": null,
+    "police": null,
+    "drawCalls": 281,
+    "fps": 0.1
+   }
+  },
+  {
+   "name": "01-player",
+   "note": "player mode, fists, pistol at the hip, katana on the back",
+   "state": {
+    "weapons": {
+     "current": "fists",
+     "rounds": 8,
+     "shots": 0,
+     "hits": 0,
+     "headshots": 0,
+     "walls": 0,
+     "cars": 0,
+     "misses": 0,
+     "maxPanic": 0,
+     "lastShot": null
+    },
+    "melee": {
+     "swings": 0,
+     "hits": 0,
+     "cuts": 0,
+     "clanks": 0,
+     "shotHits": 0,
+     "npcDeaths": 0
+    },
+    "player": {
+     "x": 20.49,
+     "z": 32.49,
+     "weapon": "fists",
+     "aim": 0,
+     "health": 100
+    },
+    "wanted": {
+     "stars": 0
+    },
+    "police": {
+     "drawn": 0,
+     "warnings": 0,
+     "shots": 0,
+     "hits": 0,
+     "blocked": 0,
+     "held": 0,
+     "shouts": 0,
+     "damage": 0,
+     "warned": false,
+     "holders": 0
+    },
+    "drawCalls": 404,
+    "fps": 0.2
+   }
+  },
+  {
+   "name": "02-katana",
+   "note": "katana drawn (Sword_Idle)",
+   "state": {
+    "weapons": {
+     "current": "katana",
+     "rounds": 8,
+     "shots": 0,
+     "hits": 0,
+     "headshots": 0,
+     "walls": 0,
+     "cars": 0,
+     "misses": 0,
+     "maxPanic": 0,
+     "lastShot": null
+    },
+    "melee": {
+     "swings": 0,
+     "hits": 0,
+     "cuts": 0,
+     "clanks": 0,
+     "shotHits": 0,
+     "npcDeaths": 0
+    },
+    "player": {
+     "x": 20.49,
+     "z": 32.49,
+     "weapon": "katana",
+     "aim": 0,
+     "health": 100
+    },
+    "wanted": {
+     "stars": 0
+    },
+    "police": {
+     "drawn": 0,
+     "warnings": 0,
+     "shots": 0,
+     "hits": 0,
+     "blocked": 0,
+     "held": 0,
+     "shouts": 0,
+     "damage": 0,
+     "warned": false,
+     "holders": 0
+    },
+    "drawCalls": 415,
+    "fps": 0.2
+   }
+  },
+  {
+   "name": "03-katana-cut",
+   "note": "katana cut, in its window",
+   "state": {
+    "weapons": {
+     "current": "katana",
+     "rounds": 8,
+     "shots": 0,
+     "hits": 0,
+     "headshots": 0,
+     "walls": 0,
+     "cars": 0,
+     "misses": 0,
+     "maxPanic": 0,
+     "lastShot": null
+    },
+    "melee": {
+     "swings": 1,
+     "hits": 0,
+     "cuts": 0,
+     "clanks": 0,
+     "shotHits": 0,
+     "npcDeaths": 0
+    },
+    "player": {
+     "x": 20.49,
+     "z": 32.49,
+     "weapon": "katana",
+     "aim": 0,
+     "health": 100
+    },
+    "wanted": {
+     "stars": 0
+    },
+    "police": {
+     "drawn": 0,
+     "warnings": 0,
+     "shots": 0,
+     "hits": 0,
+     "blocked": 0,
+     "held": 0,
+     "shouts": 0,
+     "damage": 0,
+     "warned": false,
+     "holders": 0
+    },
+    "drawCalls": 417,
+    "fps": 0.2
+   }
+  },
+  {
+   "name": "04-pistol-aim",
+   "note": "pistol aimed over the shoulder, crosshair",
+   "state": {
+    "weapons": {
+     "current": "pistol",
+     "rounds": 8,
+     "shots": 0,
+     "hits": 0,
+     "headshots": 0,
+     "walls": 0,
+     "cars": 0,
+     "misses": 0,
+     "maxPanic": 0,
+     "lastShot": null
+    },
+    "melee": {
+     "swings": 1,
+     "hits": 0,
+     "cuts": 0,
+     "clanks": 0,
+     "shotHits": 0,
+     "npcDeaths": 0
+    },
+    "player": {
+     "x": 20.49,
+     "z": 32.49,
+     "weapon": "pistol",
+     "aim": 1,
+     "health": 100
+    },
+    "wanted": {
+     "stars": 0
+    },
+    "police": {
+     "drawn": 0,
+     "warnings": 0,
+     "shots": 0,
+     "hits": 0,
+     "blocked": 0,
+     "held": 0,
+     "shouts": 0,
+     "damage": 0,
+     "warned": false,
+     "holders": 0
+    },
+    "drawCalls": 412,
+    "fps": 0.2
+   }
+  },
+  {
+   "name": "05-pistol-shot-0",
+   "note": "a shot, the frame it was fired",
+   "state": {
+    "weapons": {
+     "current": "pistol",
+     "rounds": 7,
+     "shots": 1,
+     "hits": 0,
+     "headshots": 0,
+     "walls": 1,
+     "cars": 0,
+     "misses": 0,
+     "maxPanic": 60,
+     "lastShot": {
+      "kind": "wall",
+      "zone": null,
+      "distance": 9.67,
+      "outcome": null
+     }
+    },
+    "melee": {
+     "swings": 1,
+     "hits": 0,
+     "cuts": 0,
+     "clanks": 0,
+     "shotHits": 0,
+     "npcDeaths": 0
+    },
+    "player": {
+     "x": 20.49,
+     "z": 32.49,
+     "weapon": "pistol",
+     "aim": 1,
+     "health": 100
+    },
+    "wanted": {
+     "stars": 0
+    },
+    "police": {
+     "drawn": 0,
+     "warnings": 0,
+     "shots": 0,
+     "hits": 0,
+     "blocked": 0,
+     "held": 0,
+     "shouts": 0,
+     "damage": 0,
+     "warned": false,
+     "holders": 0
+    },
+    "drawCalls": 413,
+    "fps": 0.2
+   }
+  },
+  {
+   "name": "05-pistol-shot-1",
+   "note": "a shot, the frame it was fired",
+   "state": {
+    "weapons": {
+     "current": "pistol",
+     "rounds": 6,
+     "shots": 2,
+     "hits": 0,
+     "headshots": 0,
+     "walls": 2,
+     "cars": 0,
+     "misses": 0,
+     "maxPanic": 60,
+     "lastShot": {
+      "kind": "wall",
+      "zone": null,
+      "distance": 9.65,
+      "outcome": null
+     }
+    },
+    "melee": {
+     "swings": 1,
+     "hits": 0,
+     "cuts": 0,
+     "clanks": 0,
+     "shotHits": 0,
+     "npcDeaths": 0
+    },
+    "player": {
+     "x": 20.49,
+     "z": 32.49,
+     "weapon": "pistol",
+     "aim": 1,
+     "health": 100
+    },
+    "wanted": {
+     "stars": 0
+    },
+    "police": {
+     "drawn": 0,
+     "warnings": 0,
+     "shots": 0,
+     "hits": 0,
+     "blocked": 0,
+     "held": 0,
+     "shouts": 0,
+     "damage": 0,
+     "warned": false,
+     "holders": 0
+    },
+    "drawCalls": 413,
+    "fps": 0.2
+   }
+  },
+  {
+   "name": "05-pistol-shot-2",
+   "note": "a shot, the frame it was fired",
+   "state": {
+    "weapons": {
+     "current": "pistol",
+     "rounds": 5,
+     "shots": 3,
+     "hits": 0,
+     "headshots": 0,
+     "walls": 3,
+     "cars": 0,
+     "misses": 0,
+     "maxPanic": 60,
+     "lastShot": {
+      "kind": "wall",
+      "zone": null,
+      "distance": 9.65,
+      "outcome": null
+     }
+    },
+    "melee": {
+     "swings": 1,
+     "hits": 0,
+     "cuts": 0,
+     "clanks": 0,
+     "shotHits": 0,
+     "npcDeaths": 0
+    },
+    "player": {
+     "x": 20.49,
+     "z": 32.49,
+     "weapon": "pistol",
+     "aim": 1,
+     "health": 100
+    },
+    "wanted": {
+     "stars": 0
+    },
+    "police": {
+     "drawn": 0,
+     "warnings": 0,
+     "shots": 0,
+     "hits": 0,
+     "blocked": 0,
+     "held": 0,
+     "shouts": 0,
+     "damage": 0,
+     "warned": false,
+     "holders": 0
+    },
+    "drawCalls": 413,
+    "fps": 0.2
+   }
+  },
+  {
+   "name": "06-police-drawn",
+   "note": "☆3: an officer with a revolver drawn",
+   "state": {
+    "weapons": {
+     "current": "pistol",
+     "rounds": 5,
+     "shots": 3,
+     "hits": 0,
+     "headshots": 0,
+     "walls": 3,
+     "cars": 0,
+     "misses": 0,
+     "maxPanic": 60,
+     "lastShot": {
+      "kind": "wall",
+      "zone": null,
+      "distance": 9.65,
+      "outcome": null
+     }
+    },
+    "melee": {
+     "swings": 1,
+     "hits": 0,
+     "cuts": 0,
+     "clanks": 0,
+     "shotHits": 0,
+     "npcDeaths": 0
+    },
+    "player": {
+     "x": 20.49,
+     "z": 32.49,
+     "weapon": "pistol",
+     "aim": 0,
+     "health": 100
+    },
+    "wanted": {
+     "stars": 3
+    },
+    "police": {
+     "drawn": 1,
+     "warnings": 0,
+     "shots": 0,
+     "hits": 0,
+     "blocked": 0,
+     "held": 0,
+     "shouts": 0,
+     "damage": 0,
+     "warned": false,
+     "holders": 3
+    },
+    "drawCalls": 414,
+    "fps": 0.2
+   }
+  },
+  {
+   "name": "07-police-warning",
+   "note": "the warning shot (撃つぞ！)",
+   "state": {
+    "weapons": {
+     "current": "pistol",
+     "rounds": 5,
+     "shots": 3,
+     "hits": 0,
+     "headshots": 0,
+     "walls": 3,
+     "cars": 0,
+     "misses": 0,
+     "maxPanic": 60,
+     "lastShot": {
+      "kind": "wall",
+      "zone": null,
+      "distance": 9.65,
+      "outcome": null
+     }
+    },
+    "melee": {
+     "swings": 1,
+     "hits": 0,
+     "cuts": 0,
+     "clanks": 0,
+     "shotHits": 0,
+     "npcDeaths": 0
+    },
+    "player": {
+     "x": 20.49,
+     "z": 32.49,
+     "weapon": "pistol",
+     "aim": 0,
+     "health": 100
+    },
+    "wanted": {
+     "stars": 3
+    },
+    "police": {
+     "drawn": 1,
+     "warnings": 1,
+     "shots": 0,
+     "hits": 0,
+     "blocked": 0,
+     "held": 0,
+     "shouts": 1,
+     "damage": 0,
+     "warned": true,
+     "holders": 4
+    },
+    "drawCalls": 414,
+    "fps": 0.2
+   }
+  }
+ ],
+ "console": {
+  "messages": 21,
+  "errors": 0,
+  "list": [],
+  "warnings": []
+ }
+}

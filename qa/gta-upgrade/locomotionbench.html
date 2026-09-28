@@ -1,0 +1,200 @@
+<!doctype html><meta charset="utf-8"><title>locomotion</title>
+<!--
+  Locomotion, frame by frame.
+  A transition cannot be judged from one screenshot, and this environment renders the city at a
+  fraction of a frame per second, so the city is not involved: the real controller and the real
+  figure are stepped at a fixed 1/60 against flat ground, and chosen frames are rendered into a
+  strip. Same code path as the game, deterministic, and fast enough to compare before with
+  after honestly.
+  Serve the repository root and open /qa/gta-upgrade/locomotionbench.html?sheet=1
+-->
+<style>html,body{margin:0;background:#1b1f26;overflow:hidden}canvas{display:block}
+#l{position:fixed;left:8px;top:6px;color:#e6edf5;font:11px/1.4 monospace;white-space:pre;z-index:9;text-shadow:0 1px 2px #000}
+.row{position:absolute;color:#cfd8e3;font:11px monospace;z-index:9;text-shadow:0 1px 3px #000}
+.tick{position:absolute;color:#93a3b5;font:10px monospace;z-index:9;text-shadow:0 1px 3px #000}</style>
+<div id="l">loading…</div>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as T from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+import {humanoidCitizen} from '/src/player/character-asset.mjs';
+import {createPlayerFigure} from '/src/player/figure.mjs';
+import {createPlayer,PLAYER} from '/src/player/controller.mjs';
+import {createContactShadows} from '/src/life/shadows.mjs';
+
+const P=new URLSearchParams(location.search);
+const SHEET=Number(P.get('sheet')??1);
+const COLUMNS=Number(P.get('columns')??8);
+const CELL=Number(P.get('cell')??200);
+
+// Ground. Flat by default -- the point is the gait, not the city -- but the walk/run
+// scenarios can also be run across a kerb, because "foot IK does not break phase
+// synchronisation" is only worth asserting where the IK has something to correct.
+// `?ground=kerb` puts a 13 cm step (15 cm pavement against 2 cm road, Shibuya's real
+// numbers) across the path, which every straight-line scenario walks over.
+//
+// At z = +3, because the controller advances by (sin h, cos h) and these scenarios start at
+// heading 0 -- so they walk towards +z. A kerb at -3 is behind them and never reached, and
+// the sheets come out pixel-identical for the most boring possible reason.
+const GROUND=P.get('ground')??'flat';
+const KERB_Z=3;
+const groundAt=GROUND==='kerb'?(x,z)=>(z<KERB_Z?.15:.02):()=>0;
+const ctx={height:groundAt,heightExact:groundAt,solid:()=>false,safe:()=>true,
+ onRoad:()=>false,solids:null,bounds:null};
+// Foot IK is on unless it is switched off, so that the before/after of RUN 5 comes through
+// one harness rather than two.
+const IK=P.get('ik')!=='0';
+const figureOptions=IK?{ctx}:{};
+
+/**
+ * Scenarios. `script` is a list of segments; each holds an input for `seconds`. `at` is the
+ * elapsed times to photograph, chosen to straddle the transition rather than to sample evenly.
+ */
+const HOLD={forward:0,strafe:0,running:false};
+const WALK={forward:1,strafe:0,running:false};
+const RUN={forward:1,strafe:0,running:true};
+const DIAG={forward:1,strafe:1,running:false};
+const SCENARIOS=[
+ {sheet:1,name:'idle to walk',view:'side',
+  script:[[HOLD,.6],[WALK,2.4]],at:[.55,.65,.75,.85,1.0,1.2,1.6,2.4]},
+ {sheet:1,name:'walk to idle',view:'side',
+  script:[[WALK,2.2],[HOLD,1.8]],at:[2.15,2.25,2.35,2.45,2.6,2.8,3.2,3.8]},
+ {sheet:1,name:'walk to run',view:'side',
+  script:[[WALK,1.8],[RUN,2.6]],at:[1.75,1.85,1.95,2.1,2.3,2.6,3.2,4.2]},
+ {sheet:1,name:'run to walk',view:'side',
+  script:[[RUN,2.4],[WALK,2.4]],at:[2.35,2.45,2.55,2.7,2.9,3.2,3.8,4.6]},
+ {sheet:1,name:'run to stop',view:'side',
+  script:[[RUN,2.6],[HOLD,2.2]],at:[2.55,2.65,2.75,2.85,3.0,3.2,3.6,4.4]},
+ {sheet:2,name:'90 degree turn',view:'above',
+  script:[[WALK,1.6],[{...WALK,turn:Math.PI/2},.02],[WALK,2.4]],at:[1.55,1.65,1.75,1.85,2.0,2.3,2.8,3.6]},
+ {sheet:2,name:'180 degree turn',view:'above',
+  script:[[WALK,1.6],[{...WALK,turn:Math.PI},.02],[WALK,2.6]],at:[1.55,1.65,1.75,1.85,2.0,2.3,2.9,3.8]},
+ {sheet:2,name:'diagonal',view:'above',
+  script:[[WALK,1.4],[DIAG,2.6]],at:[1.35,1.45,1.55,1.7,1.9,2.2,2.8,3.8]},
+ {sheet:2,name:'look while standing',view:'above',
+  script:[[HOLD,.4],[{...HOLD,look:1.35},2.0],[HOLD,1.0]],at:[.35,.55,.75,1.0,1.4,1.8,2.4,3.2]},
+ {sheet:2,name:'look while walking',view:'above',
+  script:[[WALK,1.2],[{...WALK,look:1.35},2.0],[WALK,1.0]],at:[1.15,1.35,1.55,1.8,2.2,2.6,3.2,4.0]}
+];
+const rows=SCENARIOS.filter(s=>s.sheet===SHEET);
+
+const W=COLUMNS*CELL,H=rows.length*CELL;
+const renderer=new T.WebGLRenderer({antialias:true});
+renderer.setSize(W,H);renderer.outputColorSpace=T.SRGBColorSpace;
+renderer.toneMapping=T.ACESFilmicToneMapping;
+renderer.setScissorTest(true);
+document.body.appendChild(renderer.domElement);
+
+const scene=new T.Scene();scene.background=new T.Color(0x232830);
+const pmrem=new T.PMREMGenerator(renderer);
+scene.environment=pmrem.fromScene(new RoomEnvironment(),.04).texture;
+scene.add(new T.HemisphereLight(0xcfe0ff,0x3a3f47,1.5));
+const key=new T.DirectionalLight(0xfff4e2,2.2);key.position.set(4,7,5);scene.add(key);
+// A grid, so a foot that slides has something to slide against.
+const grid=new T.GridHelper(80,160,0x4a5260,0x333942);scene.add(grid);
+// The same contact shadow the game gives the player, driven the same way, so a strip of
+// frames shows whether the character is standing on the ground or floating over it.
+const shadow=createContactShadows(1);scene.add(shadow.mesh);
+
+const report=await (await fetch('/public/data/character/citizen.json')).json();
+const bytes=await (await fetch('/public/data/character/citizen.glb')).arrayBuffer();
+const gltf=await new Promise((res,rej)=>new GLTFLoader().parse(bytes,'',res,rej));
+const asset=humanoidCitizen(gltf,report);
+
+const camera=new T.PerspectiveCamera(30,1,.05,140);
+const label=[];
+const DT=1/60;
+
+for(const [r,scenario] of rows.entries()){
+ const figure=createPlayerFigure(asset,undefined,figureOptions);
+ scene.add(figure.root);
+ const player=createPlayer(ctx,{start:[0,0],heading:0});
+ player.place(0,0,0);
+ // Straight-line scenarios walk towards +Z (the controller advances by sin/cos of the
+ // heading), and the side camera stands off in +X so it sees a full stride square on.
+ const shots=new Map(scenario.at.map(t=>[t,null]));
+ let elapsed=0,segment=0,held=0;
+ let turned=new Set();
+ const frames=[];
+ const tally={queries:0,solved:0,pelvis:0};
+ const total=scenario.script.reduce((n,[,s])=>n+s,0);
+ while(elapsed<total-1e-6){
+  const [input,seconds]=scenario.script[Math.min(segment,scenario.script.length-1)];
+  // Once, not once per frame: a segment lasting 0.02s covers two frames at 1/60, which turned
+  // the 90-degree scenario into a 180 and the 180 into a full circle back to where it started.
+  if(input.turn&&!turned.has(segment)){turned.add(segment);player.look(-input.turn/PLAYER.look,0);}
+  if(input.look)player.look(input.look*DT/PLAYER.look,0);
+  player.setTouch(input);
+  player.step(DT);
+  figure.update(player.state,DT);
+  if(figure.footIK){const k=figure.footIK.stats;
+   tally.queries+=k.queries??0;tally.solved+=k.solved??0;
+   tally.pelvis=Math.max(tally.pelvis,k.pelvisDrop??0);}
+  elapsed+=DT;held+=DT;
+  if(held>=seconds){segment++;held=0;}
+  for(const t of shots.keys())
+   if(shots.get(t)===null&&elapsed>=t){
+    shots.set(t,{x:player.state.x,y:player.state.y,z:player.state.z,
+     heading:player.state.bodyHeading??player.state.heading,
+     speed:player.state.speed,action:figure.action});
+    frames.push({t,pose:shots.get(t),matrix:figure.root.matrixWorld.clone(),
+     bones:figure.root.clone(true)});
+   }
+ }
+ // Re-run to render: cloning a skinned hierarchy per frame is not worth it, so the sequence
+ // is replayed and each chosen frame is photographed as it comes round again.
+ figure.reset();
+ const replay=createPlayer(ctx,{start:[0,0],heading:0});
+ replay.place(0,0,0);
+ elapsed=0;segment=0;held=0;turned=new Set();
+ let column=0;
+ const cy=H-(r+1)*CELL;
+ while(elapsed<total-1e-6&&column<scenario.at.length){
+  const [input,seconds]=scenario.script[Math.min(segment,scenario.script.length-1)];
+  if(input.turn&&!turned.has(segment)){turned.add(segment);replay.look(-input.turn/PLAYER.look,0);}
+  if(input.look)replay.look(input.look*DT/PLAYER.look,0);
+  replay.setTouch(input);
+  replay.step(DT);
+  figure.update(replay.state,DT);
+  elapsed+=DT;held+=DT;
+  if(held>=seconds){segment++;held=0;}
+  if(elapsed>=scenario.at[column]){
+   const s=replay.state;
+   const cx=column*CELL;
+   renderer.setViewport(cx,cy,CELL,CELL);renderer.setScissor(cx,cy,CELL,CELL);
+   if(scenario.view==='side'){
+    // Square on to the path, tracking the body, so stride length is readable.
+    camera.position.set(s.x+4.6,1.15,s.z+.3);camera.up.set(0,1,0);
+    camera.lookAt(s.x,.92,s.z);
+   }else{
+    camera.position.set(s.x+2.2,3.5,s.z+3.4);camera.up.set(0,1,0);
+    camera.lookAt(s.x,.85,s.z);
+   }
+   camera.updateProjectionMatrix();
+   renderer.render(scene,camera);
+   const tick=document.createElement('div');tick.className='tick';
+   tick.textContent=`${scenario.at[column].toFixed(2)}s  ${s.speed.toFixed(2)}m/s  ${figure.action}`;
+   tick.style.left=(cx+5)+'px';tick.style.top=(H-cy-CELL+CELL-16)+'px';
+   document.body.appendChild(tick);
+   column++;
+  }
+ }
+ const name=document.createElement('div');name.className='row';
+ name.textContent=scenario.name;
+ name.style.left='5px';name.style.top=(H-cy-CELL+4)+'px';
+ document.body.appendChild(name);
+ // The solver's own counters, totalled over the scenario rather than read off the last
+ // frame, so "flat ground is unchanged" is read as "the IK ran and declined to move anything"
+ // rather than "the IK was never switched on" -- and so a scenario that corrects a kerb in the
+ // middle and finishes on flat road does not report zero.
+ label.push(`${scenario.name}: ${scenario.at.length} frames`+
+  (figure.footIK?` [ik ${tally.queries} queries, ${tally.solved} solves, `+
+   `pelvis ${(1000*tally.pelvis).toFixed(0)}mm]`:''));
+ scene.remove(figure.root);figure.dispose();
+}
+document.getElementById('l').textContent=
+ `locomotion sheet ${SHEET}   walk ${PLAYER.walk} m/s   run ${PLAYER.run} m/s   dt 1/60`+
+ `   ground ${GROUND}   foot IK ${IK?'on':'off'}\n`+label.join('   ');
+document.title='ready';
+</script>

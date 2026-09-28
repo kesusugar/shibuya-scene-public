@@ -1,0 +1,111 @@
+RUN S7 — Signage System / 実装・検証記録
+2026-09-09
+
+Base: S6 df3810995b1906aa7f6a618bedb6831bebf8b932
+開始HEAD: da77ce51ed2b662ea10686a228360c4564b8dce7（Sites登録設定のみ追加済み）
+現在commit: この報告を含むS7実装commit。最終応答に実際のhashを記載。
+対象: RUN_S7_SIGNAGE_SYSTEM_INSTRUCTION_v1のみ。
+
+実装
+src/signs/config.mjs: 8カテゴリ、7街区密度、HIGH/MEDIUM/LOW、Hero専用設定。
+src/signs/atlas.mjs: 独自Canvas看板とQFRONT画面。実在広告・画像・動画の取得なし。
+src/signs/model.mjs: S3 frontageとS4 mass/anchorから決定論的に配置。S5の構造mass/railを障害物として扱う。
+src/signs/render.mjs: 3つのmerge面channel＋1つの共通frame InstancedMesh。
+app/page.tsx: 既存signsモジュールに接続。ON/OFF、品質切替、statsを追加。debug/camera UIを保持。
+既に生成済みのGround/Generic/Hero/Stationモデルを使用できる場合は再利用。
+S2〜S6コード、座標系、データ、カメラpreset、既存の内部描画解像度設定、依存関係は変更なし。
+
+Canvas / reuse
+8×4 grid atlas。太字、色面、枠、縦書き短文、抽象ロゴ、架空の店名。
+QFRONTは別の2:1 Canvasに独自CROSS VISIONグラフィックを作成。
+HIGH: city2048×2048 + screen2048×1024、計2texture、33 graphic variants。
+MEDIUM: city1024×1024 + screen1024×512、25 variants。
+LOW: city512×512 + screen512×256、17 variants。
+GPU maxTextureSizeでpower-of-two上限にclamp。sRGB、linear filter、4〜8px padding。
+mipmapを無効化してtile境界の混色を抑制。遠景aliasingの実機確認は残る。
+既存のS6 station atlasとは別責務。Node検証では1px DataTexture代替。
+Canvasの描画命令・UV・共通textureを自動テスト。今回のブラウザ内Canvas実生成は未確認。
+
+Sign count（HIGH / MEDIUM / LOW）
+total: 763 / 520 / 248
+Center-gai: 260 / 168 / 71
+triangles: 10,744 / 7,336 / 3,506
+materials: 各4、batches: 各4、draw-call contribution: 各4
+CPU build time: 12,297 / 7,880 / 3,439 ms（共通モデル事前生成済み、同時検証負荷あり）
+CPU generation time: 12,276 / 7,870 / 3,429 ms
+scene CPU total triangles: 353,798 / 341,368 / 333,268
+scene CPU batches: 各54、materials: 各44、textures: 各5
+上記はモデル全体の合計。frustum culling後のrenderer.info/drawCalls/FPSではない。
+S0 grid/axes等のdebugおよびS1 linesは集計対象外。S7 debug=1は線分1batch追加。
+
+HIGH category内訳
+shallow box175 / entrance64 / stacked directory163 / flush135
+billboard100 / screen67 / roofline board28 / vertical blade31
+bladeは表裏の面を同一channelへmerge。boardの背面・薄いframeは共通Box instance。
+rooftopカテゴリは浮遊した屋上広告塔ではなく、外壁上端に支持されたroofline board。
+
+HIGH region内訳
+Center-gai260 / QFRONT-MAGNET-Seibu frontage31 / Scramble16
+Dogenzaka72 / Station9 / secondary270 / peripheral105
+regionの候補採用率は1.0 / 1.0 / .85 / .8 / .58 / .48 / .18。
+街区別の建物母数が異なるので、総数の大小は密度率の大小とは一致しない。
+Center-gaiでは4段までの上階sign・directory・blade・fascia・rooflineを生成。
+小型signは品質factorで削減、Hero signは全tierで保持。
+
+HIGH Hero別内訳
+QFRONT6 / 109=4 / MAGNET4 / Seibu A3 / Seibu B3
+Scramble Square2 / Mark City East2 / Mark City West0 / Stream2
+Generic737、Hero26。
+QFRONT既存の分割screen anchorに連続UVを割り当て、既存frameを保持。
+109はcrown/下部を限定装飾。tower曲面の全被覆なし。
+Seibuは横帯、Scramble Square/Stream/Mark Cityは18m以下の低層commercial zoneに限定。
+Mark City West2候補は隣接建物との干渉で不採用。強制移動なし、既知の未配置として記録。
+Hero設定のlabelは用途を表すメタデータ。商業graphics自体は架空表現。
+
+Emissive準備
+printed day .12 / screen day .65、nightTarget1.2を記録。
+表示は昼固定のemissive。global time callback、街路照射、bloom、反射、Point/SpotLightなし。
+
+Placement audit
+HIGH候補1069、採用763、除外306。
+全tier major penetration0 / minor overlap0（監査条件内）。
+有限変換、positive size、unit normal、outward面、corner余白、host上下限、facade距離を検査。
+道路/横断歩道への投影、隣接建物、同一host内部、S5 station mass、rail envelope、duplicate/near-overlapを検査。
+受入候補全件に同じ監査predicateを再適用し、意図的な異常位置/向き/浮遊/重複のテストも実施。
+全物理細部の3D衝突ソルバーではない。S6微小設備・窓/装飾との視覚接触は実機QAが必要。
+薄いframe/面のpaddingは監査矩形から約1cm以下拡張。tile edge近傍の微小突出あり。
+S6既存major0/minor3、S5既存major0/minor11を維持。
+
+Debug
+?debug=1: anchor中心、normal、sign rectangle、rejected候補、region色、Hero黄色。
+CPU配置図 signage-density-cpu.png を保存・目視確認。WebGL画像として扱わない。
+placements.jsonに採用位置/host/normal/UV/rejection reasonを収録。
+
+Regression / build
+node --test tests/*.test.mjs: 160 PASS（S6既存142 + S7追加18）、fail0、skip0。
+duration_ms: 65461.854264。tests結果はregression.txtに記録。
+build-site.mjs: exit0、Vinextの5段階build成功。
+非致命的注意: proxy環境/npm設定、500kB超chunk、route静的分類Unknown。
+Ground47,829tris / Generic378・160,925tris / Hero9・33,170tris / Station75,568trisを維持。
+git diff --check成功。
+
+Browser / Console / Visual QA
+提供Cloud Chromeとの接続がget tabs / refresh tabsで各20秒timeout。
+既存接続で確認後、説明された復旧手順を読み、既存タブへのnavigationを1回試行したが失敗。
+app-derived Console Error: 未確認。0とは報告しない。browser timeoutをapp errorとして加算しない。
+WebGL2: このRUNでは取得状態未確認。S6.1では利用不可、ユーザー提供S6実機ではHIGH約60FPS。
+CAM-02 / CAM-03 / CAM-04 / CAM-06 / CAM-07: visual resultすべてunverified。
+追加CAM-01 / CAM-05もunverified。新規WebGL screenshots0。
+HIGH FPS / renderer stats: 未測定。S6実機約60FPSをS7の計測結果へ転用しない。
+S7全体のVisual PASSは保留。構造・自動テスト・buildの検証と分けて報告。
+
+Visual QA公開
+既存Sites projectを再利用してこのS7を更新。公開処理の成否・現在commitは最終応答で報告。
+URL: https://shibuya-scene-visual-qa.kesdemon.chatgpt.site
+PC/スマホでHIGHを選び、CAM-02/03/04/06/07、続いてCAM-05で密度・色・文字・干渉・FPSを確認する。
+初期生成およびprofile切替はCPU処理が同期的に走るため、数秒以上UIが止まる可能性がある。
+
+Scope / STOP
+S8+、Streetscape、Traffic、Life、moving Trains、DayNight、Nightglow、GTA未実装。
+既存未追跡検証ログは削除・変更・commitしない。
+S7の保存・公開後STOP。

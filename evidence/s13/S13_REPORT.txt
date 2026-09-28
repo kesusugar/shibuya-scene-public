@@ -1,0 +1,45 @@
+RUN S13 — Wet Night / Nightglow
+Base: 123ae297637ee676470a956cc2f7e3d1941edb03 / Visual QA version 7.
+Current commit and new Visual QA version are reported in delivery; this report belongs to that source revision.
+
+NIGHT only: existing asphalt roughness .53/.59/.65 (HIGH/MEDIUM/LOW), metalness .07/.058/.046.
+DAY restores original roughness, metalness and S12 emissive intensities; effects and bloom are hidden/bypassed.
+Selected seeded irregular pools and soft light streaks: Scramble, QFRONT, 109/Dogenzaka,
+Center-gai, station-front and major-road zones. No new lights, collision or simulation changes.
+Geometry is clipped to mapped asphalt / flat sidewalks, excluding building footprints,
+curbs, crossings and road markings. Heights: road +.004/.006 m, sidewalk +.004/.006 m.
+No ramps receive patches. CPU marking/pool overlap = 0; outside surface area < 1e-6 m2.
+HIGH accepted 71 of 72 patch candidates; one unsuitable candidate intentionally omitted.
+
+Profile       Patches  Reflections  Surface triangles  Bloom
+HIGH          71       30           988                .18, 25% width/height
+MEDIUM        36       15           469                .10, 16% width/height
+LOW           10       4            131                OFF
+Merged surface batches: 2, reusing geometry on tier changes; no per-frame geometry creation.
+Bloom: one full-size HDR scene target + one reduced bright-pass target, 2 extra fullscreen draws
+(4 triangles) with threshold 1.1. Composite retains the original sharp scene.
+Allocated resources: 2 surface geometries/materials + 1 shared fullscreen quad / 2 bloom materials;
+2 targets, lazily resized on use. No added point/spot/shadow lights.
+NIGHT draw contribution: at most +4 HIGH/MEDIUM, +2 LOW; DAY +0.
+These are CPU/configuration counts, not measured GPU performance. Renderer stats retain all passes.
+
+Existing S7 sign placement/count data is unchanged (HIGH 763): Hero multiplier 1.4,
+Center-gai 1.18, others .96 at HIGH NIGHT, reduced towards baseline at lower tiers.
+Existing partial window occupancy retains deterministic variation, with a small stronger western
+commercial-area response. Existing vehicle front/rear emission +15% and train emission +18% at HIGH.
+No additional window/sign meshes. No traffic/crowd/train source changes versus base.
+Environment disable, module disposal and DAY restore owned materials; pooled resources release once.
+
+Validation: all 231 tests PASS, 0 FAIL (225 baseline + 6 S13), 264.2 seconds.
+Full baseline run once: S7 signs763, S9 traffic, S10 integrated 180-second crowd/traffic
+and S11 train/interference regression PASS. Prior-stage timing evidence restored after the run.
+Build PASS, exit 0 (five vinext stages). Existing large client-chunk / route classification warnings.
+Browser: one tab-discovery attempt timed out after 20 seconds; no repeat.
+WebGL shader compilation, console error count, FPS, CAM-03/04/06/07/05 NIGHT and DAY visual
+comparison are BLOCKED / UNVERIFIED. CPU DAY restoration is verified; visual DAY regression,
+night sign readability, actual bloom intensity and major visual interference need browser QA.
+No visual PASS claim is made.
+
+Existing owner-private Visual QA Site is the authorized update target; version/URL in delivery.
+Preexisting untracked validation logs are preserved and excluded from commits. No subagents used.
+S14+ / GTA / additional polish are not implemented. STOP after save and Visual QA publication.

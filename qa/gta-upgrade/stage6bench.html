@@ -1,0 +1,82 @@
+<!doctype html><meta charset="utf-8"><title>stage 6 bench</title>
+<style>html,body{margin:0;background:#20242b;overflow:hidden}canvas{display:block}
+#l{position:fixed;left:8px;top:8px;color:#dfe6ef;font:11px/1.45 monospace;white-space:pre;z-index:9;text-shadow:0 1px 2px #000}</style>
+<div id="l">loading…</div>
+<!--
+  Roadmap stage 6 on the game's modules.
+  Row 1: the damage (car-damage.mjs on the player's close-range model): a saloon clean; the same
+         after a head-on hit and a side swipe (dents, the windscreen gone, the right window
+         crazed); the own car after a burst of rounds down its right side; the crazed pane close.
+  Row 2: the motorbike (motorbike-shape.mjs): parked on its stand as traffic draws it; ridden
+         (figure.mjs Drive + body-states createRideGrip), from the side, from behind, and leaning
+         into a turn.
+
+  `node qa/gta-upgrade/weaponbench-capture.mjs out.png "" stage6bench.html` saves it.
+-->
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as T from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {humanoidCitizen} from '/src/player/character-asset.mjs';
+import {createPlayerFigure} from '/src/player/figure.mjs';
+import {createVehicleAsset,createMotorbikeAsset} from '/src/player/vehicle-asset.mjs';
+import {createDamageVisual,createWear,crash,shot} from '/src/player/car-damage.mjs';
+import {motorbikeFleetGeometry,bikeLean} from '/src/traffic/motorbike-shape.mjs';
+import {BODY} from '/src/player/body-states.mjs';
+import {VEHICLES} from '/src/traffic/config.mjs';
+
+const report=await (await fetch('/public/data/character/citizen.json')).json();
+const bytes=await (await fetch('/public/data/character/citizen.glb')).arrayBuffer();
+const human=humanoidCitizen(await new Promise((res,rej)=>new GLTFLoader().parse(bytes,'',res,rej)),report);
+const CW=400,CH=300,W=CW*4,H=CH*2,dt=1/30;
+const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
+renderer.setPixelRatio(1);renderer.setSize(W,H);renderer.setScissorTest(true);document.body.appendChild(renderer.domElement);
+const lines=[];
+const stage=()=>{const s=new T.Scene();s.background=new T.Color(0x9fb7cc);s.add(new T.HemisphereLight(0xdfeaff,0x3a3a42,1.5));
+ const k=new T.DirectionalLight(0xffffff,2.4);k.position.set(5,9,7);s.add(k);const f=new T.DirectionalLight(0xbfd4ff,.8);f.position.set(-6,4,-5);s.add(f);
+ s.add(new T.Mesh(new T.PlaneGeometry(300,300).rotateX(-Math.PI/2),new T.MeshStandardMaterial({color:0x6d7178,roughness:.9})));return s;};
+const draw=(scene,cam,col,row)=>{const x=col*CW,y=H-(row+1)*CH;renderer.setViewport(x,y,CW,CH);renderer.setScissor(x,y,CW,CH);renderer.render(scene,cam);};
+const cam=(p,t,fov=38)=>{const c=new T.PerspectiveCamera(fov,CW/CH,.05,400);c.position.set(...p);c.lookAt(...t);return c;};
+
+// Row 1: damage.
+{const scene=stage();
+ const clean=createVehicleAsset('sedan');clean.root.position.set(-3,0,0);scene.add(clean.root);
+ const hit=createVehicleAsset('sedan');hit.root.position.set(3,0,0);scene.add(hit.root);
+ const d1=createDamageVisual();d1.attach(hit);
+ const w=createWear(),c={x:0,z:0,heading:0};
+ crash(w,c,VEHICLES.sedan,{nx:0,nz:-1},15);crash(w,c,VEHICLES.sedan,{nx:.35,nz:-.94},9);
+ crash(w,c,VEHICLES.sedan,{nx:1,nz:0},9);crash(w,c,VEHICLES.sedan,{nx:1,nz:.3},6);
+ const gone=d1.apply(w);lines.push('saloon: dents '+w.dents.length+' panes '+JSON.stringify(w.panes)+' shattered '+gone.map(g=>g.pane).join(','));
+ draw(scene,cam([-3.5,2.6,7.5],[-2.5,.7,0],34),0,0);
+ draw(scene,cam([8.5,2.4,5.8],[3,.7,.3],34),1,0);
+ // The own car, shot down its right side (-x): rounds at the doors and the windows.
+ const s2=stage(),own=createVehicleAsset('ownCar');s2.add(own.root);const d2=createDamageVisual();d2.attach(own);
+ const w2=createWear(),into={x:1,y:0,z:0},dims=VEHICLES.ownCar;
+ for(const z of [-.9,-.5,-.1,.3,.7,1.1])shot(w2,c,dims,{x:-dims.width/2,y:.55+(z*.13),z},into);
+ shot(w2,c,dims,{x:-dims.width/2,y:1.05,z:.2},into);
+ for(const z of [-1.2,-1.1])shot(w2,c,dims,{x:0,y:1.0,z:-dims.length/2},{x:0,y:0,z:1});
+ d2.apply(w2);lines.push('own car: dents '+w2.dents.length+' panes '+JSON.stringify(w2.panes));
+ draw(s2,cam([-5.2,1.6,2.8],[0,.7,0],36),2,0);
+ draw(scene,cam([.9,1.35,1.3],[2.2,1.05,-.2],40),3,0);
+}
+// Row 2: the bike.
+{const scene=stage();
+ const parked=motorbikeFleetGeometry(),mat={body:new T.MeshStandardMaterial({color:VEHICLES.motorbike.color,roughness:.35,metalness:.4}),dark:new T.MeshStandardMaterial({color:0x1b2026,roughness:.8}),
+  glass:new T.MeshStandardMaterial({color:0x33505f,transparent:true,opacity:.5}),front:new T.MeshStandardMaterial({color:0xfff2d6,emissive:0xffe5ae,emissiveIntensity:.3}),rear:new T.MeshStandardMaterial({color:0x800,emissive:0x400})};
+ const g=new T.Group();for(const [k,geo] of Object.entries(parked))g.add(new T.Mesh(geo,mat[k]));g.position.set(-30,0,0);g.rotation.y=.9;scene.add(g);
+ draw(scene,cam([-27.4,1.5,2.4],[-30,.6,0],36),0,1);
+ const ride=(x,lean,heading=0)=>{const bike=createMotorbikeAsset();bike.root.position.set(x,0,0);bike.root.rotation.y=heading;bike.lean.rotation.z=lean;scene.add(bike.root);
+  const f=createPlayerFigure(human,{top:0x22262c,bottom:0x2a2f3a});scene.add(f.root);
+  const [,ry,rz]=BODY.ride.root,lx=-ry*Math.sin(lean),ly=ry*Math.cos(lean),sh=Math.sin(heading),ch=Math.cos(heading);
+  const s={x:x+lx*ch+rz*sh,y:ly,z:-lx*sh+rz*ch,heading,speed:0,alive:true,attackTime:0,riding:true,riderLean:lean};
+  for(let i=0;i<12;i++)f.update(s,dt);return f;};
+ ride(0,0);ride(10,bikeLean(14,.45));
+ draw(scene,cam([3.6,1.3,.6],[0,.8,.1],38),1,1);
+ draw(scene,cam([0,1.7,-4.2],[0,.9,0],36),2,1);
+ draw(scene,cam([10,1.6,-4.6],[10,.8,0],36),3,1);
+ lines.push('lean at 14 m/s, 0.45 rad/s: '+bikeLean(14,.45).toFixed(3));
+}
+document.getElementById('l').textContent=lines.join('\n');
+window.__BENCH__={lines};
+document.title='ready';
+</script>

@@ -1,0 +1,16 @@
+{
+ "url": "http://<local>/qa/gta-upgrade/weaponbench.html?pose=pistol-aim",
+ "ready": true,
+ "bench": {
+  "poses": [
+   "pistol-aim"
+  ],
+  "lines": [
+   "front | player's right | behind | player's left",
+   "pistol-aim: pistol aimed, standing  | grip-to-palm 1.3 cm  | muzzle ray passes 0.0 cm from the target"
+  ],
+  "calls": 8
+ },
+ "console": [],
+ "errors": 0
+}

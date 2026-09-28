@@ -1,0 +1,51 @@
+✔ renders development preview metadata (114.336242ms)
+✔ query defaults and invalid options (1.04087ms)
+✔ only intersect skip and empty only (1.091696ms)
+✔ module toggle builds once and disposes across rebuilds (0.270981ms)
+✔ failed builder is isolated (0.196581ms)
+✔ update error isolates module (0.235248ms)
+✔ time state round trip and unsubscribe (0.19598ms)
+✔ fixed cameras unique finite and distinct targets (0.441714ms)
+✔ tier resolution monotonically decreases (0.153076ms)
+✔ real snapshot categories IDs and bounds (16.764592ms)
+✔ hero IDs resolved and cardinal geography consistent (0.294836ms)
+✔ all 666 polygons triangulate with matching area and finite extrusion (46.52579ms)
+✔ lines retain metadata and clipped extent (1.965639ms)
+✔ join reversed relation ways and preserve hole (1.244592ms)
+✔ incomplete way reported rather than invented (0.217412ms)
+✔ metric tags unknown and feet (0.249629ms)
+✔ loader HTTP/schema failure and abort forwarding (2.61526ms)
+✔ reject malformed coordinates and duplicate ID (48.028704ms)
+✔ debug contains four LineSegments only and disposes (8.755068ms)
+✔ station/entrance tags exclude similarly named bus stop (0.633338ms)
+✔ coordinate origin, east/north signs and round trip (2.002794ms)
+✔ polyline 3-4-5 length and sampling (0.380153ms)
+✔ duplicate and degenerate lines (0.163762ms)
+✔ resampling exact spacing and endpoint (0.321947ms)
+✔ offset left/right and bounded sharp corner (0.27672ms)
+✔ offset right angle intersection (0.192515ms)
+✔ extend endpoints (0.267076ms)
+✔ clipping and disconnected reentry (0.416085ms)
+✔ polygon boundary and holes (0.436336ms)
+✔ triangulation concavity and holes preserve analytical area (1.295858ms)
+✔ polygon faces point upward (1.079508ms)
+✔ extrusion positive Y height and correct XZ footprint (3.729349ms)
+✔ ribbon width and upward normals (0.306403ms)
+✔ merge mixed indexes preserves count and source (1.576944ms)
+✔ transform keeps source unchanged (0.346312ms)
+✔ seeded RNG repeatability and bounds (0.786324ms)
+✔ InstancedBuilder transforms, capacity and ownership (1.49999ms)
+✔ spatial index matches brute force for negative cells (1.188469ms)
+4:37:12 PM [vite] (client) Re-optimizing dependencies because vite config has changed
+✔ emits the catalog's animation and scrolling utilities (25.12755ms)
+✔ forwards progress semantics to the primitive (540.564355ms)
+✔ emits chart themes for the starter's media dark mode (533.015839ms)
+✔ renders sidebar skeletons deterministically (260.004426ms)
+ℹ tests 42
+ℹ suites 0
+ℹ pass 42
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1783.830416

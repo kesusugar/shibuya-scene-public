@@ -1,0 +1,96 @@
+RUN S6 — Station Detail + Rotary + Gadoshita 実装・検証記録
+2026-09-09
+
+前提: S0条件付きPASS、S1〜S5 PASS済み。S5 commit ca9f748。
+基準: RUN_S6_STATION_DETAIL_ROTARY_GADOSHITA_v1、最上位要求仕様/受入テスト/実行計画v2。
+今回S6のみ。S0〜S5の座標系、data、geometry、Ground/Buildings/Hero/Station Coreは変更していない。
+
+S5 Regression First
+S5 baseline 121 tests維持。Station Coreを現コードから再生成し、重大閉塞0 / minor歩道重複11を維持。
+JR 4線形、Ginza 4線形、8 rail pairs、platform3、Hachiko、pedestrian3+stairs1を保持。
+S5 triangles 75,568、Generic378、Hero9 footprints、各既存triangles一致。
+s5-baseline.json、geometry.jsonのS5Baseline/regression参照。
+
+S6設備（MEDIUM）
+platform fixtures 44、sign faces 27、vending 5、bench 10（駅前分を含む）。
+配置単位内訳: {"bus-shelter": 1, "catenary-support": 49, "gadoshita": 8, "ginza-third-rail": 11, "globe-lamp": 2, "info": 1, "koban": 1, "map-board": 3, "planter": 2, "platform-bench": 7, "platform-cabinet": 3, "platform-light": 13, "platform-safety-rail": 3, "platform-sign": 13, "platform-vending": 5, "plaza-bench": 3, "rail-signal": 8, "taxi-shelter": 1}
+benchは座面/背/脚、vendingはshell+atlas、station/departure/wayfinding、吊りsign、platform light、cabinet、end safety rail。
+platform内/track clearance/tactile/structural pierを監査し、不適合候補は理由付きで除外。
+Hachikoは既存bandへ駅名/clock faceを取り付け。入口massの上書きや拡大なし。
+
+Canvas / atlas
+独自station-only Canvas 1024×1024 / 1 texture / 16 tiles。
+station name, departure, wayfinding, metro, bus, taxi, map, clock, kiosk, vending, menu, shop/noren, kobanを共有。
+AtlasのUV insetで隣tileのbleedを抑制、全faceは1materialへmerge。fixtureごとのtexture/material cloneなし。
+Canvas描画命令とUV/texture共有を自動テスト、ブラウザでatlasMode=canvasの生成成功を確認。
+CPU-only Nodeでは1×1 DataTexture代替を使用するため、CPU画像は看板文字の視覚検証ではない。
+広告素材/外部assetなし。時刻12:00はDEMO、発車時刻--:--は静的impression。実際の案内/運行情報ではない。
+
+JR / Ginza detail
+catenary supports 49、wire segments 504、droppers 172、rail signals 8。
+架線routeはS5 JR alignmentのみ。MEDIUM support pitch40m / wire segment上限8m / dropper pitch12m。
+接触線Y11.55m、messenger12.1m。支持上端12.35mでGinza girder下面12.5mと分離。
+source oneway方向に合わせて信号面を進入側へ向ける。信号・列車simulationはなし。
+selected stiffeners / cable tray / pier guard stripesを共有instance。HIGHのみrivet impressionを増加。
+GinzaはOSM electrified=railなのでthird-rail coverを使用し、JR架線を架空配置しない。
+Ginza M roofへseams、end-glass transom、metro sign2を追加。S5 M silhouette/ribsを維持。
+HIGH/MEDIUM/LOWでplatform/pole/wire/dropper/stiffener密度を変更。UI profile切替でS6だけ再生成する。
+Point/SpotLight0。limited warm materialは常時の表面impressionのみでDay/Night callbackはない。
+
+Rotary / station-front
+rotary/plaza props 14、shelters 2（bus1 / taxi1）、koban 1、info 1。
+OSM koban node/1420789223、information node/10796846626を基準に小規模構造を配置。
+歩道を大きく占有する西側bus候補は不採用。東口covered bus-stop node/1681663773の4m南を採用。
+Taxi shelterは西側駅前のPOC構図候補[25,155]付近で検査後[23,155]に配置。実在taxi POI/現在の乗り場の再現を主張しない。
+globe lamp、bench、map board、planter/bushで駅前の縁を構成。候補をすべて強制採用せず、道路形状やS5デッキを変更しない。
+static vehicleも今回は追加せず、Traffic機構なし。
+
+Gadoshita
+storefront 8、archetypes {"izakaya": 2, "ramen": 2, "convenience": 2, "shutter": 2}。
+JR deck西縁の内側で、S5構造pierと道路/歩道/階段/主要動線を避けたprocedural vignette。
+recessed door/window、fascia、noren、lantern、menu、crate/bin、AC/pipe、shutter/slat。
+lantern 6、noren panels 18、menu faces 8。ランタンは共有CylinderGeometry、PointLightなし。
+seed固定のvariationをcrate寸法に反映。同入力/同tierの再生成結果は一致。
+実在店舗や広告/ブランドのコピーではない。店内/営業/住民systemはない。
+
+Penetration
+S5 baseline: major0、minor11。
+S6新規: major 0、minor 3。
+新規minor categoryはsidewalk、planter/bench/map-boardのfootprint overlapのみ。場所・面積をpenetration-audit.jsonに保存。
+Shelterは2m²超の歩道占有候補を除外。配置位置は既存crosswalk/road/主要mapped flow/階段/建物/pierを避ける。
+全fixture footprintを別auditで再検査。mounted detailの接触はHachiko/girder/pier/Ginza portal/roofの明示hostへの意図した接触。
+候補除外 96件。1候補に複数理由があるため理由別合計は候補数と一致しない。
+wire/catenary有限、giant wire spike0、最終geometry NaN/Infinity/不正index/退化triangle0。
+
+Performance
+S6新規 triangles 16,540、materials 9、batches 12 = instanced 11 + merged 1。
+instances 1,335、atlas texture1、PointLight0。microdetail castShadow=false。
+Scene known triangles 334,032、materials 40、batches 50、textures 3。
+Scene集計はS1 debug outlinesを除くCPU値。?debug=1時のS6線分表示は別途1batch。
+S6 CPU build 3829ms（事前計算core/groundを渡した値）。通常ブラウザは監査用core生成を含み約15.6秒。
+CPU build時間はGPU frame time/FPSではない。synchronous構築の初期停止時間はknown limitation。
+
+Tests / build / console
+既存121 + S6追加21 = 142 tests PASS / fail0。tests.log参照。
+Canvas描画・atlas共有・配置/方向・物理的範囲・決定論・密度tier・dispose/module・回帰を検証。
+build PASS。build.log参照。chunk size / proxy / route分類の既存注意表示あり。
+app-derived Console Error0。console.jsonのchrome-extension由来metadata送信エラーは別扱い。
+CAM-01、CAM-03、CAM-05選択、stationDetail OFF→ON後readyをブラウザ確認。
+
+Visual / debug
+WebGL2利用不可のため、実CAM-05/CAM-01/CAM-03描画スクリーンショットとFPS/renderer.infoは未検証。
+station-detail-density.png: station overlay、rotary map、gadoshita/platform map、JR catenary/signals、追加minor位置。
+cam05-cpu-projection.png: 同じeye/target/FOVのCPU proxy投影。看板texture/影/正確な遮蔽は未再現、円形fixtureはbox proxy。
+これらを目視確認したがWebGL visual PASSとは扱わない。
+?debug=1でS6 fixture bounds・架線・信号方向をデバッグ線として表示可能。
+
+Known issues / scope
+現在の実地情報・精密寸法・構造計算を保証しないPOC。高架下店舗とTaxi配置は明示的なprocedural composition。
+架線末端は対象境界を跨ぐ候補を除外し、少数のmounted薄部材は境界外へ約0.03m突出。
+全材質の見え方、文字解像度、実機遮蔽、細かいwall接触、夜景、GPU FPSは未検証。
+S5 baseline minor11およびS3既存道路端overlap85は今回修正していない。
+
+保存/commit
+コード、テスト、CPU図、検証スクリプト、全監査記録を配布ZIPに収録。commit hashはZIP内S6_COMMIT.txt参照。
+S7 citywide Signs / Streetscape / Traffic / Life / moving Trains / DayNight / Nightglow / Construction / GTA未実装。
+デプロイなし。S6でSTOP。

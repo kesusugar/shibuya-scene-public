@@ -1,0 +1,100 @@
+{
+ "query": "qa=1&tier=low&time=day&camera=scramble",
+ "steps": [
+  {
+   "name": "60-crash-smoke",
+   "note": "a moment after the crash: the burst of smoke and sparks off the front",
+   "state": {
+    "player": {
+     "x": -16.6,
+     "z": 24.7,
+     "weapon": "fists",
+     "health": 100
+    },
+    "car": {
+     "active": true,
+     "type": "ownCar",
+     "speed": 0,
+     "damage": 0.35,
+     "wear": {
+      "dents": 2,
+      "panes": {
+       "front": 2,
+       "rear": 0,
+       "left": 0,
+       "right": 0
+      }
+     }
+    },
+    "radio": null,
+    "fps": 0.2,
+    "drawCalls": 389,
+    "triangles": 15057933
+   }
+  },
+  {
+   "name": "61-damaged-smoke",
+   "note": "standing at 60% damage: grey smoke off the bonnet",
+   "state": {
+    "player": {
+     "x": -16.6,
+     "z": 24.7,
+     "weapon": "fists",
+     "health": 100
+    },
+    "car": {
+     "active": true,
+     "type": "ownCar",
+     "speed": 0,
+     "damage": 0.6,
+     "wear": {
+      "dents": 2,
+      "panes": {
+       "front": 2,
+       "rear": 0,
+       "left": 0,
+       "right": 0
+      }
+     }
+    },
+    "radio": null,
+    "fps": 0.1,
+    "drawCalls": 393,
+    "triangles": 17596071
+   }
+  },
+  {
+   "name": "62-wrecked-smoke",
+   "note": "standing at 95% damage: dark smoke",
+   "state": {
+    "player": {
+     "x": -16.6,
+     "z": 24.7,
+     "weapon": "fists",
+     "health": 100
+    },
+    "car": {
+     "active": true,
+     "type": "ownCar",
+     "speed": 0,
+     "damage": 0.95,
+     "wear": {
+      "dents": 2,
+      "panes": {
+       "front": 2,
+       "rear": 0,
+       "left": 0,
+       "right": 0
+      }
+     }
+    },
+    "radio": "📻 88.4 Shibuya Night FMNeon Taxi Lovers — Kaze no Machi",
+    "fps": 0.1,
+    "drawCalls": 393,
+    "triangles": 20182671
+   }
+  }
+ ],
+ "errors": [],
+ "warnings": 0
+}

@@ -1,0 +1,91 @@
+<!doctype html><meta charset="utf-8"><title>stage 4 bench</title>
+<style>html,body{margin:0;background:#20242b;overflow:hidden}canvas{display:block}
+#l{position:fixed;left:8px;top:8px;color:#dfe6ef;font:11px/1.45 monospace;white-space:pre;z-index:9;text-shadow:0 1px 2px #000}</style>
+<div id="l">loading…</div>
+<!--
+  Roadmap stage 4 on the game's modules.
+  Row 1: onlookers round a body (onlookers.mjs picks them and their phones; figure.mjs draws them):
+         the scene from two sides, then close on one filming and one calling.
+  Row 2: the aftermath (aftermath.mjs) on the real HIGH lane graph: the ambulance and the patrol car
+         coming up the lane, stopped by the bodies with their lamps on, and leaving -- drawn with the
+         game's vehicle shapes (the livery band is the fleet shader's and is not drawn here: the
+         ambulance is plain white in this bench).
+
+  `node qa/gta-upgrade/weaponbench-capture.mjs out.png "" stage4bench.html` saves it.
+-->
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/","polygon-clipping":"/node_modules/polygon-clipping/dist/polygon-clipping.esm.js","splaytree":"/node_modules/splaytree/dist/splaytree.js","robust-predicates":"/node_modules/robust-predicates/index.js"}}</script>
+<script type="module">
+import * as T from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {humanoidCitizen} from '/src/player/character-asset.mjs';
+import {createPlayerFigure} from '/src/player/figure.mjs';
+import {createOnlookers} from '/src/life/onlookers.mjs';
+import {createAftermath} from '/src/life/aftermath.mjs';
+import {buildVehicleShape} from '/src/traffic/vehicle-shape.mjs';
+import {restoreGroundModel} from '/src/ground/model.mjs';
+import {restoreTrafficGraph} from '/src/traffic/graph.mjs';
+import {TrafficSimulation} from '/src/traffic/simulation.mjs';
+
+const report=await (await fetch('/public/data/character/citizen.json')).json();
+const bytes=await (await fetch('/public/data/character/citizen.glb')).arrayBuffer();
+const asset=humanoidCitizen(await new Promise((res,rej)=>new GLTFLoader().parse(bytes,'',res,rej)),report);
+const CW=320,CH=260,W=CW*4,H=CH*2,dt=1/30;
+const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
+renderer.setPixelRatio(1);renderer.setSize(W,H);renderer.setScissorTest(true);document.body.appendChild(renderer.domElement);
+const lines=[];
+const stage=()=>{const s=new T.Scene();s.background=new T.Color(0x9fb7cc);s.add(new T.HemisphereLight(0xcfe0ff,0x3a3a42,1.6));
+ const k=new T.DirectionalLight(0xffffff,2.2);k.position.set(6,10,5);s.add(k);
+ s.add(new T.Mesh(new T.PlaneGeometry(300,300).rotateX(-Math.PI/2),new T.MeshStandardMaterial({color:0x7c8087,roughness:.9})));return s;};
+const draw=(scene,cam,col,row)=>{const x=col*CW,y=H-(row+1)*CH;renderer.setViewport(x,y,CW,CH);renderer.setScissor(x,y,CW,CH);renderer.render(scene,cam);};
+const cam=(p,t,fov=40)=>{const c=new T.PerspectiveCamera(fov,CW/CH,.05,400);c.position.set(...p);c.lookAt(...t);return c;};
+
+// Row 1: onlookers.
+{const scene=stage();
+ const body=createPlayerFigure(asset,{top:0xd9a21b});scene.add(body.root);
+ const bs={x:0,y:0,z:0,speed:0,heading:0,alive:true,attackTime:0};for(let i=0;i<10;i++)body.update(bs,dt);
+ bs.ragdoll={seq:1,dir:{x:1,z:0},zone:'body',strength:1,push:{x:1,y:.2,z:0},ground:0};for(let i=0;i<90;i++)body.update(bs,dt);
+ // Body id 2: ids fix who films and who calls, and with these five one of them calls.
+ const people=[{id:0,active:false},{id:1,active:false},{id:2,active:true,x:0,z:0,combatDead:true,struck:5,archetype:'office'}];
+ const spots=[[6,2],[-5,5],[3,-7],[-7,-3],[9,-5],[40,0]];
+ spots.forEach(([x,z],i)=>people.push({id:i+3,active:true,x,z,heading:0,archetype:'office'}));
+ const crowd={time:20,pool:people},o=createOnlookers();o.update(crowd,{});
+ const colours=[0x3b6fb6,0x4a7a3a,0x8a5a9c,0xb05030,0x2a8a8a];const figs=[];
+ for(const p of people.slice(3)){if(!p.phone)continue;const f=createPlayerFigure(asset,{top:colours[figs.length%5]},{weapons:['revolver']});scene.add(f.root);
+  const s={x:p.x,y:0,z:p.z,speed:0,heading:p.heading,bodyHeading:p.heading,alive:true,attackTime:0,phone:p.phone};for(let i=0;i<40;i++)f.update(s,dt);figs.push([f,p]);}
+ draw(scene,cam([14,6,12],[0,.8,0]),0,0);draw(scene,cam([-12,5,-12],[0,.8,0]),1,0);
+ const film=figs.find(([,p])=>p.phone==='film'),call=figs.find(([,p])=>p.phone==='call');
+ // Close-ups from the watcher's right side, so the gap between the phone and the body shows.
+ for(const [k,[f,p]] of [[2,film],[3,call]].filter(([,v])=>v)){const h=p.heading,fx=p.x-Math.cos(h)*1.7+Math.sin(h)*.35,fz=p.z+Math.sin(h)*1.7+Math.cos(h)*.35;draw(scene,cam([fx,1.55,fz],[p.x+Math.sin(h)*.15,1.3,p.z+Math.cos(h)*.15],40),k,0);}
+ lines.push('onlookers: '+JSON.stringify(o.stats)+' '+people.slice(3).map(p=>p.phone??'-').join(','));}
+
+// Row 2: the aftermath on the real lane graph.
+{const pack=await (await fetch('/public/data/shibuya-static-models.json')).json(),data=await (await fetch('/public/data/shibuya-scene-data.json')).json();
+ const graph=restoreTrafficGraph(pack.traffic.high);graph.ground=restoreGroundModel(pack.ground);graph.data=data;
+ const sim=new TrafficSimulation(graph,{tier:'high',street:pack.street.high});sim.refill(true);
+ const lane=graph.lanes.filter(l=>l.allowed.includes('police')).reduce((a,b)=>b.path.length>a.path.length?b:a);
+ const i=Math.floor(lane.path.x.length*.7),at={x:lane.path.x[i],z:lane.path.z[i]};
+ const pool=[{id:0,active:true,x:at.x+3.5,z:at.z+1,combatDead:true,struck:0},{id:1,active:true,x:at.x+4.5,z:at.z-2,combatDead:true,struck:0}];
+ const crowd={time:0,pool},after=createAftermath();
+ const scene=stage();
+ const mat={paint:new T.MeshStandardMaterial({color:0xf3f3ef,roughness:.5}),glass:new T.MeshStandardMaterial({color:0x1b2530,roughness:.1}),
+  rubber:new T.MeshStandardMaterial({color:0x111}),rim:new T.MeshStandardMaterial({color:0x999}),lamp:new T.MeshStandardMaterial({color:0xfff,emissive:0xfff5d0,emissiveIntensity:.5}),
+  tail:new T.MeshStandardMaterial({color:0x800,emissive:0x600}),dark:new T.MeshStandardMaterial({color:0x222}),plate:new T.MeshStandardMaterial({color:0xddd}),lightbar:new T.MeshStandardMaterial({color:0xff2a1a,emissive:0xff2a1a,emissiveIntensity:1.2})};
+ const police={...mat,paint:new T.MeshStandardMaterial({color:0x121417,roughness:.5})};
+ const model=(type,m)=>{const g=new T.Group(),sh=buildVehicleShape(type);for(const [k,geo] of Object.entries(sh.geometry))if(m[k])g.add(new T.Mesh(geo,m[k]));scene.add(g);return g;};
+ const aM=model('ambulance',mat),pM=model('police',police);
+ for(const p of pool){const f=createPlayerFigure(asset,{top:0xd9a21b});scene.add(f.root);const s={x:p.x,y:0,z:p.z,speed:0,heading:1,alive:true,attackTime:0};for(let k=0;k<5;k++)f.update(s,dt);
+  s.ragdoll={seq:1,dir:{x:1,z:0},zone:'body',strength:1,push:{x:1,y:.2,z:0},ground:0};for(let k=0;k<90;k++)f.update(s,dt);p.fig=f;}
+ const sync=()=>{for(const [m,t] of [[aM,'ambulance'],[pM,'police']]){const v=sim.pool.find(q=>q.active&&q.type===t&&q.service);m.visible=!!v;if(v){m.position.set(v.x,0,v.z);m.rotation.y=v.heading;}}
+  for(const p of pool)p.fig.root.visible=!p.collected;};
+ const step=()=>{crowd.time+=.1;for(const p of pool)if(p.struck!==undefined)p.struck+=.1;return after.update(.1,{traffic:sim,crowd,stars:0});};
+ const view=()=>cam([at.x+16,9,at.z+16],[at.x,0,at.z],50);
+ for(let t=0;t<19;t+=.1)step();
+ for(let t=0;t<3;t+=.1)step();sync();draw(scene,view(),0,1);
+ while(after.job?.phase==='coming')step();sync();draw(scene,view(),1,1);
+ for(let t=0;t<15;t+=.1)step();sync();draw(scene,view(),2,1);
+ for(let t=0;t<2.5;t+=.1)step();sync();draw(scene,view(),3,1);
+ lines.push('aftermath: '+JSON.stringify(after.stats)+' collected '+pool.filter(p=>p.collected).length);}
+document.getElementById('l').textContent=lines.join('\n');
+window.__BENCH__={lines};
+document.title='ready';
+</script>

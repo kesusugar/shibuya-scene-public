@@ -1,0 +1,16 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+import {restoreGroundModel} from '../src/ground/model.mjs';
+import {restoreContext} from '../src/quality/static-context.mjs';
+import {centralDetail,centralSource} from '../src/streetscape/central-detail.mjs';
+import {restoreTrafficGraph} from '../src/traffic/graph.mjs';
+import {rotaryPath} from '../src/traffic/rotary-service.mjs';
+const pack=JSON.parse(readFileSync('public/data/shibuya-static-models.json')),model=pack.street.high,detail=pack.detail.high;
+model.context=restoreContext(model.context,restoreGroundModel(pack.ground),pack.generic);
+const result=centralDetail(model,detail,true),fixtures=result.fixtures.filter(f=>f.id.startsWith('central:'));
+writeFileSync('src/streetscape/central-generated.json',JSON.stringify({source:centralSource(model,detail),fixtures},null,2)+'\n');
+console.log(result.centralDetail);
+const path=rotaryPath(restoreTrafficGraph(pack.traffic.high),false,true);
+if(!path)throw Error('No safe bus swept path');
+const source=path.source,plain={length:path.length};for(const key of ['x','z','h','s'])plain[key]=Array.from(path[key]);
+writeFileSync('src/traffic/rotary-generated.json',JSON.stringify({source,path:plain})+'\n');
+console.log('Rotary path baked',path.length);

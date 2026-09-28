@@ -1,0 +1,117 @@
+<!doctype html><meta charset="utf-8"><title>clips</title>
+<!--
+  One clip per row, photographed across its own duration, standing on a floor.
+  RUN 5's line is that foot IK adapts a correct animation to the terrain and does not drag a
+  wrong foot pose down to hide it. Deciding which clips are correct is therefore a separate
+  question from anything the solver does, and this is where it gets looked at: no IK, no
+  controller, no blend -- just the clip, played over a flat floor at the height the model's
+  own idle pose implies, so a foot that does not belong there is visible.
+  Serve the repository root: /qa/gta-upgrade/clipbench.html?set=action
+-->
+<style>html,body{margin:0;background:#1b1f26;overflow:hidden}canvas{display:block}
+#l{position:fixed;left:8px;top:6px;color:#e6edf5;font:11px/1.45 monospace;white-space:pre;z-index:9;text-shadow:0 1px 2px #000}
+.tick{position:absolute;color:#9fb0c2;font:10px monospace;z-index:9;text-shadow:0 1px 3px #000}
+.row{position:absolute;color:#cfd8e3;font:11px monospace;z-index:9;text-shadow:0 1px 3px #000}</style>
+<div id="l">loading…</div>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as T from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+import {humanoidCitizen} from '/src/player/character-asset.mjs';
+
+const P=new URLSearchParams(location.search);
+const SET=P.get('set')??'action';
+const COLUMNS=Number(P.get('columns')??7);
+const CELL=Number(P.get('cell')??230);
+
+const SETS={
+ action:['Punch','PunchCross','Hit','Startle'],
+ vehicle:['Enter','Exit','Drive'],
+ locomotion:['Idle','Walk','Run','Sprint']
+};
+const clips=SETS[SET]??SETS.action;
+
+const W=COLUMNS*CELL,H=clips.length*CELL;
+const renderer=new T.WebGLRenderer({antialias:true});
+renderer.setSize(W,H);renderer.outputColorSpace=T.SRGBColorSpace;
+renderer.toneMapping=T.ACESFilmicToneMapping;renderer.setScissorTest(true);
+document.body.appendChild(renderer.domElement);
+const scene=new T.Scene();scene.background=new T.Color(0x232830);
+const pmrem=new T.PMREMGenerator(renderer);
+scene.environment=pmrem.fromScene(new RoomEnvironment(),.04).texture;
+scene.add(new T.HemisphereLight(0xcfe0ff,0x3a3f47,1.5));
+const key=new T.DirectionalLight(0xfff4e2,2.2);key.position.set(3,6,4);scene.add(key);
+
+const report=await (await fetch('/public/data/character/citizen.json')).json();
+const bytes=await (await fetch('/public/data/character/citizen.glb')).arrayBuffer();
+const gltf=await new Promise((res,rej)=>new GLTFLoader().parse(bytes,'',res,rej));
+const asset=humanoidCitizen(gltf,report);
+const instance=asset.instance();
+const root=instance.root;scene.add(root);
+const mixer=new T.AnimationMixer(root);
+const byName=new Map(instance.clips.map(c=>[c.name,c]));
+
+// The floor sits where the IDLE pose puts the sole. Every other clip is then judged against
+// the same plane, which is the point: a clip whose feet are 11 mm lower than idle's is a clip
+// that will sink, and a grid that moved with each clip would hide exactly that.
+const BALL_TO_SOLE=.0215;
+const probe=new T.Vector3();
+const bones={};root.traverse(o=>{if(o.isBone)bones[o.name]=o;});
+const soleY=n=>{const b=bones[n];if(!b)return 0;b.updateWorldMatrix(true,false);
+ return probe.setFromMatrixPosition(b.matrixWorld).y-BALL_TO_SOLE;};
+function floorOf(name){
+ const clip=byName.get(name);if(!clip)return 0;
+ mixer.stopAllAction();const a=mixer.clipAction(clip);a.reset().play();
+ let low=Infinity;
+ for(let i=0;i<120;i++){a.time=clip.duration*i/120;mixer.update(0);root.updateMatrixWorld(true);
+  low=Math.min(low,soleY('ball_l'),soleY('ball_r'));}
+ mixer.stopAllAction();return low;
+}
+const FLOOR=floorOf('Idle');
+{
+ const g=new T.PlaneGeometry(8,8,32,32).rotateX(-Math.PI/2);
+ scene.add(new T.Mesh(g,new T.MeshStandardMaterial({color:0x5b626c,roughness:.95})));
+ scene.children.at(-1).position.y=FLOOR;
+ const grid=new T.GridHelper(8,32,0x7d8794,0x666f7b);grid.position.y=FLOOR+.001;scene.add(grid);
+}
+
+const camera=new T.PerspectiveCamera(28,1,.05,60);
+const label=[];
+for(const [r,name] of clips.entries()){
+ const clip=byName.get(name);
+ const cy=H-(r+1)*CELL;
+ if(!clip){label.push(name+': missing');continue;}
+ mixer.stopAllAction();
+ const action=mixer.clipAction(clip);action.reset().play();
+ let worst=0;
+ for(let c=0;c<COLUMNS;c++){
+  const t=clip.duration*c/(COLUMNS-1||1);
+  action.time=Math.min(t,clip.duration-1e-4);mixer.update(0);
+  root.updateMatrixWorld(true);
+  const low=Math.min(soleY('ball_l'),soleY('ball_r'));
+  const below=(FLOOR-low)*1000;
+  worst=Math.max(worst,below);
+  const cx=c*CELL;
+  renderer.setViewport(cx,cy,CELL,CELL);renderer.setScissor(cx,cy,CELL,CELL);
+  // Low and square on, so the floor line is close to the feet and a few millimetres read.
+  camera.position.set(2.9,.62,2.2);camera.up.set(0,1,0);camera.lookAt(0,.62,0);
+  camera.updateProjectionMatrix();
+  renderer.render(scene,camera);
+  const tick=document.createElement('div');tick.className='tick';
+  tick.textContent=`${t.toFixed(2)}s  ${below>1?('sole '+below.toFixed(0)+'mm under'):'on floor'}`;
+  tick.style.left=(cx+5)+'px';tick.style.top=(H-cy-16)+'px';
+  document.body.appendChild(tick);
+ }
+ const nm=document.createElement('div');nm.className='row';
+ nm.textContent=`${name}  (${clip.duration.toFixed(2)}s)`;
+ nm.style.left='5px';nm.style.top=(H-cy-CELL+4)+'px';
+ document.body.appendChild(nm);
+ label.push(`${name}: worst ${worst.toFixed(0)}mm under the idle floor`);
+}
+mixer.stopAllAction();
+document.getElementById('l').textContent=
+ `clip set "${SET}"   floor = the plane the Idle clip's soles rest on   no foot IK, no blend\n`+
+ label.join('   ');
+document.title='ready';
+</script>

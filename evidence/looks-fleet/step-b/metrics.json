@@ -1,0 +1,24 @@
+{
+  "what": "PLAN-LOOKS-AND-FLEET Step B (traffic on the loft in five BatchedMeshes, paint per car, liveries), device check",
+  "date": "2026-09-25",
+  "machine": "the user's Windows 11 PC, Chrome (visible tab, driven by Claude in Chrome), npm run dev:local",
+  "draw_calls_same_view": {
+    "url": "?qa=1&tier=high&time=day&camera=street",
+    "baseline": 345, "step_b": 285,
+    "night_url": "?qa=1&tier=high&time=night&camera=street",
+    "night_baseline": 353, "night_step_b": 293,
+    "note": "whole-scene draw calls. Traffic went from one InstancedMesh per type and part (34 at HIGH) to 5 BatchedMeshes; the difference also includes those meshes' other passes."
+  },
+  "fps": {"day_street": 7.8, "night_street": 8.0, "baseline_day_street": 8.8, "baseline_night_street": 8.2, "note": "different sessions; this PC's fps varies more than this between sessions (see step-a A/B). Not a performance acceptance."},
+  "console": "0 errors; no [role=alert]",
+  "found_and_fixed_on_device": [
+    "the livery block was guarded by USE_BATCHING_COLOR, which three defines only in the vertex prefix, so every taxi was its lower colour (day-taxi-before-livery-fix.jpg); now USE_COLOR_ALPHA",
+    "one-box (van, bus) and cab-over roofs were mostly glass: the loft's roof panel only covered stations at >= 98.5% height; those silhouettes now use 94%"
+  ],
+  "visual": [
+    "day-street-fleet.png: lofted traffic in per-car paint (white, silver, black, dark blue...)",
+    "day-taxi-livery.jpg: cream-and-maroon taxi, the upper colour on roof and pillars",
+    "night-street.jpg / night-lamps-closeup.png: headlamps and tail lamps still ramp by name at night"
+  ],
+  "not_checked": ["MEDIUM / LOW on device", "the phone", "every livery on every body style (only the cream taxi was inspected close up)"]
+}

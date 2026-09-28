@@ -1,0 +1,46 @@
+✔ S10 walkable graph uses surface footways, excludes obstacles, and supports chained destinations (3.443658ms)
+✔ S10 scramble has all four mapped main crossings plus diagonal in both directions (0.615075ms)
+✔ S10 HIGH MEDIUM LOW density, archetypes, idle, milling and family groups (111.838501ms)
+✔ S10 fixed pools and geometry identities survive profile changes and dispose twice (310.155205ms)
+✔ S10 fail-closed signals, GREEN wait and late-phase admission suppression (154.692443ms)
+✔ S10 crossing completes after nominal phase while cars wait then resume after clearance (162.586194ms)
+✔ S10 waiting queues pack without spawning in lanes or overlap and unknown signals deny entry (164.434854ms)
+✔ S10 LOD throttles far actors and debug is opt-in (147.447134ms)
+✔ S10 retains S2–S9 and excludes S14+ and gameplay (0.756127ms)
+✔ S10 exit reservation is a capacity constraint, distinct from an actual body overlap (132.394012ms)
+✔ S12 one TimeState controls sky exposure sun/moon ambient and restores DAY (2.611437ms)
+✔ S12 existing signage and vehicle lamp materials respond without adding meshes (1.916762ms)
+✔ S12 windows use deterministic partial occupancy and toggle only a shared uniform (0.466932ms)
+✔ S12 late module loads inherit NIGHT; removal and environment toggles restore owned state (0.380753ms)
+✔ S12 train window and end lamps preserve clipping geometry counts and movement (53.531738ms)
+✔ S12 profiles retain crowd train and traffic source ownership; no S14 postprocess or GTA (1.249609ms)
+✔ S13 selected wet geometry follows flat mapped surfaces, avoids markings/buildings and has no overlapping pools (5728.787008ms)
+✔ S13 tier changes reuse two geometry batches; DAY and environment OFF disable effects (0.650428ms)
+✔ S13 wet asphalt and vehicle emission restore exact S12 DAY values without mesh changes (1.845255ms)
+✔ S13 Hero/commercial signs vary via vertex attribute; existing window/train shader hooks remain composable (0.989227ms)
+✔ S13 bloom has bounded extra passes, reduced MED target, LOW/DAY bypass and restored render state/stats (1.368237ms)
+✔ S13 disposal restores baseline and releases pooled resources exactly once (0.656317ms)
+✔ S14 valid quality and bounded DPR retain a MEDIUM default at high device DPR (2.259868ms)
+✔ S14 frame gate skips rendering and update work while preserving elapsed simulation time (0.357217ms)
+✔ S14 build queue yields one job at a time and cancels pending work on disposal (0.615616ms)
+✔ S14 deferred quality changes coalesce rapid input before rebuilding decorative modules (0.248774ms)
+✔ S14 scheduled module cannot resurrect after disable or disposal (0.446471ms)
+✔ S14 baked wet data matches source and day/night/postprocess switches preserve pooled objects (22.410884ms)
+✔ S14 existing dynamic profile counts and far throttling retained; no later effects/gameplay (0.886213ms)
+✔ S16.1 allocated approaches retain diverse safe cells and populated districts (7.304752ms)
+✔ S16.1 continuous first floor glazing remains bounded to selected road frontages (983.762897ms)
+✔ S16.1 local night pool has a bounded footprint and reversible uniform (0.533843ms)
+✔ S16 waiting strips offer finite safe cells with width and depth rather than one target (2.079046ms)
+✔ S16 four crossing groups plus diagonal keep both directions and distributed safe exits (0.682026ms)
+✔ S16 seeded red-phase crowd waits without body collapse or road invasion (291.84268ms)
+✔ S16 selected commercial windows span floors 1–4 using existing instance/material pools (1.390971ms)
+✔ S16 storefront emission is local and seeded, DAY restores the shared materials (2.047428ms)
+✔ S16 CAM03 keeps human eye height and S14 caps; no later systems or copied character feature (1.021066ms)
+ℹ tests 38
+ℹ suites 0
+ℹ pass 38
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 121473.015682

@@ -1,0 +1,14 @@
+✔ S16 waiting strips offer finite safe cells with width and depth rather than one target (1.592293ms)
+✔ S16 four crossing groups plus diagonal keep both directions and distributed safe exits (0.587233ms)
+✔ S16 seeded red-phase crowd waits without body collapse or road invasion (310.038235ms)
+✔ S16 selected commercial windows span floors 1–4 using existing instance/material pools (1.231121ms)
+✔ S16 storefront emission is local and seeded, DAY restores the shared materials (2.465852ms)
+✔ S16 CAM03 keeps human eye height and S14 caps; no later systems or copied character feature (1.198902ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2745.073133

@@ -1,0 +1,14 @@
+✔ S16.3 GTAO uses bounded samples, denoise and per-draw emitter exclusion without a mask scene pass (26.664324ms)
+✔ S16.3 high shadows and four non-shadow local lights follow DAY NIGHT and tier transitions (5.443247ms)
+✔ S16.3 rounded instanced crowd shares eight geometry pools and three response materials (22.389831ms)
+✔ S16.3 PBR wall glass shop and trim remain shared and differentiated (3559.371402ms)
+✔ S16.3 halos are limited to existing Hero screens and stay out of AO (2.170039ms)
+✔ S16.3 filtering is capped by renderer and removed roots restore shadow ownership (2.724878ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4351.387443

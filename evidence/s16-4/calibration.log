@@ -1,0 +1,12 @@
+✔ S16.4 active daylight has one calibrated fill and restores inspection light when disabled (4.861074ms)
+✔ S16.4 wall response is reversible and excludes emissive sign materials (3.731432ms)
+✔ S16.4 sign calibration stays inside accepted rectangles and preserves IDs and hero screens (2.731377ms)
+✔ S16.4 reflections favor visible perimeter sources over the crossing center; camera and DPR budgets valid (0.598638ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 527.323959

@@ -1,0 +1,16 @@
+{
+  "patches": 71,
+  "reflections": 30,
+  "zones": [
+    "scramble",
+    "qfront",
+    "109",
+    "center-gai",
+    "station",
+    "arterial"
+  ],
+  "outsideArea": 2.5579538487363607e-13,
+  "markingOverlapArea": 0,
+  "poolOverlapArea": 0,
+  "addedLights": 0
+}

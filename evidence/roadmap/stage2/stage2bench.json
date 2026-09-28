@@ -1,0 +1,16 @@
+{
+ "url": "http://<local>/qa/gta-upgrade/stage2bench.html",
+ "ready": true,
+ "bench": {
+  "lines": [
+   "hands up + katana walk",
+   "limp: knee kept straight on the right",
+   "crawl: head at 0.37 m, action Crawl",
+   "wall: {\"walls\":676,\"cars\":0}",
+   "car: {\"walls\":0,\"cars\":659}"
+  ],
+  "calls": 7
+ },
+ "console": [],
+ "errors": 0
+}

@@ -1,0 +1,70 @@
+<!doctype html><meta charset="utf-8"><title>stage 2 bench</title>
+<style>html,body{margin:0;background:#20242b;overflow:hidden}canvas{display:block}
+#l{position:fixed;left:8px;top:8px;color:#dfe6ef;font:11px/1.45 monospace;white-space:pre;z-index:9;text-shadow:0 1px 2px #000}</style>
+<div id="l">loading…</div>
+<!--
+  Roadmap stage 2 on the game's figure (figure.mjs with body-states.mjs and ragdoll.mjs).
+  Row 1: hands up at gunpoint (front, then side), and the katana held in both hands while
+         walking (three moments of the stride).
+  Row 2: a limp on the right leg (side view, five moments of the stride).
+  Row 3: crawling away on the ground (side view, five moments).
+  Row 4: a body shot toward a wall and toward a parked car's side: stopped against it.
+
+  `node qa/gta-upgrade/weaponbench-capture.mjs out.png "" stage2bench.html` saves it.
+-->
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as T from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {humanoidCitizen} from '/src/player/character-asset.mjs';
+import {createPlayerFigure} from '/src/player/figure.mjs';
+import {setRagdollWorld} from '/src/player/ragdoll.mjs';
+
+const report=await (await fetch('/public/data/character/citizen.json')).json();
+const bytes=await (await fetch('/public/data/character/citizen.glb')).arrayBuffer();
+const asset=humanoidCitizen(await new Promise((res,rej)=>new GLTFLoader().parse(bytes,'',res,rej)),report);
+const dt=1/60,CELL={w:256,h:220},COLS=5,ROWS=4,W=CELL.w*COLS,H=CELL.h*ROWS;
+const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
+renderer.setPixelRatio(1);renderer.setSize(W,H);renderer.setScissorTest(true);document.body.appendChild(renderer.domElement);
+const lines=[];
+const stage=()=>{const s=new T.Scene();s.background=new T.Color(0x20242b);s.add(new T.HemisphereLight(0xcfe0ff,0x3a3a42,1.7));
+ const k=new T.DirectionalLight(0xffffff,2.3);k.position.set(3,6,4);s.add(k);
+ s.add(new T.Mesh(new T.PlaneGeometry(40,40).rotateX(-Math.PI/2),new T.MeshStandardMaterial({color:0x6c717a,roughness:.9})));s.add(new T.GridHelper(40,80,0x7b8290,0x646b76));return s;};
+const draw=(scene,cam,col,row)=>{const x=col*CELL.w,y=H-(row+1)*CELL.h;renderer.setViewport(x,y,CELL.w,CELL.h);renderer.setScissor(x,y,CELL.w,CELL.h);renderer.render(scene,cam);};
+const cam=(px,py,pz,tx,ty,tz,fov=36)=>{const c=new T.PerspectiveCamera(fov,CELL.w/CELL.h,.05,80);c.position.set(px,py,pz);c.lookAt(tx,ty,tz);return c;};
+const base=()=>({x:0,y:0,z:0,speed:0,heading:0,bodyHeading:0,alive:true,attackTime:0});
+
+// Row 1: hands up; katana walk.
+{const scene=stage();const f=createPlayerFigure(asset,{top:0x4a7a3a},{weapons:['revolver']});scene.add(f.root);
+ const s={...base(),handsUp:true};for(let i=0;i<40;i++)f.update(s,dt);
+ draw(scene,cam(0,1.4,3.2,0,1.15,0),0,0);draw(scene,cam(3.2,1.4,.2,0,1.15,0),1,0);
+ f.root.visible=false;
+ const k=createPlayerFigure(asset,{top:0xc94d38},{weapons:['pistol','katana','smg']});scene.add(k.root);
+ const w={...base(),weapon:'katana'};for(let i=0;i<60;i++)k.update(w,dt);
+ w.speed=1.4;let t=0;[.5,.85,1.2].forEach((at,i)=>{while(t<at){w.z+=1.4*dt;k.update(w,dt);t+=dt;}k.root.updateMatrixWorld(true);
+  draw(scene,cam(2.4,1.5,w.z+2.2,0,1.1,w.z),2+i,0);});
+ lines.push('hands up + katana walk');}
+// Row 2: limp.
+{const scene=stage();const f=createPlayerFigure(asset,{top:0x3b6fb6});scene.add(f.root);
+ const s={...base(),speed:.6,limp:true};let t=0;
+ for(;t<1;t+=dt){s.z+=.6*dt;f.update(s,dt);}
+ for(let col=0;col<5;col++){for(let k=0;k<.22;k+=dt){s.z+=.6*dt;f.update(s,dt);}f.root.updateMatrixWorld(true);draw(scene,cam(3.4,1.1,s.z,0,.9,s.z),col,1);}
+ lines.push('limp: knee kept straight on the right');}
+// Row 3: crawl.
+{const scene=stage();const f=createPlayerFigure(asset,{top:0x8a5a9c});scene.add(f.root);
+ const s={...base(),speed:.3,crawling:true};let t=0;
+ for(;t<1;t+=dt){s.z+=.3*dt;f.update(s,dt);}
+ for(let col=0;col<5;col++){for(let k=0;k<.3;k+=dt){s.z+=.3*dt;f.update(s,dt);}f.root.updateMatrixWorld(true);draw(scene,cam(2.6,.9,s.z+.4,0,.25,s.z+.4),col,2);}
+ const head=f.root.getObjectByName('Head').getWorldPosition(new T.Vector3());lines.push(`crawl: head at ${head.y.toFixed(2)} m, action ${f.action}`);}
+// Row 4: into a wall; into a car.
+for(const [col,world,build] of [[0,{solid:(x,z)=>z>.5},sc=>{const m=new T.Mesh(new T.BoxGeometry(4,3,.4),new T.MeshStandardMaterial({color:0xb9b2a6}));m.position.set(0,1.5,.7);sc.add(m);}],
+ [2,{cars:[{x:0,z:1.6,y:0,heading:Math.PI/2,width:1.8,length:4.6,height:1.45}]},sc=>{const m=new T.Mesh(new T.BoxGeometry(4.6,1.45,1.8),new T.MeshStandardMaterial({color:0x879ba9}));m.position.set(0,.725,1.6);sc.add(m);}]]){
+ const scene=stage();build(scene);const f=createPlayerFigure(asset,{top:0xd9a21b});scene.add(f.root);
+ const s=base();for(let i=0;i<20;i++)f.update(s,dt);setRagdollWorld(world);
+ s.ragdoll={seq:1,dir:{x:0,z:1},zone:'body',strength:1.5,push:{x:0,y:.4,z:3.5},ground:0};
+ let t=0;[.35,1.6].forEach((at,i)=>{while(t<at){f.update(s,dt);t+=dt;}f.root.updateMatrixWorld(true);draw(scene,cam(3.4,1.4,-.8,0,.6,.3),col+i,3);});
+ lines.push(`${col?'car':'wall'}: ${JSON.stringify(f.ragdoll.hits)}`);setRagdollWorld({});}
+document.getElementById('l').textContent=lines.join('\n');
+window.__BENCH__={lines,calls:renderer.info.render.calls};
+document.title='ready';
+</script>

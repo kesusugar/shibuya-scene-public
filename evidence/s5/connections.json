@@ -1,0 +1,246 @@
+[
+  {
+    "type": "support-span",
+    "alignment": "Ginza:way/1354860210",
+    "acceptedDistances": [
+      8
+    ],
+    "maxUnsupportedSpan": 20.682090928505808
+  },
+  {
+    "type": "support-span",
+    "alignment": "Ginza:way/16688536",
+    "acceptedDistances": [
+      8,
+      56,
+      80,
+      104,
+      152,
+      176
+    ],
+    "maxUnsupportedSpan": 48
+  },
+  {
+    "type": "support-span",
+    "alignment": "Ginza:way/759134299+way/834249968",
+    "acceptedDistances": [
+      32,
+      80,
+      104
+    ],
+    "maxUnsupportedSpan": 48
+  },
+  {
+    "type": "support-span",
+    "alignment": "Ginza:way/807370560",
+    "acceptedDistances": [
+      32,
+      80,
+      104
+    ],
+    "maxUnsupportedSpan": 48
+  },
+  {
+    "type": "support-span",
+    "alignment": "JR:way/146060265+way/146060273+way/211954209+way/211954421+way/853258588+way/853258594",
+    "acceptedDistances": [
+      8,
+      32,
+      56,
+      80,
+      104,
+      128,
+      152,
+      176,
+      200,
+      224,
+      248,
+      272,
+      296,
+      320,
+      344,
+      368,
+      392,
+      416,
+      440,
+      464,
+      488,
+      512
+    ],
+    "maxUnsupportedSpan": 24
+  },
+  {
+    "type": "support-span",
+    "alignment": "JR:way/146060331+way/146060379+way/146060426+way/853258589+way/853258593",
+    "acceptedDistances": [
+      8,
+      32,
+      56,
+      80,
+      104,
+      128,
+      152,
+      176,
+      200,
+      224,
+      248,
+      272,
+      296,
+      320,
+      344,
+      368,
+      392,
+      416,
+      440,
+      464,
+      488,
+      512
+    ],
+    "maxUnsupportedSpan": 24
+  },
+  {
+    "type": "support-span",
+    "alignment": "JR:way/155269553+way/155269603+way/211954427+way/853258587+way/853258591",
+    "acceptedDistances": [
+      8,
+      32,
+      56,
+      80,
+      104,
+      128,
+      152,
+      176,
+      200,
+      224,
+      248,
+      272,
+      296,
+      320,
+      344,
+      368,
+      392,
+      416,
+      440,
+      488,
+      512
+    ],
+    "maxUnsupportedSpan": 48
+  },
+  {
+    "type": "support-span",
+    "alignment": "JR:way/155269569+way/155269600+way/211954289+way/853258586+way/853258590+way/853258592",
+    "acceptedDistances": [
+      8,
+      32,
+      56,
+      80,
+      104,
+      128,
+      152,
+      176,
+      200,
+      224,
+      248,
+      272,
+      296,
+      320,
+      344,
+      368,
+      392,
+      416,
+      440,
+      464,
+      488,
+      512
+    ],
+    "maxUnsupportedSpan": 24
+  },
+  {
+    "type": "mapped-junction",
+    "id": "way/854794950",
+    "end": "start",
+    "point": [
+      -9.940083459919016,
+      78.98117871774437
+    ],
+    "source": "way/906194249",
+    "status": "mapped-junction"
+  },
+  {
+    "type": "indoor-interface",
+    "id": "way/854794950",
+    "end": "end",
+    "point": [
+      47.647279035313744,
+      117.14150016151528
+    ],
+    "source": "way/858994296",
+    "status": "indoor-interface"
+  },
+  {
+    "type": "building-interface",
+    "id": "way/906194249",
+    "end": "start",
+    "point": [
+      -43.767119069802305,
+      82.4543468307427
+    ],
+    "source": "way/87250190",
+    "status": "building-interface"
+  },
+  {
+    "type": "closed-continuation",
+    "id": "way/906194249",
+    "end": "end",
+    "point": [
+      4.983608722045954,
+      77.44496974503728
+    ],
+    "reason": "source ends before next connection; end barrier retained",
+    "status": "closed-continuation"
+  },
+  {
+    "type": "mapped-junction",
+    "id": "way/1354871463",
+    "end": "start",
+    "point": [
+      -3.1113637035784407,
+      107.99103801894725
+    ],
+    "source": "way/854794950",
+    "status": "mapped-junction"
+  },
+  {
+    "type": "mapped-junction",
+    "id": "way/1354871463",
+    "end": "end",
+    "point": [
+      7.7512752722025615,
+      104.56239770199564
+    ],
+    "source": "way/1354871464",
+    "status": "mapped-junction"
+  },
+  {
+    "type": "mapped-junction",
+    "id": "way/1354871464",
+    "end": "start",
+    "point": [
+      7.7512752722025615,
+      104.56239770199564
+    ],
+    "source": "way/1354871463",
+    "status": "mapped-junction"
+  },
+  {
+    "type": "ground-stair",
+    "id": "way/1354871464",
+    "end": "end",
+    "point": [
+      16.60599929836899,
+      118.19903532454524
+    ],
+    "height": 0.15,
+    "status": "ground-stair"
+  }
+]

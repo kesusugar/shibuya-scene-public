@@ -1,0 +1,8 @@
+{
+  "what": "PLAN-POLICE-AND-OWN-CAR W1 (wanted level) + W3 (siren and lamps), device check",
+  "date": "2026-09-25",
+  "machine": "the user's Windows 11 PC, Chrome (visible tab, driven by Claude in Chrome), npm run dev:local",
+  "how": "HIGH night, player mode; a run-over kill was fed to __SHIBUYA_POLICE__.wanted.crime() (driving into a person by automation was not attempted)",
+  "result": {"stars": 1, "hud": "one gold star beside the health bar, solid while a patrol car sees the player", "banner": "shown", "patrol_cars_with_siren": 2, "siren_voices_running": 2, "roof_bar": "lit red, reflected in the wet road (night-patrol-roof-bar.jpg)", "consoleErrors": 0},
+  "not_checked": ["the siren by ear (the tab's AudioContext was running; nothing was listened to)", "the loudspeaker line (needs a Japanese speech voice)", "stars flashing while searched, and the escape clearing (tested)", "H in a stolen patrol car on the device (tested)"]
+}

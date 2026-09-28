@@ -1,0 +1,68 @@
+<!doctype html><meta charset="utf-8"><title>character cost</title>
+<style>html,body{margin:0;background:#20242b}canvas{display:block}
+#l{position:fixed;left:8px;top:8px;color:#dfe6ef;font:12px/1.5 monospace;white-space:pre;z-index:9}</style>
+<div id="l">measuring…</div>
+<!--
+  What one citizen costs to draw.
+  Renders N figures into an otherwise empty scene and reads renderer.info, so the number is the
+  character's and not the city's: measuring in-game conflates the player with a near-NPC pool
+  that is still growing between samples.
+  Serve the repository root over HTTP and open /qa/gta-upgrade/charbench.html.
+-->
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as T from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {bakedCitizen,humanoidCitizen} from '/src/player/character-asset.mjs';
+import {createPlayerFigure} from '/src/player/figure.mjs';
+import pack from '/src/player/generated/character.mjs';
+
+const renderer=new T.WebGLRenderer({antialias:false});
+renderer.setSize(640,360);renderer.shadowMap.enabled=true;document.body.appendChild(renderer.domElement);
+const scene=new T.Scene();scene.background=new T.Color(0x20242b);
+const key=new T.DirectionalLight(0xffffff,2);key.position.set(3,6,4);key.castShadow=true;scene.add(key);
+scene.add(new T.HemisphereLight(0xcfe0ff,0x3a3a42,1.5));
+const floor=new T.Mesh(new T.PlaneGeometry(60,60).rotateX(-Math.PI/2),new T.MeshStandardMaterial({color:0x555b66}));
+floor.receiveShadow=true;scene.add(floor);
+const camera=new T.PerspectiveCamera(40,640/360,.1,120);camera.position.set(0,2.4,9);camera.lookAt(0,.9,0);
+
+const report=await (await fetch('/public/data/character/citizen.json')).json();
+const bytes=await (await fetch('/public/data/character/citizen.glb')).arrayBuffer();
+const gltf=await new Promise((res,rej)=>new GLTFLoader().parse(bytes,'',res,rej));
+
+const state=i=>({x:(i%8)*1.1-4,y:0,z:Math.floor(i/8)*1.1,heading:0,speed:1.5,alive:true,
+ vehiclePhase:0,attackTime:0,hurtTime:0,animationPhase:i*.137,trafficReaction:null});
+
+function measure(asset,count,castShadow){
+ const figures=[];
+ for(let i=0;i<count;i++){
+  const f=createPlayerFigure(asset,{top:0xc94d38});
+  f.root.traverse(o=>{if(o.isMesh){o.castShadow=castShadow;o.receiveShadow=castShadow;}});
+  scene.add(f.root);f.update(state(i),1/60);figures.push(f);
+ }
+ renderer.info.reset();renderer.render(scene,camera);
+ const calls=renderer.info.render.calls,tris=renderer.info.render.triangles;
+ const geo=renderer.info.memory.geometries,tex=renderer.info.memory.textures,prog=renderer.info.programs.length;
+ for(const f of figures){f.root.removeFromParent();f.dispose();}
+ return {calls,tris,geo,tex,prog};
+}
+
+const baked=bakedCitizen(pack);
+const humanoid=humanoidCitizen(gltf,report);
+// Warm the programs so the first measurement is not paying for compilation.
+measure(baked,1,true);measure(humanoid,1,true);
+const base=measure(baked,0,true);
+const rows=[['asset','n','shadow','calls','Δcalls','tris','Δtris','geo','tex','programs']];
+for(const [name,asset] of [['baked',baked],['humanoid',humanoid]])
+ for(const shadow of [false,true])
+  for(const n of [1,4,32]){
+   const m=measure(asset,n,shadow);
+   rows.push([name,n,shadow?'on':'off',m.calls,m.calls-base.calls,m.tris,m.tris-base.tris,m.geo,m.tex,m.prog]);
+  }
+const pad=(v,w)=>String(v).padStart(w);
+const widths=rows[0].map((_,c)=>Math.max(...rows.map(r=>String(r[c]).length)));
+document.getElementById('l').textContent=
+ `empty scene: ${base.calls} calls, ${base.tris} tris, ${base.geo} geo, ${base.tex} tex\n`+
+ rows.map(r=>r.map((v,c)=>pad(v,widths[c])).join('  ')).join('\n');
+document.title='ready';
+</script>

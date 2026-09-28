@@ -1,0 +1,14 @@
+{
+  "freshPass": 248,
+  "fail": 0,
+  "newS16": 6,
+  "crowdAndDayNightRegression": 17,
+  "remainingRegression": 225,
+  "notRerun": [
+    "S9 standalone three-minute traffic simulation",
+    "S11 120-second train motion audit"
+  ],
+  "build": "PASS",
+  "console": "captured sample: extension metadata error only; WebGL2 unavailable",
+  "visualBaseline": "BLOCKED"
+}

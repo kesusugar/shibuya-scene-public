@@ -1,0 +1,79 @@
+<!doctype html><meta charset="utf-8"><title>stage 3 bench</title>
+<style>html,body{margin:0;background:#20242b;overflow:hidden}canvas{display:block}
+#l{position:fixed;left:8px;top:8px;color:#dfe6ef;font:11px/1.45 monospace;white-space:pre;z-index:9;text-shadow:0 1px 2px #000}
+#top{position:absolute;left:0;top:300px}</style>
+<div id="l">loading…</div>
+<!--
+  Roadmap stage 3 on the game's modules.
+  Top row (three.js): the police helicopter (helicopter.mjs) holding its orbit over a figure --
+  by day, and at night with the searchlight's cone and its spot on the player; then at night
+  sweeping the spiral after losing them.
+  Bottom (2D, top-down, north up): a ☆4 chase over the real HIGH lane graph (units.mjs) with the
+  player travelling north at 10 m/s -- the player's track (white), the patrol cars that came from
+  ahead (red) and from elsewhere (blue), the roadblock (yellow bars), the search circle (as the
+  minimap draws it) round the last place seen.
+
+  `node qa/gta-upgrade/weaponbench-capture.mjs out.png "" stage3bench.html` saves it.
+-->
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/","polygon-clipping":"/node_modules/polygon-clipping/dist/polygon-clipping.esm.js","splaytree":"/node_modules/splaytree/dist/splaytree.js","robust-predicates":"/node_modules/robust-predicates/index.js"}}</script>
+<script type="module">
+import * as T from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {humanoidCitizen} from '/src/player/character-asset.mjs';
+import {createPlayerFigure} from '/src/player/figure.mjs';
+import {createHelicopter,createHelicopterMesh,HELI} from '/src/police/helicopter.mjs';
+import {createPoliceUnits} from '/src/police/units.mjs';
+import {WANTED} from '/src/police/wanted.mjs';
+import {restoreGroundModel} from '/src/ground/model.mjs';
+import {restoreTrafficGraph} from '/src/traffic/graph.mjs';
+import {TrafficSimulation} from '/src/traffic/simulation.mjs';
+
+const report=await (await fetch('/public/data/character/citizen.json')).json();
+const bytes=await (await fetch('/public/data/character/citizen.glb')).arrayBuffer();
+const asset=humanoidCitizen(await new Promise((res,rej)=>new GLTFLoader().parse(bytes,'',res,rej)),report);
+const CW=426,CH=300,W=CW*3;
+const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
+renderer.setPixelRatio(1);renderer.setSize(W,CH);renderer.setScissorTest(true);document.body.appendChild(renderer.domElement);
+const lines=[];
+const shot=(night,lost,col)=>{
+ const scene=new T.Scene();scene.background=new T.Color(night?0x070a12:0x9fb7cc);
+ scene.add(new T.HemisphereLight(night?0x334466:0xcfe0ff,0x202028,night?.25:1.6));
+ const k=new T.DirectionalLight(0xffffff,night?.15:2.2);k.position.set(20,40,10);scene.add(k);
+ scene.add(new T.Mesh(new T.PlaneGeometry(200,200).rotateX(-Math.PI/2),new T.MeshStandardMaterial({color:night?0x2a2d33:0x7c8087,roughness:.9})));
+ for(let i=0;i<6;i++){const b=new T.Mesh(new T.BoxGeometry(10,14+i*3,10),new T.MeshStandardMaterial({color:night?0x1c2029:0xa9a39a}));b.position.set(-30+i*12,(14+i*3)/2,-28);scene.add(b);}
+ const f=createPlayerFigure(asset,{top:0xc94d38});scene.add(f.root);const s={x:0,y:0,z:0,speed:0,heading:0,alive:true,attackTime:0};for(let i=0;i<10;i++)f.update(s,1/30);
+ const heli=createHelicopter(),mesh=createHelicopterMesh();scene.add(mesh.root);
+ for(let t=0;t<30;t+=1/20)heli.update(1/20,{stars:4,me:s,seen:true,night});
+ if(lost){const away={x:60,z:0};for(let t=0;t<6;t+=1/20)heli.update(1/20,{stars:4,me:away,seen:false,lastSeen:{x:0,z:0},night});}
+ mesh.update(heli.state,{night});
+ const cam=new T.PerspectiveCamera(50,CW/CH,.1,500);cam.position.set(22,10,34);cam.lookAt(heli.state.x*.5,heli.state.y*.45,heli.state.z*.5);
+ renderer.setViewport(col*CW,0,CW,CH);renderer.setScissor(col*CW,0,CW,CH);renderer.render(scene,cam);
+ lines.push(`${night?'night':'day'}${lost?' lost':''}: heli at ${heli.state.y.toFixed(0)} m, sees ${heli.state.sees}, light ${Math.hypot(heli.state.light.x,heli.state.light.z).toFixed(1)} m from the player`);
+};
+shot(false,false,0);shot(true,false,1);shot(true,true,2);
+
+// The pincer, top-down.
+const pack=await (await fetch('/public/data/shibuya-static-models.json')).json(),data=await (await fetch('/public/data/shibuya-scene-data.json')).json();
+const graph=restoreTrafficGraph(pack.traffic.high);graph.ground=restoreGroundModel(pack.ground);graph.data=data;
+const sim=new TrafficSimulation(graph,{tier:'high',street:pack.street.high});sim.refill(true);
+const units=createPoliceUnits(),me={x:0,z:60},track=[];const seenAhead=new Set(),first=new Map();
+for(let i=0;i<40*30;i++){me.z-=10/30;if(me.z<-80)me.z=60;units.update(1/30,{stars:4,traffic:sim,me,visible:()=>false});
+ if(i%10===0)track.push([me.x,me.z]);for(const v of units.cars)if(!first.has(v.id))first.set(v.id,{x:v.x,z:v.z,ahead:!!v.pursuit?.ahead,block:!!v.pursuit?.roadblock,h:v.heading});}
+const c2=document.createElement('canvas');c2.id='top';c2.width=W;c2.height=520;document.body.appendChild(c2);const g=c2.getContext('2d');
+g.fillStyle='#0c1821';g.fillRect(0,0,W,520);const S=1.6,X=x=>W/2+x*S,Z=z=>260+z*S;
+g.strokeStyle='#354d5b';g.lineWidth=1;for(const l of graph.lanes){const P=l.path;g.beginPath();for(let i=0;i<P.x.length;i++)g[i?'lineTo':'moveTo'](X(P.x[i]),Z(P.z[i]));g.stroke();}
+const r=WANTED.searchRadius[4];g.beginPath();g.arc(X(me.x),Z(me.z),r*S,0,Math.PI*2);g.fillStyle='rgba(80,140,255,.15)';g.fill();g.strokeStyle='rgba(120,170,255,.8)';g.lineWidth=2;g.stroke();
+g.strokeStyle='#fff';g.lineWidth=3;g.beginPath();track.forEach(([x,z],i)=>g[i?'lineTo':'moveTo'](X(x),Z(z)));g.stroke();
+g.fillStyle='#fff';g.beginPath();g.moveTo(X(0)-8,Z(-80)+10);g.lineTo(X(0),Z(-80)-6);g.lineTo(X(0)+8,Z(-80)+10);g.fill();
+for(const v of first.values()){if(v.block){g.save();g.translate(X(v.x),Z(v.z));g.rotate(-v.h);g.fillStyle='#ffd23f';g.fillRect(-4,-9,8,18);g.restore();continue;}
+ g.fillStyle=v.ahead?'#ff4b3a':'#5aa0ff';g.beginPath();g.arc(X(v.x),Z(v.z),6,0,Math.PI*2);g.fill();}
+g.fillStyle='#dfe6ef';g.font='13px monospace';g.fillText('top-down, north up. white: the player driving north (loops). red: patrol cars spawned ahead; blue: elsewhere; yellow: the roadblock; circle: the ☆4 search radius',12,508);
+lines.push('pincer: '+JSON.stringify(units.stats));
+renderer.setSize(W,CH);document.body.style.height=(CH+520)+'px';
+// One canvas for the capture: draw the 3D strip over the 2D one.
+const all=document.createElement('canvas');all.width=W;all.height=CH+520;const a=all.getContext('2d');a.drawImage(renderer.domElement,0,0);a.drawImage(c2,0,CH);
+renderer.domElement.remove();c2.remove();document.body.prepend(all);
+document.getElementById('l').textContent=lines.join('\n');
+window.__BENCH__={lines};
+document.title='ready';
+</script>

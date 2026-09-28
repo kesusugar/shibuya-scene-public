@@ -1,0 +1,14 @@
+{
+ "url": "http://<local>/qa/gta-upgrade/stage3bench.html",
+ "ready": true,
+ "bench": {
+  "lines": [
+   "day: heli at 42 m, sees true, light 0.0 m from the player",
+   "night: heli at 42 m, sees true, light 0.0 m from the player",
+   "night lost: heli at 42 m, sees false, light 17.7 m from the player",
+   "pincer: {\"ahead\":2,\"roadblocks\":1,\"roadblocksAhead\":1}"
+  ]
+ },
+ "console": [],
+ "errors": 0
+}

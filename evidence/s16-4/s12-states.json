@@ -1,0 +1,28 @@
+{
+  "day": {
+    "state": "day",
+    "dayFactor": 1,
+    "nightFactor": 0,
+    "active": true,
+    "exposure": 0.9,
+    "ambient": 1.15,
+    "sunMoon": 1.65,
+    "registeredRoots": 0,
+    "emissiveMaterials": 0,
+    "pointLights": 0,
+    "shadowLights": 0
+  },
+  "night": {
+    "state": "night",
+    "dayFactor": 0,
+    "nightFactor": 1,
+    "active": true,
+    "exposure": 1,
+    "ambient": 0.65,
+    "sunMoon": 0.16,
+    "registeredRoots": 0,
+    "emissiveMaterials": 0,
+    "pointLights": 0,
+    "shadowLights": 0
+  }
+}

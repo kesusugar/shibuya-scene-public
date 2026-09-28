@@ -1,0 +1,16 @@
+{
+ "url": "http://<local>/qa/gta-upgrade/weaponbench.html?pose=crouch-walk",
+ "ready": true,
+ "bench": {
+  "poses": [
+   "crouch-walk"
+  ],
+  "lines": [
+   "front | player's right | behind | player's left",
+   "crouch-walk: crouched, creeping with the pistol out  | grip-to-palm 1.3 cm  | muzzle ray passes 595.2 cm from the target"
+  ],
+  "calls": 8
+ },
+ "console": [],
+ "errors": 0
+}

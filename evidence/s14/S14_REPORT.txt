@@ -1,0 +1,55 @@
+RUN S14 — Postprocess / Quality Tiers + Night Usability
+Base: 83724d137686745a892a88acd544e6960e14d604 / Visual QA v8.
+Current commit and new Visual QA version are reported in delivery.
+
+Measured-first boundary: browser/GPU measurements unavailable. Static inspection found
+continuous RAF update/render, costly polygon booleans for S13 at startup, and three
+quality-dependent decorative rebuilds coupled to one selector event.
+Existing crowd distance LOD is wired to the camera; far agents already update at .2s,
+mid at 1/15s, near/crossing at 1/30s. No AI, pathfinding or routing rewrite.
+
+Default remains MEDIUM. HIGH is retained in selector and URL (?tier=high).
+Profile    Device-DPR cap  Scale  Effective DPR max  Scene tick cap  Bloom strength/resolution
+HIGH       1.5             1      1.5                60/s            .18 / 25% width & height
+MEDIUM     1.25            .6     .75                30/s            .10 / 16% width & height
+LOW        1               .3     .3                 24/s            OFF
+Previous effective maxima were 2 / .9 / .3. CSS canvas dimensions are preserved.
+Resize uses the same cap/scale; invalid DPR falls back safely. Frame caps are configured
+ceilings, NOT measured FPS. Full scene updates and draws are skipped between capped ticks;
+elapsed dt still feeds the unchanged fixed-step simulations (existing .1s maximum).
+
+Profile    Wet patches/reflections  Crowd  Moving/parked vehicles  Train sets
+HIGH       71 / 30                  420    62 / 12                 3
+MEDIUM     36 / 15                  210    30 / 7                  2
+LOW        10 / 4                   95     14 / 3                  2
+S7 placement/count data unchanged: HIGH 763 signs; existing lower tiers retained.
+S13 look, geometry, bloom threshold and reduced resolutions preserved; no new effects.
+Existing postprocess module toggle now actually gates S13 bloom without hiding wet surfaces.
+DAY bypasses bloom and hides the two surface batches; active counts report 0.
+Night targets are only resized when drawing size/tier changes, not recreated on every toggle.
+
+UI changes:
+- S13 wet geometry is baked once using the unchanged S13 polygon algorithm and read as an
+  asset; the UI no longer calculates its 71 pools and 30 reflections with polygon booleans.
+  scripts/bake-wet-model.mjs regenerates it; source-data SHA is checked in automated tests.
+- Build tasks yield between modules instead of draining all loaded modules in one promise turn.
+- Quality controls immediately change DPR, frame cap and existing dynamic/effect pools;
+  decorative replacements are deferred and rapid choices coalesced. Stale work cannot resurrect
+  disposed modules. DAY/NIGHT only changes existing state/materials, never rebuilds the scene.
+- Stats now include effective DPR, configured frame cap, bloom, active wet/reflection counts,
+  crowd, moving/parked traffic, train sets and signs alongside existing renderer counters.
+
+Validation: all 238 tests PASS, 0 FAIL (231 baseline + 7 S14), 296.9 seconds.
+Full baseline executed once, including S9 traffic, S10 integrated 180-second crowd/traffic
+and S11 train regression. Prior-stage generated timing evidence restored after the run.
+Build PASS. No new S9/S10/S11 simulation source edits.
+Browser tab discovery succeeded; MEDIUM CAM-03 navigation timed out (Runtime.addBinding).
+One timeout recorded, no retries. WebGL/console/FPS/triangles/draw calls/UI operation/visual
+DAY regression remain UNVERIFIED. CPU state/pool restoration tests do not prove visual PASS.
+Known limit: individual legacy module builders remain synchronous and can still cause startup
+or decoration-switch pauses; cooperative scheduling is not a worker conversion. Actual device
+usability needs a functioning browser/device QA. No estimated FPS improvement is presented.
+
+Existing untracked validation logs preserved and excluded from commits. No subagents used.
+Existing owner-private Visual QA Site is the authorized publish target; version and URL in delivery.
+No S15 construction, S16 polish, S17 final optimization or GTA implementation. STOP after publication.

@@ -1,0 +1,71 @@
+RUN S3 完了 — Generic Buildings
+
+S0: 条件付きPASS / S1・S2: PASSを維持。添付S3実装指示と上位3仕様に準拠。
+実装: OSM polygon validation、height/levels/seeded fallback、7 archetypes、押し出し壁・屋根、材質別merge、Instanced窓、簡易band/mullion/balcony、Instanced屋上設備、frontage metadata、Ground重複検査、module lifecycle。
+
+sourceBuildings: 666
+genericBuildings: 378
+genericSources: 378
+reservedHeroBuildings: 14
+skippedBuildings: 274
+skippedFragments: 277
+clippedBuildings: 52
+triangulationFailures: 0
+heightMin: 3.4
+heightMax: 179.97
+heightMedian: 19.4
+windowInstances: 38060
+rooftopInstances: 701
+balconyCount: 100
+buildingTriangles: 160925
+materialChannels: 7
+mergedBatches: 2
+instancedBatches: 6
+approximateDrawCalls: 8
+geometries: 5
+textures: 0
+buildTimeMs: 1057
+
+Archetype内訳:
+- plain: 135
+- grid: 28
+- band: 47
+- zakkyo: 92
+- curtain: 6
+- balcony: 22
+- shop: 48
+
+除外理由（fragment単位）:
+- road-centerline-conflict: 10
+- outside-target: 236
+- road-surface-conflict: 3
+- clipped-footprint-area: 12
+- crossing-conflict: 6
+- footprint-area: 1
+- non-generic-structure: 9
+
+source単位: 378生成 + 14予約 + 274除外 = 666件。fragment除外は277件で、生成済みsourceのclip微小片3件も含む。対象範囲外236件は不正データではない。
+Hero予約は既存HERO_IDSを使用。Mark City West、駅建物、および駅footprintと重なる1件も予約。専用builderは未実装。
+高さ: 明示height > levels×3.4m > ID seed付きheuristic。異常値を3.4〜180mに制限。建物footprintはX/Z±250mにclip、外装detailを含む範囲は約±250.11m。base約0.15m、最高屋上detail約181.42m。
+
+検証:
+- automated tests: 81/81 PASS（既存59件 + S3追加22件）
+- build: PASS
+- アプリ由来Console Error: 観測範囲で0件。拡張機能由来ログは別扱い
+- 全batchの非有限頂点、不正index、退化triangle: 0
+- instance matrix非有限値: 0。全instance変換後頂点をテスト済み
+- 屋上設備の全占有矩形をroof polygon/holesに対して検査済み
+- Hero footprintにgeneric bodyなし
+- Ground/Buildings ready、Buildings OFF/ONと再生成、CAM01/02/03選択を確認
+- S1/S2 Geo/Data/Ground/Coreと既存testsの変更なし
+- S2 Ground: 47,829 triangles / 5 material batchesを維持
+- Ground + Buildings: 208,754 triangles / 13 approximate draw calls / 10 unique geometries / 12 materials / 2 textures
+
+既知制約:
+WebGL2が検証環境で利用不可。CAM01/02/03の描画スクリーンショットとFPS/GPU性能は未検証。CPU平面図（archetype色・Hero予約・Ground overlay）は保存済み。planはWebGL画面ではない。
+道路表面との境界重複85件を既知制約として保持。建物面積25%超かつ10m²超の大きな重複は0件、横断歩道の白帯重複は0件。残る重複には最大約121.6m²（当該建物の約19.8%）があり、OSM footprintとS2幅近似の不一致を無理に自動変形していない。詳しい面積/IDはgeometry.jsonに記録。
+中央横断歩道の延長余地はS2 configから保守的に確保。境界建物のclip、未指定高さ・用途の推定はPOC近似。建物間の共有壁にも窓が配置されうるため、外観の最終視覚確認は未了。
+生成時間はCPU/検証機依存（同期処理）。8 draw callsは全batch可視時の推計で、GPU実測ではない。窓emissive接続用channelはあるがnight実装なし。
+
+保存: ソース、固定OSM snapshot、再現スクリプト、tests/build/browserログ、geometry統計、metadata、CPU平面図を同梱。git commit済みのzipで納品。
+サブエージェントは利用していない。S4以降、Hero専用builder、Station、Signs、Traffic、Life、GTAの実装なし。デプロイなし。S3でSTOP。

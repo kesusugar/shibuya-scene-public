@@ -1,0 +1,33 @@
+{
+  "base": "6a82403f928be1800130ffbd2e1cefe1b0631cf9",
+  "source": "commit containing this manifest",
+  "visualStatus": "BLOCKED",
+  "reason": "Previously verified WebGL2 unavailable; no retry this small run. User real-device rendered screenshots required for PASS.",
+  "mandatory": [
+    {
+      "camera": "CAM03",
+      "time": "DAY"
+    },
+    {
+      "camera": "CAM02",
+      "time": "NIGHT"
+    }
+  ],
+  "recommended": [
+    {
+      "camera": "CAM03",
+      "time": "NIGHT"
+    },
+    {
+      "camera": "CAM02",
+      "time": "DAY"
+    }
+  ],
+  "tier": "high",
+  "dprCap": 1.5,
+  "actualDpr": null,
+  "images": [],
+  "fps": null,
+  "gpuTriangles": null,
+  "drawCalls": null
+}

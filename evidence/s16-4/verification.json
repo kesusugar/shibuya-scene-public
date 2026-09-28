@@ -1,0 +1,31 @@
+{
+  "base": "fd8a7f6b88872d5e5570e5d751e5f9a9a0310b46",
+  "baseVisualQA": 14,
+  "build": "PASS",
+  "tests": {
+    "passed": 56,
+    "failed": 0,
+    "new": 4,
+    "regression": 52
+  },
+  "console": "BLOCKED: prior explicit browser URL-policy rejection; no retry or bypass",
+  "visual": "BLOCKED: user device screenshot required",
+  "fps": null,
+  "drawCalls": null,
+  "gpuTriangles": null,
+  "highDpr": 1.5,
+  "shadowMap": 2048,
+  "localLights": {
+    "high": 4,
+    "medium": 2,
+    "low": 0
+  },
+  "crowdBudgets": [
+    420,
+    210,
+    95
+  ],
+  "S17": "NOT STARTED",
+  "S18": "NOT STARTED",
+  "GTA": "NOT IMPLEMENTED"
+}

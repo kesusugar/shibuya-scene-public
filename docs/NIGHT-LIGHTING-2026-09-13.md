@@ -1,0 +1,5 @@
+# Night lighting follow-up
+
+Reference site observed live before editing. Added one instanced headlight halo batch, increased nighttime sign and lamp emission, lit existing shelter backs and kiosk windows without changing their footprints, and added sidewalk bump texture. Reallocated two unique Center-gai businesses to a nine-panel crossing-facing layout; total sign count is unchanged in this follow-up. Daytime halo opacity is zero. No traffic simulation rules changed.
+
+Validation: TypeScript passed; four focused tests passed (halo movement/day toggle, sign and vehicle emission, material restoration, Center-gai uniqueness/geometry). Static model cache key still matched after renderer edits. Updated visual verification is blocked: Chrome returned a timeout and Debugger unattached, and the existing in-app browser timed out on Page.enable. Do not regard reference matching as complete. New reference-like freestanding entrance boxes and additional paving objects have not been added; only existing equipment and pavement materials changed.

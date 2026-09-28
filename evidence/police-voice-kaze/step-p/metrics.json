@@ -1,0 +1,24 @@
+{
+  "what": "PLAN-POLICE-VOICE-KAZE-DETAIL Step P: the patrol car livery band and light bar",
+  "date": "2026-09-25",
+  "machine": "the user's Windows 11 PC, Chrome (Claude in Chrome), npm run dev:local",
+  "how": "Live traffic is rare (police is 1.5/100 spawn weight) and the scramble camera keeps every car small and distant, so the precise before/after colour comparison was done with the exact production code path (buildVehicleShape, fleetGeometry, installLivery, paintOf, liveryCode from src/traffic/fleet.mjs and src/traffic/vehicle-shape.mjs, unmodified) rendered standalone in a same-origin page reached through the dev server, under the exact DAY_NIGHT day/night light constants from src/environment/day-night.mjs. A live in-game screenshot (day-and-night-near-far-taxi-sedan.jpg) was also captured showing the police car beside a taxi and a sedan at the fixed HIGH night settings.",
+  "geometry_check": {
+    "method": "buildVehicleShape('police').geometry.body vertex Y values vs LIVERY.police.band*VEHICLES.police.height",
+    "before_fix": {"band": 0.58, "bandMetres": 0.853, "beltlineMetres": 1.110, "reads_as": "the black/white split sat well below the real beltline, in the lower door -- mostly white with a thin black sliver at the rocker"},
+    "after_fix": {"band": 0.74, "bandMetres": 1.088, "beltlineMetres": 1.110, "withinMetres": 0.022, "reads_as": "black below the beltline (bonnet, bumpers, doors, rocker), white doors-top/pillars/roof, matching the real proportion"}
+  },
+  "night_brightness_probe": {
+    "method": "a single-pixel vertical column straight through the door and roof of the police body mesh alone, lit only by DAY_NIGHT's own HemisphereLight/DirectionalLight intensities, ACESFilmicToneMapping, sRGB output -- no environment map, so the numbers isolate the livery/lighting response only",
+    "day": {"roof_rgb": [210, 208, 203], "door_rgb": [0, 0, 0], "note": "crisp white over black"},
+    "night": {"roof_rgb": [96, 98, 98], "door_rgb": [0, 0, 0], "note": "the geometry/shader correctly puts the lighter colour above the band and it is clearly not black, but it renders as a mid-grey (~38% of the daytime brightness) rather than a crisp white -- traffic body/dark/glass/front/rear materials are never registered with installNightEmission/DayNightSystem (src/environment/day-night.mjs only matches building/window/ground/sign/train mesh names), so at night they get only the global 8%-intensity key light and 22%-intensity hemisphere fill with no compensating boost. This is a real, separate, secondary contributor to 'looks grey at night' beyond the beltline bug, left unfixed in this step -- see the limitations note."}
+  },
+  "light_bar": {
+    "shape": "a roof-width bar built from two 12-segment CylinderGeometry lens pieces (its own `lightbar` fleet batch, not the tail lamp) either side of a centre section in the `lamp`/front batch, on a low BoxGeometry mount in `dark`; a pair of small cylinder lamps low in the front grille share the `lightbar` batch",
+    "draw_calls": "traffic-fleet-lightbar is a 6th BatchedMesh; tests/traffic-fleet.test.mjs confirms exactly 6 batches (was 5), i.e. +1, the plan's allowed budget",
+    "flash": "meshes.lightbar gets its own setColorAt in render.mjs's sync(), independent of meshes.rear, so the siren flash no longer forces the tail lamps to the light bar's colour or vice versa"
+  },
+  "tests": {"file": "tests/traffic-fleet.test.mjs", "count": 11, "new_or_changed": 4, "confirmed_failing_before_fix": true, "passing_after_fix": true},
+  "typecheck": "clean", "test_ci": "pending final run before PR", "test_full": "pending final run before PR",
+  "not_checked": ["hearing the siren/light-bar timing by ear in a live pursuit (needs Step V's loudspeaker work and a real chase)", "the light bar viewed from directly behind/in front in motion", "a live spawned patrol car at the scramble crossing (police is rare in ordinary traffic; not forced live to avoid leaving the shared dev session in a biased state)"]
+}

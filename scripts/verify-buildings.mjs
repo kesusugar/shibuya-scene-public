@@ -1,0 +1,12 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+import {buildBuildings} from '../src/buildings/render.mjs';
+import {buildGround} from '../src/ground/render.mjs';
+import {auditGround} from '../src/buildings/model.mjs';
+const data=JSON.parse(readFileSync('public/data/shibuya-scene-data.json'));
+const ground=buildGround(data),buildings=buildBuildings(data),audit=auditGround(buildings.model,ground.model);
+const summary={buildings:buildings.stats,ground:{triangles:ground.stats.totalGroundTris,drawCalls:ground.stats.approximateDrawCalls,buildTimeMs:ground.stats.buildTimeMs},combined:{triangles:buildings.stats.buildingTriangles+ground.stats.totalGroundTris,approximateDrawCalls:buildings.stats.approximateDrawCalls+ground.stats.approximateDrawCalls,geometries:buildings.stats.geometries+5,materials:buildings.stats.materialChannels+5,textures:2},audit};
+writeFileSync('evidence/s3/geometry.json',JSON.stringify(summary,null,2));
+writeFileSync('evidence/s3/building-metadata.json',JSON.stringify(buildings.model,null,2));
+writeFileSync('/tmp/s3-ground.json',JSON.stringify(ground.model));
+console.log(JSON.stringify({...buildings.stats,checks:undefined,batches:undefined},null,2));console.log('Ground audit:',JSON.stringify({roadSurfaceOverlapCount:audit.roadSurfaceOverlapCount,obviousRoadOverlapCount:audit.obviousRoadOverlapCount,crossingOverlapCount:audit.crossingOverlapCount}));
+buildings.dispose();ground.dispose();

@@ -1,0 +1,108 @@
+{
+ "comment": [
+  "Roadmap ①: what the police say, as pre-rendered speech (scripts/police-voice/generate.py).",
+  "`megaphone` lines play through the patrol car's loudspeaker chain; `shout` lines are an officer on foot",
+  "(dry, from where they stand); `radio` lines are the dispatcher, through the radio chain with its squelch.",
+  "The wording is how Japanese police actually address a vehicle or a person: 「前の車、止まりなさい」, not 「止まれ」.",
+  "`read` is the text given to the engine when the kanji would be misread."
+ ],
+ "lines": [
+  {
+   "id": "stop-car-1",
+   "use": "megaphone",
+   "situation": "stopCar",
+   "text": "前の車、止まりなさい！"
+  },
+  {
+   "id": "stop-car-2",
+   "use": "megaphone",
+   "situation": "stopCar",
+   "text": "前の車、左に寄せて止まりなさい！"
+  },
+  {
+   "id": "stop-bike",
+   "use": "megaphone",
+   "situation": "stopBike",
+   "text": "そこのバイク、止まりなさい！"
+  },
+  {
+   "id": "stop-foot",
+   "use": "megaphone",
+   "situation": "stop",
+   "text": "止まりなさい！"
+  },
+  {
+   "id": "get-out",
+   "use": "megaphone",
+   "situation": "getOut",
+   "text": "車から降りなさい！",
+   "read": "くるまから降りなさい！"
+  },
+  {
+   "id": "chase",
+   "use": "megaphone",
+   "situation": "chase",
+   "text": "待ちなさい！逃げるんじゃない！"
+  },
+  {
+   "id": "freeze",
+   "use": "shout",
+   "situation": "freeze",
+   "text": "動くな！"
+  },
+  {
+   "id": "drop-gun",
+   "use": "shout",
+   "situation": "dropGun",
+   "text": "武器を捨てなさい！"
+  },
+  {
+   "id": "warn",
+   "use": "shout",
+   "situation": "warn",
+   "text": "撃つぞ！"
+  },
+  {
+   "id": "arrest",
+   "use": "shout",
+   "situation": "arrest",
+   "text": "被疑者確保！"
+  },
+  {
+   "id": "radio-fleeing-car",
+   "use": "radio",
+   "situation": "fleeingCar",
+   "text": "警視庁から各局。渋谷区道玄坂方面、逃走車両あり。付近の各移動は急行されたい。"
+  },
+  {
+   "id": "radio-fleeing-foot",
+   "use": "radio",
+   "situation": "fleeingFoot",
+   "text": "警視庁から各局。渋谷駅前交差点付近、被疑者は徒歩で逃走中。"
+  },
+  {
+   "id": "radio-backup",
+   "use": "radio",
+   "situation": "backup",
+   "text": "至急、至急。渋谷方面、応援要請。付近の各移動は急行されたい。"
+  },
+  {
+   "id": "radio-armed",
+   "use": "radio",
+   "situation": "armed",
+   "text": "被疑者は凶器を所持している模様。各移動は注意されたい。"
+  },
+  {
+   "id": "radio-air",
+   "use": "radio",
+   "situation": "air",
+   "text": "航空隊、現場上空へ向かわれたい。"
+  },
+  {
+   "id": "radio-lost",
+   "use": "radio",
+   "situation": "lost",
+   "text": "被疑者を見失った。付近を検索中。"
+  }
+ ]
+}

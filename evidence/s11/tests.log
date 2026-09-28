@@ -1,0 +1,14 @@
+✔ S11 uses three existing rail routes, both styles and opposite JR directions (3.402018ms)
+✔ S11 finite poses follow the source rail centerline at the existing rail elevation (35.289472ms)
+✔ S11 short deterministic audit stops, departs and recycles without visible position jumps (52.960636ms)
+✔ S11 profile bounds, fixed resources, local clipping, debug and dispose (73.347227ms)
+✔ S11 swept car envelopes avoid existing station, buildings and ground (41857.911027ms)
+✔ S11 integration preserves crowd traffic profiles and keeps S12+ and gameplay absent (8.657092ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 42784.150986

@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {parseConfig,ModuleSystem,TimeState,CAMERAS,PROFILES} from '../src/app/foundation.mjs';
+test('query defaults and invalid options',()=>{assert.equal(parseConfig('?tier=wrong&camera=wrong').tier,'medium');assert.equal(parseConfig().camera,'overview');assert.equal(parseConfig().only,null);});
+test('only intersect skip and empty only',()=>{const s=new ModuleSystem(parseConfig('?only=ground,buildings&skip=ground'),{});for(const id of ['ground','buildings','life'])s.register(id);s.start();assert.deepEqual(s.snapshot().filter(x=>x.enabled).map(x=>x.id),['buildings']);assert.deepEqual(parseConfig('?only=').only,[]);});
+test('debug overlay is opt-in',()=>{for(const [search,enabled] of [['',false],['?debug=1',true]]){const s=new ModuleSystem(parseConfig(search),{});s.register('debug');s.start();assert.equal(s.snapshot()[0].enabled,enabled);}});
+test('module toggle builds once and disposes across rebuilds',()=>{let live=0;const s=new ModuleSystem(parseConfig(),{});s.register('sample',{build(){live++},dispose(){live--}});s.start();s.setEnabled('sample',true);assert.equal(live,1);s.setEnabled('sample',false);assert.equal(live,0);s.setEnabled('sample',true);s.dispose();assert.equal(live,0);});
+test('failed builder is isolated',()=>{const s=new ModuleSystem(parseConfig(),{});s.register('bad',{build(){throw Error('expected')}});s.register('good');s.start();assert.equal(s.snapshot()[0].status,'failed');assert.equal(s.snapshot()[1].enabled,true);});
+test('update error isolates module',()=>{const s=new ModuleSystem(parseConfig(),{});s.register('bad',{update(){throw Error('expected')}});s.register('good');s.start();s.update(.016);assert.equal(s.snapshot()[0].status,'failed');assert.equal(s.snapshot()[1].enabled,true);});
+test('time state round trip and unsubscribe',()=>{const t=new TimeState();let calls=0;const off=t.subscribe(()=>calls++);t.set('night');assert.equal(t.isDark(),true);assert.equal(t.emissiveScale,1);t.set('day');assert.equal(t.grade,'day');assert.equal(calls,2);off();t.set('night');assert.equal(calls,2);});
+test('fixed cameras unique finite and distinct targets',()=>{assert.equal(new Set(CAMERAS.map(c=>c.id)).size,9);for(const c of CAMERAS){assert.ok([...c.position,...c.target].every(Number.isFinite));assert.notDeepEqual(c.position,c.target);}assert.equal(CAMERAS[7].time,'night');});
+test('tier resolution monotonically decreases',()=>{assert.ok(PROFILES.high.scale>PROFILES.medium.scale&&PROFILES.medium.scale>PROFILES.low.scale);});

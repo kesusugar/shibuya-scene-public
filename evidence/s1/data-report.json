@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "counts": {
+    "buildings": 666,
+    "roads": 306,
+    "footways": 648,
+    "rails": 96,
+    "crossings": 118,
+    "signals": 49,
+    "trees": 24,
+    "areas": 30,
+    "pois": 1176
+  },
+  "bounds": {
+    "minX": -342.60274916731095,
+    "maxX": 415.502724307456,
+    "minZ": -445.0219283441948,
+    "maxZ": 491.24178092145746
+  },
+  "origin": {
+    "lat": 35.6595,
+    "lon": 139.7005
+  },
+  "landmarks": {
+    "109": {
+      "id": "way/55895868",
+      "status": "resolved",
+      "point": [
+        -157.4539971727668,
+        -11.098553232068651
+      ],
+      "name": "Shibuya 109"
+    },
+    "qfront": {
+      "id": "way/136691386",
+      "status": "resolved",
+      "point": [
+        -12.553990756146632,
+        -42.73555251545038
+      ],
+      "name": "Q-FRONT"
+    },
+    "magnet": {
+      "id": "way/116806281",
+      "status": "resolved",
+      "point": [
+        38.86038997343551,
+        -40.19190215076021
+      ],
+      "name": "MAGNET SHIBUYA"
+    },
+    "scrambleSquare": {
+      "id": "way/617560918",
+      "status": "resolved",
+      "point": [
+        155.83048035668938,
+        126.3253581525025
+      ],
+      "name": "渋谷スクランブルスクエア"
+    },
+    "seibuA": {
+      "id": "way/55896465",
+      "status": "resolved",
+      "point": [
+        -19.346531864352706,
+        -78.45797711083411
+      ],
+      "name": "西武渋谷店A館"
+    },
+    "seibuB": {
+      "id": "way/136692137",
+      "status": "resolved",
+      "point": [
+        -20.083671811417325,
+        -150.5818751958617
+      ],
+      "name": "西武渋谷店B館"
+    },
+    "markCityEast": {
+      "id": "way/87250190",
+      "status": "resolved",
+      "point": [
+        -94.26798894491343,
+        105.99841913379541
+      ],
+      "name": "渋谷マークシティEAST"
+    },
+    "stream": {
+      "id": "way/521438304",
+      "status": "resolved",
+      "point": [
+        241.40202685620488,
+        254.81031442592518
+      ],
+      "name": "渋谷ストリーム"
+    },
+    "station": {
+      "id": "way/904652357",
+      "status": "resolved",
+      "point": [
+        93.30021011695533,
+        108.04113178959867
+      ],
+      "name": "渋谷"
+    },
+    "hachikoExit": {
+      "id": "node/6223298623",
+      "status": "resolved",
+      "point": [
+        47.33976053002641,
+        30.724179458887722
+      ],
+      "name": "ハチ公口"
+    },
+    "scramble": {
+      "id": "node/291758776",
+      "status": "resolved",
+      "point": [
+        6.539290573835175,
+        1.9926188855473312
+      ],
+      "name": "渋谷駅前"
+    }
+  },
+  "warnings": []
+}

@@ -1,0 +1,157 @@
+{
+ "query": "qa=1&tier=low&time=day&camera=scramble",
+ "results": {
+  "pedestrian": {
+   "lock": {
+    "id": 1247,
+    "tier": 2,
+    "part": "chest"
+   },
+   "crosshair": {
+    "hidden": false,
+    "x": 631,
+    "y": 509,
+    "threat": "false"
+   },
+   "centre": {
+    "x": 640,
+    "y": 360
+   },
+   "heading": -4.395,
+   "arsenal": {
+    "aiming": true,
+    "current": "pistol",
+    "rounds": 8,
+    "reloading": false,
+    "locks": 1,
+    "switchedLocks": 0,
+    "padLock": {
+     "pad": true,
+     "id": 1247,
+     "broken": false,
+     "manualFor": 0,
+     "sinceRelease": null
+    }
+   },
+   "me": {
+    "x": 12,
+    "z": 24,
+    "aim": 1,
+    "weapon": "pistol"
+   }
+  },
+  "shooter": {
+   "marked": {
+    "id": 1734,
+    "off": 1.04,
+    "dist": 16.4
+   },
+   "lock": {
+    "id": 1734,
+    "tier": 0,
+    "part": "chest"
+   },
+   "crosshair": {
+    "hidden": false,
+    "x": 607,
+    "y": 276,
+    "threat": "true"
+   },
+   "centre": {
+    "x": 640,
+    "y": 360
+   },
+   "heading": -4.225,
+   "arsenal": {
+    "aiming": true,
+    "current": "pistol",
+    "rounds": 8,
+    "reloading": false,
+    "locks": 2,
+    "switchedLocks": 0,
+    "padLock": {
+     "pad": true,
+     "id": 1734,
+     "broken": false,
+     "manualFor": 0,
+     "sinceRelease": 2.83
+    }
+   },
+   "me": {
+    "x": 12,
+    "z": 24,
+    "aim": 1,
+    "weapon": "pistol"
+   },
+   "shooter": {
+    "x": 26.4,
+    "z": 16.3,
+    "active": true,
+    "controlled": false,
+    "dead": false
+   }
+  },
+  "shooterWhy": {
+   "candidates": 236,
+   "shooterIn": true,
+   "los": true,
+   "dist": 16.4,
+   "controlled": false,
+   "dead": false,
+   "left": 30,
+   "first": {
+    "id": 1734,
+    "tier": 0
+   }
+  }
+ },
+ "steps": [
+  {
+   "name": "lock-pedestrian",
+   "note": "ZL held: the nearest person in view, the reticle on them",
+   "state": {
+    "player": {
+     "x": 12,
+     "z": 24,
+     "weapon": "pistol",
+     "health": 100
+    },
+    "car": {
+     "active": true,
+     "type": "ownCar",
+     "speed": 0,
+     "damage": 0,
+     "wear": null
+    },
+    "radio": null,
+    "fps": 0.2,
+    "drawCalls": 423,
+    "triangles": 16386579
+   }
+  },
+  {
+   "name": "lock-shooter",
+   "note": "ZL again after a pause: the one shooting is taken first, the camera turned onto them, ringed reticle",
+   "state": {
+    "player": {
+     "x": 12,
+     "z": 24,
+     "weapon": "pistol",
+     "health": 100
+    },
+    "car": {
+     "active": true,
+     "type": "ownCar",
+     "speed": 0,
+     "damage": 0,
+     "wear": null
+    },
+    "radio": null,
+    "fps": 0.1,
+    "drawCalls": 424,
+    "triangles": 19735773
+   }
+  }
+ ],
+ "log": []
+}

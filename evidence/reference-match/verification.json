@@ -1,0 +1,15 @@
+{
+  "uniqueTestsPassed": 43,
+  "testExecutionsPassed": 44,
+  "newTests": 5,
+  "existingRelevantTests": 38,
+  "failed": 0,
+  "focusedCrossingTierTransition": "PASS",
+  "build": "PASS",
+  "buildWarnings": [
+    "existing large client chunk",
+    "existing vinext route static classification"
+  ],
+  "visual": "BLOCKED",
+  "console": "BLOCKED"
+}

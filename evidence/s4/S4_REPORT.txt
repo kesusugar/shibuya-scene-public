@@ -1,0 +1,65 @@
+RUN S4 — Hero Landmarks 完了記録
+2026-09-09
+
+前提: S0 条件付きPASS、S1/S2/S3 PASS。S4実装・CPU検証完了。WebGL visual/FPS PASSは未判定。
+基準: RUN_S4_HERO_LANDMARKS_INSTRUCTION_v1、および要求仕様/実行計画/受入テスト v2。
+
+予約監査: S3 reserved 14。S4対象9 footprint / 8ランドマーク、生成9。S5 untouched 5、missing 0、unknown 0。
+Generic 378件を維持、Generic/Hero重複ID 0。S5予約とHero footprintの面積重複0。
+予約前後: reservations-before.json / reservation-audit.json。
+
+Hero一覧: heightは建物本体高さ（基準Y=.15m、屋上機器は別）。boundsは表示対象にclipしたfootprint。
+qfront | way/136691386 | 45.9m | X -30.191..5.083, Z -56.495..-28.976 | triangles 1436
+109 | way/55895868 | 33.6m | X -188.979..-125.929, Z -36.691..14.494 | triangles 3736
+magnet | way/116806281 | 34.2m | X 25.578..52.142, Z -70.833..-9.551 | triangles 1392
+scrambleSquare | way/617560918 | 229.706m | X 115.518..196.143, Z 83.145..169.506 | triangles 6865
+seibuA | way/55896465 | 30m | X -54.413..15.720, Z -107.869..-49.047 | triangles 1724
+seibuB | way/136692137 | 31.1m | X -57.976..17.809, Z -187.139..-114.025 | triangles 2409
+markCityEast | way/87250190 | 99.67m | X -147.934..-40.601, Z 66.502..145.495 | triangles 5623
+markCityWest | way/54500467 | 95.55m | X -250.000..-156.617, Z 129.865..201.854 | triangles 5829
+stream | way/521438304 | 179.95m | X 188.708..250.000, Z 210.271..250.000 | triangles 4156
+
+実装:
+QFRONT専用商業mass・上層・屋上、交差点向き立面、3分割面で1論理スクリーン、枠、入口用の非発光面。
+109は24分割円弧をOSM footprintでclipした曲面塔・冠部。交差で頂点追加あり。
+MAGNETは商業低層と上層帯、Scramble Square/Streamはpodium+tower+setback。
+Seibu A/Bを独立した水平帯のmassとして生成。Mark CityはEast/West別の細長い複合mass。
+全Heroのsource centroid/bounds、local axes、primary facade、mass、world/local anchorはhero-metadata.json参照。
+QFRONTのスクリーンは3つのsegment anchorと統合largeScreenAnchorを記録。
+
+統計:
+Hero triangles 33,170、materials 8、merged 6 + instanced 4 = 10 batches。
+window panels 6,983、detail instances 1,436（屋上機器8含む）。
+全placeholder面7、QFRONT large screen 1論理面/3 segment。
+sign anchor 11（screen segment含む）、emissive facade anchor 4。発光処理なし。
+Ground+Generic+Hero triangles 241,924、概算draw calls 23。S1 debug outlinesを除くCPU集計。
+S4 CPU build 72ms（単回、GPU/FPSの測定ではない）。
+実geometry bounds: {"minX": -250.12999755889177, "maxX": 250, "minY": 0.15000000596046448, "maxY": 231.8560028076172, "minZ": -187.2032913863659, "maxZ": 250}
+geometry NaN/Infinity、不正index、退化triangle 0。変換済みinstance頂点の有限性/範囲、決定論、disposeを自動検証。
+
+検証結果:
+既存81 + S4追加20 = 101 tests PASS、fail 0。tests.log参照。
+build PASS。build.log参照。vinextのroute分類注意表示あり、build失敗なし。
+console: app由来Error 0。ブラウザ拡張のmetadata送信エラーは別記（console.json）。
+Ground/Generic/Hero ready、Hero OFF→ON再生成、QFRONT/109カメラ操作を確認。
+WebGL 2が利用不可。fixed-camera描画スクリーンショット、実視覚品質、FPS、実draw callsは未検証。
+CPU top-down図と9つのorthographic mass図を保存・目視確認。mass図は窓/枠/機器instanceを省略し、各パネル独立縮尺。
+
+Known issues / 意図した近似:
+Heroの大きな道路侵入0、横断歩道stripe重複0。ただしMAGNET約4.897m²、Mark City East約42.007m²の道路端重複あり（面積比0.43%/1.01%）。
+S3既存道路端重複85件は維持。OSM形状を変形して隠す修正は行っていない。
+StreamとMark City Westは既存±250m範囲にclip。敷地全体/本来の外周シルエットは表示しない。
+窓/枠などの薄い付属部は境界から最大約0.13m突出。massはclip内。
+Mark CityのOSM 5-level情報は低層部のみのため、公式East99.67m/West95.55mを使用。Westは既存S3予約の商業footprintに基づく近似。
+各setback位置、曲面、facade割り、QFRONTスクリーン寸法はPOC用推定。実測・写真一致を主張しない。
+影は細部meshのcastShadow=falseを維持。広告画像/文字/動画/texture/active emissive/PointLightなし。
+
+参照（形態/高さの確認のみ。外部画像素材は未使用）:
+https://www.tokyu-reit.co.jp/portfolio/detail?id=1
+https://www.tokyu.co.jp/company/news/pdf/130725-3-1.pdf
+https://www.shibuya-scramble-square.com/assets/pdf/about/191101.pdf
+https://www.s-markcity.co.jp/company/
+https://www.tokyu.co.jp/company/news/pdf/171117-s.pdf
+
+保存: S4専用コード、tests、CPU検証スクリプト、全検証記録を同一commit/配布ZIPに収録。
+Station/Signs/Streetscape/Traffic/Life/Nightglow/GTAなし。S5以降の先行実装なし。デプロイなし。ここでSTOP。

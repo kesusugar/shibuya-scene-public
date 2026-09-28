@@ -1,0 +1,78 @@
+{
+ "version": 1,
+ "size": 1024,
+ "quality": {
+  "diff": 0.82,
+  "rough": 0.8,
+  "normal": 0.92
+ },
+ "generator": "scripts/convert-textures.mjs",
+ "sets": [
+  {
+   "id": "asphalt_track",
+   "use": "road",
+   "title": "Asphalt Track",
+   "authors": [
+    "Dimitrios Savva"
+   ],
+   "licence": "CC0-1.0",
+   "page": "https://polyhaven.com/a/asphalt_track",
+   "metres": [
+    2,
+    2
+   ],
+   "maps": {
+    "diff": {
+     "file": "road_diff.jpg",
+     "bytes": 205538
+    },
+    "normal": {
+     "file": "road_normal.jpg",
+     "bytes": 275418
+    },
+    "rough": {
+     "file": "road_rough.jpg",
+     "bytes": 51881
+    }
+   },
+   "meanSrgb": [
+    33.87,
+    29.35,
+    27.94
+   ]
+  },
+  {
+   "id": "concrete_pavement",
+   "use": "sidewalk",
+   "title": "Concrete Pavement",
+   "authors": [
+    "Charlotte Baglioni"
+   ],
+   "licence": "CC0-1.0",
+   "page": "https://polyhaven.com/a/concrete_pavement",
+   "metres": [
+    1.8,
+    1.8
+   ],
+   "maps": {
+    "diff": {
+     "file": "sidewalk_diff.jpg",
+     "bytes": 235745
+    },
+    "normal": {
+     "file": "sidewalk_normal.jpg",
+     "bytes": 492221
+    },
+    "rough": {
+     "file": "sidewalk_rough.jpg",
+     "bytes": 66248
+    }
+   },
+   "meanSrgb": [
+    127.4,
+    116.39,
+    102.44
+   ]
+  }
+ ]
+}

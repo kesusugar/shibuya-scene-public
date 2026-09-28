@@ -1,0 +1,5 @@
+S11 browser QA: BLOCKED / UNVERIFIED.
+Supervised preview startup succeeded. Browser tab discovery failed:
+CDP operation refresh tabs timed out after 20000ms.
+No repeated connection attempts. No screenshot, WebGL, console error count or FPS claimed.
+Station inspection / CAM-05 and prior-scene visual regression remain unverified.

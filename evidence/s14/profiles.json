@@ -1,0 +1,62 @@
+{
+  "high": {
+    "tier": "high",
+    "patches": 71,
+    "reflections": 30,
+    "triangles": 988,
+    "batches": 2,
+    "extraBloomDrawCalls": 2,
+    "geometries": 2,
+    "addedLights": 0,
+    "active": true,
+    "bloomStrength": 0.18,
+    "dpr": 1.5,
+    "frameCap": 60,
+    "crowd": 1978,
+    "traffic": {
+      "moving": 62,
+      "parked": 12
+    },
+    "trains": 3
+  },
+  "medium": {
+    "tier": "medium",
+    "patches": 36,
+    "reflections": 15,
+    "triangles": 469,
+    "batches": 2,
+    "extraBloomDrawCalls": 2,
+    "geometries": 2,
+    "addedLights": 0,
+    "active": true,
+    "bloomStrength": 0.1,
+    "dpr": 0.75,
+    "frameCap": 30,
+    "crowd": 210,
+    "traffic": {
+      "moving": 30,
+      "parked": 7
+    },
+    "trains": 2
+  },
+  "low": {
+    "tier": "low",
+    "patches": 10,
+    "reflections": 4,
+    "triangles": 131,
+    "batches": 2,
+    "extraBloomDrawCalls": 0,
+    "geometries": 2,
+    "addedLights": 0,
+    "active": true,
+    "bloomStrength": 0,
+    "dpr": 0.3,
+    "frameCap": 24,
+    "crowd": 95,
+    "traffic": {
+      "moving": 14,
+      "parked": 3
+    },
+    "trains": 2
+  }
+}

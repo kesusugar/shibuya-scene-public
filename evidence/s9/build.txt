@@ -1,0 +1,5 @@
+RUN S9 build PASS.
+Command: node /root/.codex/plugins/cache/openai-curated-remote/sites/0.1.52/scripts/build-site.mjs
+Final five-stage vinext / Vite build completed, exit code 0.
+Warnings: proxy environment; client chunk >500 kB; static route classification unknown.
+No dependency/renderer resolution/profile changes.

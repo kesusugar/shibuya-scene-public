@@ -1,0 +1,384 @@
+{
+ "generated": "2026-09-26",
+ "source": "Quaternius Universal Base Characters [Standard] + Universal Animation Library [Standard], CC0-1.0",
+ "body": {
+  "meshes": 3,
+  "vertices": 17327,
+  "triangles": 29378,
+  "attributesDropped": 28,
+  "garmentMaskVertices": 23263,
+  "hairVertices": 4303,
+  "hairstyle": "Hair_SimpleParted",
+  "bones": 65,
+  "animatedBones": 25,
+  "height": 1.8196,
+  "scaleToGame": 0.96725
+ },
+ "rigs": [
+  {
+   "id": "m",
+   "source": "Superhero_Male_FullBody",
+   "body": "SuperHero_Male",
+   "height": 1.8196,
+   "scaleToGame": 0.96725,
+   "bones": 65
+  },
+  {
+   "id": "f",
+   "source": "Superhero_Female_FullBody",
+   "body": "Superhero_Female",
+   "height": 1.7751,
+   "scaleToGame": 0.99152,
+   "bones": 65
+  }
+ ],
+ "hairstyles": [
+  {
+   "name": "Hair_Buzzed",
+   "vertices": 466,
+   "triangles": 830
+  },
+  {
+   "name": "Hair_SimpleParted",
+   "vertices": 757,
+   "triangles": 1301
+  },
+  {
+   "name": "Hair_Long",
+   "vertices": 3080,
+   "triangles": 2906
+  }
+ ],
+ "clips": [
+  {
+   "name": "Idle",
+   "upstream": "Idle_Loop",
+   "seconds": 2.5,
+   "tracks": 50
+  },
+  {
+   "name": "Walk",
+   "upstream": "Walk_Loop",
+   "seconds": 1.333,
+   "tracks": 50
+  },
+  {
+   "name": "Run",
+   "upstream": "hybrid (CMU 16_45 legs + Quaternius upper)",
+   "seconds": 0.708,
+   "tracks": 23
+  },
+  {
+   "name": "Sprint",
+   "upstream": "Sprint_Loop",
+   "seconds": 0.667,
+   "tracks": 50
+  },
+  {
+   "name": "Punch",
+   "upstream": "Punch_Jab",
+   "seconds": 0.867,
+   "tracks": 50
+  },
+  {
+   "name": "PunchCross",
+   "upstream": "Punch_Cross",
+   "seconds": 1,
+   "tracks": 50
+  },
+  {
+   "name": "Hit",
+   "upstream": "Hit_Chest",
+   "seconds": 0.333,
+   "tracks": 50
+  },
+  {
+   "name": "Startle",
+   "upstream": "Hit_Head",
+   "seconds": 0.433,
+   "tracks": 50
+  },
+  {
+   "name": "Guard",
+   "upstream": "Crouch_Idle_Loop",
+   "seconds": 2.933,
+   "tracks": 50
+  },
+  {
+   "name": "Enter",
+   "upstream": "Sitting_Enter",
+   "seconds": 1.3,
+   "tracks": 50
+  },
+  {
+   "name": "Exit",
+   "upstream": "Sitting_Exit",
+   "seconds": 1.033,
+   "tracks": 50
+  },
+  {
+   "name": "Drive",
+   "upstream": "Driving_Loop",
+   "seconds": 1.667,
+   "tracks": 50
+  },
+  {
+   "name": "Interact",
+   "upstream": "Interact",
+   "seconds": 2,
+   "tracks": 50
+  },
+  {
+   "name": "Fall",
+   "upstream": "Death01",
+   "seconds": 2.4,
+   "tracks": 50
+  },
+  {
+   "name": "Death",
+   "upstream": "Death01",
+   "seconds": 2.4,
+   "tracks": 50
+  },
+  {
+   "name": "PistolIdle",
+   "upstream": "Pistol_Idle_Loop",
+   "seconds": 1.667,
+   "tracks": 50
+  },
+  {
+   "name": "PistolAimUp",
+   "upstream": "Pistol_Aim_Up",
+   "seconds": 0.167,
+   "tracks": 50
+  },
+  {
+   "name": "PistolAimNeutral",
+   "upstream": "Pistol_Aim_Neutral",
+   "seconds": 0.167,
+   "tracks": 50
+  },
+  {
+   "name": "PistolAimDown",
+   "upstream": "Pistol_Aim_Down",
+   "seconds": 0.167,
+   "tracks": 50
+  },
+  {
+   "name": "PistolShoot",
+   "upstream": "Pistol_Shoot",
+   "seconds": 0.633,
+   "tracks": 50
+  },
+  {
+   "name": "PistolReload",
+   "upstream": "Pistol_Reload",
+   "seconds": 1.667,
+   "tracks": 50
+  },
+  {
+   "name": "SwordIdle",
+   "upstream": "CMU 02_07 (scripts/cmu/weapon-clip.mjs)",
+   "seconds": 0.75,
+   "tracks": 23
+  },
+  {
+   "name": "SwordAttack",
+   "upstream": "CMU 02_07 (scripts/cmu/weapon-clip.mjs)",
+   "seconds": 1.526,
+   "tracks": 23
+  },
+  {
+   "name": "Roll",
+   "upstream": "Roll",
+   "seconds": 1.467,
+   "tracks": 50
+  },
+  {
+   "name": "CrouchWalk",
+   "upstream": "Crouch_Fwd_Loop",
+   "seconds": 2,
+   "tracks": 50
+  },
+  {
+   "name": "Crawl",
+   "upstream": "Swim_Fwd_Loop",
+   "seconds": 1.333,
+   "tracks": 50
+  },
+  {
+   "name": "SmgLow",
+   "upstream": "CMU 80_03 (scripts/cmu/weapon-clip.mjs)",
+   "seconds": 0.033,
+   "tracks": 23
+  },
+  {
+   "name": "SmgAim",
+   "upstream": "CMU 80_03 (scripts/cmu/weapon-clip.mjs)",
+   "seconds": 2.6,
+   "tracks": 23
+  }
+ ],
+ "gait": {
+  "Walk": 0.975,
+  "Run": 3.7929,
+  "Sprint": 8.25,
+  "Fall": 0.2708,
+  "Death": 0.2708,
+  "Roll": 3.4032,
+  "CrouchWalk": 0.75,
+  "Crawl": 2.175
+ },
+ "hybridRun": {
+  "stride": 2.6866,
+  "speed": 3.7929,
+  "lowerBody": "CMU Graphics Lab Motion Capture Database, trial 16_45",
+  "upperBody": "Quaternius Universal Animation Library [Standard], Jog_Fwd_Loop, CC0-1.0",
+  "boundary": "spine_01"
+ },
+ "cmuWeapons": {
+  "clips": [
+   {
+    "name": "SwordAttack",
+    "file": "katana-cut",
+    "trial": "02_07",
+    "from": 6.2,
+    "to": 8.4,
+    "amcSha256": "6171216b0bd691843096798431a5f201b9d1340503cf89ce20180b6143597cd8",
+    "seconds": 1.526,
+    "tracks": 23
+   },
+   {
+    "name": "SwordIdle",
+    "file": "katana-guard",
+    "trial": "02_07",
+    "from": 17.95,
+    "to": 18.7,
+    "amcSha256": "6171216b0bd691843096798431a5f201b9d1340503cf89ce20180b6143597cd8",
+    "seconds": 0.75,
+    "tracks": 23
+   },
+   {
+    "name": "SmgLow",
+    "file": "rifle-raise",
+    "trial": "80_03",
+    "from": 1.9,
+    "to": 7,
+    "amcSha256": "b572134d41441a4e77b9ea5602e758c1d641ec5e1cc8e110a8e89fb03e04f30f",
+    "seconds": 0.033,
+    "tracks": 23
+   },
+   {
+    "name": "SmgAim",
+    "file": "rifle-shouldered",
+    "trial": "80_03",
+    "from": 4.2,
+    "to": 6.8,
+    "amcSha256": "b572134d41441a4e77b9ea5602e758c1d641ec5e1cc8e110a8e89fb03e04f30f",
+    "seconds": 2.6,
+    "tracks": 23
+   }
+  ],
+  "acknowledgment": "The data used in this project was obtained from mocap.cs.cmu.edu. The database was created with funding from NSF EIA-0196217."
+ },
+ "output": {
+  "file": "public/data/character/citizen.glb",
+  "bytes": 2811684,
+  "sha256": "b2a467120dc049e2bad5761409f8f317d902ebd592e3741ffecfb77ba1d00265"
+ },
+ "gaitDetail": {
+  "samples": 120,
+  "measured": "2026-09-26",
+  "ankleHeight": 0.1119,
+  "clips": {
+   "Walk": {
+    "seconds": 1.333,
+    "speed": 0.975,
+    "stride": 1.3,
+    "step": 0.65,
+    "cadence": 90,
+    "duty": 0.404,
+    "airborne": 0.192,
+    "contactOffset": 0.5,
+    "leftContact": 0.108
+   },
+   "Run": {
+    "seconds": 0.708,
+    "speed": 3.7929,
+    "stride": 2.687,
+    "step": 1.343,
+    "cadence": 169.4,
+    "duty": 0.4,
+    "airborne": 0.2,
+    "contactOffset": 0.5,
+    "leftContact": 0.917
+   },
+   "Sprint": {
+    "seconds": 0.667,
+    "speed": 8.25,
+    "stride": 5.5,
+    "step": 2.75,
+    "cadence": 180,
+    "duty": 0.292,
+    "airborne": 0.417,
+    "contactOffset": 0.692,
+    "leftContact": 0.917
+   },
+   "Fall": {
+    "seconds": 2.4,
+    "speed": 0.2708,
+    "stride": 0.65,
+    "step": 0.325,
+    "cadence": 50,
+    "duty": 0.129,
+    "airborne": 0.742,
+    "contactOffset": 0,
+    "leftContact": 0.058
+   },
+   "Death": {
+    "seconds": 2.4,
+    "speed": 0.2708,
+    "stride": 0.65,
+    "step": 0.325,
+    "cadence": 50,
+    "duty": 0.129,
+    "airborne": 0.742,
+    "contactOffset": 0,
+    "leftContact": 0.058
+   },
+   "Roll": {
+    "seconds": 1.467,
+    "speed": 3.4032,
+    "stride": 4.991,
+    "step": 2.496,
+    "cadence": 81.8,
+    "duty": 0.171,
+    "airborne": 0.658,
+    "contactOffset": 0,
+    "leftContact": 0
+   },
+   "CrouchWalk": {
+    "seconds": 2,
+    "speed": 0.75,
+    "stride": 1.5,
+    "step": 0.75,
+    "cadence": 60,
+    "duty": 0.333,
+    "airborne": 0.333,
+    "contactOffset": 0.492,
+    "leftContact": 0.092
+   },
+   "Crawl": {
+    "seconds": 1.333,
+    "speed": 2.175,
+    "stride": 2.9,
+    "step": 1.45,
+    "cadence": 90,
+    "duty": 0.192,
+    "airborne": 0.617,
+    "contactOffset": 0,
+    "leftContact": 0.05
+   }
+  }
+ }
+}

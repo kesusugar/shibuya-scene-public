@@ -1,0 +1,515 @@
+{
+  "S5Baseline": {
+    "sourceRails": {
+      "source": 96,
+      "JR": 33,
+      "Ginza": 7,
+      "other": 56
+    },
+    "alignmentCount": 8,
+    "JRLength": 2070.183628144418,
+    "GinzaLength": 449.95678770429697,
+    "deckCount": 5,
+    "deckPolygons": 5,
+    "girderCount": 12,
+    "pierCount": 100,
+    "supportCount": 126,
+    "rejectedSupportCount": 19,
+    "railCount": 16,
+    "sleeperInstances": 3877,
+    "platformCount": 3,
+    "tactileCount": 6,
+    "roofCount": 3,
+    "postCount": 36,
+    "hachikoGenerated": true,
+    "ginzaGenerated": true,
+    "pedestrianDeckCount": 3,
+    "pedestrianStairCount": 1,
+    "pedestrianLength": 171.5749629094422,
+    "reservationsUsed": 2,
+    "reservationsUntouched": 3,
+    "majorPenetrations": 0,
+    "minorPenetrations": 11,
+    "expectedInterfaces": 8,
+    "invalid": [],
+    "duplicateSegments": 0,
+    "skipped": [],
+    "stationTriangles": 75568,
+    "materials": 11,
+    "mergedBatches": 11,
+    "instancedBatches": 4,
+    "approximateDrawCalls": 15,
+    "instances": 4139,
+    "geometries": 12,
+    "textures": 0,
+    "discardedDegenerate": 332,
+    "buildTimeMs": 8312,
+    "bounds": {
+      "min": [
+        -45.59379196166992,
+        -2.769182156327145e-15,
+        -250
+      ],
+      "max": [
+        250.2486706227064,
+        21.276750780642033,
+        250.3561336323619
+      ]
+    },
+    "checks": {
+      "stationConcrete": {
+        "nonFinite": 0,
+        "badIndices": 0,
+        "degenerate": 0,
+        "bounds": {
+          "minX": -45.59379196166992,
+          "maxX": 250,
+          "minY": 0.27000001072883606,
+          "maxY": 14,
+          "minZ": -250,
+          "maxZ": 250
+        }
+      },
+      "concreteDark": {
+        "nonFinite": 0,
+        "badIndices": 0,
+        "degenerate": 0,
+        "bounds": {
+          "minX": -40.4048957824707,
+          "maxX": 250,
+          "minY": 4.650000095367432,
+          "maxY": 14.649999618530273,
+          "minZ": -250,
+          "maxZ": 250
+        }
+      },
+      "darkSteel": {
+        "nonFinite": 0,
+        "badIndices": 0,
+        "degenerate": 0,
+        "bounds": {
+          "minX": -40.442161560058594,
+          "maxX": 250,
+          "minY": 5.099999904632568,
+          "maxY": 13.199999809265137,
+          "minZ": -250,
+          "maxZ": 250
+        }
+      },
+      "ballast": {
+        "nonFinite": 0,
+        "badIndices": 0,
+        "degenerate": 0,
+        "bounds": {
+          "minX": -41.27740478515625,
+          "maxX": 250,
+          "minY": 6.5,
+          "maxY": 14.220000267028809,
+          "minZ": -250,
+          "maxZ": 250
+        }
+      },
+      "railMetal": {
+        "nonFinite": 0,
+        "badIndices": 0,
+        "degenerate": 0,
+        "bounds": {
+          "minX": -40.128631591796875,
+          "maxX": 250,
+          "minY": 6.860000133514404,
+          "maxY": 14.550000190734863,
+          "minZ": -250,
+          "maxZ": 250
+        }
+      },
+      "platform": {
+        "nonFinite": 0,
+        "badIndices": 0,
+        "degenerate": 0,
+        "bounds": {
+          "minX": 6.764549732208252,
+          "maxX": 230,
+          "minY": -2.769182156327145e-15,
+          "maxY": 15.5,
+          "minZ": 22.224180221557617,
+          "maxZ": 195
+        }
+      },
+      "canopy": {
+        "nonFinite": 0,
+        "badIndices": 0,
+        "degenerate": 0,
+        "bounds": {
+          "minX": 46.339759826660156,
+          "maxX": 232.64776611328125,
+          "minY": 4.449999809265137,
+          "maxY": 21.200000762939453,
+          "minZ": 22.224180221557617,
+          "maxZ": 195.0749969482422
+        }
+      },
+      "tactile": {
+        "nonFinite": 0,
+        "badIndices": 0,
+        "degenerate": 0,
+        "bounds": {
+          "minX": 64.48011016845703,
+          "maxX": 230.1750030517578,
+          "minY": 8.010000228881836,
+          "maxY": 15.529999732971191,
+          "minZ": 29.825000762939453,
+          "maxZ": 195.1750030517578
+        }
+      },
+      "greenBand": {
+        "nonFinite": 0,
+        "badIndices": 0,
+        "degenerate": 0,
+        "bounds": {
+          "minX": 46.79539489746094,
+          "maxX": 47.811771392822266,
+          "minY": 3.8499999046325684,
+          "maxY": 4.300000190734863,
+          "minZ": 26.863183975219727,
+          "maxZ": 33.96178436279297
+        }
+      },
+      "steel": {
+        "nonFinite": 0,
+        "badIndices": 0,
+        "degenerate": 0,
+        "bounds": {
+          "minX": -42.68158721923828,
+          "maxX": 50.10319137573242,
+          "minY": 4.300000190734863,
+          "maxY": 7.320000171661377,
+          "minZ": 26.838184356689453,
+          "maxZ": 134.05685424804688
+        }
+      },
+      "glass": {
+        "nonFinite": 0,
+        "badIndices": 0,
+        "degenerate": 0,
+        "bounds": {
+          "minX": -42.64073944091797,
+          "maxX": 50.06675338745117,
+          "minY": 6.449999809265137,
+          "maxY": 7.25,
+          "minZ": 65.29496765136719,
+          "maxZ": 134.04185485839844
+        }
+      }
+    },
+    "batches": {
+      "stationConcrete": {
+        "type": "merged",
+        "triangles": 2788
+      },
+      "concreteDark": {
+        "type": "merged",
+        "triangles": 2860
+      },
+      "darkSteel": {
+        "type": "merged",
+        "triangles": 2806
+      },
+      "ballast": {
+        "type": "merged",
+        "triangles": 1752
+      },
+      "railMetal": {
+        "type": "merged",
+        "triangles": 3664
+      },
+      "platform": {
+        "type": "merged",
+        "triangles": 1268
+      },
+      "canopy": {
+        "type": "merged",
+        "triangles": 3926
+      },
+      "tactile": {
+        "type": "merged",
+        "triangles": 3700
+      },
+      "greenBand": {
+        "type": "merged",
+        "triangles": 96
+      },
+      "steel": {
+        "type": "merged",
+        "triangles": 1568
+      },
+      "glass": {
+        "type": "merged",
+        "triangles": 1472
+      },
+      "repeat-stationConcrete": {
+        "type": "instanced",
+        "instances": 128,
+        "triangles": 1536
+      },
+      "repeat-concreteDark": {
+        "type": "instanced",
+        "instances": 3877,
+        "triangles": 46524
+      },
+      "repeat-steel": {
+        "type": "instanced",
+        "instances": 132,
+        "triangles": 1584
+      },
+      "repeat-glass": {
+        "type": "instanced",
+        "instances": 2,
+        "triangles": 24
+      }
+    }
+  },
+  "S6": {
+    "platformFixtures": 44,
+    "signs": 27,
+    "vending": 5,
+    "benches": 10,
+    "catenarySupports": 49,
+    "wires": 504,
+    "droppers": 172,
+    "railSignals": 8,
+    "rotaryProps": 14,
+    "shelters": 2,
+    "koban": 1,
+    "info": 1,
+    "storefronts": 8,
+    "archetypes": {
+      "izakaya": 2,
+      "ramen": 2,
+      "convenience": 2,
+      "shutter": 2
+    },
+    "lanterns": 6,
+    "noren": 18,
+    "menus": 8,
+    "baselineMajor": 0,
+    "baselineMinor": 11,
+    "newMajor": 0,
+    "newMinor": 3,
+    "skippedCandidates": 96,
+    "skippedReasons": {
+      "tactile": 1,
+      "core:platform-tactile": 1,
+      "core:ginza-parapet": 1,
+      "target-boundary": 16,
+      "core:track-slab": 3,
+      "shelter-sidewalk-clearance": 27,
+      "road": 34,
+      "pedestrian-flow": 18,
+      "stairs": 1,
+      "core:pedestrian-step": 1,
+      "crosswalk": 4,
+      "structural-pier": 4
+    },
+    "modelBuildTimeMs": 3813,
+    "tier": "medium",
+    "triangles": 16540,
+    "materials": 9,
+    "batches": 12,
+    "instancedBatches": 11,
+    "mergedBatches": 1,
+    "instances": 1335,
+    "atlasTextures": 1,
+    "atlasTiles": 16,
+    "atlasMode": "cpu-placeholder",
+    "pointLights": 0,
+    "debugBatches": 0,
+    "bounds": {
+      "min": [
+        -31.784874776378274,
+        0,
+        -250.0022655762732
+      ],
+      "max": [
+        235.36889941524714,
+        21.247499542310834,
+        250.0210157688707
+      ]
+    },
+    "buildTimeMs": 3829,
+    "checks": {
+      "box": {
+        "nonFinite": 0,
+        "badIndices": 0,
+        "degenerate": 0,
+        "bounds": {
+          "minX": -0.5,
+          "maxX": 0.5,
+          "minY": -0.5,
+          "maxY": 0.5,
+          "minZ": -0.5,
+          "maxZ": 0.5
+        }
+      },
+      "cylinder": {
+        "nonFinite": 0,
+        "badIndices": 0,
+        "degenerate": 0,
+        "bounds": {
+          "minX": -0.5,
+          "maxX": 0.5,
+          "minY": -0.5,
+          "maxY": 0.5,
+          "minZ": -0.5,
+          "maxZ": 0.5
+        }
+      },
+      "sphere": {
+        "nonFinite": 0,
+        "badIndices": 0,
+        "degenerate": 0,
+        "bounds": {
+          "minX": -0.5,
+          "maxX": 0.5,
+          "minY": -0.5,
+          "maxY": 0.5,
+          "minZ": -0.5,
+          "maxZ": 0.5
+        }
+      },
+      "atlas": {
+        "nonFinite": 0,
+        "badIndices": 0,
+        "degenerate": 0,
+        "bounds": {
+          "minX": -18.219999313354492,
+          "maxX": 230.46188354492188,
+          "minY": 0.8500000238418579,
+          "maxY": 19.225000381469727,
+          "minZ": 16.751514434814453,
+          "maxZ": 190.8103485107422
+        }
+      }
+    },
+    "batchDetails": {
+      "box-metal": {
+        "type": "instanced",
+        "instances": 281,
+        "triangles": 3372
+      },
+      "box-dark": {
+        "type": "instanced",
+        "instances": 845,
+        "triangles": 10140
+      },
+      "box-cream": {
+        "type": "instanced",
+        "instances": 31,
+        "triangles": 372
+      },
+      "box-wood": {
+        "type": "instanced",
+        "instances": 42,
+        "triangles": 504
+      },
+      "box-glass": {
+        "type": "instanced",
+        "instances": 16,
+        "triangles": 192
+      },
+      "box-green": {
+        "type": "instanced",
+        "instances": 21,
+        "triangles": 252
+      },
+      "box-yellow": {
+        "type": "instanced",
+        "instances": 68,
+        "triangles": 816
+      },
+      "box-glow": {
+        "type": "instanced",
+        "instances": 21,
+        "triangles": 252
+      },
+      "cylinder-glow": {
+        "type": "instanced",
+        "instances": 6,
+        "triangles": 192
+      },
+      "sphere-green": {
+        "type": "instanced",
+        "instances": 2,
+        "triangles": 160
+      },
+      "sphere-glow": {
+        "type": "instanced",
+        "instances": 2,
+        "triangles": 160
+      },
+      "atlas": {
+        "type": "merged",
+        "triangles": 128,
+        "faces": 64
+      }
+    }
+  },
+  "audit": {
+    "baselineMajor": 0,
+    "baselineMinor": 11,
+    "newMajor": 0,
+    "newMinor": 3,
+    "findings": [
+      {
+        "fixture": "planter:123",
+        "kind": "sidewalk",
+        "classification": "minor",
+        "area": 1.3964860422288439,
+        "point": [
+          20,
+          142
+        ]
+      },
+      {
+        "fixture": "plaza-bench:124",
+        "kind": "sidewalk",
+        "classification": "minor",
+        "area": 1.5199999999999818,
+        "point": [
+          -23,
+          52
+        ]
+      },
+      {
+        "fixture": "map-board:125",
+        "kind": "sidewalk",
+        "classification": "minor",
+        "area": 0.3025000000000091,
+        "point": [
+          -18,
+          65
+        ]
+      }
+    ],
+    "expectedMounted": [
+      "hachiko-mounted",
+      "girder-mounted",
+      "pier-mounted",
+      "ginza-portal-mounted",
+      "ginza-roof-mounted"
+    ]
+  },
+  "scene": {
+    "triangles": 334032,
+    "materials": 40,
+    "batches": 50,
+    "textures": 3
+  },
+  "regression": {
+    "genericCount": 378,
+    "heroCount": 9,
+    "groundTriangles": 47829,
+    "genericTriangles": 160925,
+    "heroTriangles": 33170,
+    "stationTriangles": 75568
+  }
+}

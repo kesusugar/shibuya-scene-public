@@ -1,0 +1,142 @@
+[
+  {
+    "id": "way/54500467",
+    "key": "way/54500467:0",
+    "name": "Shibuya Mark City West",
+    "phase": "S4",
+    "builder": "markCity",
+    "status": "built",
+    "reason": "hero-definition",
+    "parentId": null
+  },
+  {
+    "id": "way/55895868",
+    "key": "way/55895868:0",
+    "name": "SHIBUYA 109",
+    "phase": "S4",
+    "builder": "109",
+    "status": "built",
+    "reason": "hero-definition",
+    "parentId": null
+  },
+  {
+    "id": "way/55896465",
+    "key": "way/55896465:0",
+    "name": "Seibu Shibuya A",
+    "phase": "S4",
+    "builder": "seibuA",
+    "status": "built",
+    "reason": "hero-definition",
+    "parentId": null
+  },
+  {
+    "id": "way/87250190",
+    "key": "way/87250190:0",
+    "name": "Shibuya Mark City East",
+    "phase": "S4",
+    "builder": "markCity",
+    "status": "built",
+    "reason": "hero-definition",
+    "parentId": null
+  },
+  {
+    "id": "way/116806281",
+    "key": "way/116806281:0",
+    "name": "MAGNET",
+    "phase": "S4",
+    "builder": "magnet",
+    "status": "built",
+    "reason": "hero-definition",
+    "parentId": null
+  },
+  {
+    "id": "way/136691386",
+    "key": "way/136691386:0",
+    "name": "QFRONT",
+    "phase": "S4",
+    "builder": "qfront",
+    "status": "built",
+    "reason": "hero-definition",
+    "parentId": null
+  },
+  {
+    "id": "way/136692137",
+    "key": "way/136692137:0",
+    "name": "Seibu Shibuya B",
+    "phase": "S4",
+    "builder": "seibuB",
+    "status": "built",
+    "reason": "hero-definition",
+    "parentId": null
+  },
+  {
+    "id": "way/521438304",
+    "key": "way/521438304:0",
+    "name": "Shibuya Stream",
+    "phase": "S4",
+    "builder": "stream",
+    "status": "built",
+    "reason": "hero-definition",
+    "parentId": null
+  },
+  {
+    "id": "way/617560918",
+    "key": "way/617560918:0",
+    "name": "Shibuya Scramble Square",
+    "phase": "S4",
+    "builder": "scrambleSquare",
+    "status": "built",
+    "reason": "hero-definition",
+    "parentId": null
+  },
+  {
+    "id": "way/810356690",
+    "key": "way/810356690:0",
+    "name": "Station structure",
+    "phase": "S5",
+    "builder": null,
+    "status": "untouched",
+    "reason": "station-structure",
+    "parentId": null
+  },
+  {
+    "id": "way/904652318",
+    "key": "way/904652318:0",
+    "name": "Central Paid Area",
+    "phase": "S5",
+    "builder": null,
+    "status": "untouched",
+    "reason": "overlaps-reserved",
+    "parentId": "way/904652357"
+  },
+  {
+    "id": "way/904652357",
+    "key": "way/904652357:0",
+    "name": "渋谷",
+    "phase": "S5",
+    "builder": null,
+    "status": "untouched",
+    "reason": "hero-definition",
+    "parentId": null
+  },
+  {
+    "id": "way/904734439",
+    "key": "way/904734439:0",
+    "name": "Station structure",
+    "phase": "S5",
+    "builder": null,
+    "status": "untouched",
+    "reason": "station-structure",
+    "parentId": null
+  },
+  {
+    "id": "way/1350895889",
+    "key": "way/1350895889:0",
+    "name": "渋谷駅新南口",
+    "phase": "S5",
+    "builder": null,
+    "status": "untouched",
+    "reason": "station-structure",
+    "parentId": null
+  }
+]

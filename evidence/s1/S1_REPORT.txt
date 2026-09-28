@@ -1,0 +1,55 @@
+RUN S1 — OSM Data + Geo Core
+最終状態：S1実装・CPU/データ検証完了。WebGL描画・FPSは環境制約により未検証。
+S0はユーザー指示で条件付きPASS。S0の修正は行わず、foundation.mjs・CSS・S0テストのバイト一致を確認。app/page.tsxはS1データ読込と表示のみ統合。
+
+build: PASS（復元した最終コード、終了コード0）
+automated tests: 42 PASS / 0 FAIL（tests.txt参照）
+Console: 最終起動・データ再読込の観測範囲でアプリ由来Error 0。
+ブラウザ拡張由来Errorは区別して記録。WebGL経路の実行成功は主張しない。
+
+実装：OSM XML import / normalized JSON loader / 座標変換 / polyline length, sampling, tangent, heading, resampling, clipping, extension, offset / polygon bounds, point-in, holes, triangulation, extrusion / geometry merge, transform, vertex colors, ribbon / seeded RNG / InstancedBuilder / spatial index。
+OSMデータ原本と正規化スクリプトを同梱。原点35.6595,139.7005。X東・Y上・Z南、単位m。
+建物666件すべてで三角形面積整合・有限押し出し座標を検証。
+主要11ランドマークID解決。駅とハチ公口はstation/entranceタグ照合（類似名称のバス停ではない）。
+
+道路・歩行路・鉄道はclipされた区間数。建物・areaは境界の完全な輪郭を残すため全体boundsがclip範囲を超える。詳細はREADME参照。
+診断線は4つのLineSegmentsのみ。Ground本描画・Buildings描画・Station・Signs・Traffic・Life・GTA機能は未実装。
+
+ブラウザ：JSON読込・件数表示・data OFF/ON再読込・8固定カメラの選択状態確認。
+スクリーンショットは8枚取得を試みたが、共有転送でCAM02/04/06/08が欠落。CAM01/03/05/07の4枚を保存。欠落画像は合格証拠として扱わない。
+全スクリーンショットはWebGL不可状態であり、地理の視覚的整合の証明ではない。
+
+作業フォルダが環境メンテナンスで削除されたため、保存済みS0と会話内のS1コード記録、残存OSM原本から復元。復元後に再度buildと42テストを実行済み。
+デプロイなし。S1でSTOP。
+
+データ件数:
+buildings: 666
+roads: 306
+footways: 648
+rails: 96
+crossings: 118
+signals: 49
+trees: 24
+areas: 30
+pois: 1176
+
+座標範囲:
+{
+  "minX": -342.60274916731095,
+  "maxX": 415.502724307456,
+  "minZ": -445.0219283441948,
+  "maxZ": 491.24178092145746
+}
+
+主要ID:
+109: way/55895868 (resolved)
+qfront: way/136691386 (resolved)
+magnet: way/116806281 (resolved)
+scrambleSquare: way/617560918 (resolved)
+seibuA: way/55896465 (resolved)
+seibuB: way/136692137 (resolved)
+markCityEast: way/87250190 (resolved)
+stream: way/521438304 (resolved)
+station: way/904652357 (resolved)
+hachikoExit: node/6223298623 (resolved)
+scramble: node/291758776 (resolved)

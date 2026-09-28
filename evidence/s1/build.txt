@@ -1,0 +1,4 @@
+Final restored source build: PASS; exit code 0.
+Vinext 0.0.50 / Vite 8.0.13, all 5 build stages completed.
+Warnings: large Three.js client chunk; route classification unknown by static analysis.
+No build errors. This is a result summary, not the full raw command transcript.

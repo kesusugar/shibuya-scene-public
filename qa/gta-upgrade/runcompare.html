@@ -1,0 +1,150 @@
+<!doctype html><meta charset="utf-8"><title>run compare</title>
+<!--
+  RUN 5.6 STEP 8 -- the current Run against retargeted CMU candidates, same everything.
+  One row per clip, one camera per sheet, every clip driven the way RUN 4 drives them:
+  period = stride / ground speed, at the gameplay 4.2 m/s. No foot IK -- this is a question
+  about clips, and RUN 5's line is that IK adapts a correct animation rather than fixing one.
+  Serve the repository root: /qa/gta-upgrade/runcompare.html?view=side
+-->
+<style>html,body{margin:0;background:#1b1f26;overflow:hidden}canvas{display:block}
+#l{position:fixed;left:8px;top:6px;color:#e6edf5;font:11px/1.45 monospace;white-space:pre;z-index:9;text-shadow:0 1px 2px #000}
+.tick{position:absolute;color:#9fb0c2;font:10px monospace;z-index:9;text-shadow:0 1px 3px #000}
+.row{position:absolute;color:#e6edf5;font:11px monospace;z-index:9;text-shadow:0 1px 3px #000}</style>
+<div id="l">loading…</div>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as T from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+import {humanoidCitizen} from '/src/player/character-asset.mjs';
+
+const P=new URLSearchParams(location.search);
+const VIEW=P.get('view')??'side';
+const SPEED=Number(P.get('speed')??4.2);
+const COLUMNS=Number(P.get('columns')??7);
+const CELL=Number(P.get('cell')??240);
+// Any JSON clip in cmu-clips/, by name. `?clips=16_45,hybrid-C` compares those against the
+// incumbent, which is always the first row.
+const CMU=(P.get('clips')??P.get('cmu')??'16_45,16_46').split(',').filter(Boolean);
+
+const ROAD=.02, BALL_TO_SOLE=.0215;
+const VIEWS={
+ side:   {eye:[3.3,.95,0],     at:[0,.85,0]},
+ rear:   {eye:[1.9,1.35,-2.6], at:[0,.85,0]},
+ front:  {eye:[1.9,1.35,2.6],  at:[0,.85,0]},
+ feet:   {eye:[2.0,.20,.55],   at:[0,.07,0]},
+ // The upper body, close, because that is where the CMU arms fail and a full-figure view at
+ // this size cannot show a 13 cm hand offset.
+ upper:  {eye:[2.1,1.28,.85],  at:[0,1.15,0]}
+};
+const view=VIEWS[VIEW]??VIEWS.side;
+
+const report=await (await fetch('/public/data/character/citizen.json')).json();
+const bytes=await (await fetch('/public/data/character/citizen.glb')).arrayBuffer();
+const gltf=await new Promise((res,rej)=>new GLTFLoader().parse(bytes,'',res,rej));
+const asset=humanoidCitizen(gltf,report);
+
+// Every entry drives ONE clip in isolation: the question is what the clip looks like at
+// gameplay speed, not what the blend does with it.
+const entries=[{id:'current',label:'Quaternius Jog_Fwd_Loop (current)',cmu:null}];
+for(const id of CMU)entries.push({id,label:id.startsWith('hybrid')?`HYBRID ${id.slice(7)} (CMU legs + Quaternius upper)`:`FULL CMU ${id} (retargeted)`,cmu:id});
+for(const e of entries)
+ if(e.cmu)e.data=await (await fetch(`/qa/gta-upgrade/cmu-clips/${e.cmu}.json`)).json();
+
+const W=COLUMNS*CELL,H=entries.length*CELL;
+const renderer=new T.WebGLRenderer({antialias:true});
+renderer.setSize(W,H);renderer.outputColorSpace=T.SRGBColorSpace;
+renderer.toneMapping=T.ACESFilmicToneMapping;renderer.setScissorTest(true);
+document.body.appendChild(renderer.domElement);
+const scene=new T.Scene();scene.background=new T.Color(0x232830);
+const pmrem=new T.PMREMGenerator(renderer);
+scene.environment=pmrem.fromScene(new RoomEnvironment(),.04).texture;
+scene.add(new T.HemisphereLight(0xcfe0ff,0x3a3f47,1.5));
+const key=new T.DirectionalLight(0xfff4e2,2.2);key.position.set(3,6,4);scene.add(key);
+{
+ const g=new T.PlaneGeometry(200,200).rotateX(-Math.PI/2);
+ const m=new T.Mesh(g,new T.MeshStandardMaterial({color:0x4e535b,roughness:.96}));
+ m.position.y=ROAD;scene.add(m);
+ const grid=new T.GridHelper(200,400,0x5f6874,0x555d68);grid.position.y=ROAD+.001;scene.add(grid);
+}
+
+const camera=new T.PerspectiveCamera(30,1,.05,300);
+const probe=new T.Vector3();
+const label=[];
+
+for(const [r,entry] of entries.entries()){
+ const instance=asset.instance();
+ const root=instance.root;
+ root.position.set(0,ROAD,0);
+ scene.add(root);
+ const mixer=new T.AnimationMixer(root);
+ let clip,stride;
+ if(entry.cmu){
+  const tracks=[];
+  for(const [bone,values] of Object.entries(entry.data.tracks))
+   tracks.push(new T.QuaternionKeyframeTrack(`${bone}.quaternion`,entry.data.times,values));
+  tracks.push(new T.VectorKeyframeTrack('pelvis.position',entry.data.times,entry.data.rootPos));
+  clip=new T.AnimationClip(entry.id,entry.data.duration,tracks);
+  stride=entry.data.stride;
+ }else{
+  clip=instance.clips.find(c=>c.name==='Run');
+  // 4.76 m, from the ROOT-MOTION build, not the 5.00 in gaitDetail.
+  //
+  // The CMU strides in this comparison are measured from root motion, and RUN 4's gaitDetail
+  // value was inferred from foot movement on the root-motion-stripped build, which runs about
+  // 5% high (see docs/ANIMATION-LOCOMOTION-AUDIT.md). Comparing a foot-inferred stride against
+  // root-measured ones would hand the incumbent a 5% penalty it has not earned. Same basis for
+  // every row or the sheet is not a comparison.
+  stride=4.76;
+ }
+ const action=mixer.clipAction(clip);action.play();
+
+ // RUN 4's rule, applied identically to every candidate.
+ const period=stride/SPEED;
+ const cadence=120/period;
+ const step=stride/2;
+
+ const sole=n=>{const b=root.getObjectByName(n);if(!b)return null;
+  b.updateWorldMatrix(true,false);return probe.setFromMatrixPosition(b.matrixWorld).y-BALL_TO_SOLE;};
+
+ const cy=H-(r+1)*CELL;
+ let worst=0;
+ for(let c=0;c<COLUMNS;c++){
+  const phase=c/COLUMNS;
+  mixer.setTime(phase*clip.duration);
+  // The body advances at the gameplay speed so the frames read as one continuous run.
+  root.position.z=phase*period*SPEED;
+  root.updateMatrixWorld(true);
+  const l=sole('ball_l'),rr=sole('ball_r');
+  const below=(ROAD-Math.min(l,rr))*1000;
+  worst=Math.max(worst,below);
+  const cx=c*CELL;
+  renderer.setViewport(cx,cy,CELL,CELL);renderer.setScissor(cx,cy,CELL,CELL);
+  const s=root.position;
+  camera.position.set(s.x+view.eye[0],view.eye[1],s.z+view.eye[2]);
+  camera.up.set(0,1,0);camera.lookAt(s.x+view.at[0],view.at[1],s.z+view.at[2]);
+  camera.updateProjectionMatrix();
+  renderer.render(scene,camera);
+  const tick=document.createElement('div');tick.className='tick';
+  tick.textContent=`${(phase*100).toFixed(0)}%  sole ${below>0?'-':'+'}${Math.abs(below).toFixed(0)}mm`;
+  tick.style.left=(cx+5)+'px';tick.style.top=(H-cy-16)+'px';
+  document.body.appendChild(tick);
+ }
+ const refStep=[SPEED/(170/60),SPEED/(160/60)];
+ const ratio=step/((refStep[0]+refStep[1])/2);
+ const nm=document.createElement('div');nm.className='row';
+ nm.textContent=`${entry.label}   step ${step.toFixed(2)}m  cadence ${cadence.toFixed(0)}spm  `+
+  `step/ref ${ratio.toFixed(2)}  worst sole ${worst.toFixed(0)}mm`;
+ nm.style.left='5px';nm.style.top=(H-cy-CELL+4)+'px';
+ document.body.appendChild(nm);
+ label.push(`${entry.id}: step ${step.toFixed(2)} cad ${cadence.toFixed(0)} ratio ${ratio.toFixed(2)} sole ${worst.toFixed(0)}mm`);
+ scene.remove(root);
+}
+const refStep=[SPEED/(170/60),SPEED/(160/60)];
+document.getElementById('l').textContent=
+ `run comparison, "${VIEW}" view, every clip driven at ${SPEED.toFixed(1)} m/s by RUN 4's rule `+
+ `(period = stride / speed), no foot IK\n`+
+ `reference at ${SPEED.toFixed(1)} m/s: ${refStep[0].toFixed(2)}-${refStep[1].toFixed(2)} m step `+
+ `at 170-160 spm; step/ref of 1.00 is the reference\n`+label.join('   ');
+document.title='ready';
+</script>

@@ -1,0 +1,380 @@
+{
+  "base": "df38109",
+  "startCommit": "da77ce5",
+  "tiers": {
+    "high": {
+      "signage": {
+        "signCount": 763,
+        "categories": {
+          "box": 175,
+          "entrance": 64,
+          "directory": 163,
+          "flush": 135,
+          "billboard": 100,
+          "screen": 67,
+          "rooftop": 28,
+          "blade": 31
+        },
+        "regions": {
+          "secondary": 270,
+          "centerGai": 260,
+          "scramble": 16,
+          "dogenzaka": 72,
+          "peripheral": 105,
+          "station": 9,
+          "frontage": 31
+        },
+        "heroes": {
+          "109": 4,
+          "generic": 737,
+          "qfront": 6,
+          "magnet": 4,
+          "scrambleSquare": 2,
+          "seibuA": 3,
+          "seibuB": 3,
+          "markCityEast": 2,
+          "stream": 2
+        },
+        "centerGai": 260,
+        "rejected": 306,
+        "candidates": 1069,
+        "majorPenetration": 0,
+        "minorOverlap": 0,
+        "minorCategories": {},
+        "generationMs": 12276,
+        "tier": "high",
+        "atlasCount": 2,
+        "atlasDimensions": [
+          [
+            2048,
+            2048
+          ],
+          [
+            2048,
+            1024
+          ]
+        ],
+        "graphicVariants": 33,
+        "atlasMode": "cpu-placeholder",
+        "materials": 4,
+        "batches": 4,
+        "drawCallContribution": 4,
+        "triangles": 10744,
+        "debugBatches": 0,
+        "checks": {
+          "print": {
+            "nonFinite": 0,
+            "badIndices": 0,
+            "degenerate": 0,
+            "bounds": {
+              "minX": -249.10585021972656,
+              "maxX": 249.77984619140625,
+              "minY": 2.1500000953674316,
+              "maxY": 179.9199981689453,
+              "minZ": -250.0017852783203,
+              "maxZ": 249.22630310058594
+            }
+          },
+          "led": {
+            "nonFinite": 0,
+            "badIndices": 0,
+            "degenerate": 0,
+            "bounds": {
+              "minX": -246.9203643798828,
+              "maxX": 227.6188507080078,
+              "minY": 5.375,
+              "maxY": 13.925000190734863,
+              "minZ": -234.62033081054688,
+              "maxZ": 236.1622772216797
+            }
+          },
+          "heroScreen": {
+            "nonFinite": 0,
+            "badIndices": 0,
+            "degenerate": 0,
+            "bounds": {
+              "minX": -16.51943588256836,
+              "maxX": 0.9414539337158203,
+              "minY": 8.149999618530273,
+              "maxY": 31.649999618530273,
+              "minZ": -31.069412231445312,
+              "maxZ": -28.792724609375
+            }
+          }
+        },
+        "buildTimeMs": 12297,
+        "emissiveDayOnly": true,
+        "pointLights": 0
+      },
+      "audit": {
+        "major": 0,
+        "minor": 0,
+        "minorCategories": {},
+        "findings": []
+      },
+      "sceneCPU": {
+        "triangles": 353798,
+        "batches": 54,
+        "materials": 44,
+        "textures": 5
+      },
+      "S6": {
+        "triangles": 25562,
+        "major": 0,
+        "minor": 3
+      }
+    },
+    "medium": {
+      "signage": {
+        "signCount": 520,
+        "categories": {
+          "box": 129,
+          "directory": 110,
+          "flush": 89,
+          "entrance": 42,
+          "screen": 40,
+          "billboard": 62,
+          "blade": 28,
+          "rooftop": 20
+        },
+        "regions": {
+          "secondary": 190,
+          "centerGai": 168,
+          "scramble": 10,
+          "dogenzaka": 47,
+          "peripheral": 70,
+          "station": 8,
+          "frontage": 27
+        },
+        "heroes": {
+          "109": 4,
+          "generic": 494,
+          "qfront": 6,
+          "magnet": 4,
+          "scrambleSquare": 2,
+          "seibuA": 3,
+          "seibuB": 3,
+          "markCityEast": 2,
+          "stream": 2
+        },
+        "centerGai": 168,
+        "rejected": 200,
+        "candidates": 720,
+        "majorPenetration": 0,
+        "minorOverlap": 0,
+        "minorCategories": {},
+        "generationMs": 7870,
+        "tier": "medium",
+        "atlasCount": 2,
+        "atlasDimensions": [
+          [
+            1024,
+            1024
+          ],
+          [
+            1024,
+            512
+          ]
+        ],
+        "graphicVariants": 25,
+        "atlasMode": "cpu-placeholder",
+        "materials": 4,
+        "batches": 4,
+        "drawCallContribution": 4,
+        "triangles": 7336,
+        "debugBatches": 0,
+        "checks": {
+          "print": {
+            "nonFinite": 0,
+            "badIndices": 0,
+            "degenerate": 0,
+            "bounds": {
+              "minX": -249.10585021972656,
+              "maxX": 249.77984619140625,
+              "minY": 2.1500000953674316,
+              "maxY": 179.9199981689453,
+              "minZ": -245.6666259765625,
+              "maxZ": 249.22630310058594
+            }
+          },
+          "led": {
+            "nonFinite": 0,
+            "badIndices": 0,
+            "degenerate": 0,
+            "bounds": {
+              "minX": -223.80831909179688,
+              "maxX": 199.02906799316406,
+              "minY": 5.375,
+              "maxY": 13.925000190734863,
+              "minZ": -234.62033081054688,
+              "maxZ": 236.1622772216797
+            }
+          },
+          "heroScreen": {
+            "nonFinite": 0,
+            "badIndices": 0,
+            "degenerate": 0,
+            "bounds": {
+              "minX": -16.51943588256836,
+              "maxX": 0.9414539337158203,
+              "minY": 8.149999618530273,
+              "maxY": 31.649999618530273,
+              "minZ": -31.069412231445312,
+              "maxZ": -28.792724609375
+            }
+          }
+        },
+        "buildTimeMs": 7880,
+        "emissiveDayOnly": true,
+        "pointLights": 0
+      },
+      "audit": {
+        "major": 0,
+        "minor": 0,
+        "minorCategories": {},
+        "findings": []
+      },
+      "sceneCPU": {
+        "triangles": 341368,
+        "batches": 54,
+        "materials": 44,
+        "textures": 5
+      },
+      "S6": {
+        "triangles": 16540,
+        "major": 0,
+        "minor": 3
+      }
+    },
+    "low": {
+      "signage": {
+        "signCount": 248,
+        "categories": {
+          "box": 67,
+          "screen": 23,
+          "directory": 44,
+          "flush": 31,
+          "entrance": 18,
+          "billboard": 35,
+          "blade": 17,
+          "rooftop": 13
+        },
+        "regions": {
+          "centerGai": 71,
+          "scramble": 7,
+          "dogenzaka": 23,
+          "secondary": 84,
+          "peripheral": 35,
+          "frontage": 22,
+          "station": 6
+        },
+        "heroes": {
+          "109": 4,
+          "generic": 222,
+          "qfront": 6,
+          "magnet": 4,
+          "scrambleSquare": 2,
+          "seibuA": 3,
+          "seibuB": 3,
+          "markCityEast": 2,
+          "stream": 2
+        },
+        "centerGai": 71,
+        "rejected": 83,
+        "candidates": 331,
+        "majorPenetration": 0,
+        "minorOverlap": 0,
+        "minorCategories": {},
+        "generationMs": 3429,
+        "tier": "low",
+        "atlasCount": 2,
+        "atlasDimensions": [
+          [
+            512,
+            512
+          ],
+          [
+            512,
+            256
+          ]
+        ],
+        "graphicVariants": 17,
+        "atlasMode": "cpu-placeholder",
+        "materials": 4,
+        "batches": 4,
+        "drawCallContribution": 4,
+        "triangles": 3506,
+        "debugBatches": 0,
+        "checks": {
+          "print": {
+            "nonFinite": 0,
+            "badIndices": 0,
+            "degenerate": 0,
+            "bounds": {
+              "minX": -249.10585021972656,
+              "maxX": 228.19903564453125,
+              "minY": 2.1500000953674316,
+              "maxY": 179.9199981689453,
+              "minZ": -245.6666259765625,
+              "maxZ": 240.5445556640625
+            }
+          },
+          "led": {
+            "nonFinite": 0,
+            "badIndices": 0,
+            "degenerate": 0,
+            "bounds": {
+              "minX": -223.80831909179688,
+              "maxX": 199.02906799316406,
+              "minY": 5.375,
+              "maxY": 10.425000190734863,
+              "minZ": -234.62033081054688,
+              "maxZ": 149.5789031982422
+            }
+          },
+          "heroScreen": {
+            "nonFinite": 0,
+            "badIndices": 0,
+            "degenerate": 0,
+            "bounds": {
+              "minX": -16.51943588256836,
+              "maxX": 0.9414539337158203,
+              "minY": 8.149999618530273,
+              "maxY": 31.649999618530273,
+              "minZ": -31.069412231445312,
+              "maxZ": -28.792724609375
+            }
+          }
+        },
+        "buildTimeMs": 3439,
+        "emissiveDayOnly": true,
+        "pointLights": 0
+      },
+      "audit": {
+        "major": 0,
+        "minor": 0,
+        "minorCategories": {},
+        "findings": []
+      },
+      "sceneCPU": {
+        "triangles": 333268,
+        "batches": 54,
+        "materials": 44,
+        "textures": 5
+      },
+      "S6": {
+        "triangles": 12270,
+        "major": 0,
+        "minor": 3
+      }
+    }
+  },
+  "regression": {
+    "groundTriangles": 47829,
+    "genericCount": 378,
+    "genericTriangles": 160925,
+    "heroCount": 9,
+    "heroTriangles": 33170,
+    "stationTriangles": 75568
+  }
+}

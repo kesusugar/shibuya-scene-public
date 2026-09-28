@@ -1,0 +1,66 @@
+{
+  "sourceRails": {
+    "source": 96,
+    "JR": 33,
+    "Ginza": 7,
+    "other": 56
+  },
+  "alignmentCount": 8,
+  "JRLength": 2070.183628144418,
+  "GinzaLength": 449.95678770429697,
+  "deckCount": 5,
+  "deckPolygons": 5,
+  "girderCount": 12,
+  "pierCount": 100,
+  "supportCount": 126,
+  "rejectedSupportCount": 19,
+  "railCount": 16,
+  "sleeperInstances": 3877,
+  "platformCount": 3,
+  "tactileCount": 6,
+  "roofCount": 3,
+  "postCount": 36,
+  "hachikoGenerated": true,
+  "ginzaGenerated": true,
+  "pedestrianDeckCount": 3,
+  "pedestrianStairCount": 1,
+  "pedestrianLength": 171.5749629094422,
+  "reservationsUsed": 2,
+  "reservationsUntouched": 3,
+  "majorPenetrations": 0,
+  "minorPenetrations": 11,
+  "expectedInterfaces": 8,
+  "invalid": [],
+  "duplicateSegments": 0,
+  "skipped": [],
+  "stationTriangles": 75568,
+  "materials": 11,
+  "mergedBatches": 11,
+  "instancedBatches": 4,
+  "approximateDrawCalls": 15,
+  "instances": 4139,
+  "geometries": 12,
+  "textures": 0,
+  "discardedDegenerate": 332,
+  "buildTimeMs": 6452,
+  "bounds": {
+    "min": [
+      -45.59379196166992,
+      -2.769182156327145e-15,
+      -250
+    ],
+    "max": [
+      250.2486706227064,
+      21.276750780642033,
+      250.3561336323619
+    ]
+  },
+  "combined": {
+    "knownTriangles": 317492,
+    "approximateDrawCalls": 38
+  },
+  "ownership": {
+    "genericDuplicates": [],
+    "heroDuplicates": []
+  }
+}

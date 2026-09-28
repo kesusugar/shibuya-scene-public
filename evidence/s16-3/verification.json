@@ -1,0 +1,19 @@
+{
+  "build": "PASS",
+  "uniqueRelevantTestsPassed": 41,
+  "newTests": 6,
+  "failed": 0,
+  "gpuShaderExecution": "UNVERIFIED",
+  "visual": "BLOCKED",
+  "console": "BLOCKED: browser URL policy rejection",
+  "high30fps": "UNVERIFIED",
+  "S17": "NOT STARTED",
+  "dprHigh": 1.5,
+  "shadowHigh": 2048,
+  "gtaoScale": 0.5,
+  "gtaoSamples": 12,
+  "denoiseSamples": 12,
+  "localLightsHigh": 4,
+  "localLightsMedium": 2,
+  "localLightsLow": 0
+}

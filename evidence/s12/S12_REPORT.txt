@@ -1,0 +1,29 @@
+RUN S12 — Day / Night System
+Base: 36bf0d66a606375102e516b11c053abff79a940c / Visual QA version 6.
+Current commit and published version are reported in delivery; this report belongs to that source revision.
+
+One existing TimeState drives instant DAY/NIGHT, UI controls and late-loading/reloaded modules.
+DAY: blue-gray sky #9fb5ce, exposure 1. Existing scene daylight intensities retained.
+Fallback daylight for isolated modules: hemisphere 2, directional 2.2; disabled when existing daylight is present.
+NIGHT: sky #070f22, exposure 1.05, cool hemisphere .95, moon directional .22.
+Existing inspection lights are disabled at night and restored on DAY/environment disable.
+No point/spot lights, shadows, environment textures, extra render passes or per-frame material creation.
+
+Windows: existing S3/S4 instances, stable positional seed selects partial warm window occupancy; no extra meshes.
+S5 station is covered by common lighting; existing S6 glow surfaces rise to .45.
+S7: existing 763 signs and placement preserved; night emissive target 1.2, original day intensities restored.
+S9: original head/tail/brake/blinker surfaces respond; instance colors tint rear/signal emission. No traffic logic changes.
+S10: shared ambient visibility; no actor lights, count/path/logic changes. HIGH420 / MEDIUM210 / LOW95.
+S11: existing window surfaces emit softly; existing end bands show white/red at exposed train ends by direction.
+Train geometry count, triangles, routes, stop/depart/recycle and profile counts remain unchanged.
+Material effects are registered once and use uniform changes; removal/disposal restores owned state.
+
+Validation: 225 tests PASS, 0 FAIL (219 existing + 6 S12); build PASS.
+S9 traffic, S10 integrated 180-second crowd/traffic audit and S11 train/interference regression PASS.
+Browser: HIGH CAM-02 navigation completed; console capture timed out after 20 seconds. No repeated attempt.
+DAY/NIGHT camera visuals, actual GLSL/WebGL, console error count and FPS remain BLOCKED / UNVERIFIED.
+Known limitation: night brightness/readability and daytime visual comparison still require functioning browser QA.
+states.json contains isolated global-light test states, not a full-scene GPU measurement.
+Visual QA: existing owner-private Site updated; version and URL in delivery.
+Preexisting untracked validation logs were not changed, deleted or committed. No subagents used.
+No wet roads/reflections/bloom/nightglow/postprocess/polish; S13+ and GTA remain absent. STOP.

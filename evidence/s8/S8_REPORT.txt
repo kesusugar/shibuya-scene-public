@@ -1,0 +1,60 @@
+RUN S8 — Streetscape completion report
+Base commit: b0a9257b8ee216f896539f28bd6d2c64896a2bc0
+Current commit: the Git revision containing this report (exact SHA provided in delivery).
+Scope: S8 only. No S9+, GTA, moving traffic/crowd/trains, lighting systems or broad polish.
+No subagents used. Existing untracked S2–S6 logs untouched.
+
+HIGH: 369 fixtures; 35 cable runs / 280 line segments
+Categories: {"signal":19,"tree":26,"box":54,"pole":76,"bin":14,"bollard":29,"rail":28,"vending":36,"light":41,"planter":23,"information":14,"bench":9}
+Regions: {"frontage":36,"secondary":147,"peripheral":79,"dogenzaka":49,"scramble":13,"station":2,"centerGai":43}
+S8: 30548 triangles; 14 batches; 5 geometries; 9 materials; 1 shared atlas (1024x1024); 1200 instances; 0 lights
+Placement generation: 60757 ms (CPU, synchronous, not frame time); renderer creation from prebuilt model: 25 ms
+Audit major 0 / minor 0; 761 rejected candidates (rejection is preventive, not a placed collision)
+Scene CPU estimate: {"triangles":384346,"batches":68,"materials":53,"textures":6,"method":"Unchanged S0-S7 runtime: saved S7 geometry plus current S8. Batches exclude S0 grid/axes and S1 diagnostic lines. Not GPU drawCalls."}
+
+MEDIUM: 252 fixtures; 21 cable runs / 84 line segments
+Categories: {"signal":19,"tree":17,"box":39,"bin":11,"pole":49,"bollard":19,"rail":19,"vending":20,"light":27,"planter":15,"information":11,"bench":6}
+Regions: {"frontage":29,"secondary":96,"peripheral":51,"dogenzaka":36,"scramble":10,"station":1,"centerGai":29}
+S8: 22242 triangles; 14 batches; 5 geometries; 9 materials; 1 shared atlas (512x512); 849 instances; 0 lights
+Placement generation: 23728 ms (CPU, synchronous, not frame time); renderer creation from prebuilt model: 11 ms
+Audit major 0 / minor 0; 515 rejected candidates (rejection is preventive, not a placed collision)
+Scene CPU estimate: {"triangles":363610,"batches":68,"materials":53,"textures":6,"method":"Unchanged S0-S7 runtime: saved S7 geometry plus current S8. Batches exclude S0 grid/axes and S1 diagnostic lines. Not GPU drawCalls."}
+
+LOW: 55 fixtures; 0 cable runs / 0 line segments
+Categories: {"signal":19,"bollard":11,"rail":9,"light":16}
+Regions: {"frontage":7,"secondary":12,"peripheral":16,"dogenzaka":14,"scramble":2,"station":1,"centerGai":3}
+S8: 8664 triangles; 8 batches; 3 geometries; 8 materials; 1 shared atlas (256x256); 274 instances; 0 lights
+Placement generation: 5480 ms (CPU, synchronous, not frame time); renderer creation from prebuilt model: 3 ms
+Audit major 0 / minor 0; 132 rejected candidates (rejection is preventive, not a placed collision)
+Scene CPU estimate: {"triangles":341932,"batches":62,"materials":52,"textures":6,"method":"Unchanged S0-S7 runtime: saved S7 geometry plus current S8. Batches exclude S0 grid/axes and S1 diagnostic lines. Not GPU drawCalls."}
+
+Validation:
+ℹ tests 187
+ℹ pass 187
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ duration_ms 179247.399633
+Build PASS: five-stage vinext build, exit 0. Warnings recorded in build.txt.
+S7 160-test baseline retained; its forward-stage source guard was updated to allow the now-authorized S8 builder. Existing S0-S7 runtime files are unchanged.
+S7 HIGH baseline: 763 signs, Center-gai 260, two atlases, four batches, zero major interference. S8 always reserves HIGH S7 sign envelopes even at lower tiers.
+S6 new minor findings remain the previous three; S5 remains eleven minor. These are baseline findings, separate from S8 audit.
+
+Browser / visual QA:
+MEDIUM: actual browser DOM confirmed all build modules ready, furniture Canvas atlas created, S8 252 fixtures and 0 major/minor.
+Final HIGH browser: 369 fixtures / 35 cable runs / 280 segments; Canvas atlas 1024x1024; major/minor 0; S7 763 signs / Center-gai 260. Generation 44992 ms, total S8 build including HIGH sign reserve 54333 ms. See browser-high.json.
+Final HIGH console: 0 application errors; 2 browser extension metadata errors. Initial browser recovery/timeouts resolved after synchronous generation completed.
+WebGL2 unavailable. Camera scene views CAM-02/03/05/07 and S7 visual regression CAM-04/06/07, actual drawCalls, GPU memory and FPS remain UNVERIFIED. Captured high-cam03.jpg and webgl-check.jpg are UI/environment evidence, not a rendered scene.
+Existing Visual QA destination: https://shibuya-scene-visual-qa.kesdemon.chatgpt.site (publish outcome is reported in delivery).
+
+Known limitations / design decisions:
+- Full S6 furniture ownership area X[-65,180], Z[5,205] excludes new S8 furniture. Hachiko fixtures remain S6-owned; S8 station-region counts refer only to points outside this rectangle.
+- Street equipment is a deterministic POC approximation along S2 sidewalk boundaries, not surveyed fixture locations. OSM trees take priority with <3.5m recorded adjustment; remaining vegetation is supplemental.
+- Signals use nearest road travel tangent; missing OSM forward/backward direction is explicitly marked as an assumption. No signal control state machine. Signal count stays constant across tiers for major infrastructure.
+- Placement protects full furniture/tree crown envelopes and reserves an inland 1.2m strip. Building frontage midpoint is an approximate entrance clearance; exact door positions are not mapped.
+- S8 clipping uses coordinates rounded to 1 micrometre to avoid polygon-clipping ring failures; large pedestrian paths are indexed as separate buffered segments. No S2 geometry changed.
+- Shared model envelopes include up to 1cm surface overlays (cabinet seam / vending atlas face); these are intentional fixture construction offsets.
+- CPU model construction is synchronous and may pause startup or quality switching for tens of seconds. No FPS or responsiveness guarantee inferred from bounded draw batches.
+- Normal scene has no S8 debug geometry. Debug shows category bounds, normals, rejected candidates, region density stems, cable geometry and S6 exclusion.
+- Scene totals are unchanged S7 CPU totals plus S8, excluding S0 grid/axes and S1 debug lines. They are not measured GPU draw calls.
+STOP after S8.

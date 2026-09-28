@@ -1,0 +1,40 @@
+{
+  "signCount": 734,
+  "categories": {
+    "box": 166,
+    "entrance": 61,
+    "directory": 159,
+    "flush": 130,
+    "screen": 66,
+    "billboard": 94,
+    "blade": 33,
+    "rooftop": 25
+  },
+  "regions": {
+    "secondary": 205,
+    "centerGai": 275,
+    "scramble": 33,
+    "dogenzaka": 72,
+    "peripheral": 105,
+    "station": 9,
+    "frontage": 35
+  },
+  "heroes": {
+    "109": 4,
+    "generic": 708,
+    "qfront": 6,
+    "magnet": 4,
+    "scrambleSquare": 2,
+    "seibuA": 3,
+    "seibuB": 3,
+    "markCityEast": 2,
+    "stream": 2
+  },
+  "centerGai": 275,
+  "rejected": 290,
+  "candidates": 1024,
+  "majorPenetration": 0,
+  "minorOverlap": 0,
+  "minorCategories": {},
+  "generationMs": 26359
+}

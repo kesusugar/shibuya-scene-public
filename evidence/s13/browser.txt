@@ -1,0 +1,5 @@
+S13 Visual QA — BLOCKED / UNVERIFIED
+Managed preview started successfully at http://terminal.local:4173/.
+Single browser attempt: browser.tabs.list() failed with 'CDP operation refresh tabs timed out after 20000ms'.
+No retries. WebGL shader compilation, DAY/NIGHT camera appearance, console error count and FPS are unverified.
+CPU geometry/material tests are not a substitute for visual PASS.

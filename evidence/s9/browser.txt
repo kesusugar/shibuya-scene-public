@@ -1,0 +1,10 @@
+RUN S9 requested browser QA: INCOMPLETE due to browser connection timeouts.
+Supervised Sites preview started successfully at internal terminal.local:4173.
+Browser navigation call completed once, but later console, DOM and screenshot
+operations timed out with 'js execution timed out; kernel reset, rerun your request'.
+No final S9 app console result or camera screenshot could be obtained.
+Do not infer Console Error 0 from this failure.
+CAM-02/03/05/06/07 actual visual appearance, vehicle scale, signal queue,
+S7/S8 visual regression, HIGH FPS and GPU drawCalls remain UNVERIFIED.
+S8 baseline had unavailable WebGL2; no renderer changes were made to work around it.
+CPU motion/placement audits and regression tests are recorded separately.

@@ -1,0 +1,24 @@
+# Weekly dependency checks. Security updates are opened by GitHub whenever an advisory affects a
+# dependency (enable "Dependabot security updates" in the repository settings); this file adds the
+# weekly version-update PRs, grouped so they arrive as a few PRs rather than many. Every update PR
+# runs collaboration-ci (typecheck, build, regression suite) before anyone merges it.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      production:
+        dependency-type: production
+        update-types: [minor, patch]
+      development:
+        dependency-type: development
+        update-types: [minor, patch]
+    labels: [dependencies]
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    labels: [dependencies]

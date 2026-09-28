@@ -1,0 +1,47 @@
+✔ S2 explicit width overrides lanes and class including units (1.088106ms)
+✔ S2 lanes fallback and invalid width (0.151415ms)
+✔ S2 highway defaults and links (0.150003ms)
+✔ S2 safe buffers duplicate zero short acute and self crossing (2.302098ms)
+✔ S2 road union merges overlap with expected area (0.540923ms)
+✔ S2 sidewalk difference is nonempty and disjoint (30.389886ms)
+✔ S2 layer bridge and tunnel excluded from surface (0.317361ms)
+✔ S2 unmarked informal and prohibited crossings excluded (0.156983ms)
+✔ S2 real road network covers scramble with stable S1 references (0.247117ms)
+✔ S2 curbs and ramps generated and ramp height continuous (2.237032ms)
+✔ S2 zebra pitch thickness and transverse width (0.836502ms)
+✔ S2 every zebra clipped inside road union (4805.152261ms)
+✔ S2 four main crossings dedicated diagonal and normal crossings (0.221269ms)
+✔ S2 stop lines lane guides arrows and tactile generated (175.044744ms)
+✔ S2 merged geometry finite valid indices nondegenerate bounded (77.53966ms)
+✔ S2 procedural textures deterministic (8.455556ms)
+✔ S2 module toggle lifecycle removes ground and later stages remain stubs (0.984922ms)
+✔ S3 footprint validation preserves concavity holes and duplicate tolerance (2.005598ms)
+✔ S3 malformed zero area and self crossing footprints safely rejected (0.352444ms)
+✔ S3 holes must be inside and nonintersecting (0.33664ms)
+✔ S3 explicit metric height priority over levels (0.237412ms)
+✔ S3 levels fallback and nonpositive heights (0.250823ms)
+✔ S3 unknown heights stable within budget and abnormal values clamped (1.586516ms)
+✔ S3 all hero and station sources reserved before height resolution (1.504404ms)
+✔ S3 generic geometry cannot cover reserved hero footprints (75.546554ms)
+✔ S3 all seven archetype rules grounded in feature inputs (0.567573ms)
+✔ S3 archetypes and heights deterministic and all types occur in real data (852.594849ms)
+✔ S3 all source records accounted and target clip bounded (0.779087ms)
+✔ S3 merged walls and roof finite indexed safely without degenerate triangles (0.140429ms)
+✔ S3 windows shared geometry instanced shadowless with color variation (0.306115ms)
+✔ S3 window anchors offset outward and do not exceed source edge (5.937868ms)
+✔ S3 rooftop containment checks entire prop not only its center (5.309404ms)
+✔ S3 balcony and rooftop details use shared instanced batches (0.340266ms)
+✔ S3 material and draw budgets independent of hundreds of buildings (0.245825ms)
+✔ S3 transformed instance vertices finite and world bounds reasonable (33.510702ms)
+✔ S3 Ground compatible unchanged counts with crossing/road audit (10760.17295ms)
+✔ S3 Buildings lifecycle toggles actual geometry and no later builds (2187.546695ms)
+✔ S3 stale async load cannot resurrect disabled Buildings (1.402763ms)
+✔ S3 disposal releases owned geometry and shared instance prototypes once (0.438682ms)
+ℹ tests 39
+ℹ suites 0
+ℹ pass 39
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15559.050867

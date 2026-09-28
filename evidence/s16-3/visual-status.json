@@ -1,0 +1,17 @@
+{
+  "base": "06a8f8993cf766a5eaa7b55f6d8eba7552f8c768",
+  "baseQaVersion": 13,
+  "status": "BLOCKED",
+  "attempt": "CAM03 DAY / HIGH preview navigation timed out",
+  "console": "Browser URL policy rejected console collection; no workaround or further attempt",
+  "cameraStates": [
+    "CAM03 DAY",
+    "CAM02 NIGHT"
+  ],
+  "realDeviceFps": null,
+  "drawnTriangles": null,
+  "drawCalls": null,
+  "visualBaselineImages": [],
+  "s17Eligible": false,
+  "reason": "GPU shader execution, rendered appearance and HIGH >=30fps have not been verified."
+}

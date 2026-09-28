@@ -1,0 +1,110 @@
+<!doctype html><meta charset="utf-8"><title>near citizen lineup</title>
+<style>html,body{margin:0;background:#aab3bd}canvas{display:block}
+#l{position:fixed;left:10px;top:10px;color:#1b2027;font:12px/1.6 monospace;white-space:pre;z-index:9}</style>
+<div id="l">loading…</div>
+<!--
+  RUN 6.8 acceptance shot.
+
+  Eight citizens drawn exactly as the near pool would build them -- same asset, same
+  appearanceOf() recipe, same deduplication -- lined up so the silhouettes can be compared
+  directly. This is the picture the run is judged on: eight bodies that differ only in colour
+  is a FAIL however good the numbers are.
+
+  The ids are taken in order from 0, not cherry-picked, so this is what the recipe actually
+  produces rather than a best case.
+
+  Serve the repository root over HTTP and open /qa/gta-upgrade/lineup.html?ids=0,1,2,...
+-->
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as T from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {humanoidCitizen} from '/src/player/character-asset.mjs';
+import {createPlayerFigure} from '/src/player/figure.mjs';
+import {appearanceOf,paletteOf,deduplicate} from '/src/life/appearance.mjs';
+
+const q=new URLSearchParams(location.search);
+const ids=(q.get('ids')??'0,1,2,3,4,5,6,7').split(',').map(Number);
+const clip=q.get('clip')??'Idle';
+const W=1400,H=620;
+
+const renderer=new T.WebGLRenderer({antialias:true});
+renderer.setSize(W,H);renderer.shadowMap.enabled=true;
+renderer.shadowMap.type=T.PCFSoftShadowMap;
+document.body.appendChild(renderer.domElement);
+const scene=new T.Scene();scene.background=new T.Color(0xaab3bd);
+const key=new T.DirectionalLight(0xfff4e8,2.6);key.position.set(4,9,7);key.castShadow=true;
+key.shadow.mapSize.set(2048,2048);key.shadow.camera.left=-8;key.shadow.camera.right=8;
+key.shadow.camera.top=8;key.shadow.camera.bottom=-4;scene.add(key);
+scene.add(new T.HemisphereLight(0xdfe9f5,0x6a707a,1.7));
+const floor=new T.Mesh(new T.PlaneGeometry(80,80).rotateX(-Math.PI/2),
+ new T.MeshStandardMaterial({color:0x9aa3ad,roughness:.95}));
+floor.receiveShadow=true;scene.add(floor);
+
+const report=await (await fetch('/public/data/character/citizen.json')).json();
+const bytes=await (await fetch('/public/data/character/citizen.glb')).arrayBuffer();
+const gltf=await new Promise((res,rej)=>new GLTFLoader().parse(bytes,'',res,rej));
+const asset=humanoidCitizen(gltf,report);
+
+// Exactly what the pool does: the recipe by id, then shirt-only deduplication.
+const looks=ids.map(id=>appearanceOf(id));
+const dressed=deduplicate(looks);
+
+// ?before=1 reproduces what RUN 6 shipped, from this same camera, so the comparison is a
+// comparison and not an argument: one body, one hairstyle, eight shirt colours and a small
+// height jitter. These are the exact values that were in near-characters.mjs before RUN 6.8.
+const BEFORE_TOPS=[0x2f4858,0x8c5a3c,0xe9e3d5,0x3f6d5a,0xd9a441,0x6b5b95,0xc9c6bf,0x35506b];
+const BEFORE_BOTTOMS=[0x23303a,0x2b2f38,0x3c4654,0x2d3240,0x35393f,0x262b33,0x4a4f58,0x2a2e36];
+const BEFORE_HAIRS=[0x1b1a1c,0x2e2320,0x141215,0x3a2a1e,0x17161a,0x241d1a,0x120f12,0x2b211c];
+const BEFORE_SKINS=[0xdfb994,0xc79a72,0xa3764f,0x7a5334,0xecd0b0];
+const before=q.get('before')==='1';
+
+function beforeLook(id){
+ const n=Math.abs(id);
+ return {id,archetype:{id:'run6',name:'run 6',rig:'m',hair:'Hair_SimpleParted'},
+  skin:BEFORE_SKINS[(n>>3)%BEFORE_SKINS.length],
+  top:BEFORE_TOPS[n%BEFORE_TOPS.length],bottom:BEFORE_BOTTOMS[n%BEFORE_BOTTOMS.length],
+  hairColour:BEFORE_HAIRS[n%BEFORE_HAIRS.length],shoe:0x14161a,
+  height:1.76*(.965+(n%7)*.011),width:1};
+}
+
+const figures=[],spacing=1.25;
+const labels=[];
+looks.forEach((base,i)=>{
+ const look=before?beforeLook(base.id):(dressed.get(base.id)??base);
+ const figure=createPlayerFigure(asset,paletteOf(look),before?{}:{variant:look.archetype});
+ if(!before)figure.setBuild(look.width);
+ figure.setHeight(look.height);
+ figure.root.position.set((i-(looks.length-1)/2)*spacing,0,0);
+ figure.root.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;}});
+ scene.add(figure.root);
+ figures.push({figure,look});
+ labels.push(`${String(look.id).padStart(3)}  ${look.archetype.name.padEnd(10)} `
+  +`${look.archetype.hair.replace('Hair_','').padEnd(13)} `
+  +`h=${look.height.toFixed(2)} w=${look.width.toFixed(2)} top=#${look.top.toString(16).padStart(6,'0')}`);
+});
+
+const camera=new T.PerspectiveCamera(32,W/H,.1,200);
+camera.position.set(0,1.55,12.5);camera.lookAt(0,.95,0);
+
+// Counted from what is actually on screen, so the BEFORE panel reports the before.
+const shown=figures.map(f=>f.look);
+const distinct=new Set(shown.map(l=>l.archetype.id)).size;
+const shapes=new Set(shown.map(l=>`${l.archetype.rig}|${l.archetype.hair}`)).size;
+document.getElementById('l').textContent=
+ `${before?'BEFORE -- RUN 6':'AFTER -- RUN 6.8'} near-citizen lineup, clip ${clip}\n`
+ +`${looks.length} citizens, ${distinct} archetypes, ${shapes} distinct silhouettes\n\n`
+ +labels.join('\n');
+
+let last=performance.now();
+function frame(now){
+ const dt=Math.min(.05,(now-last)/1000);last=now;
+ for(const {figure,look} of figures)
+  figure.update({x:figure.root.position.x,y:0,z:0,heading:0,speed:0,alive:true,
+   animationPhase:Math.abs(look.id)*.137},dt);
+ renderer.render(scene,camera);
+ requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+window.__READY__=true;
+</script>

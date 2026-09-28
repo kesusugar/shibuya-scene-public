@@ -1,0 +1,164 @@
+# DISABLED for the public repository -- see .github/disabled-workflows/README.md.
+# GitHub only runs workflows under .github/workflows/; this file is kept here to restore later.
+name: visual-qa
+
+on:
+  workflow_dispatch:
+
+jobs:
+  capture-high-qa-pack:
+    # Public-release hardening: never on a self-hosted runner while the repository is public.
+    if: ${{ github.event.repository.private }}
+    runs-on: self-hosted
+    timeout-minutes: 40
+
+    steps:
+      - name: Verify Windows runner
+        shell: powershell
+        run: |
+          if ($env:RUNNER_OS -ne 'Windows') {
+            throw "Expected a Windows runner, but RUNNER_OS is '$env:RUNNER_OS'."
+          }
+          Write-Host "Runner OS: $env:RUNNER_OS"
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Node dependencies
+        shell: powershell
+        run: npm ci
+
+      - name: Capture HIGH Visual QA Pack in Chrome
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $qaRoot = Join-Path $env:GITHUB_WORKSPACE 'qa'
+          $outputDirectory = Join-Path $qaRoot 'latest'
+          $logDirectory = Join-Path $qaRoot 'logs'
+          $chromeProfile = Join-Path $env:RUNNER_TEMP "shibuya-qa-chrome-$([guid]::NewGuid())"
+          New-Item -ItemType Directory -Force -Path $outputDirectory, $logDirectory, $chromeProfile | Out-Null
+
+          $chromeCandidates = @(
+            "$env:ProgramFiles\Google\Chrome\Application\chrome.exe",
+            "${env:ProgramFiles(x86)}\Google\Chrome\Application\chrome.exe",
+            "$env:LOCALAPPDATA\Google\Chrome\Application\chrome.exe"
+          )
+          $chromePath = $chromeCandidates |
+            Where-Object { $_ -and (Test-Path -LiteralPath $_) } |
+            Select-Object -First 1
+          if (-not $chromePath) {
+            throw 'Google Chrome was not found in the standard Windows installation locations.'
+          }
+          Write-Host "Chrome: $chromePath"
+          Write-Host "Commit SHA: $(git rev-parse HEAD)"
+
+          function Get-FreeTcpPort {
+            $listener = [System.Net.Sockets.TcpListener]::new([System.Net.IPAddress]::Loopback, 0)
+            $listener.Start()
+            try { return ([System.Net.IPEndPoint]$listener.LocalEndpoint).Port }
+            finally { $listener.Stop() }
+          }
+
+          $serverPort = Get-FreeTcpPort
+          $cdpPort = Get-FreeTcpPort
+          $qaUrl = "http://127.0.0.1:$serverPort/?qa=1&tier=high&time=day&camera=overview"
+          $serverStdout = Join-Path $logDirectory 'server.stdout.log'
+          $serverStderr = Join-Path $logDirectory 'server.stderr.log'
+          $viteEntry = Join-Path $env:GITHUB_WORKSPACE 'node_modules\vite\bin\vite.js'
+          $nodePath = (Get-Command node -ErrorAction Stop).Source
+          $server = $null
+          $chrome = $null
+          $captureFailed = $false
+
+          try {
+            $serverArguments = @(
+              "`"$viteEntry`"",
+              '--host', '127.0.0.1',
+              '--port', "$serverPort",
+              '--strictPort'
+            )
+            $server = Start-Process -FilePath $nodePath -ArgumentList $serverArguments `
+              -WorkingDirectory $env:GITHUB_WORKSPACE -PassThru `
+              -RedirectStandardOutput $serverStdout -RedirectStandardError $serverStderr
+            Write-Host "Vite PID: $($server.Id), port: $serverPort"
+
+            $serverReady = $false
+            for ($attempt = 1; $attempt -le 120; $attempt++) {
+              if ($server.HasExited) {
+                throw "Vite exited before becoming ready (exit code $($server.ExitCode))."
+              }
+              try {
+                $response = Invoke-WebRequest -Uri "http://127.0.0.1:$serverPort/" -UseBasicParsing -TimeoutSec 5
+                if ($response.StatusCode -ge 200 -and $response.StatusCode -lt 500) {
+                  $serverReady = $true
+                  break
+                }
+              } catch {
+                Start-Sleep -Seconds 1
+              }
+            }
+            if (-not $serverReady) { throw 'Vite did not become ready within 120 seconds.' }
+            Write-Host "QA URL: $qaUrl"
+
+            $chromeArguments = @(
+              "--remote-debugging-port=$cdpPort",
+              "--user-data-dir=`"$chromeProfile`"",
+              '--no-first-run',
+              '--no-default-browser-check',
+              '--new-window',
+              $qaUrl
+            )
+            # Intentionally launch normal Chrome: no --headless, --disable-gpu, or WebGL-disabling flags.
+            $chrome = Start-Process -FilePath $chromePath -ArgumentList $chromeArguments -PassThru
+            Write-Host "Chrome PID: $($chrome.Id), DevTools port: $cdpPort"
+
+            & $nodePath scripts/run-visual-qa.mjs `
+              --url $qaUrl `
+              --output $outputDirectory `
+              --cdp-port $cdpPort
+            if ($LASTEXITCODE -ne 0) {
+              $captureFailed = $true
+              throw "Visual QA driver failed with exit code $LASTEXITCODE."
+            }
+          } catch {
+            $captureFailed = $true
+            [Console]::Error.WriteLine("Visual QA failed: $($_.Exception.Message)")
+            throw
+          } finally {
+            Write-Host '--- Vite stdout (last 200 lines) ---'
+            if (Test-Path -LiteralPath $serverStdout) { Get-Content -LiteralPath $serverStdout -Tail 200 }
+            Write-Host '--- Vite stderr (last 200 lines) ---'
+            if (Test-Path -LiteralPath $serverStderr) { Get-Content -LiteralPath $serverStderr -Tail 200 }
+
+            if ($chrome -and -not $chrome.HasExited) {
+              Stop-Process -Id $chrome.Id -Force -ErrorAction SilentlyContinue
+            }
+            Get-CimInstance Win32_Process |
+              Where-Object { $_.CommandLine -and $_.CommandLine.Contains($chromeProfile) } |
+              ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
+            if ($server -and -not $server.HasExited) {
+              Stop-Process -Id $server.Id -Force -ErrorAction SilentlyContinue
+            }
+            Write-Host "Visual QA result: $(if ($captureFailed) { 'FAILURE' } else { 'SUCCESS' })"
+          }
+
+      - name: List QA output
+        if: always()
+        shell: powershell
+        run: |
+          if (Test-Path -LiteralPath 'qa/latest') {
+            Get-ChildItem -LiteralPath 'qa/latest' -File |
+              Select-Object Name, Length |
+              Format-Table -AutoSize
+          } else {
+            Write-Host 'qa/latest was not created.'
+          }
+
+      - name: Upload Visual QA artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: shibuya-scene-high-visual-qa-${{ github.sha }}
+          path: qa
+          if-no-files-found: warn
+          retention-days: 14

@@ -1,0 +1,21 @@
+✔ renders development preview metadata (209.632153ms)
+✔ query defaults and invalid options (2.378447ms)
+✔ only intersect skip and empty only (2.039281ms)
+✔ module toggle builds once and disposes across rebuilds (0.628958ms)
+✔ failed builder is isolated (0.631153ms)
+✔ update error isolates module (0.911051ms)
+✔ time state round trip and unsubscribe (0.482329ms)
+✔ fixed cameras unique finite and distinct targets (0.690465ms)
+✔ tier resolution monotonically decreases (0.309102ms)
+✔ emits the catalog's animation and scrolling utilities (69.61963ms)
+✔ forwards progress semantics to the primitive (821.393568ms)
+✔ emits chart themes for the starter's media dark mode (740.738581ms)
+✔ renders sidebar skeletons deterministically (565.420473ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3039.894871

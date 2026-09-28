@@ -1,0 +1,12 @@
+# Roadmap ①: the environment generate.py and audition.py ran in (CPU only). Not used by the game or CI.
+# pyopenjtalk-dict's wheel is built against NumPy 1.x, hence the pin; misaki[ja] pulls in `pyopenjtalk`,
+# which provides the same module and must be uninstalled after (pip uninstall pyopenjtalk).
+torch  # from https://download.pytorch.org/whl/cpu
+kokoro==0.9.4
+misaki[ja]==0.9.4
+style-bert-vits2==2.5.0
+numpy==1.26.4
+scipy
+soundfile
+faster-whisper
+# then: python -m unidic download

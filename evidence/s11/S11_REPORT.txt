@@ -1,0 +1,30 @@
+RUN S11 — Background Trains
+Base: beb82669692f3924323b0a65aada1ce5cc719d42 / Visual QA version 5.
+Current commit and published version: reported in delivery; this report is committed with S11.
+Scope: original low-poly background trains only. No subagents used.
+
+Routes: 3 existing S5 alignments (two JR Yamanote tracks, one Ginza main track).
+HIGH: JR 2 + Ginza 1 = 3 sets (11 cars).
+MEDIUM: JR 1 + Ginza 1 = 2 sets (7 cars).
+LOW: JR 1 + Ginza 1 = 2 sets (7 cars), longer 42-second recycle interval.
+JR: opposite directions, station stop/pass. Ginza: station stop and reverse departure.
+120-second simulation: stops 4, departures 4, recycles 3.
+Maximum per-50ms center step: 0.600 m. No visible route-end reset.
+Rail heights: JR 7.05 m; Ginza 14.55 m, matching S5 rail tops.
+
+Swept car-envelope audit: 556 samples at 2 m intervals, major interference 0.
+Checks include S5 masses/boxes, S6 fixtures/boxes and generic/reserved buildings.
+Audit samples cover fully in-scene car envelopes; this is sampled CPU evidence, not continuous physics or visual certification.
+Shared resources: 2 car geometries, 1 material, at most 2 train batches; maximum 3,756 triangles.
+No added textures, lights, shadows, physics, skeletal animation or passenger interaction.
+Existing renderer, traffic, crowd and station source implementations are unchanged.
+
+Tests: 219 PASS, 0 FAIL (existing 213 + 6 S11). S10 180-second crowd/traffic regression PASS.
+Build: PASS. See all-tests.log and build.txt.
+Console / WebGL / FPS / station camera / CAM-05: BLOCKED, browser tab discovery timeout (20 seconds). No repeated connection loop.
+Visual QA: existing owner-private Site updated; exact version and URL in delivery.
+Known limits: simplified timetable; one Ginza alignment used as a reversing background service; no boarding.
+Invisible staging uses endpoint tangents. Train fragments clip at the existing ±250 m scene boundary before recycle.
+Actual shader rendering and visual train scale still require working browser QA.
+Preexisting untracked validation logs were not modified, removed or committed.
+S12+ and GTA remain absent. STOP after S11.

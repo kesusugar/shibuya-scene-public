@@ -1,0 +1,32 @@
+[
+  {
+    "id": "cross-0",
+    "cells": 12,
+    "width": 2.5,
+    "depth": 5
+  },
+  {
+    "id": "cross-1",
+    "cells": 12,
+    "width": 2.5,
+    "depth": 5
+  },
+  {
+    "id": "cross-2",
+    "cells": 12,
+    "width": 2.5,
+    "depth": 5
+  },
+  {
+    "id": "cross-3",
+    "cells": 12,
+    "width": 2.5,
+    "depth": 5
+  },
+  {
+    "id": "cross-4",
+    "cells": 12,
+    "width": 5,
+    "depth": 5
+  }
+]

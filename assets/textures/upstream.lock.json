@@ -1,0 +1,87 @@
+{
+ "comment": [
+  "Upstream ground textures (RUN 12.3). Poly Haven publishes every asset as CC0-1.0 (polyhaven.com/license).",
+  "`npm run fetch:textures` downloads these into assets/textures/upstream/ (git-ignored), refusing any hash",
+  "mismatch; `npm run convert:textures` re-encodes them into public/textures/ground/, which is shipped."
+ ],
+ "sources": [
+  {
+   "id": "asphalt_track",
+   "use": "road",
+   "provider": "polyhaven",
+   "title": "Asphalt Track",
+   "authors": [
+    "Dimitrios Savva"
+   ],
+   "licence": "CC0-1.0",
+   "licence_url": "https://polyhaven.com/license",
+   "source_page": "https://polyhaven.com/a/asphalt_track",
+   "dimensions_mm": [
+    2000,
+    2000
+   ],
+   "files": [
+    {
+     "role": "diff",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/asphalt_track/asphalt_track_diff_1k.jpg",
+     "bytes": 858925,
+     "sha256": "05c4e79cd99160075969d37bfc6ef72be262153a410bb45510b2c23f7303894c",
+     "md5_published": "92e0682878c39430e521cce235ac1f75"
+    },
+    {
+     "role": "normal",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/asphalt_track/asphalt_track_nor_gl_1k.jpg",
+     "bytes": 832851,
+     "sha256": "18caf02427a7cd9cd577ceae5aa9daa7bb3ffba60598e2df8aaf75d1925a8a94",
+     "md5_published": "d61d8e22e24ea0e44873b9c9c97d4e0c"
+    },
+    {
+     "role": "rough",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/asphalt_track/asphalt_track_rough_1k.jpg",
+     "bytes": 459197,
+     "sha256": "0646d0cfbe6bf9ea4a8a9e43aec826e7ec32a10b8aff61bf5a4ec02b1bc3c363",
+     "md5_published": "c57f7b3a42ebfaf58e44c0ccc83326c3"
+    }
+   ]
+  },
+  {
+   "id": "concrete_pavement",
+   "use": "sidewalk",
+   "provider": "polyhaven",
+   "title": "Concrete Pavement",
+   "authors": [
+    "Charlotte Baglioni"
+   ],
+   "licence": "CC0-1.0",
+   "licence_url": "https://polyhaven.com/license",
+   "source_page": "https://polyhaven.com/a/concrete_pavement",
+   "dimensions_mm": [
+    1800,
+    1800
+   ],
+   "files": [
+    {
+     "role": "diff",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/concrete_pavement/concrete_pavement_diff_1k.jpg",
+     "bytes": 926197,
+     "sha256": "70d3ff969a7421c7ae057b5d16386d11f5e59c6740db643352e1039413f419c4",
+     "md5_published": "b7a0d071a3406d55a1c3e9a73a06df03"
+    },
+    {
+     "role": "normal",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/concrete_pavement/concrete_pavement_nor_gl_1k.jpg",
+     "bytes": 1184345,
+     "sha256": "a5009e409ff0f7b2d19e1316fe5e2b2b4f28e4a6b79990a664be69d4e8a0e690",
+     "md5_published": "025a1d4e910cf3e5b3d63ada43a791d8"
+    },
+    {
+     "role": "rough",
+     "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/concrete_pavement/concrete_pavement_rough_1k.jpg",
+     "bytes": 475799,
+     "sha256": "99f81099af07b009134b6a81bf0f95ab16da09c57156cc2ed534975664a68533",
+     "md5_published": "e5a0fc9831bad12c7b3779179aa706f7"
+    }
+   ]
+  }
+ ]
+}

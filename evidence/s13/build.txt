@@ -1,0 +1,5 @@
+S13 build PASS (exit 0).
+Command: node /root/.codex/plugins/cache/openai-curated-remote/sites/0.1.56/scripts/build-site.mjs
+vinext build (Vite 8.0.13), all five stages complete.
+Warnings: proxy environment; client chunk over 500 kB; route static classification unknown.
+No WebGL shader runtime validation is implied by build success.

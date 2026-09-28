@@ -1,0 +1,179 @@
+{
+ "version": 1,
+ "generator": "scripts/police-voice/ship.mjs",
+ "voices": {
+  "megaphone": {
+   "engine": "kokoro",
+   "model": "hexgrad/Kokoro-82M",
+   "voice": "jm_kumo",
+   "style": null,
+   "licence": "Apache-2.0",
+   "page": "https://huggingface.co/hexgrad/Kokoro-82M",
+   "credit": null
+  },
+  "shout": {
+   "engine": "style-bert-vits2",
+   "model": "litagin/style_bert_vits2_jvnv/jvnv-M1-jp",
+   "voice": null,
+   "style": "Angry (shouted) / Neutral (radio)",
+   "licence": "CC-BY-SA-4.0",
+   "page": "https://huggingface.co/litagin/style_bert_vits2_jvnv",
+   "credit": "JVNV corpus (Xin, Takamichi, et al.), CC BY-SA 4.0; Style-Bert-VITS2 JVNV models by litagin"
+  },
+  "radio": {
+   "engine": "kokoro",
+   "model": "hexgrad/Kokoro-82M",
+   "voice": "jm_kumo",
+   "style": null,
+   "licence": "Apache-2.0",
+   "page": "https://huggingface.co/hexgrad/Kokoro-82M",
+   "credit": null
+  }
+ },
+ "clips": [
+  {
+   "id": "stop-car-1",
+   "situation": "stopCar",
+   "use": "megaphone",
+   "text": "前の車、止まりなさい！",
+   "file": "stop-car-1.mp3",
+   "duration": 1.471,
+   "bytes": 18181
+  },
+  {
+   "id": "stop-car-2",
+   "situation": "stopCar",
+   "use": "megaphone",
+   "text": "前の車、左に寄せて止まりなさい！",
+   "file": "stop-car-2.mp3",
+   "duration": 2.681,
+   "bytes": 32601
+  },
+  {
+   "id": "stop-bike",
+   "situation": "stopBike",
+   "use": "megaphone",
+   "text": "そこのバイク、止まりなさい！",
+   "file": "stop-bike.mp3",
+   "duration": 1.619,
+   "bytes": 19749
+  },
+  {
+   "id": "stop-foot",
+   "situation": "stop",
+   "use": "megaphone",
+   "text": "止まりなさい！",
+   "file": "stop-foot.mp3",
+   "duration": 0.954,
+   "bytes": 11912
+  },
+  {
+   "id": "get-out",
+   "situation": "getOut",
+   "use": "megaphone",
+   "text": "車から降りなさい！",
+   "file": "get-out.mp3",
+   "duration": 1.298,
+   "bytes": 15987
+  },
+  {
+   "id": "chase",
+   "situation": "chase",
+   "use": "megaphone",
+   "text": "待ちなさい！逃げるんじゃない！",
+   "file": "chase.mp3",
+   "duration": 1.617,
+   "bytes": 19749
+  },
+  {
+   "id": "freeze",
+   "situation": "freeze",
+   "use": "shout",
+   "text": "動くな！",
+   "file": "freeze.mp3",
+   "duration": 0.691,
+   "bytes": 8777
+  },
+  {
+   "id": "drop-gun",
+   "situation": "dropGun",
+   "use": "shout",
+   "text": "武器を捨てなさい！",
+   "file": "drop-gun.mp3",
+   "duration": 0.945,
+   "bytes": 11912
+  },
+  {
+   "id": "warn",
+   "situation": "warn",
+   "use": "shout",
+   "text": "撃つぞ！",
+   "file": "warn.mp3",
+   "duration": 0.568,
+   "bytes": 7210
+  },
+  {
+   "id": "arrest",
+   "situation": "arrest",
+   "use": "shout",
+   "text": "被疑者確保！",
+   "file": "arrest.mp3",
+   "duration": 0.963,
+   "bytes": 11912
+  },
+  {
+   "id": "radio-fleeing-car",
+   "situation": "fleeingCar",
+   "use": "radio",
+   "text": "警視庁から各局。渋谷区道玄坂方面、逃走車両あり。付近の各移動は急行されたい。",
+   "file": "radio-fleeing-car.mp3",
+   "duration": 7.584,
+   "bytes": 91533
+  },
+  {
+   "id": "radio-fleeing-foot",
+   "situation": "fleeingFoot",
+   "use": "radio",
+   "text": "警視庁から各局。渋谷駅前交差点付近、被疑者は徒歩で逃走中。",
+   "file": "radio-fleeing-foot.mp3",
+   "duration": 5.536,
+   "bytes": 66769
+  },
+  {
+   "id": "radio-backup",
+   "situation": "backup",
+   "use": "radio",
+   "text": "至急、至急。渋谷方面、応援要請。付近の各移動は急行されたい。",
+   "file": "radio-backup.mp3",
+   "duration": 4.905,
+   "bytes": 59246
+  },
+  {
+   "id": "radio-armed",
+   "situation": "armed",
+   "use": "radio",
+   "text": "被疑者は凶器を所持している模様。各移動は注意されたい。",
+   "file": "radio-armed.mp3",
+   "duration": 3.998,
+   "bytes": 48588
+  },
+  {
+   "id": "radio-air",
+   "situation": "air",
+   "use": "radio",
+   "text": "航空隊、現場上空へ向かわれたい。",
+   "file": "radio-air.mp3",
+   "duration": 2.467,
+   "bytes": 30093
+  },
+  {
+   "id": "radio-lost",
+   "situation": "lost",
+   "use": "radio",
+   "text": "被疑者を見失った。付近を検索中。",
+   "file": "radio-lost.mp3",
+   "duration": 2.613,
+   "bytes": 31974
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+<!doctype html><meta charset="utf-8"><title>punch pose</title>
+<style>html,body{margin:0;background:#20242b;overflow:hidden}canvas{display:block}
+#l{position:fixed;left:8px;top:8px;color:#dfe6ef;font:12px/1.5 monospace;white-space:pre;z-index:9}</style>
+<div id="l">loading…</div>
+<!--
+  The player's punch, frozen, with a person to punch.
+  The jab (top) and the cross (bottom) at the moment the fist is out, from the side (left) and
+  from behind the player (right). The player's figure runs the same update as in the game,
+  so this is the pose the game draws; nothing about the city is involved.
+  Serve the repository root over HTTP and open /qa/gta-upgrade/punchbench.html.
+  ?u=0.25 freezes both swings at that fraction of the clip instead of at their peaks.
+-->
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as T from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {humanoidCitizen} from '/src/player/character-asset.mjs';
+import {createPlayerFigure} from '/src/player/figure.mjs';
+import {ATTACKS} from '/src/player/attack-timing.mjs';
+
+const W=1280,H=720;
+const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
+renderer.setSize(W,H);renderer.setScissorTest(true);document.body.appendChild(renderer.domElement);
+const report=await (await fetch('/public/data/character/citizen.json')).json();
+const bytes=await (await fetch('/public/data/character/citizen.glb')).arrayBuffer();
+const asset=humanoidCitizen(await new Promise((res,rej)=>new GLTFLoader().parse(bytes,'',res,rej)),report);
+const fixed=Number(new URLSearchParams(location.search).get('u'));
+
+function stage(attack){
+ const scene=new T.Scene();scene.background=new T.Color(0x20242b);
+ scene.add(new T.HemisphereLight(0xcfe0ff,0x3a3a42,1.6));
+ const key=new T.DirectionalLight(0xffffff,2.2);key.position.set(3,6,-4);scene.add(key);
+ const floor=new T.Mesh(new T.PlaneGeometry(20,20).rotateX(-Math.PI/2),new T.MeshStandardMaterial({color:0x555b66}));scene.add(floor);
+ // The centre line the fist should travel along.
+ const line=new T.Mesh(new T.BoxGeometry(.02,.005,1.2),new T.MeshBasicMaterial({color:0xffc04a}));line.position.set(0,.01,.6);scene.add(line);
+ const player=createPlayerFigure(asset,{top:0xc94d38}),victim=createPlayerFigure(asset,{top:0x3a6fb0});
+ scene.add(player.root,victim.root);
+ const dt=1/60,ps={x:0,y:0,z:0,heading:0,bodyHeading:0,speed:0,alive:true,attackTime:0,attackDuration:0,attackName:attack.name};
+ const vs={x:0,y:0,z:1.0,heading:Math.PI,bodyHeading:Math.PI,speed:0,alive:true,attackTime:0};
+ for(let i=0;i<60;i++){player.update(ps,dt);victim.update(vs,dt);}
+ const at=Number.isFinite(fixed)&&fixed>0?fixed:attack.peak/attack.duration;
+ ps.attackDuration=ps.attackTime=attack.duration;
+ while(1-ps.attackTime/attack.duration<at){player.update(ps,dt);ps.attackTime=Math.max(0,ps.attackTime-dt);}
+ player.update(ps,0);victim.update(vs,0);
+ const hand=player.root.getObjectByName(attack.hand==='left'?'hand_l':'hand_r'),v=new T.Vector3();
+ player.root.updateMatrixWorld(true);hand.getWorldPosition(v);
+ return {scene,fist:v,at};
+}
+
+const side=new T.PerspectiveCamera(30,(W/2)/(H/2),.1,50);side.position.set(3.6,1.35,.5);side.lookAt(0,1.1,.5);
+const back=new T.PerspectiveCamera(30,(W/2)/(H/2),.1,50);back.position.set(.35,1.75,-2.8);back.lookAt(0,1.2,.6);
+const lines=[];
+ATTACKS.forEach((attack,row)=>{
+ const {scene,fist,at}=stage(attack);
+ [side,back].forEach((camera,col)=>{
+  const x=col*W/2,y=(1-row)*H/2;renderer.setViewport(x,y,W/2,H/2);renderer.setScissor(x,y,W/2,H/2);renderer.render(scene,camera);
+ });
+ lines.push(`${attack.name.padEnd(10)} (${attack.hand}) at ${at.toFixed(3)}: fist x ${fist.x.toFixed(2)} (side)  y ${fist.y.toFixed(2)}  z ${fist.z.toFixed(2)} (forward)`);
+});
+document.getElementById('l').textContent='side view | behind the player\n'+lines.join('\n');
+document.title='ready';
+</script>

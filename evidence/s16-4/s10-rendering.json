@@ -1,0 +1,20 @@
+{
+  "high": {
+    "triangles": 270888,
+    "batches": 7,
+    "materials": 3,
+    "geometries": 8
+  },
+  "medium": {
+    "triangles": 135456,
+    "batches": 7,
+    "materials": 3,
+    "geometries": 8
+  },
+  "low": {
+    "triangles": 61270,
+    "batches": 7,
+    "materials": 3,
+    "geometries": 8
+  }
+}

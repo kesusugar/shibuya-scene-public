@@ -1,0 +1,100 @@
+{
+ "query": "qa=1&tier=low&time=night&camera=scramble",
+ "steps": [
+  {
+   "name": "60-crash-smoke",
+   "note": "a moment after the crash: the burst of smoke and sparks off the front",
+   "state": {
+    "player": {
+     "x": -16.6,
+     "z": 24.8,
+     "weapon": "fists",
+     "health": 100
+    },
+    "car": {
+     "active": true,
+     "type": "ownCar",
+     "speed": 0,
+     "damage": 0.33,
+     "wear": {
+      "dents": 1,
+      "panes": {
+       "front": 2,
+       "rear": 0,
+       "left": 0,
+       "right": 0
+      }
+     }
+    },
+    "radio": "📻 88.4 Shibuya Night FMHighway 246 Serenade — Satsuki Aoyama",
+    "fps": 0.1,
+    "drawCalls": 396,
+    "triangles": 13846117
+   }
+  },
+  {
+   "name": "61-damaged-smoke",
+   "note": "standing at 60% damage: grey smoke off the bonnet",
+   "state": {
+    "player": {
+     "x": -16.6,
+     "z": 24.8,
+     "weapon": "fists",
+     "health": 100
+    },
+    "car": {
+     "active": true,
+     "type": "ownCar",
+     "speed": 0,
+     "damage": 0.6,
+     "wear": {
+      "dents": 1,
+      "panes": {
+       "front": 2,
+       "rear": 0,
+       "left": 0,
+       "right": 0
+      }
+     }
+    },
+    "radio": "📻 88.4 Shibuya Night FMNeon Taxi Lovers — Kaze no Machi",
+    "fps": 0.2,
+    "drawCalls": 397,
+    "triangles": 16758313
+   }
+  },
+  {
+   "name": "62-wrecked-smoke",
+   "note": "standing at 95% damage: dark smoke",
+   "state": {
+    "player": {
+     "x": -16.6,
+     "z": 24.8,
+     "weapon": "fists",
+     "health": 100
+    },
+    "car": {
+     "active": true,
+     "type": "ownCar",
+     "speed": 0,
+     "damage": 0.95,
+     "wear": {
+      "dents": 1,
+      "panes": {
+       "front": 2,
+       "rear": 0,
+       "left": 0,
+       "right": 0
+      }
+     }
+    },
+    "radio": "📻 88.4 Shibuya Night FMScramble Heart — Mariko & The Late Lights",
+    "fps": 0.1,
+    "drawCalls": 397,
+    "triangles": 19315645
+   }
+  }
+ ],
+ "errors": [],
+ "warnings": 0
+}

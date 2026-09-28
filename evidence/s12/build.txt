@@ -1,0 +1,4 @@
+Sites build-site.mjs / vinext build completed successfully, exit 0.
+All five build stages completed; route / emitted.
+Warnings: proxy environment; existing large client chunk (>500 kB); static route classification incomplete.
+No build errors. Browser/GLSL rendering is separately unverified.

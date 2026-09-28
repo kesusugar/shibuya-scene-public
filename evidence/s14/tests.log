@@ -1,0 +1,15 @@
+✔ S14 valid quality and bounded DPR retain a MEDIUM default at high device DPR (1.945751ms)
+✔ S14 frame gate skips rendering and update work while preserving elapsed simulation time (0.382154ms)
+✔ S14 build queue yields one job at a time and cancels pending work on disposal (0.377107ms)
+✔ S14 deferred quality changes coalesce rapid input before rebuilding decorative modules (0.299672ms)
+✔ S14 scheduled module cannot resurrect after disable or disposal (0.549241ms)
+✔ S14 baked wet data matches source and day/night/postprocess switches preserve pooled objects (25.013225ms)
+✔ S14 existing dynamic profile counts and far throttling retained; no later effects/gameplay (0.764748ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 197.232637

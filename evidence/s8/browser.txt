@@ -1,0 +1,30 @@
+S8 browser verification, internal Sites preview http://terminal.local:4173/
+
+Observed through browser DOM and console tools:
+- RUN S8 / STREETSCAPE page loaded.
+- MEDIUM: streetscape ready, 252 fixtures, 21 cable runs / 84 segments,
+  22242 triangles, 14 batches, Canvas atlas 512x512, major=0, minor=0.
+- Ground, buildings, Hero, station, stationDetail, signs and data ready.
+- S7 MEDIUM: 520 signs, 168 Center-gai, 2 Canvas atlases, 4 batches,
+  7336 triangles, majorPenetration=0, minorOverlap=0.
+- Alert: この検証環境ではWebGL 2を利用できません。描画・FPSは未検証です。
+- Performance: FPS / triangles / drawCalls / geometry memory / texture memory N/A.
+- Console error/warn query: no application errors; one extension error:
+  Error sending browser metadata to extension: Object
+  chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js
+- HIGH clicked; subsequent inspector calls reported:
+  CDP operation refresh tabs was superseded by browser recovery
+  and js execution timed out; kernel reset.
+  Final HIGH browser stats/console not verified. CPU HIGH tests are independent.
+
+webgl-check.jpg is an actual browser screenshot of the unavailable-WebGL UI.
+No rendered camera screenshots, S7 visual approval, FPS or GPU draw-call claims.
+
+FINAL RECOVERY: HIGH completed and inspected successfully.
+369 fixtures / 35 cable runs / 280 line segments, Canvas atlas 1024x1024,
+major=0, minor=0; generation 44992 ms, total build 54333 ms.
+S7 HIGH 763 signs / Center-gai 260, 2 atlases / 4 batches, major=0.
+Final console: 0 application errors; 2 extension metadata errors.
+Raw DOM statistics and console entries: browser-high.json.
+CAM-03 selected; high-cam03.jpg confirms HIGH UI with WebGL unavailable.
+This final recovery supersedes the earlier incomplete HIGH check.

@@ -1,0 +1,36 @@
+{
+  "what": "PLAN-POLICE-VOICE-KAZE-DETAIL Step K1: Kaze FR's proportions, stations, fender peaks and wheel track",
+  "date": "2026-09-25",
+  "machine": "the user's Windows 11 PC, Chrome (Claude in Chrome), npm run dev:local",
+  "how": "The exact production path (buildVehicleShape, createVehicleAsset from src/traffic/vehicle-shape.mjs and src/player/vehicle-asset.mjs, unmodified) was imported into a same-origin dev-server page and rendered/queried directly. qa/gta-upgrade/carbench.html itself 404s under this session's dev server (every path under /qa/ does, including the pre-existing punchbench.html and vehiclebench.html -- a routing limitation of this dev-server session, not something this step introduced), so it was not opened as a real page load this session.",
+  "dimensions": {
+    "length": {"actual": 4.30, "target": 4.30},
+    "width": {"actual": 1.76, "target": 1.76},
+    "height": {"actual": 1.23, "target": 1.23},
+    "wheelbase": {"actual": 2.42836, "target": 2.43},
+    "wheel_diameter": {"actual": 0.66, "target": 0.66},
+    "front_overhang": {"actual": 0.935, "note": "plan says 'about 0.85 m'; the loft's axle is symmetric front/rear, so hitting the wheelbase exactly trades off against the overhang"}
+  },
+  "stations": {"belt": 16, "house": 13, "plan_target": "15-20"},
+  "fender_peak": {
+    "method": "buildVehicleShape('ownCar').geometry.paint vertex Y at the front axle Z: centreline (x~0) vs fender edge (|x|>width*.35)",
+    "centre_y": "lower (the bonnet valley)",
+    "edge_y": "higher (the fender top)",
+    "note": "confirmed by tests/kaze-detail.test.mjs; also confirmed opt-in only -- the sedan silhouette keeps an exactly flat bonnet at the same query"
+  },
+  "wheel_arch_exposure": {
+    "method": "min body-paint vertex Y at the front axle Z among outer-flank points (excludes the floor and its rounded corner), divided by wheel diameter",
+    "sill_y": 0.418,
+    "wheel_diameter": 0.66,
+    "exposed_fraction": 0.634,
+    "plan_target": ">= 0.60"
+  },
+  "wheel_track_fix": {
+    "problem": "the shared wheel-anchor formula (W/2 - wheelWidth*.80) tucks a wheel in 80% of its own width from the outer skin; on Kaze FR's low body this buries most of the wheel behind the arch wall (visually confirmed, see before-track-fix-grid.jpg)",
+    "fix": "a new per-type VEHICLES.ownCar.track = .55 (default .80, unused by any other type) moves the wheel centre from x=0.716 to x=0.767",
+    "honest_visual_note": "a second render after the fix (side-front3q-after-track-fix.jpg) still reads the wheel as mostly hidden from a straight side angle -- the 60%-of-height exposure the geometry test confirms is real (verified three ways: the test, a direct vertex query, and hand computation), but it is the LOWER 63% of a circle bounded by a horizontal sill line, which is a narrower-looking crescent than 63% of a rectangle would be, and the track move (5 cm) is small next to the car's ~2 m width. The renderer was also visibly unstable this session (see below), so a cleaner, larger, better-lit carbench capture is worth the user's own eyes before deciding whether the track number needs to move further."
+  },
+  "renderer_stability": "Chrome automation hit repeated 'renderer may be frozen or unresponsive' / 45s timeouts this session, consistent with the ~2 GB free of 16 GB already noted in evidence/police-voice-kaze/step-p/metrics.json. Several capture attempts had to be abandoned or retried in a fresh tab.",
+  "tests": {"file": "tests/kaze-detail.test.mjs", "count": 6, "confirmed_failing_before_fix": true, "passing_after_fix": true},
+  "typecheck": "clean", "test_ci": "pending final run before PR", "test_full": "pending final run before PR"
+}

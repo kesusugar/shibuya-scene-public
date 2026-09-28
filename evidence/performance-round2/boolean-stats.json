@@ -1,0 +1,490 @@
+{
+  "task": "G measurement only",
+  "sourceCommit": "5d3d4bc05458539273f0f762ead2153ff39c1149",
+  "environment": "Node CPU replay; MEDIUM; no browser/Canvas/GPU/render-loop instrumentation",
+  "timing": "Boolean ms excludes input-vertex counting; stage/total wall time includes measurement overhead and cooperative timer waits. No Array/Math prototype instrumentation.",
+  "operations": {
+    "union": {
+      "calls": 6117,
+      "verticesTotal": 591769,
+      "verticesPerCall": {
+        "min": 5,
+        "max": 8322,
+        "median": 49
+      },
+      "ms": 2495.288997999496,
+      "countingMs": 23.382198000093553,
+      "failures": 0
+    },
+    "difference": {
+      "calls": 165,
+      "verticesTotal": 91244,
+      "verticesPerCall": {
+        "min": 18,
+        "max": 9474,
+        "median": 99
+      },
+      "ms": 300.1103670000126,
+      "countingMs": 2.480143999983966,
+      "failures": 0
+    },
+    "intersection": {
+      "calls": 149837,
+      "verticesTotal": 57181888,
+      "verticesPerCall": {
+        "min": 9,
+        "max": 9090,
+        "median": 26
+      },
+      "ms": 111775.65787200083,
+      "countingMs": 1713.1180700027746,
+      "failures": 0
+    },
+    "xor": {
+      "calls": 0,
+      "verticesTotal": 0,
+      "verticesPerCall": {
+        "min": 0,
+        "max": 0,
+        "median": 0
+      },
+      "ms": 0,
+      "countingMs": 0,
+      "failures": 0
+    }
+  },
+  "stages": [
+    {
+      "id": "S2",
+      "ms": 8134.165145,
+      "operations": {
+        "union": {
+          "calls": 894,
+          "failures": 0,
+          "verticesTotal": 89983,
+          "ms": 561.3829480000005,
+          "countingMs": 9.485642000001093,
+          "maxMs": 63.20466300000004,
+          "slowest": {
+            "vertices": 8315,
+            "stack": "Error\n    at pc.<computed> [as union] (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:8:928)\n    at union (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:5:60)\n    at buildGroundModel (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:26:21)\n    at buildGround (file:///workspace/sites/shibuya-scene-poc/src/ground/render.mjs:9:73)\n    at file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:13:31\n    at stage (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:10:127)\n    at async file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:13:10"
+          },
+          "verticesPerCall": {
+            "min": 15,
+            "max": 8322,
+            "median": 49
+          }
+        },
+        "intersection": {
+          "calls": 2389,
+          "failures": 0,
+          "verticesTotal": 5192269,
+          "ms": 6770.393999000008,
+          "countingMs": 36.41687999998996,
+          "maxMs": 30.16207900000063,
+          "slowest": {
+            "vertices": 6760,
+            "stack": "Error\n    at pc.<computed> [as intersection] (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:8:928)\n    at intersection (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:6:56)\n    at buildGround (file:///workspace/sites/shibuya-scene-poc/src/ground/render.mjs:11:243)\n    at file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:13:31\n    at stage (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:10:127)\n    at async file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:13:10"
+          },
+          "verticesPerCall": {
+            "min": 26,
+            "max": 9090,
+            "median": 2421
+          }
+        },
+        "difference": {
+          "calls": 6,
+          "failures": 0,
+          "verticesTotal": 37782,
+          "ms": 152.340331,
+          "countingMs": 1.7396450000007917,
+          "maxMs": 34.52366500000062,
+          "slowest": {
+            "vertices": 9474,
+            "stack": "Error\n    at pc.<computed> [as difference] (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:8:928)\n    at difference (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:7:57)\n    at buildGround (file:///workspace/sites/shibuya-scene-poc/src/ground/render.mjs:11:46)\n    at file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:13:31\n    at stage (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:10:127)\n    at async file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:13:10"
+          },
+          "verticesPerCall": {
+            "min": 4222,
+            "max": 9474,
+            "median": 6260
+          }
+        }
+      },
+      "calls": 3289,
+      "booleanMs": 7484.117278000009,
+      "booleanPercent": 92.00842550634013
+    },
+    {
+      "id": "S3",
+      "ms": 1511.9316870000002,
+      "operations": {
+        "union": {
+          "calls": 709,
+          "failures": 0,
+          "verticesTotal": 66860,
+          "ms": 201.0599749999983,
+          "countingMs": 3.819814000018596,
+          "maxMs": 2.6988580000015645,
+          "slowest": {
+            "vertices": 517,
+            "stack": "Error\n    at pc.<computed> [as union] (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:8:928)\n    at union (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:5:60)\n    at buffer (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:12:407)\n    at file:///workspace/sites/shibuya-scene-poc/src/buildings/model.mjs:55:90\n    at Array.forEach (<anonymous>)\n    at buildBuildingModelSteps (file:///workspace/sites/shibuya-scene-poc/src/buildings/model.mjs:55:66)\n    at buildBuildingModelSteps.next (<anonymous>)\n    at finishStepsAsync (file:///workspace/sites/shibuya-scene-poc/src/quality/runtime.mjs:13:96)\n    at buildBuildingsAsync (file:///workspace/sites/shibuya-scene-poc/src/buildings/render.mjs:60:93)\n    at file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:13:73"
+          },
+          "verticesPerCall": {
+            "min": 21,
+            "max": 517,
+            "median": 67
+          }
+        },
+        "intersection": {
+          "calls": 1151,
+          "failures": 0,
+          "verticesTotal": 55769,
+          "ms": 98.45971899999131,
+          "countingMs": 1.8422410000312084,
+          "maxMs": 0.7838439999995899,
+          "slowest": {
+            "vertices": 145,
+            "stack": "Error\n    at pc.<computed> [as intersection] (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:8:928)\n    at intersection (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:6:56)\n    at buildBuildingModelSteps (file:///workspace/sites/shibuya-scene-poc/src/buildings/model.mjs:67:22)\n    at buildBuildingModelSteps.next (<anonymous>)\n    at finishStepsAsync (file:///workspace/sites/shibuya-scene-poc/src/quality/runtime.mjs:13:96)\n    at async buildBuildingsAsync (file:///workspace/sites/shibuya-scene-poc/src/buildings/render.mjs:60:87)\n    at async stage (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:10:121)\n    at async file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:13:52"
+          },
+          "verticesPerCall": {
+            "min": 9,
+            "max": 351,
+            "median": 15
+          }
+        }
+      },
+      "calls": 1860,
+      "booleanMs": 299.5196939999896,
+      "booleanPercent": 19.81039861624314
+    },
+    {
+      "id": "S4",
+      "ms": 81.40346499999941,
+      "operations": {
+        "intersection": {
+          "calls": 157,
+          "failures": 0,
+          "verticesTotal": 5849,
+          "ms": 11.977114000004804,
+          "countingMs": 0.16409800000110408,
+          "maxMs": 0.9498100000000704,
+          "slowest": {
+            "vertices": 43,
+            "stack": "Error\n    at pc.<computed> [as intersection] (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:8:928)\n    at intersection (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:6:56)\n    at file:///workspace/sites/shibuya-scene-poc/src/heroes/model.mjs:10:360\n    at Array.find (<anonymous>)\n    at auditReservations (file:///workspace/sites/shibuya-scene-poc/src/heroes/model.mjs:10:313)\n    at buildHeroScene (file:///workspace/sites/shibuya-scene-poc/src/heroes/render.mjs:10:76)\n    at file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:13:123\n    at stage (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:10:127)\n    at async file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:13:102"
+          },
+          "verticesPerCall": {
+            "min": 14,
+            "max": 97,
+            "median": 40
+          }
+        },
+        "union": {
+          "calls": 25,
+          "failures": 0,
+          "verticesTotal": 472,
+          "ms": 1.1133020000015676,
+          "countingMs": 0.024416000002020155,
+          "maxMs": 0.14095999999881315,
+          "slowest": {
+            "vertices": 66,
+            "stack": "Error\n    at pc.<computed> [as union] (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:8:928)\n    at union (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:5:60)\n    at buildHeroScene (file:///workspace/sites/shibuya-scene-poc/src/heroes/render.mjs:17:16)\n    at file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:13:123\n    at stage (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:10:127)\n    at async file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:13:102"
+          },
+          "verticesPerCall": {
+            "min": 9,
+            "max": 66,
+            "median": 15
+          }
+        },
+        "difference": {
+          "calls": 25,
+          "failures": 0,
+          "verticesTotal": 888,
+          "ms": 2.3266049999965617,
+          "countingMs": 0.021843000009539537,
+          "maxMs": 0.3491489999996702,
+          "slowest": {
+            "vertices": 50,
+            "stack": "Error\n    at pc.<computed> [as difference] (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:8:928)\n    at difference (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:7:57)\n    at buildHeroScene (file:///workspace/sites/shibuya-scene-poc/src/heroes/render.mjs:18:28)\n    at file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:13:123\n    at stage (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:10:127)\n    at async file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:13:102"
+          },
+          "verticesPerCall": {
+            "min": 18,
+            "max": 76,
+            "median": 30
+          }
+        }
+      },
+      "calls": 207,
+      "booleanMs": 15.417021000002933,
+      "booleanPercent": 18.939023050189626
+    },
+    {
+      "id": "S5",
+      "ms": 15048.02786,
+      "operations": {
+        "union": {
+          "calls": 1737,
+          "failures": 0,
+          "verticesTotal": 191405,
+          "ms": 781.9329819999675,
+          "countingMs": 4.774209000022893,
+          "maxMs": 48.519914000000426,
+          "slowest": {
+            "vertices": 8315,
+            "stack": "Error\n    at pc.<computed> [as union] (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:8:928)\n    at union (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:5:60)\n    at buildGroundModel (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:26:21)\n    at buildStationModelSteps (file:///workspace/sites/shibuya-scene-poc/src/station/model.mjs:8:54)\n    at buildStationAsync (file:///workspace/sites/shibuya-scene-poc/src/station/render.mjs:32:108)\n    at file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:13:168\n    at stage (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:10:127)\n    at async file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:13:147"
+          },
+          "verticesPerCall": {
+            "min": 5,
+            "max": 8322,
+            "median": 64
+          }
+        },
+        "intersection": {
+          "calls": 5449,
+          "failures": 0,
+          "verticesTotal": 7769819,
+          "ms": 12855.796881000038,
+          "countingMs": 97.97932400007085,
+          "maxMs": 31.493822000000364,
+          "slowest": {
+            "vertices": 9090,
+            "stack": "Error\n    at pc.<computed> [as intersection] (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:8:928)\n    at intersection (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:6:56)\n    at buildGroundModel (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:27:203)\n    at buildStationModelSteps (file:///workspace/sites/shibuya-scene-poc/src/station/model.mjs:8:54)\n    at buildStationAsync (file:///workspace/sites/shibuya-scene-poc/src/station/render.mjs:32:108)\n    at file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:13:168\n    at stage (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:10:127)\n    at async file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:13:147"
+          },
+          "verticesPerCall": {
+            "min": 9,
+            "max": 9090,
+            "median": 2421
+          }
+        },
+        "difference": {
+          "calls": 67,
+          "failures": 0,
+          "verticesTotal": 26287,
+          "ms": 70.11502399999335,
+          "countingMs": 0.3809259999998176,
+          "maxMs": 23.53164200000174,
+          "slowest": {
+            "vertices": 6164,
+            "stack": "Error\n    at pc.<computed> [as difference] (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:8:928)\n    at difference (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:7:57)\n    at buildGroundModel (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:34:61)\n    at buildStationModelSteps (file:///workspace/sites/shibuya-scene-poc/src/station/model.mjs:8:54)\n    at buildStationAsync (file:///workspace/sites/shibuya-scene-poc/src/station/render.mjs:32:108)\n    at file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:13:168\n    at stage (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:10:127)\n    at async file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:13:147"
+          },
+          "verticesPerCall": {
+            "min": 38,
+            "max": 6164,
+            "median": 106
+          }
+        }
+      },
+      "calls": 7253,
+      "booleanMs": 13707.844887,
+      "booleanPercent": 91.09396270748265
+    },
+    {
+      "id": "S6",
+      "ms": 17855.913201,
+      "operations": {
+        "union": {
+          "calls": 1767,
+          "failures": 0,
+          "verticesTotal": 198372,
+          "ms": 800.0525000000453,
+          "countingMs": 4.3391439999504655,
+          "maxMs": 54.374691000000894,
+          "slowest": {
+            "vertices": 8315,
+            "stack": "Error\n    at pc.<computed> [as union] (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:8:928)\n    at union (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:5:60)\n    at buildGroundModel (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:26:21)\n    at buildDetailModelSteps (file:///workspace/sites/shibuya-scene-poc/src/station-detail/model.mjs:8:53)\n    at buildStationDetailsAsync (file:///workspace/sites/shibuya-scene-poc/src/station-detail/render.mjs:19:115)\n    at file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:15:31\n    at stage (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:10:127)\n    at async file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:15:10"
+          },
+          "verticesPerCall": {
+            "min": 5,
+            "max": 8322,
+            "median": 63
+          }
+        },
+        "intersection": {
+          "calls": 31719,
+          "failures": 0,
+          "verticesTotal": 9347347,
+          "ms": 15759.047026000488,
+          "countingMs": 128.17764099994747,
+          "maxMs": 29.90621800000008,
+          "slowest": {
+            "vertices": 9090,
+            "stack": "Error\n    at pc.<computed> [as intersection] (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:8:928)\n    at intersection (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:6:56)\n    at buildGroundModel (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:27:203)\n    at buildDetailModelSteps (file:///workspace/sites/shibuya-scene-poc/src/station-detail/model.mjs:8:53)\n    at buildStationDetailsAsync (file:///workspace/sites/shibuya-scene-poc/src/station-detail/render.mjs:19:115)\n    at file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:15:31\n    at stage (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:10:127)\n    at async file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:15:10"
+          },
+          "verticesPerCall": {
+            "min": 9,
+            "max": 9090,
+            "median": 10
+          }
+        },
+        "difference": {
+          "calls": 67,
+          "failures": 0,
+          "verticesTotal": 26287,
+          "ms": 75.32840700002271,
+          "countingMs": 0.33772999997381703,
+          "maxMs": 25.180240000001504,
+          "slowest": {
+            "vertices": 6164,
+            "stack": "Error\n    at pc.<computed> [as difference] (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:8:928)\n    at difference (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:7:57)\n    at buildGroundModel (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:34:61)\n    at buildDetailModelSteps (file:///workspace/sites/shibuya-scene-poc/src/station-detail/model.mjs:8:53)\n    at buildStationDetailsAsync (file:///workspace/sites/shibuya-scene-poc/src/station-detail/render.mjs:19:115)\n    at file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:15:31\n    at stage (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:10:127)\n    at async file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:15:10"
+          },
+          "verticesPerCall": {
+            "min": 38,
+            "max": 6164,
+            "median": 106
+          }
+        }
+      },
+      "calls": 33553,
+      "booleanMs": 16634.427933000556,
+      "booleanPercent": 93.15921143741315
+    },
+    {
+      "id": "S7",
+      "ms": 6927.525655000005,
+      "operations": {
+        "intersection": {
+          "calls": 2998,
+          "failures": 0,
+          "verticesTotal": 2870910,
+          "ms": 6700.291459000429,
+          "countingMs": 33.90883699974074,
+          "maxMs": 15.997395000005781,
+          "slowest": {
+            "vertices": 2421,
+            "stack": "Error\n    at pc.<computed> [as intersection] (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:8:928)\n    at intersection (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:6:56)\n    at placementIssues (file:///workspace/sites/shibuya-scene-poc/src/signs/model.mjs:29:10)\n    at submit (file:///workspace/sites/shibuya-scene-poc/src/signs/model.mjs:42:108)\n    at buildSignModelSteps (file:///workspace/sites/shibuya-scene-poc/src/signs/model.mjs:46:370)\n    at buildSignModelSteps.next (<anonymous>)\n    at finishStepsAsync (file:///workspace/sites/shibuya-scene-poc/src/quality/runtime.mjs:13:96)\n    at async buildSignageAsync (file:///workspace/sites/shibuya-scene-poc/src/signs/render.mjs:23:85)\n    at async stage (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:10:121)\n    at async file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:16:10"
+          },
+          "verticesPerCall": {
+            "min": 9,
+            "max": 2421,
+            "median": 41
+          }
+        }
+      },
+      "calls": 2998,
+      "booleanMs": 6700.291459000429,
+      "booleanPercent": 96.71983609565463
+    },
+    {
+      "id": "S8",
+      "ms": 30773.035547000007,
+      "operations": {
+        "intersection": {
+          "calls": 17427,
+          "failures": 0,
+          "verticesTotal": 12707014,
+          "ms": 28446.648441998863,
+          "countingMs": 544.3896340014762,
+          "maxMs": 19.807595000005676,
+          "slowest": {
+            "vertices": 4252,
+            "stack": "Error\n    at pc.<computed> [as intersection] (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:8:928)\n    at intersection (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:6:56)\n    at intersection (file:///workspace/sites/shibuya-scene-poc/src/streetscape/model.mjs:14:27)\n    at fixtureIssues (file:///workspace/sites/shibuya-scene-poc/src/streetscape/model.mjs:30:80)\n    at submit (file:///workspace/sites/shibuya-scene-poc/src/streetscape/model.mjs:51:32)\n    at buildStreetscapeModelSteps (file:///workspace/sites/shibuya-scene-poc/src/streetscape/model.mjs:56:411)\n    at buildStreetscapeModelSteps.next (<anonymous>)\n    at finishStepsAsync (file:///workspace/sites/shibuya-scene-poc/src/quality/runtime.mjs:13:96)\n    at async buildStreetscapeAsync (file:///workspace/sites/shibuya-scene-poc/src/streetscape/render.mjs:36:89)\n    at async stage (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:10:121)"
+          },
+          "verticesPerCall": {
+            "min": 9,
+            "max": 4252,
+            "median": 26
+          }
+        },
+        "union": {
+          "calls": 171,
+          "failures": 0,
+          "verticesTotal": 5301,
+          "ms": 14.758515000081388,
+          "countingMs": 0.07811800007766578,
+          "maxMs": 0.2017489999998361,
+          "slowest": {
+            "vertices": 31,
+            "stack": "Error\n    at pc.<computed> [as union] (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:8:928)\n    at union (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:5:60)\n    at buffer (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:12:407)\n    at cableIssues (file:///workspace/sites/shibuya-scene-poc/src/streetscape/model.mjs:45:79)\n    at auditStreetscape (file:///workspace/sites/shibuya-scene-poc/src/streetscape/model.mjs:47:332)\n    at buildStreetscapeModelSteps (file:///workspace/sites/shibuya-scene-poc/src/streetscape/model.mjs:58:106)\n    at buildStreetscapeModelSteps.next (<anonymous>)\n    at finishStepsAsync (file:///workspace/sites/shibuya-scene-poc/src/quality/runtime.mjs:13:96)\n    at async buildStreetscapeAsync (file:///workspace/sites/shibuya-scene-poc/src/streetscape/render.mjs:36:89)\n    at async stage (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:10:121)"
+          },
+          "verticesPerCall": {
+            "min": 31,
+            "max": 31,
+            "median": 31
+          }
+        }
+      },
+      "calls": 17598,
+      "booleanMs": 28461.406956998944,
+      "booleanPercent": 92.48813596412845
+    },
+    {
+      "id": "S9",
+      "ms": 17389.550107000003,
+      "operations": {},
+      "calls": 0,
+      "booleanMs": 0,
+      "booleanPercent": 0
+    },
+    {
+      "id": "S10",
+      "ms": 52619.48846200001,
+      "operations": {
+        "intersection": {
+          "calls": 88547,
+          "failures": 0,
+          "verticesTotal": 19232911,
+          "ms": 41133.043232001,
+          "countingMs": 870.239415001517,
+          "maxMs": 36.07339000000502,
+          "slowest": {
+            "vertices": 2421,
+            "stack": "Error\n    at pc.<computed> [as intersection] (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:8:928)\n    at intersection (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:6:56)\n    at intersection (file:///workspace/sites/shibuya-scene-poc/src/streetscape/model.mjs:14:27)\n    at intersects (file:///workspace/sites/shibuya-scene-poc/src/streetscape/model.mjs:15:30)\n    at fixtureIssues (file:///workspace/sites/shibuya-scene-poc/src/streetscape/model.mjs:31:5)\n    at auditStreetscape (file:///workspace/sites/shibuya-scene-poc/src/streetscape/model.mjs:47:159)\n    at buildStreetscapeModelSteps (file:///workspace/sites/shibuya-scene-poc/src/streetscape/model.mjs:58:106)\n    at buildStreetscapeModelSteps.next (<anonymous>)\n    at finishSteps (file:///workspace/sites/shibuya-scene-poc/src/quality/runtime.mjs:12:59)\n    at buildStreetscapeModel (file:///workspace/sites/shibuya-scene-poc/src/streetscape/model.mjs:61:55)"
+          },
+          "verticesPerCall": {
+            "min": 9,
+            "max": 4252,
+            "median": 26
+          }
+        },
+        "union": {
+          "calls": 814,
+          "failures": 0,
+          "verticesTotal": 39376,
+          "ms": 134.9887759994017,
+          "countingMs": 0.8608550000208197,
+          "maxMs": 12.979014999989886,
+          "slowest": {
+            "vertices": 4112,
+            "stack": "Error\n    at pc.<computed> [as union] (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:8:928)\n    at union (file:///workspace/sites/shibuya-scene-poc/src/ground/model.mjs:5:60)\n    at buildDetailModelSteps (file:///workspace/sites/shibuya-scene-poc/src/station-detail/model.mjs:12:14)\n    at buildDetailModelSteps.next (<anonymous>)\n    at finishSteps (file:///workspace/sites/shibuya-scene-poc/src/quality/runtime.mjs:12:59)\n    at buildDetailModel (file:///workspace/sites/shibuya-scene-poc/src/station-detail/model.mjs:76:50)\n    at buildCrowd (file:///workspace/sites/shibuya-scene-poc/src/life/render.mjs:16:60)\n    at file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:19:35\n    at stage (file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:10:127)\n    at async file:///workspace/sites/shibuya-scene-poc/scripts/measure-boolean-build.mjs:19:13"
+          },
+          "verticesPerCall": {
+            "min": 31,
+            "max": 4112,
+            "median": 31
+          }
+        }
+      },
+      "calls": 89361,
+      "booleanMs": 41268.0320080004,
+      "booleanPercent": 78.42727706827246
+    },
+    {
+      "id": "S11",
+      "ms": 4.424314999982016,
+      "operations": {},
+      "calls": 0,
+      "booleanMs": 0,
+      "booleanPercent": 0
+    },
+    {
+      "id": "S13",
+      "ms": 6.708841999992728,
+      "operations": {},
+      "calls": 0,
+      "booleanMs": 0,
+      "booleanPercent": 0
+    },
+    {
+      "id": "S15",
+      "ms": 11.347594999999274,
+      "operations": {},
+      "calls": 0,
+      "booleanMs": 0,
+      "booleanPercent": 0
+    }
+  ],
+  "totalMs": 150380.504918,
+  "booleanMs": 114571.05723700034,
+  "booleanPercent": 76.18744018679419,
+  "crowd": 210,
+  "signs": 490
+}

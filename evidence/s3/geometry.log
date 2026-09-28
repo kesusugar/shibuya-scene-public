@@ -1,0 +1,54 @@
+{
+  "sourceBuildings": 666,
+  "triangulationFailures": 0,
+  "clippedBuildings": 52,
+  "heightClamped": 1,
+  "genericBuildings": 378,
+  "genericSources": 378,
+  "reservedHeroBuildings": 14,
+  "skippedBuildings": 274,
+  "skippedFragments": 277,
+  "skippedByReason": {
+    "road-centerline-conflict": 10,
+    "outside-target": 236,
+    "road-surface-conflict": 3,
+    "clipped-footprint-area": 12,
+    "crossing-conflict": 6,
+    "footprint-area": 1,
+    "non-generic-structure": 9
+  },
+  "archetypes": {
+    "plain": 135,
+    "grid": 28,
+    "band": 47,
+    "zakkyo": 92,
+    "curtain": 6,
+    "balcony": 22,
+    "shop": 48
+  },
+  "heightMin": 3.4,
+  "heightMax": 179.97,
+  "heightMedian": 19.4,
+  "buildTimeMs": 1057,
+  "buildingBounds": {
+    "minX": -250.1099975593388,
+    "maxX": 250.1099975593388,
+    "minY": 0.14999771118164062,
+    "maxY": 181.42000424861908,
+    "minZ": -250.1099975593388,
+    "maxZ": 250.1099975593388
+  },
+  "instanceMatrixNonFinite": 0,
+  "windowInstances": 38060,
+  "rooftopInstances": 701,
+  "balconyCount": 100,
+  "detailInstances": 5538,
+  "buildingTriangles": 160925,
+  "materialChannels": 7,
+  "mergedBatches": 2,
+  "instancedBatches": 6,
+  "approximateDrawCalls": 8,
+  "geometries": 5,
+  "textures": 0
+}
+Ground audit: {"roadSurfaceOverlapCount":85,"obviousRoadOverlapCount":0,"crossingOverlapCount":0}

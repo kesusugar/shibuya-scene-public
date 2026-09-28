@@ -1,0 +1,45 @@
+{
+  "baselineMajor": 0,
+  "baselineMinor": 11,
+  "newMajor": 0,
+  "newMinor": 3,
+  "findings": [
+    {
+      "fixture": "planter:123",
+      "kind": "sidewalk",
+      "classification": "minor",
+      "area": 1.3964860422288439,
+      "point": [
+        20,
+        142
+      ]
+    },
+    {
+      "fixture": "plaza-bench:124",
+      "kind": "sidewalk",
+      "classification": "minor",
+      "area": 1.5199999999999818,
+      "point": [
+        -23,
+        52
+      ]
+    },
+    {
+      "fixture": "map-board:125",
+      "kind": "sidewalk",
+      "classification": "minor",
+      "area": 0.3025000000000091,
+      "point": [
+        -18,
+        65
+      ]
+    }
+  ],
+  "expectedMounted": [
+    "hachiko-mounted",
+    "girder-mounted",
+    "pier-mounted",
+    "ginza-portal-mounted",
+    "ginza-roof-mounted"
+  ]
+}

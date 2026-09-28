@@ -1,0 +1,260 @@
+- main:
+  - text: SCENE RECONSTRUCTION / RUN S2
+  - heading "SHIBUYA Foundation" [level=1]
+  - generic: GROUND
+  - complementary:
+    - heading "Fixed cameras" [level=2]
+    - button "CAM-01 Overview"
+    - button "CAM-02 Scramble High" [pressed]
+    - button "CAM-03 Scramble Street"
+    - button "CAM-04 QFRONT"
+    - button "CAM-05 Hachiko"
+    - button "CAM-06 109"
+    - button "CAM-07 Center-gai"
+    - button "CAM-08 Night Photo"
+    - button "Station inspection"
+    - heading "Performance profile" [level=2]
+    - button "HIGH"
+    - button "MEDIUM" [pressed]
+    - button "LOW"
+    - heading "Time state · stub" [level=2]
+    - button "DAY" [pressed]
+    - button "NIGHT"
+    - paragraph: 時間状態のみ。照明・夜景は後続RUN。
+    - heading "Modules" [level=2]
+    - generic: geostub
+    - switch "geo" [checked]
+    - generic: dataready
+    - switch "data" [checked]
+    - generic: groundready
+    - switch "ground" [checked]
+    - generic: buildingsdisabled
+    - switch "buildings"
+    - generic: stationdisabled
+    - switch "station"
+    - generic: signsdisabled
+    - switch "signs"
+    - generic: streetscapedisabled
+    - switch "streetscape"
+    - generic: trafficdisabled
+    - switch "traffic"
+    - generic: lifedisabled
+    - switch "life"
+    - generic: trainsdisabled
+    - switch "trains"
+    - generic: constructiondisabled
+    - switch "construction"
+    - generic: environmentdisabled
+    - switch "environment"
+    - generic: nightglowdisabled
+    - switch "nightglow"
+    - generic: postprocessdisabled
+    - switch "postprocess"
+    - generic: perfdisabled
+    - switch "perf"
+    - generic: cameradisabled
+    - switch "camera"
+    - generic: debugdisabled
+    - switch "debug"
+  - strong: CAM-02 Scramble High
+  - generic: X east · Y up · −Z north / metres
+  - text: S2 · 地面構造検査
+  - generic: ドラッグ：周回 / 右ドラッグ：移動 / ホイール：拡大
+  - alert: この検証環境ではWebGL 2を利用できません。描画・FPSは未検証です。
+  - generic "Performance stats":
+    - generic: fps
+    - generic: N/A
+    - generic: triangles
+    - generic: N/A
+    - generic: drawCalls
+    - generic: N/A
+    - generic: geometries
+    - generic: N/A
+    - generic: textures
+    - generic: N/A
+    - generic: tier
+    - generic: medium
+    - generic: heapMB
+    - generic: "63.7"
+    - generic: width
+    - generic: N/A
+    - generic: height
+    - generic: N/A
+  - text: world / dynamic / overlay
+  - generic: Ground / Roads / Sidewalks / Scramble · S2 only
+  - region "Ground build statistics":
+    - heading "RUN S2 · Ground build" [level=2]
+    - generic: "{ \"roadSourceCount\": 266, \"roadPolygonCount\": 199, \"unionPolygonCount\": 4, \"sidewalkPolygonCount\": 62, \"crossingCount\": 67, \"mainCrossings\": 4, \"diagonalCrossings\": 1, \"normalCrossings\": 62, \"zebraStripeCount\": 790, \"tactileCount\": 12, \"buildTimeMs\": 7830, \"roadTris\": 2433, \"sidewalkTris\": 9295, \"curbTris\": 33937, \"totalGroundTris\": 47829, \"approximateDrawCalls\": 5, \"triangulationFailures\": 0, \"discardedDegenerate\": 21, \"checks\": { \"asphalt\": { \"nonFinite\": 0, \"badIndices\": 0, \"degenerate\": 0, \"bounds\": { \"minX\": -250, \"maxX\": 250, \"minY\": 0, \"maxY\": 0, \"minZ\": -250, \"maxZ\": 250 } }, \"sidewalk\": { \"nonFinite\": 0, \"badIndices\": 0, \"degenerate\": 0, \"bounds\": { \"minX\": -250, \"maxX\": 250, \"minY\": 2.3379341129725617e-8, \"maxY\": 0.15000000596046448, \"minZ\": -250, \"maxZ\": 250 } }, \"curb\": { \"nonFinite\": 0, \"badIndices\": 0, \"degenerate\": 0, \"bounds\": { \"minX\": -250, \"maxX\": 250, \"minY\": 0, \"maxY\": 0.15000000596046448, \"minZ\": -250, \"maxZ\": 250 } }, \"paint\": { \"nonFinite\": 0, \"badIndices\": 0, \"degenerate\": 0, \"bounds\": { \"minX\": -250, \"maxX\": 250, \"minY\": 0.012000000104308128, \"maxY\": 0.012000000104308128, \"minZ\": -250, \"maxZ\": 249.75582885742188 } }, \"tactile\": { \"nonFinite\": 0, \"badIndices\": 0, \"degenerate\": 0, \"bounds\": { \"minX\": -28.348398208618164, \"maxX\": 26.98811912536621, \"minY\": 0.012000001966953278, \"maxY\": 0.16200000047683716, \"minZ\": -21.82828712463379, \"maxZ\": 61.072235107421875 } } } }"
+  - region "S1 data validation":
+    - strong: RUN S1 · OSM Data + Geo Core
+    - paragraph: "OSM読込成功 · buildings: 666 / roads: 306 / footways: 648 / rails: 96 / crossings: 118 / signals: 49 / trees: 24 / areas: 30 / pois: 1176"
+    - paragraph: "座標範囲 X: -342.6 ～ 415.5 m / Z: -445.0 ～ 491.2 m · 警告 0"
+    - generic "主要ランドマークID・読込結果"
+    - paragraph: 線色：道路＝黄 / 歩行路＝緑 / 鉄道＝桃 / 建物輪郭＝青。輪郭確認のみ。
+    - link "© OpenStreetMap contributors · ODbL":
+      - /url: https://www.openstreetmap.org/copyright
+
+[
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-08T22:37:11.445Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  },
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-08T22:37:37.796Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  },
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-08T22:37:40.933Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  },
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-08T22:37:40.933Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  },
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-08T22:37:44.368Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  },
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-08T22:37:44.368Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  },
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-08T22:37:47.498Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  },
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-08T22:37:47.511Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  },
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-08T22:38:04.084Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  },
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-08T22:38:04.085Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  },
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-08T22:38:07.221Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  },
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-08T22:38:07.221Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  },
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-08T22:38:10.592Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  },
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-08T22:38:10.593Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  },
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-08T22:38:13.994Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  },
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-08T22:38:14.006Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  },
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-08T22:38:17.158Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  },
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-08T22:38:17.180Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  },
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-09T00:07:53.435Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  },
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-09T00:08:12.407Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  },
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-09T00:10:41.653Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  },
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-09T00:11:11.829Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  },
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-09T00:11:14.875Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  },
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-09T00:11:14.890Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  },
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-09T00:11:17.921Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  },
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-09T00:11:17.934Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  },
+  {
+    "level": "error",
+    "message": "Error sending browser metadata to extension: Object",
+    "timestamp": "2026-09-09T00:12:24.528Z",
+    "url": "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+  }
+]

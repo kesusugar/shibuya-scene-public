@@ -1,0 +1,12 @@
+{
+ "url": "http://<local>/qa/gta-upgrade/stage4bench.html",
+ "ready": true,
+ "bench": {
+  "lines": [
+   "onlookers: {\"bodies\":1,\"watchers\":5,\"filming\":4,\"calls\":1} film,film,film,call,film,-",
+   "aftermath: {\"dispatched\":1,\"collected\":2,\"washed\":0} collected 2"
+  ]
+ },
+ "console": [],
+ "errors": 0
+}

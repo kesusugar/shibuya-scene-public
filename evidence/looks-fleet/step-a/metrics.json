@@ -1,0 +1,21 @@
+{
+  "what": "PLAN-LOOKS-AND-FLEET Step A (patterns on clothes), device check",
+  "date": "2026-09-25",
+  "machine": "the user's Windows 11 PC, Chrome (visible tab, driven by Claude in Chrome), npm run dev:local",
+  "ab_same_session": {
+    "url": "?qa=1&tier=high&time=day&camera=street",
+    "with_step_a": {"fps": 5.5, "drawCalls": 345},
+    "step_a_shaders_stashed": {"fps": 5.5, "drawCalls": 343},
+    "verdict": "no measurable fps cost; draw calls unchanged (±2 is the scene's own frame-to-frame variation). The earlier 8.8 fps baseline was a different machine state."
+  },
+  "night": {"url": "?qa=1&tier=high&time=night&camera=street", "fps": 4.8, "drawCalls": 351, "playerMode": {"fps": 5.2, "drawCalls": 479, "nearHumanoids": 8}},
+  "console": "0 errors on the pages loaded after the fix; one stale Vite HMR message from a mid-edit syntax error was logged earlier and is not from a page load",
+  "alert": false,
+  "visual": [
+    "day-player-closeup.png: border, check, print and pinstripe visible on HQ bodies next to the player; stripes are drawn on bind-pose coordinates",
+    "night-before-recolour-fix.jpg: FOUND: about eight near humanoids around the player in the default red top (pre-existing bug, fixed in this PR)",
+    "night-player.jpg: after the fix only the player wears red",
+    "night-distance-fade.png: patterns fade to the flat colour with distance; no moiré seen"
+  ],
+  "not_checked": ["the phone (after merge)", "MEDIUM tier on device", "shimmer judged from still screenshots at ~5 fps, not watched at 60 fps"]
+}

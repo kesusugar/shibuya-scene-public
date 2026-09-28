@@ -1,0 +1,439 @@
+{
+ "url": "<local>/?qa=1&perf=sweep&sweep=shadow,gtao,hqcrowd,render&sweepFrames=3&tier=high&time=day&camera=scramble",
+ "waited": true,
+ "result": {
+  "generated": "2026-09-25T15:40:01.217Z",
+  "url": "?qa=1&perf=sweep&sweep=shadow,gtao,hqcrowd,render&sweepFrames=3&tier=high&time=day&camera=scramble",
+  "tier": "high",
+  "time": "day",
+  "camera": "scramble",
+  "mode": "observe",
+  "viewport": [
+   1280,
+   720
+  ],
+  "dpr": 1,
+  "gpuTimer": true,
+  "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.0.0 Safari/537.36",
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "applied": {
+   "crowd": {
+    "paused": true,
+    "hidden": true
+   },
+   "traffic": {
+    "paused": true,
+    "hidden": true
+   },
+   "trains": {
+    "paused": true,
+    "hidden": true
+   },
+   "signs": {
+    "paused": true,
+    "hidden": true
+   },
+   "streetscape": {
+    "paused": true,
+    "hidden": true
+   },
+   "nightglow": {
+    "paused": true,
+    "hidden": true
+   },
+   "buildings": {
+    "paused": true,
+    "hidden": true
+   }
+  },
+  "results": [
+   {
+    "id": "baseline",
+    "off": [],
+    "seconds": 22.85,
+    "summary": {
+     "interval": {
+      "frames": 2,
+      "mean": 7454.05,
+      "p50": 7500.3,
+      "p95": 7500.3,
+      "max": 7500.3,
+      "fps": 0.1
+     },
+     "cpu": {
+      "frames": 3,
+      "mean": 2537.37,
+      "p50": 67.4,
+      "p95": 7481.3,
+      "max": 7481.3,
+      "fps": 0.4
+     },
+     "gpu": {
+      "frames": 2,
+      "mean": 7427.87,
+      "p50": 7440.14,
+      "p95": 7440.14,
+      "max": 7440.14,
+      "fps": 0.1
+     },
+     "sections": {
+      "player": 0,
+      "module:geo": 0,
+      "module:data": 0,
+      "module:ground": 0,
+      "module:buildings": 0,
+      "module:station": 0,
+      "module:signs": 0,
+      "module:streetscape": 0,
+      "module:traffic": 13.8,
+      "module:life": 34.033,
+      "module:trains": 0.067,
+      "module:construction": 0,
+      "module:environment": 0,
+      "module:nightglow": 0,
+      "module:postprocess": 0,
+      "module:perf": 0,
+      "module:camera": 0,
+      "module:heroes": 0,
+      "module:stationDetail": 0,
+      "player-late": 0,
+      "drivers": 0.033,
+      "camera": 0.067,
+      "render": 2489.2
+     },
+     "drawCalls": 287,
+     "triangles": 10357347
+    }
+   },
+   {
+    "id": "off:shadow",
+    "off": [
+     "shadow"
+    ],
+    "seconds": 21.88,
+    "summary": {
+     "interval": {
+      "frames": 2,
+      "mean": 7202.95,
+      "p50": 7385.8,
+      "p95": 7385.8,
+      "max": 7385.8,
+      "fps": 0.1
+     },
+     "cpu": {
+      "frames": 3,
+      "mean": 53.83,
+      "p50": 53.6,
+      "p95": 64.8,
+      "max": 64.8,
+      "fps": 18.6
+     },
+     "gpu": {
+      "frames": 3,
+      "mean": 7262.12,
+      "p50": 7365.36,
+      "p95": 7441.11,
+      "max": 7441.11,
+      "fps": 0.1
+     },
+     "sections": {
+      "player": 0.033,
+      "module:geo": 0,
+      "module:data": 0,
+      "module:ground": 0,
+      "module:buildings": 0,
+      "module:station": 0,
+      "module:signs": 0,
+      "module:streetscape": 0,
+      "module:traffic": 17.067,
+      "module:life": 29.133,
+      "module:trains": 0.1,
+      "module:construction": 0,
+      "module:environment": 0,
+      "module:nightglow": 0,
+      "module:postprocess": 0,
+      "module:perf": 0,
+      "module:camera": 0,
+      "module:heroes": 0,
+      "module:stationDetail": 0,
+      "player-late": 0,
+      "drivers": 0.067,
+      "camera": 0.033,
+      "render": 7.3
+     },
+     "drawCalls": 255,
+     "triangles": 10244709
+    }
+   },
+   {
+    "id": "off:gtao",
+    "off": [
+     "gtao"
+    ],
+    "seconds": 18.77,
+    "summary": {
+     "interval": {
+      "frames": 2,
+      "mean": 5752.3,
+      "p50": 5888.5,
+      "p95": 5888.5,
+      "max": 5888.5,
+      "fps": 0.2
+     },
+     "cpu": {
+      "frames": 3,
+      "mean": 48.47,
+      "p50": 47.4,
+      "p95": 58.4,
+      "max": 58.4,
+      "fps": 20.6
+     },
+     "gpu": {
+      "frames": 3,
+      "mean": 6232.29,
+      "p50": 5859.87,
+      "p95": 7245.03,
+      "max": 7245.03,
+      "fps": 0.2
+     },
+     "sections": {
+      "player": 0.033,
+      "module:geo": 0,
+      "module:data": 0,
+      "module:ground": 0,
+      "module:buildings": 0,
+      "module:station": 0,
+      "module:signs": 0,
+      "module:streetscape": 0,
+      "module:traffic": 10.733,
+      "module:life": 31.733,
+      "module:trains": 0.067,
+      "module:construction": 0,
+      "module:environment": 0,
+      "module:nightglow": 0,
+      "module:postprocess": 0,
+      "module:perf": 0,
+      "module:camera": 0,
+      "module:heroes": 0,
+      "module:stationDetail": 0,
+      "player-late": 0,
+      "drivers": 0.067,
+      "camera": 0.1,
+      "render": 5.7
+     },
+     "drawCalls": 162,
+     "triangles": 5229234
+    }
+   },
+   {
+    "id": "off:hqcrowd",
+    "off": [
+     "hqcrowd"
+    ],
+    "seconds": 18.07,
+    "summary": {
+     "interval": {
+      "frames": 2,
+      "mean": 6138.55,
+      "p50": 6295,
+      "p95": 6295,
+      "max": 6295,
+      "fps": 0.2
+     },
+     "cpu": {
+      "frames": 3,
+      "mean": 56.33,
+      "p50": 54.4,
+      "p95": 68.5,
+      "max": 68.5,
+      "fps": 17.8
+     },
+     "gpu": {
+      "frames": 3,
+      "mean": 5989.89,
+      "p50": 5939.18,
+      "p95": 6270.8,
+      "max": 6270.8,
+      "fps": 0.2
+     },
+     "sections": {
+      "player": 0,
+      "module:geo": 0,
+      "module:data": 0,
+      "module:ground": 0.033,
+      "module:buildings": 0,
+      "module:station": 0,
+      "module:signs": 0,
+      "module:streetscape": 0,
+      "module:traffic": 11.233,
+      "module:life": 37.067,
+      "module:trains": 0.033,
+      "module:construction": 0,
+      "module:environment": 0,
+      "module:nightglow": 0,
+      "module:postprocess": 0,
+      "module:perf": 0,
+      "module:camera": 0,
+      "module:heroes": 0,
+      "module:stationDetail": 0,
+      "player-late": 0,
+      "drivers": 0.233,
+      "camera": 0.067,
+      "render": 7.567
+     },
+     "drawCalls": 313,
+     "triangles": 4203719
+    }
+   },
+   {
+    "id": "off:render",
+    "off": [
+     "render"
+    ],
+    "seconds": 5.57,
+    "summary": {
+     "interval": {
+      "frames": 2,
+      "mean": 35.85,
+      "p50": 51.8,
+      "p95": 51.8,
+      "max": 51.8,
+      "fps": 27.9
+     },
+     "cpu": {
+      "frames": 3,
+      "mean": 21.9,
+      "p50": 14.2,
+      "p95": 40.5,
+      "max": 40.5,
+      "fps": 45.7
+     },
+     "gpu": {
+      "frames": 2,
+      "mean": 2734.24,
+      "p50": 5468.47,
+      "p95": 5468.47,
+      "max": 5468.47,
+      "fps": 0.4
+     },
+     "sections": {
+      "player": 0,
+      "module:geo": 0,
+      "module:data": 0,
+      "module:ground": 0,
+      "module:buildings": 0,
+      "module:station": 0,
+      "module:signs": 0,
+      "module:streetscape": 0,
+      "module:traffic": 7.167,
+      "module:life": 14.467,
+      "module:trains": 0.067,
+      "module:construction": 0,
+      "module:environment": 0,
+      "module:nightglow": 0,
+      "module:postprocess": 0,
+      "module:perf": 0,
+      "module:camera": 0,
+      "module:heroes": 0,
+      "module:stationDetail": 0,
+      "player-late": 0,
+      "drivers": 0.033,
+      "camera": 0.033,
+      "render": 0.033
+     },
+     "drawCalls": 313,
+     "triangles": 4203719
+    }
+   },
+   {
+    "id": "baseline-again",
+    "off": [],
+    "seconds": 14.5,
+    "summary": {
+     "interval": {
+      "frames": 2,
+      "mean": 7241.05,
+      "p50": 7457.2,
+      "p95": 7457.2,
+      "max": 7457.2,
+      "fps": 0.1
+     },
+     "cpu": {
+      "frames": 3,
+      "mean": 44.43,
+      "p50": 51.6,
+      "p95": 73.4,
+      "max": 73.4,
+      "fps": 22.5
+     },
+     "gpu": {
+      "frames": 2,
+      "mean": 7234.3,
+      "p50": 7404.57,
+      "p95": 7404.57,
+      "max": 7404.57,
+      "fps": 0.1
+     },
+     "sections": {
+      "player": 0,
+      "module:geo": 0,
+      "module:data": 0,
+      "module:ground": 0,
+      "module:buildings": 0,
+      "module:station": 0,
+      "module:signs": 0.033,
+      "module:streetscape": 0.033,
+      "module:traffic": 9.9,
+      "module:life": 25.967,
+      "module:trains": 0.033,
+      "module:construction": 0,
+      "module:environment": 0,
+      "module:nightglow": 0,
+      "module:postprocess": 0,
+      "module:perf": 0,
+      "module:camera": 0,
+      "module:heroes": 0.033,
+      "module:stationDetail": 0,
+      "player-late": 0,
+      "drivers": 0.033,
+      "camera": 0.733,
+      "render": 7.667
+     },
+     "drawCalls": 287,
+     "triangles": 10351587
+    }
+   }
+  ],
+  "costs": [
+   {
+    "feature": "render",
+    "frameMs": 35.85,
+    "savesMs": 7311.7,
+    "fps": 27.9
+   },
+   {
+    "feature": "gtao",
+    "frameMs": 5752.3,
+    "savesMs": 1595.25,
+    "fps": 0.2
+   },
+   {
+    "feature": "hqcrowd",
+    "frameMs": 6138.55,
+    "savesMs": 1209,
+    "fps": 0.2
+   },
+   {
+    "feature": "shadow",
+    "frameMs": 7202.95,
+    "savesMs": 144.6,
+    "fps": 0.1
+   }
+  ]
+ },
+ "console": {
+  "messages": 19,
+  "errors": 0,
+  "list": []
+ }
+}

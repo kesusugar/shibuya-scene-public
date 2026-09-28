@@ -1,0 +1,11 @@
+{
+  "what": "Baseline before PLAN-LOOKS-AND-FLEET, master 9435b53 (branch claude/looks-fleet-1 before Step A)",
+  "date": "2026-09-25",
+  "machine": "the user's Windows 11 PC, Chrome (visible tab, driven by Claude in Chrome), npm run dev:local",
+  "note": "fps is the rAF rate over 5 s after the page settled; machine-dependent and not a performance acceptance. The same session later ran at 5.5 fps on the same URL with no code change (see step-a), so fps between sessions is noise here; compare A/B inside one session.",
+  "samples": [
+    {"url": "?qa=1&tier=high&time=day&camera=scramble", "fps": 12.0, "drawCalls": 341, "triangles": 10319159, "movingVehicles": 85, "parkedVehicles": 12, "consoleErrors": 0, "alert": false},
+    {"url": "?qa=1&tier=high&time=day&camera=street", "fps": 8.8, "drawCalls": 345, "triangles": 24672327, "hqDrawCalls": 12, "consoleErrors": 0, "alert": false},
+    {"url": "?qa=1&tier=high&time=night&camera=street", "fps": 8.2, "drawCalls": 353, "triangles": 24873497, "hqDrawCalls": 12, "consoleErrors": 0, "alert": false}
+  ]
+}

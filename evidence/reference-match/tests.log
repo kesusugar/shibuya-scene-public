@@ -1,0 +1,13 @@
+✔ Reference cast occupies safe wide waiting bands without population growth (5.500129ms)
+✔ Reference pedestrians ignore mutual occupancy but retain vehicle blocking (0.565781ms)
+✔ Reference full signal cycle launches simultaneous groups and restores vehicle flow (5170.457561ms)
+✔ Reference quality changes remain bounded and release signal occupants on disposal (20.541739ms)
+✔ Reference signage retains layer roles and valid placements with commercial concentration (9977.364869ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 95651.496219

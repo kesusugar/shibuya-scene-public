@@ -1,0 +1,16 @@
+{
+ "url": "http://<local>/qa/gta-upgrade/cmu-weaponbench.html?only=rifle-raise&times=0,0.5,1.4",
+ "ready": true,
+ "bench": {
+  "clips": [
+   "rifle-raise"
+  ],
+  "lines": [
+   "three-quarter front (player's right) / right side; columns are clip time",
+   "short gun (proxy 仮): CMU 80_03 low ready to shouldered aim (source 1.9-7.0 s): 0.00s 0.50s 1.40s | measured {\"leftMissCm\":0,\"handsApartSourceM\":0.442,\"handsApartTargetM\":0.28,\"wristDeg\":{\"right\":{\"bendMedian\":28,\"bendMax\":34,\"twistMax\":28},\"left\":{\"bendMedian\":12,\"bendMax\":20,\"twistMax\":24}},\"gripPeakMs\":1.4,\"eyeToSightLineCm\":{\"median\":0.1,\"max\":2.1}}"
+  ],
+  "calls": 11
+ },
+ "console": [],
+ "errors": 0
+}

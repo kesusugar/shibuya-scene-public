@@ -1,0 +1,38 @@
+{
+  "high": {
+    "tier": "high",
+    "patches": 71,
+    "reflections": 30,
+    "triangles": 988,
+    "batches": 2,
+    "extraBloomDrawCalls": 2,
+    "geometries": 2,
+    "addedLights": 0,
+    "active": true,
+    "bloomStrength": 0.18
+  },
+  "medium": {
+    "tier": "medium",
+    "patches": 36,
+    "reflections": 15,
+    "triangles": 469,
+    "batches": 2,
+    "extraBloomDrawCalls": 2,
+    "geometries": 2,
+    "addedLights": 0,
+    "active": true,
+    "bloomStrength": 0.1
+  },
+  "low": {
+    "tier": "low",
+    "patches": 10,
+    "reflections": 4,
+    "triangles": 131,
+    "batches": 2,
+    "extraBloomDrawCalls": 0,
+    "geometries": 2,
+    "addedLights": 0,
+    "active": true,
+    "bloomStrength": 0
+  }
+}

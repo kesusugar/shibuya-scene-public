@@ -1,0 +1,19 @@
+✔ S10 walkable graph uses surface footways, excludes obstacles, and supports chained destinations (7.238531ms)
+✔ S10 scramble has all four mapped main crossings plus diagonal in both directions (1.013718ms)
+✔ S10 HIGH MEDIUM LOW density, archetypes, idle, milling and family groups (222.255289ms)
+✔ S10 fixed pools and geometry identities survive profile changes and dispose twice (410.056792ms)
+✔ S10 fail-closed signals, GREEN wait and late-phase admission suppression (244.355415ms)
+✔ S10 crossing completes after nominal phase while cars wait then resume after clearance (304.346506ms)
+✔ S10 waiting queues pack without spawning in lanes or overlap and unknown signals deny entry (311.48303ms)
+✔ S10 LOD throttles far actors and debug is opt-in (195.732212ms)
+✔ S10 integrated three-minute HIGH crowd and vehicle audit (33405.91719ms)
+✔ S10 retains S2–S9 and excludes S11+ and gameplay (1.95342ms)
+✔ S10 exit reservation is a capacity constraint, distinct from an actual body overlap (233.393824ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 196266.684289

@@ -1,0 +1,51 @@
+<!doctype html><meta charset="utf-8"><title>radio bench</title>
+<style>html,body{margin:0;background:#15181d;color:#dfe6ef;font:12px monospace}canvas{display:block}</style>
+<canvas id="c" width="1600" height="960"></canvas>
+<!--
+  Roadmap stage 6: the car radio, rendered offline (OfflineAudioContext) through the game's own
+  radio.mjs -- each station's first song from bar 12 (the chorus), 12 s. Drawn: the waveform and a
+  band-energy strip (low / low-mid / high-mid / high over time), with RMS and peak. The renders are
+  also handed back as 22.05 kHz WAVs (`__BENCH__.files`, with ?n=<station>) so they can be listened to.
+
+  `node qa/gta-upgrade/weaponbench-capture.mjs out.png "" radiobench.html` saves it.
+-->
+<script type="module">
+import {createRadio,RADIO} from '/src/audio/radio.mjs';
+import {STATIONS} from '/src/audio/radio-music.mjs';
+const SECONDS=12,RATE=22050,W=1600,ROW=160,c=document.getElementById('c').getContext('2d');
+const lines=[],files={};
+const wav=samples=>{const n=samples.length,b=new DataView(new ArrayBuffer(44+n*2));const s=(o,t)=>{for(let i=0;i<t.length;i++)b.setUint8(o+i,t.charCodeAt(i));};
+ s(0,'RIFF');b.setUint32(4,36+n*2,true);s(8,'WAVE');s(12,'fmt ');b.setUint32(16,16,true);b.setUint16(20,1,true);b.setUint16(22,1,true);b.setUint32(24,RATE,true);b.setUint32(28,RATE*2,true);b.setUint16(32,2,true);b.setUint16(34,16,true);s(36,'data');b.setUint32(40,n*2,true);
+ for(let i=0;i<n;i++)b.setInt16(44+i*2,Math.max(-1,Math.min(1,samples[i]))*32767,true);
+ let bin='';const u=new Uint8Array(b.buffer);for(let i=0;i<u.length;i+=32768)bin+=String.fromCharCode(...u.subarray(i,i+32768));return btoa(bin);};
+c.fillStyle='#15181d';c.fillRect(0,0,W,960);
+const only=new URLSearchParams(location.search).get('n');
+for(const [i,st] of STATIONS.entries()){
+ if(only!==null&&String(i)!==only)continue;
+ const ctx=new OfflineAudioContext(1,RATE*SECONDS,RATE);
+ const song=st.songs[0],t0=12*240/song.bpm;
+ let wall=t0-i*RADIO.stationOffset;
+ const radio=createRadio({context:()=>ctx,clock:()=>wall});
+ radio.tune(i);radio.update(0,{on:true,ahead:SECONDS+1,offline:true});
+ const buf=await ctx.startRendering(),d=buf.getChannelData(0);
+ let sum=0,peak=0;for(const v of d){sum+=v*v;peak=Math.max(peak,Math.abs(v));}
+ const rms=Math.sqrt(sum/d.length);
+ // Band energies over time: one-pole splits, 40 ms windows.
+ const y0=i*ROW;c.fillStyle='#1d2229';c.fillRect(0,y0+2,W,ROW-4);
+ c.strokeStyle='#7fb2ff';c.beginPath();for(let x=0;x<W;x++){let lo=1,hi=-1;const a=Math.floor(x/W*d.length),b=Math.floor((x+1)/W*d.length);for(let k=a;k<b;k++){lo=Math.min(lo,d[k]);hi=Math.max(hi,d[k]);}c.moveTo(x,y0+60-hi*55);c.lineTo(x,y0+60-lo*55);}c.stroke();
+ const bands=[[0,150],[150,800],[800,3000],[3000,11000]],colours=['#ff6b5a','#ffc24a','#6be08a','#6bc8ff'];
+ const win=Math.floor(RATE*.04),n=Math.floor(d.length/win);
+ const lp=f=>1-Math.exp(-2*Math.PI*f/RATE);
+ const share=[];
+ for(const [bi,[f0,f1]] of bands.entries()){let a=0,b=0,all=0;const ka=lp(f0||1),kb=lp(f1);const e=new Float32Array(n);
+  for(let w=0;w<n;w++){let s=0;for(let k=w*win;k<(w+1)*win;k++){a+=ka*(d[k]-a);b+=kb*(d[k]-b);const band=f0?b-a:b;s+=band*band;}e[w]=Math.sqrt(s/win);all+=s;}share.push(all);
+  c.fillStyle=colours[bi];for(let w=0;w<n;w++){const h=Math.min(1,e[w]*6)*16;c.fillRect(w/n*W,y0+120+bi*9-h/2+4,Math.max(1,W/n),Math.max(1,h/2));}}
+ c.fillStyle='#fff';c.fillText(`${st.freq} ${st.name} (${st.genre}) -- "${song.title}" / ${song.artist}   ${song.bpm} bpm   rms ${rms.toFixed(3)} peak ${peak.toFixed(3)}   notes ${radio.stats.notes}   energy <150 / -800 / -3k / >3k Hz: ${share.map(v=>(v/(share.reduce((x,y)=>x+y,0)||1)*100).toFixed(0)+'%').join(' / ')}`,8,y0+16);
+ const tot=share.reduce((x,y)=>x+y,0)||1;
+ lines.push(`${st.id}: rms ${rms.toFixed(3)} peak ${peak.toFixed(3)} notes ${radio.stats.notes} energy low/lowmid/highmid/high ${share.map(v=>(v/tot*100).toFixed(0)+'%').join('/')}`);
+ files[`radio-${st.id}.wav`]=wav(d);
+}
+// The WAVs only for one station at a time (?n=): six at once is more than the capture takes back.
+window.__BENCH__={lines,...(only!==null?{files}:{}),size:[W,960]};
+document.title='ready';
+</script>

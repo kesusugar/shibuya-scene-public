@@ -1,0 +1,126 @@
+{
+  "high": {
+    "geometries": 2,
+    "materials": 1,
+    "batches": 2,
+    "textures": 0,
+    "lights": 0,
+    "triangles": 2364,
+    "tier": "high",
+    "routeCount": 3,
+    "sets": 3,
+    "JR": 2,
+    "Ginza": 1,
+    "stops": 0,
+    "departures": 0,
+    "recycles": 0,
+    "trains": [
+      {
+        "id": 0,
+        "type": "JR",
+        "route": "JR:way/146060265+way/146060273+way/211954209+way/211954421+way/853258588+way/853258594",
+        "speed": 8.080000000000005,
+        "state": "running",
+        "distance": -25.842000000000002,
+        "stop": 362.05,
+        "direction": 1
+      },
+      {
+        "id": 1,
+        "type": "Ginza",
+        "route": "Ginza:way/759134299+way/834249968",
+        "speed": 0.8000000000000003,
+        "state": "running",
+        "distance": 175.98649728124204,
+        "stop": 50.1,
+        "direction": -1
+      },
+      {
+        "id": 2,
+        "type": "JR",
+        "route": "JR:way/146060331+way/146060379+way/146060426+way/853258589+way/853258593",
+        "speed": 0,
+        "state": "waiting",
+        "distance": 584.3402889098434,
+        "stop": 363.05,
+        "direction": -1
+      }
+    ]
+  },
+  "medium": {
+    "geometries": 2,
+    "materials": 1,
+    "batches": 2,
+    "textures": 0,
+    "lights": 0,
+    "triangles": 2364,
+    "tier": "medium",
+    "routeCount": 3,
+    "sets": 2,
+    "JR": 1,
+    "Ginza": 1,
+    "stops": 0,
+    "departures": 0,
+    "recycles": 0,
+    "trains": [
+      {
+        "id": 0,
+        "type": "JR",
+        "route": "JR:way/146060265+way/146060273+way/211954209+way/211954421+way/853258588+way/853258594",
+        "speed": 12,
+        "state": "running",
+        "distance": 108.7500000000002,
+        "stop": 362.05,
+        "direction": 1
+      },
+      {
+        "id": 1,
+        "type": "Ginza",
+        "route": "Ginza:way/759134299+way/834249968",
+        "speed": 8,
+        "state": "running",
+        "distance": 112.026497281242,
+        "stop": 50.1,
+        "direction": -1
+      }
+    ]
+  },
+  "low": {
+    "geometries": 2,
+    "materials": 1,
+    "batches": 2,
+    "textures": 0,
+    "lights": 0,
+    "triangles": 2364,
+    "tier": "low",
+    "routeCount": 3,
+    "sets": 2,
+    "JR": 1,
+    "Ginza": 1,
+    "stops": 0,
+    "departures": 0,
+    "recycles": 0,
+    "trains": [
+      {
+        "id": 0,
+        "type": "JR",
+        "route": "JR:way/146060265+way/146060273+way/211954209+way/211954421+way/853258588+way/853258594",
+        "speed": 12,
+        "state": "running",
+        "distance": 252.74999999999906,
+        "stop": 362.05,
+        "direction": 1
+      },
+      {
+        "id": 1,
+        "type": "Ginza",
+        "route": "Ginza:way/759134299+way/834249968",
+        "speed": 0.566902821364421,
+        "state": "running",
+        "distance": 50.244171473407896,
+        "stop": 50.1,
+        "direction": -1
+      }
+    ]
+  }
+}

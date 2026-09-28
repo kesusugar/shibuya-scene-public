@@ -1,0 +1,13 @@
+{
+ "url": "http://<local>/qa/gta-upgrade/stage6bench.html",
+ "ready": true,
+ "bench": {
+  "lines": [
+   "saloon: dents 3 panes {\"front\":2,\"rear\":0,\"left\":0,\"right\":1} shattered front",
+   "own car: dents 5 panes {\"front\":0,\"rear\":2,\"left\":0,\"right\":2}",
+   "lean at 14 m/s, 0.45 rad/s: -0.571"
+  ]
+ },
+ "console": [],
+ "errors": 0
+}

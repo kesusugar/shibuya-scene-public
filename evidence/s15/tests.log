@@ -1,0 +1,14 @@
+✔ S15 transforms finite and cranes/props stay on the four reserved rooftop hosts (5.487407ms)
+✔ S15 HIGH/MEDIUM/LOW reuse resources with bounded crane/zone counts (1.548695ms)
+✔ S15 roof-contained placement has zero road/crosswalk/rail/Hero/station interference (17910.520427ms)
+✔ S15 warning emission changes only with shared DAY/NIGHT state; no lights/textures/animation (0.391448ms)
+✔ S15 preserves quality and scene integration without later systems or gameplay (0.48088ms)
+✔ S15 dispose is idempotent and releases pooled resources/subscription once (0.452217ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 18861.010047

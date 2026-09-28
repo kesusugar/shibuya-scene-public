@@ -1,0 +1,18 @@
+Police voice lines (public/audio/police/)
+=========================================
+
+Generated with speech-synthesis models by scripts/police-voice/ (roadmap ①). The text of every line
+is this project's own (assets/police-voice/lines.json).
+
+Loudspeaker and dispatch radio lines (use: megaphone, radio)
+  Engine/model: Kokoro-82M, voice jm_kumo -- https://huggingface.co/hexgrad/Kokoro-82M
+  Licence: Apache License 2.0 -- https://www.apache.org/licenses/LICENSE-2.0
+
+Officer shouts (use: shout -- freeze, drop-gun, warn, arrest)
+  Engine/model: Style-Bert-VITS2 JVNV model jvnv-M1-jp (style: Angry)
+    https://huggingface.co/litagin/style_bert_vits2_jvnv  (models by litagin)
+  Trained on the JVNV corpus (Detai Xin, Junfeng Jiang, Shinnosuke Takamichi, Yuki Saito,
+    Akiko Aizawa, Hiroshi Saruwatari), https://sites.google.com/site/shinnosuketakamichi/research-topics/jvnv_corpus
+  Licence: CC BY-SA 4.0 -- https://creativecommons.org/licenses/by-sa/4.0/
+  These four audio files (freeze.mp3, drop-gun.mp3, warn.mp3, arrest.mp3) are shared under
+  CC BY-SA 4.0 as well.

@@ -1,0 +1,138 @@
+RUN S9 — Traffic System
+Base: 11b5721074f113164559d892b38ca77723955e59
+Current: revision containing this report; exact SHA is included in delivery.
+S9 only. No subagents. No S10+ or GTA implementation.
+
+Graph: {"nodes":150,"edges":207,"lanes":334,"transitions":777,"rejectedLanes":26,"generationMs":11790}
+
+HIGH
+Initial moving 62, parked 2; types {"taxi":11,"sedan":21,"kei":11,"van":5,"bus":5,"keiTruck":7,"scooter":4}
+Traffic geometry 35, materials 6, textures 0, batches 35, triangles 18088, actual lights 0
+Scene CPU sum: triangles 402434, batches 103. These exclude S0 grid/axes and S1 diagnostics; not measured GPU drawCalls.
+
+MEDIUM
+Initial moving 30, parked 6; types {"taxi":7,"sedan":7,"kei":8,"van":4,"bus":2,"keiTruck":5,"scooter":3}
+Traffic geometry 35, materials 6, textures 0, batches 35, triangles 12144, actual lights 0
+Scene CPU sum: triangles 375754, batches 103. These exclude S0 grid/axes and S1 diagnostics; not measured GPU drawCalls.
+
+LOW
+Initial moving 14, parked 3; types {"taxi":3,"sedan":3,"kei":4,"van":3,"bus":1,"keiTruck":1,"scooter":2}
+Traffic geometry 35, materials 6, textures 0, batches 35, triangles 8084, actual lights 0
+Scene CPU sum: triangles 350016, batches 97. These exclude S0 grid/axes and S1 diagnostics; not measured GPU drawCalls.
+
+180-second HIGH simulation:
+{
+  "spawned": 153,
+  "admissions": {
+    "junction:1:-3:NS": 5,
+    "junction:1:-2:NS": 5,
+    "junction:4:-2:NS": 3,
+    "junction:-3:-3:NS": 1358,
+    "junction:1:5:NS": 4,
+    "scramble:NS": 4,
+    "junction:4:0:NS": 7,
+    "junction:0:2:NS": 6,
+    "junction:0:-4:EW": 4,
+    "junction:-5:4:EW": 2,
+    "junction:-3:-3:EW": 1,
+    "junction:-4:-3:EW": 813,
+    "junction:-4:-1:EW": 2,
+    "scramble:EW": 4,
+    "junction:3:0:EW": 5,
+    "junction:4:-2:EW": 3,
+    "junction:-2:-3:EW": 4,
+    "junction:5:3:EW": 5,
+    "junction:-5:-4:EW": 1,
+    "junction:4:0:EW": 2,
+    "junction:4:-4:EW": 1,
+    "junction:1:-4:EW": 3,
+    "junction:-2:-3:NS": 1,
+    "junction:1:-4:NS": 1,
+    "junction:0:-2:EW": 1
+  },
+  "crossingEntries": {
+    "junction:1:-3:NS": 5,
+    "junction:4:-2:NS": 3,
+    "junction:4:0:NS": 10,
+    "junction:1:-2:NS": 5,
+    "junction:0:2:NS": 6,
+    "scramble:NS": 10,
+    "junction:4:0:EW": 3,
+    "junction:1:5:NS": 1,
+    "junction:0:-4:EW": 4,
+    "junction:5:3:EW": 4,
+    "junction:-4:-1:EW": 2,
+    "junction:3:0:EW": 10,
+    "junction:4:-4:EW": 1,
+    "junction:-2:-3:EW": 4,
+    "junction:-3:-3:EW": 1,
+    "scramble:EW": 8,
+    "junction:-5:-4:EW": 1,
+    "junction:-5:4:EW": 2,
+    "junction:-4:-3:EW": 3,
+    "junction:4:-2:EW": 3,
+    "junction:1:-4:EW": 3,
+    "junction:1:-4:NS": 4,
+    "junction:-2:-3:NS": 1,
+    "junction:0:-2:EW": 1
+  },
+  "junctionEntries": 195,
+  "distanceTravelled": 9784.68057468225,
+  "despawned": 80,
+  "recoveries": 18,
+  "routeFailures": 62,
+  "permitYields": 2172,
+  "stuck": 18,
+  "redViolations": 0,
+  "redEvents": [],
+  "overlaps": 0,
+  "blockedEntries": 93286,
+  "neighborChecks": 12146207,
+  "updateMs": 0.7690550000115763,
+  "reasons": {
+    "route-end": 62,
+    "stuck": 18
+  },
+  "tier": "high",
+  "moving": 61,
+  "parked": 12,
+  "types": {
+    "taxi": 12,
+    "sedan": 14,
+    "kei": 17,
+    "van": 15,
+    "bus": 7,
+    "keiTruck": 5,
+    "scooter": 3
+  },
+  "signalGroups": 40
+}
+Audit: {"major":0,"samples":[]}
+CPU update milliseconds: {"median":0.8629559999972116,"p95":1.3780990000086604,"max":40.13108000000648} (Node timing; not browser FPS).
+
+Validation:
+ℹ tests 202
+ℹ pass 202
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ duration_ms 133935.079073
+Build result: see build.txt. Browser/console/visual result: see browser.txt.
+Existing Visual QA destination: https://shibuya-scene-visual-qa.kesdemon.chatgpt.site (publication outcome in delivery).
+
+Architecture / limitations:
+- Directed surface-road graph follows OSM one-way metadata. Shared OSM coordinate vertices define connectivity; grade-separated and prohibited roads excluded. Geometry stays within the existing 500m tile.
+- Left offsets use width/estimated lanes. No lane changes or immediate U-turns. Dead ends and unsafe continuations use pooled despawn/recovery rather than reversing through traffic.
+- Curved connections are sampled with each vehicle envelope and a 30cm static margin. Next lanes without a safe waiting position are excluded per vehicle type. This is a conservative route network, not a complete surveyed traffic model.
+- Only roadside original procedural vehicle meshes are added. Seven types; taxi roof marker, sedan/kei/van/bus/kei-truck/scooter proportions. No manufacturer logos or copied assets.
+- Fixed 82-slot pool, 30Hz simulation, reusable spatial buckets and scalar oriented-box tests. Following looks 25m ahead; junction exit checks extend to at most 60m. Stop-line queues and junction reservation cells prevent enter-then-stop behavior.
+- Signal cycle is a POC NS / yellow / clearance / EW / yellow / clearance / future pedestrian phase. Signal groups cluster mapped crossings; S8 lens overlays share one instanced mesh. S10 read API is exposed through signalAPI; no pedestrians are generated.
+- Permission is acquired before entry and retained while a vehicle clears the same crossing group, including a legal turn. Red violations count entry without a permit; vehicles already clearing a permitted movement may finish. WALK is withheld until the group is empty.
+- Admission and permit-yield counters count retry evaluations, not distinct vehicles. crossingEntries records actual front-bumper entries. A stopped vehicle outside crossing/junction space yields its permit so another axis can flow.
+- Reservations persist until the rear clears the connection. Entry is blocked if exit space is occupied. Tight/ambiguous routes are excluded; dead-end and >100s stuck recovery counts above are explicit limitations.
+- Parked vehicles occupy selected non-major curb lanes, outside scramble and S6 station exclusion; they never occupy a sidewalk or crossing approach. Other traffic safely queues behind parked vehicles; no overtaking/lane changing in S9.
+- Geometry safety is CPU sampled and polygon bounded. Continuous real-world traffic engineering, actual signal timings, OSM turn-restriction relations and rigid-body physics are outside this POC.
+- S0-S8 runtime modules remain unchanged. Historical S7/S8 forward-stage guards now permit the newly authorized buildTraffic; all earlier assertions remain. Existing untracked validation logs are untouched.
+- S8 road-contained fixtures and S9 road-contained vehicle envelopes are disjoint; explicit S8 fixture, sign and station volumes are included when building the integrated graph.
+- Scene totals are sums of CPU geometry, not frustum-culling/GPU draw calls. Renderer resolution and profiles are unchanged. WebGL/FPS claims require actual browser support.
+STOP after S9.

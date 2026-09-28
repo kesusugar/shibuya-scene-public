@@ -1,0 +1,15 @@
+{
+  "what": "PLAN-POLICE-AND-OWN-CAR Step H (the player's own car, Kaze FR), device check",
+  "date": "2026-09-25",
+  "machine": "the user's Windows 11 PC, Chrome (visible tab, driven by Claude in Chrome), npm run dev:local",
+  "night_street_player_mode": {"spawned_type": "ownCar", "own_car_distance_m": 36, "entered_with_F": true, "occupancy": "PLAYER SEATED", "fps_in_car": 4.6, "drawCalls_in_car": 406, "consoleErrors": 0, "alert": false},
+  "visual": [
+    "night-own-car-parked.jpg / night-own-car-kit.png: orange body, black bonnet, side skirts, lip and wing; parked it is drawn by the fleet batch with the pods shut",
+    "night-driving.jpg / round-tails-wing.png: the close-up model from behind: four round tail lamps and the wing"
+  ],
+  "not_checked_on_device": [
+    "the pop-up pods rising (not visible from the chase camera; covered by tests/own-car.test.mjs, which measures the pod rising and the lamp facing forward)",
+    "the drift feel and the engine note by ear",
+    "the recall after walking 160 m away (tested)"
+  ]
+}

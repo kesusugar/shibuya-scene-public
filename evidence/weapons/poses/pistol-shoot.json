@@ -1,0 +1,16 @@
+{
+ "url": "http://<local>/qa/gta-upgrade/weaponbench.html?pose=pistol-shoot",
+ "ready": true,
+ "bench": {
+  "poses": [
+   "pistol-shoot"
+  ],
+  "lines": [
+   "front | player's right | behind | player's left",
+   "pistol-shoot: pistol shot, at the recoil (0.1 s in)  | grip-to-palm 1.3 cm  | muzzle ray passes 0.0 cm from the target"
+  ],
+  "calls": 8
+ },
+ "console": [],
+ "errors": 0
+}

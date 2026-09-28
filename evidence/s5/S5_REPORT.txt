@@ -1,0 +1,91 @@
+RUN S5 — Station Core 実装・検証記録
+2026-09-09
+
+前提: S0 条件付きPASS、S1/S2/S3/S4 PASS。基準はS5指示v1および要求仕様/受入テスト/実行計画v2。
+S5実装とCPU検証を完了。WebGL visual/FPS PASSは未判定。
+
+Source / alignment
+source rail 96、JR 33、Ginza 7、other 56。
+タグの事業者・路線名・tunnel/layerで分類。地下路線・京王・無名yardは推測で追加していない。
+既存S1 normalized座標 X east / Y up / Z south、±250mを保持。
+JR4連続線形、銀座線4線形（本線2、名前が確認できたyard/approach2）。
+JR総延長 2070.184m、Ginza総延長 449.957m。複数軌道の延長合計であり駅の南北長ではない。
+zero/invalid 0、duplicate segments 0、現データsharp turn 0。その他路線56件は読込監査のみ。
+接続は同分類の一致endpointのみ。source orderを保持したうえでJR南向き/Ginza東向きへ揃え、gapを補間して接続しない。
+rail-audit-before.json / rail-audit.jsonにsource tags、元座標、clip長、endpoint区分を保存。
+
+Core実装
+rail deck 5（JR1/Ginza4）、girder 12、rail pier 100。
+全support 126 = rail pier100 + platform支持17 + pedestrian支持9。
+道路/建物/上部路線の既存構造との競合で不採用support 19。
+通常pier pitch24m。回避後最大span48m。構造計算・実物支間の再現ではない。
+JR deck上面6.5m、Ginza14m、pedestrian6.2m。海抜eleをlocal Yへ誤変換せず、POC用の推定高さをconfig化。
+JR高架幅は4軌道の外側線形に沿い変化。deck、parapet、連続girder。
+rails 16本（8線形×左右）、gauge JR1.067m/Ginza1.435m、sleepers 3877 instance、pitch0.65m、tangent追従。
+track slab上面はdeck+.22、sleeper上端+.36、rail上端+.55で接触を保持。
+platform 3（JR2島、Ginza1島）、tactile 6、white edge6、flat roof 3、post 36、basic platform ribs36。
+platform edgeは線路中心から約2.05m以上を目標として法線方向offset。実検査最小2.00m以上。
+JR platform top8m、roof11.1〜11.28m。Ginza girder下面12.5mと上下分離。
+Ginza専用M断面屋根、48 ribs、端部glass2・mullion6、portal1。texture/広告/案内表示なし。
+
+Hachiko Exit
+元予約way/904652357、入口node/6223298623（47.339761,30.724179）。
+駅footprintと交差する専用plinth、背面壁、開いた西向き入口、canopy/membrane、柱2、緑帯、trim、低い段差。
+bounds X46.339761..58.339761 / Z22.224179..45.224179m。
+基礎bottom0m、床top0.27m、canopy top4.75m。照明anchor1（非稼働metadataのみ）。
+Ground/Heroの移動なし。看板や店舗小物なし。
+
+Pedestrian
+deck 3、階段 1、合計中心線長 171.575m。
+way/854794950 しぶにしデッキ（OSM幅12.6m）
+way/906194249 接続デッキ（OSM幅24.25m）
+way/1354871463 階段への枝（幅3.2mはPOC推定）
+way/1354871464 OSM steps（幅2.6mはPOC推定、手すり付き）
+floor面は連結部をunionし、外周wall/glass/handrailを共有。階段・建物・屋内接続には開口を確保。
+8端点をmapped-junction/building-interface/indoor-interface/ground-stair/closed-continuationとして記録。
+未接続の東端1箇所はbarrierで閉じ、架空の延伸なし。屋内接続way/858994296はinterfaceのみ記録し室内を生成しない。
+
+Reservation監査（残っていた5件）
+way/810356690 | used | Ginza platform/roof envelope
+way/904652357 | used | Hachiko exit envelope; JR station context
+way/904652318 | untouched | Indoor Central Paid Area: deferred, not a separate station mass
+way/904734439 | untouched | Keio station: outside JR/Ginza scope
+way/1350895889 | untouched | New South Exit: outside Hachiko core scope
+Generic/Station、Hero/Station重複IDとも0。未使用予約を一括で建物化していない。
+
+Penetration / regressions
+重大な道路/横断歩道閉塞 0。support footpolygon対road/crossing/buildingを検査。
+sidewalk support overlap 11（minor、位置・面積を記録）。歩行可能幅の実機目視は未検証。
+既存建物の面積を覆うStation部材は高さを考慮して切り欠き、expected interface処理 8。
+Ginza上部支柱はJR deckと歩行者デッキを貫通しないよう不採用にする。
+station-model.jsonとpenetration-audit.jsonに採用/不採用位置、platform/roof/post、全mass範囲を保存。
+S3 generic378 / Hero9 footprints維持。S3道路端重複85件は修正なし。
+Ground 47,829、Generic 160,925、Hero 33,170 trianglesを維持。
+
+Performance / geometry
+Station 75,568 triangles / 11 shared materials / 11 merged + 4 instance batches = 15概算calls。
+instance総数 4,139、unique geometry 12、texture0。
+Ground+Generic+Hero+Station known triangles 317,492 / 概算calls 38（S1 debug線を除く）。
+S5 CPU build 6452ms（Ground/Genericモデルを渡した計測）。通常単独ロードではGround監査生成分も加わり、今回ブラウザ約13秒。
+退化三角形332を収集時に除去。最終geometryのNaN/Infinity、不正index、退化triangle 0。
+変換済み全instance頂点は有限、±251m内、Y23m未満。境界sleepersがclip枠から最大約0.36m突出するが、massは±250m内。
+
+Tests / build / console
+既存101 + S5追加20 = 121 tests PASS / fail0。tests.log参照。
+invalid/zero/duplicate/gap、alignment、gauge/spacing/tangent、platform clearance、support collision、予約、決定論、dispose、module切替等を検証。
+build PASS。build.log参照。大きなchunk、route分類、proxyの注意表示のみ。依存更新や無関係な分割refactorは行っていない。
+CAM-05 Hachiko / CAM-01 Overview選択、Station OFF→ON後ready、既存module/statsをブラウザで確認。
+app-derived Console Error0。拡張機能metadata送信エラーを別記。console.json参照。
+WebGL2利用不可のためCAM-05/CAM-01描画スクリーンショット取得不可、visual/FPS/実renderer.info未検証。
+CPU平面overlay・側面投影を保存/目視確認。側面図は全Xを重ねたmass範囲図であり透視描画ではない。M屋根profileはmetadata参照。
+
+Known limitations
+高さ、ホーム端、屋根断面、支間、入口寸法はPOC近似。測量・構造設計・写真一致は主張しない。
+プラットフォームや手すりの外観、ガラスの見え方、実camera遮蔽、FPSはWebGL環境で未検証。
+既存建物との切り欠き、明示的に閉じたdeck end、minor sidewalk supportは記録済み。
+S5は同期生成。初期ロード時間はGPU描画性能とは別。
+
+保存: src/station、tests、検証スクリプト、CPU図、全監査結果を同一commit/配布ZIPへ収録。
+本レポートを含むcommitのhashは同梱S5_COMMIT.txtを参照。
+Station Detail / Rotary / Gadoshita / Signs / Streetscape / Traffic / Life / Trains / Nightglow / GTA未実装。
+S6以降先行実装なし。デプロイなし。ここでSTOP。

@@ -1,0 +1,250 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "../vendor/shadcn-tailwind-4.13.0.css";
+
+/* Reference-inspired compact overlay, without changing game controls. */
+.presentation header h1 { font-size:clamp(28px,4vw,52px); font-weight:900; letter-spacing:1px; line-height:1; text-shadow:0 3px 16px #0008; }
+.presentation header h1 span { display:none; }
+.presentation header .eyebrow { font-size:11px; color:#d0d2d6; letter-spacing:3px; }
+.presentation .quick-views { max-width:590px; top:100px !important; gap:7px; }
+.presentation .quick-views button,.presentation .quick-views select { background:#090f19b8; border-color:#ffffff26; backdrop-filter:blur(8px); padding:9px 14px; font-size:13px; border-radius:24px; color:#f2f2f5; }
+.presentation .quick-views button[aria-pressed=true] { background:#54687888; border-color:#d9e5ef; }
+.presentation .stats { bottom:auto !important; top:18px !important; right:16px; width:auto !important; display:flex; gap:14px; border-radius:12px; border-color:#ffffff18; padding:6px 12px; }
+.presentation .stats div { gap:7px; }
+.presentation .stats b { color:#e0e3e9; }
+.presentation header > button { position:fixed; top:64px; right:16px; background:#090f19b8; border-radius:20px; font-size:12px; }
+@media(max-width:700px){.presentation .stats{top:auto !important;bottom:60px !important;gap:8px}.presentation .quick-views{top:88px !important;max-width:calc(100% - 24px)}.presentation header h1{font-size:30px}}
+
+/* Give the crossing the full viewport; inspection retains its existing layout. */
+.presentation { position: relative; }
+.presentation header { position:absolute; inset:0 0 auto; z-index:30; border:0; background:linear-gradient(#08101cd9,transparent); pointer-events:none; }
+.presentation header button { pointer-events:auto; }
+.presentation .quick-views { position:absolute; top:76px; left:12px; right:12px; z-index:30; background:transparent; padding:0; }
+.presentation .workspace { height:100dvh !important; min-height:360px; }
+.presentation .view-label { top:auto !important; bottom:18px; padding:8px 12px; background:#08101ca8; border-radius:8px; }
+.presentation .stats { top:auto !important; bottom:16px; background:#08101cb8; }
+@utility scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility scrollbar-gutter-stable {
+  scrollbar-gutter: stable;
+}
+
+:root{--background:#10151d;--foreground:#e4edf3;--primary:#60cee2;--primary-foreground:#06151c;--input:#435569;--ring:#60cee2}*{box-sizing:border-box}body{margin:0;background:var(--background);color:var(--foreground);font-family:Arial,"Noto Sans",sans-serif;font-size:14px}header{height:95px;padding:22px 28px;border-bottom:1px solid #314051;display:flex;align-items:center;justify-content:space-between}.eyebrow{font-size:12px;letter-spacing:2px;color:#85a9ba}h1{font-size:26px;margin:6px 0 0;letter-spacing:3px}h1 span{font-weight:400;letter-spacing:0;color:#a7b7c8;font-size:20px}.badge{border:1px solid #547482;padding:8px 12px;color:#9adee8;font-size:12px}.workspace{display:grid;grid-template-columns:275px 1fr;height:calc(100dvh - 133px);min-height:550px}aside{overflow:auto;padding:20px;border-right:1px solid #314051;background:#151e29}h2{font-size:14px;font-weight:500;margin:22px 0 12px;color:#a2b9ca}h2:first-child{margin-top:0}button{cursor:pointer;font:inherit;border:1px solid #344658;background:#182432;color:#b9ccdb;padding:9px 10px;text-align:left;border-radius:3px}button:hover{background:#24384b}button[aria-pressed=true]{background:#173e49;border-color:#60cee2;color:#b7f1fa}button:focus-visible{outline:2px solid #fff;outline-offset:2px}.cameras{display:grid;gap:5px}.segmented{display:flex;gap:5px}.segmented button{font-size:12px;flex:1;text-align:center;padding:9px 4px}.note{font-size:12px;color:#98acbb;line-height:1.6}.modules{display:grid;gap:10px}.modules label{display:flex;justify-content:space-between;align-items:center;gap:8px}.modules small{font-size:12px;margin-left:8px;color:#8c9dac}.viewport{position:relative;overflow:hidden;background:#111923;min-width:0}.canvas{position:absolute;inset:0}.canvas canvas{display:block;touch-action:none}.view-label{position:absolute;left:24px;top:22px;pointer-events:none;display:grid;gap:8px}.view-label span{color:#9db1c2;font-size:12px}.empty-label{position:absolute;left:24px;bottom:24px;pointer-events:none;color:#a4bfce;font-size:16px;display:grid;gap:10px}.empty-label span{font-size:12px}.stats{position:absolute;right:20px;top:20px;width:172px;padding:12px;background:#0a1019dd;border:1px solid #334757;font-variant-numeric:tabular-nums}.stats div{display:flex;justify-content:space-between;padding:4px 0;font-size:12px}.stats span{color:#a7bfce}.stats b{font-weight:500;color:#a8e6f0}footer{height:38px;display:flex;justify-content:space-between;padding:10px 24px;border-top:1px solid #314051;font-size:12px;color:#8fa8b9}[role=alert]{position:absolute;top:140px;left:25px;background:#6c2222;padding:15px}@media(max-width:700px){header{padding:14px;height:85px}h1{font-size:21px}h1 span{font-size:15px}.badge{display:none}.workspace{grid-template-columns:180px 1fr;height:calc(100dvh - 123px)}aside{padding:12px}.stats{top:85px;right:10px;width:145px}.view-label{left:12px;top:16px}.empty-label{left:12px;right:10px;font-size:14px}.empty-label span{line-height:1.6}footer span{display:none}}
+
+button[data-slot=switch]{padding:0;border-radius:999px;width:32px;height:19px;min-width:32px}button[data-slot=switch][data-state=checked]{background:#60cee2}button[data-slot=switch][data-state=unchecked]{background:#435569}
+
+.qa-capture{position:fixed;right:16px;bottom:16px;z-index:1000;background:#173e49;border-color:#60cee2;color:#d9f8fc;box-shadow:0 4px 18px #0009}.qa-capture:disabled{cursor:wait;opacity:.72}
+.s5-timing{position:absolute;right:20px;bottom:20px;z-index:20;width:min(330px,calc(100% - 40px));max-height:calc(100% - 180px);overflow:auto;padding:14px;background:#07111aee;border:1px solid #60cee2;color:#d9f8fc;box-shadow:0 6px 24px #000b;font-variant-numeric:tabular-nums}.s5-timing h2{margin:0 0 10px;color:#d9f8fc}.s5-timing p{margin:0;color:#a7bfce}.s5-timing dl{margin:0 0 10px}.s5-timing dl div{display:flex;justify-content:space-between;gap:12px;padding:3px 0}.s5-timing dt{color:#a7bfce}.s5-timing dd{margin:0;color:#d9f8fc}.s5-timing button{width:100%;text-align:center;border-color:#60cee2}
+.startup-timing{position:fixed;left:16px;bottom:16px;z-index:1100;width:min(760px,calc(100vw - 32px));max-height:80vh;overflow:auto;padding:16px;background:#07111af2;border:1px solid #60cee2;color:#d9f8fc;box-shadow:0 8px 30px #000c;font-variant-numeric:tabular-nums}.startup-timing h2{margin:0 0 12px;color:#d9f8fc}.startup-timing h3{margin:14px 0 7px;color:#a7bfce;font-size:13px}.startup-timing p{margin:8px 0;color:#a7bfce}.startup-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px 18px;margin:0}.startup-summary div{display:flex;justify-content:space-between;gap:10px}.startup-summary dt{color:#a7bfce}.startup-summary dd{margin:0}.startup-table{display:grid;gap:2px}.startup-row{display:grid;grid-template-columns:minmax(180px,1fr) 72px 72px 82px;gap:10px;padding:3px 5px;background:#10202dcc}.startup-head{color:#84b7c8;background:#152b3b}.startup-timing ol{margin:0;padding-left:22px}.startup-timing li{padding:2px 0}.startup-timing li span{display:inline-block;min-width:220px}.startup-timing button{width:100%;margin-top:8px;text-align:center;border-color:#60cee2}@media(max-width:700px){.startup-summary{grid-template-columns:1fr}.startup-row{grid-template-columns:minmax(130px,1fr) 62px 62px 72px;gap:5px;font-size:12px}}
+
+/* Compact viewing keeps every existing inspection control available. */
+.quick-views{display:flex;gap:6px;flex-wrap:wrap;padding:10px 20px;background:#10151dee}.quick-views button,.quick-views select{border-radius:18px;padding:6px 12px;font-size:12px;background:#192737;color:#dceaf3;border:1px solid #405267}.presentation header{height:75px;padding:12px 20px}.presentation .workspace{grid-template-columns:1fr;height:calc(100dvh - 145px);min-height:360px}.presentation aside,.presentation footer,.presentation>section,.presentation .view-label span,.presentation .empty-label{display:none}.presentation .stats{width:132px;padding:8px;top:12px;right:12px}.presentation .view-label{top:15px;font-size:13px}.presentation h1{font-size:24px}.presentation .eyebrow{font-size:10px}.presentation [role=alert]{max-width:calc(100% - 50px)}@media(max-width:700px){.quick-views{padding:8px 10px;gap:5px}.quick-views button,.quick-views select{padding:5px 8px;font-size:11px}.presentation .workspace{height:calc(100dvh - 178px)}.presentation .view-label{max-width:52%}.presentation header{padding:10px}.presentation h1 span{font-size:15px}}
+.player-hint{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:40;margin:0;padding:8px 16px;font-size:13px;letter-spacing:.02em;color:#dfe8f4;background:#111c2ed9;border:1px solid #738296;border-radius:16px;backdrop-filter:blur(10px);pointer-events:none}
+.player-hint kbd{padding:1px 6px;font:inherit;border:1px solid #93a3b8;border-radius:5px;background:#24374d}
+.player-down{position:fixed;left:50%;top:84px;transform:translateX(-50%);z-index:41;display:flex;align-items:center;gap:12px;padding:10px 16px;color:#ffe3dd;background:#5b1b16e6;border:1px solid #ff8f78;border-radius:14px;backdrop-filter:blur(10px)}
+.player-down button{padding:6px 14px;border-radius:9px;border:1px solid #ffb9a8;background:#8d2b22;color:#fff;cursor:pointer}
+.player-down button:focus-visible{outline:2px solid white;outline-offset:2px}
+/* Game over (player crowd contact, Step E). A dialog, not role=alert: that is the error banner. */
+.game-over{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:16px;background:#05080ccc}.game-over-panel{display:grid;gap:10px;justify-items:center;width:min(360px,100%);padding:24px 20px;color:#ffe3dd;background:#2a0f0cf2;border:1px solid #ff8f78;border-radius:16px;text-align:center}.game-over-panel strong{font-size:30px;letter-spacing:4px;color:#fff}.game-over-panel span{font-size:14px;color:#ffc9bd}.game-over-panel button{margin-top:6px;padding:10px 28px;font-size:16px;border-radius:10px;border:1px solid #ffb9a8;background:#8d2b22;color:#fff;cursor:pointer;text-align:center}.game-over-panel button:focus-visible{outline:2px solid white;outline-offset:2px}
+.solar-controls{position:fixed;right:18px;bottom:18px;z-index:40;display:flex;gap:6px;padding:8px;background:#111c2ed9;border:1px solid #738296;border-radius:16px;backdrop-filter:blur(10px)}
+.solar-controls button{font-size:24px;min-width:48px;min-height:44px;border-radius:10px;background:transparent;border:1px solid transparent;cursor:pointer}
+.solar-controls button[aria-pressed=true]{background:#426b84;border-color:#e2efff;box-shadow:0 0 0 2px #172333}
+.solar-controls button:focus-visible{outline:2px solid white;outline-offset:2px}
+
+/* Diagnostics panel. Laid out for a phone first: it sits along the bottom edge where a thumb
+   reaches, every control clears the 44px tap target, and it moves to a side column only when
+   there is width to spare. */
+.dg{position:fixed;left:0;right:0;bottom:0;z-index:1200;display:flex;flex-direction:column;max-height:56vh;background:#07111af7;border-top:2px solid #f2a25c;color:#f6e6d6;font-variant-numeric:tabular-nums;font-size:14px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.dg-head{display:flex;align-items:center;gap:8px;padding:8px 10px;border-bottom:1px solid #f2a25c55}
+.dg-head strong{color:#f2a25c;font-size:13px;letter-spacing:.08em}
+.dg-tabs{display:flex;gap:6px;flex:1;overflow:auto}
+.dg-tabs button{min-height:40px;padding:0 16px;background:#152230;border:1px solid #3a4a5a;border-radius:999px;color:#c2a893;font-size:14px}
+.dg-tabs button.on{background:#f2a25c;border-color:#f2a25c;color:#1a1005;font-weight:700}
+.dg-fold{min-width:44px;min-height:40px;background:#152230;border:1px solid #3a4a5a;border-radius:8px;color:#f6e6d6;font-size:15px}
+.dg-body{flex:1;min-height:0;max-height:30vh;overflow:auto;padding:10px 12px}
+.dg-body h3{margin:12px 0 6px;font-size:12px;color:#f6e6d6;word-break:break-all}
+.dg-body p{margin:6px 0;line-height:1.5}
+.dg-ok{color:#8fe3a2}.dg-warn{color:#ffb4a2}.dg-note{color:#b8c6d2}
+.dg-rows{display:grid;gap:2px 10px;margin:8px 0}
+.dg-rows2{grid-template-columns:minmax(0,1fr) minmax(88px,auto)}
+.dg-rows3{grid-template-columns:minmax(0,1fr) 68px minmax(0,96px)}
+.dg-rows span{color:#c2a893;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dg-rows b{text-align:right}
+.dg-rows em{color:#8a7a6c;font-style:normal;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dg-rows .dg-live{color:#ffce7a}
+/* The controls only belong on the drive tab; the others are read-only. */
+.dg-pad{display:none;gap:8px;padding:8px 10px 12px;border-top:1px solid #f2a25c33}
+.dg-driving .dg-pad{display:flex;flex-direction:column}
+.dg-acts{display:flex;gap:8px}
+.dg-acts button{flex:1;min-height:46px;background:#152230;border:1px solid #3a4a5a;border-radius:10px;color:#f6e6d6;font-size:14px}
+.dg-folded .dg-body,.dg-folded .dg-pad{display:none}
+@media(min-width:900px){
+ .dg{left:auto;right:16px;bottom:16px;top:96px;width:400px;max-height:none;border:1px solid #f2a25c;border-radius:12px;overflow:hidden}
+}
+
+/* A phone held upright gives this scene a letterbox and puts both thumbs in the same corner.
+   Nothing is blocked in portrait, so this is a suggestion rather than a gate. */
+.tc-rotate{position:absolute;left:50%;bottom:170px;transform:translateX(-50%);padding:10px 16px;background:#07111aee;border:1px solid #f2a25c;border-radius:999px;color:#f6e6d6;font-size:13px;white-space:nowrap;pointer-events:auto}
+@media(orientation:landscape){.tc-rotate{display:none}}
+
+/* Touch controls. On a phone these are the controls, so they sit where thumbs rest and stay
+   out of the middle of the screen, which is the part worth looking at. The overlay itself is
+   transparent to pointers; only the zones and buttons inside it take them. */
+.tc{position:fixed;inset:0;z-index:1150;pointer-events:none}
+.tc[hidden]{display:none}
+/* The stick's catch area is placed off the measured layout rather than guessed at, because
+   the furniture sits in different places in each orientation: upright, the time-of-day row,
+   the stats and the camera label pile up along the floor, so the area stops above them; on
+   its side the camera and quality row runs across the top, so the area starts below that.
+   Upright  390x844: nav ends y221, the bottom cluster starts y740.
+   Sideways 844x390: nav ends y186, the time-of-day row starts x582. */
+.tc-stick{position:absolute;left:0;pointer-events:auto;touch-action:none}
+@media(orientation:portrait){.tc-stick{bottom:112px;width:42%;height:36%;max-width:260px}}
+@media(orientation:landscape){.tc-stick{bottom:4px;width:36%;height:47%;max-width:320px}}
+.tc-base{position:absolute;pointer-events:none;width:132px;height:132px;margin:-66px 0 0 -66px;border:2px solid #f2a25c88;border-radius:50%;background:#07111a55;opacity:0;transition:opacity .12s}
+.tc-base.on{opacity:1}
+.tc-knob{position:absolute;pointer-events:none;left:50%;top:50%;width:58px;height:58px;transform:translate(-50%,-50%);border-radius:50%;background:#f2a25ccc;box-shadow:0 2px 10px #0008}
+/* Clear of the time-of-day row and the hint, both of which live along the bottom edge. */
+.tc-acts{position:absolute;right:14px;bottom:104px;display:flex;flex-direction:column;gap:10px;pointer-events:auto}
+/* The keyboard hint is noise on a device with no keyboard; the buttons say what they do. */
+body.tc-on .player-hint{display:none}
+.tc-acts button{min-width:82px;min-height:52px;padding:0 14px;background:#152230e6;border:1px solid #f2a25c88;border-radius:14px;color:#f6e6d6;font-size:15px;touch-action:none;user-select:none;-webkit-user-select:none}
+.tc-acts button.on{background:#f2a25c;border-color:#f2a25c;color:#1a1005;font-weight:700}
+/* Out of reach: still pressable, but it says so rather than looking live and doing nothing. */
+.tc-acts button.far{border-color:#3a4a5a;color:#8fa0b0;font-size:13px}
+.tc-acts button[hidden]{display:none}
+/* With the diagnostics panel open the controls have to clear it. */
+.dg~.tc .tc-acts{bottom:calc(56vh + 14px)}
+.dg~.tc .tc-stick{height:20%;bottom:calc(56vh + 14px)}
+@media(min-width:900px){.dg~.tc .tc-acts{bottom:104px}.dg~.tc .tc-stick{height:47%;bottom:4px}}
+
+
+/* On a phone held upright the stats block, the time-of-day row and the camera label all
+   land in the same corner and overlap each other. Measured at 390x844: stats y740..784,
+   time-of-day y752..826, label y791..826. Stacked here so each clears the next. */
+@media(max-width:700px) and (orientation:portrait){
+ /* The stats block goes under the camera row instead, where nothing else sits: moving it up
+    the right-hand edge only traded one collision for a clash with the action buttons. */
+ .presentation .stats{top:232px !important;bottom:auto !important;right:12px}
+ /* The label and the time-of-day row then share the floor, one at each end. */
+ .presentation .view-label{bottom:18px;max-width:108px;overflow:hidden}
+ .presentation .solar-controls{bottom:18px}
+}
+
+/* Player mode owns a compact HUD; observation controls remain in observation mode. */
+.playing header,.playing .quick-views,.playing .solar-controls,.playing .stats,.playing .view-label,.playing .player-hint{display:none!important}
+.play-hud{position:fixed;inset:0;z-index:35;pointer-events:none;color:#eef5f6;font-variant-numeric:tabular-nums;font-family:Arial,sans-serif}
+.play-hud[hidden]{display:none}
+.play-hud button{pointer-events:auto;border-radius:8px;background:#16372f;color:#d9fff0;border:1px solid #8fddba55;font-size:12px;padding:8px 12px}
+.play-hud button:disabled{opacity:.55;cursor:default}
+.play-top{position:absolute;top:max(16px,env(safe-area-inset-top));left:20px;right:20px;display:flex;align-items:center;justify-content:space-between}
+.play-brand{font-weight:800;letter-spacing:.18em;text-shadow:0 2px 8px #000;font-size:16px}.play-brand span{font-weight:400;font-size:10px;color:#a8c4c9;margin-left:10px}
+.play-mission{position:absolute;left:20px;top:64px;width:min(320px,calc(100vw - 40px));padding:14px 16px;background:#0b1724dd;border:1px solid #ffffff22;border-left:3px solid #68e7b4;border-radius:10px;backdrop-filter:blur(8px)}
+.play-mission strong{font-size:14px;letter-spacing:.05em}.play-task{font-size:12px;line-height:1.6;color:#c4d4dc;margin:7px 0 10px}.play-task-row{display:flex;gap:10px;align-items:center}.play-timer{font-weight:700;color:#a8ffd5}.play-progress{width:100%;height:5px;accent-color:#68e7b4}
+.play-map{position:absolute;bottom:max(22px,env(safe-area-inset-bottom));left:20px;width:160px;border:1px solid #cadce044;border-radius:14px;overflow:hidden;background:#0c1821dc;box-shadow:0 6px 30px #0005}.play-map canvas{width:100%;display:block}.play-map span{display:block;font-size:9px;text-align:center;padding:5px;color:#bacbd1}
+.play-dashboard{position:absolute;bottom:24px;right:22px;display:flex;gap:14px;align-items:center;padding:12px 16px;background:#0b1724dd;border:1px solid #ffffff22;border-radius:12px}.play-speed{font-size:22px;display:block;font-weight:600}.play-hint,.play-damage{display:block;font-size:11px;color:#cad8df}
+/* Player crowd contact, Step E: the health bar, in quarters (four blows either way). */
+.play-health{display:flex;align-items:center;gap:6px;margin:4px 0 2px;font-size:11px;color:#cad8df}.play-health-bar{position:relative;display:block;width:112px;height:9px;border-radius:5px;background:#ffffff26;overflow:hidden;box-shadow:inset 0 0 0 1px #ffffff1c}.play-health-bar i{position:absolute;left:0;top:0;bottom:0;width:100%;background:#4fdc8a;transition:width .2s ease-out,background-color .2s}.play-health-value{min-width:2.2em;text-align:right;font-size:13px;color:#eef5f6}.play-health[data-level=low] .play-health-bar i{background:#f2c14e}.play-health[data-level=critical] .play-health-bar i{background:#ff5f4f}.play-health[data-level=critical] .play-health-value{color:#ff9d90}
+@media(pointer:coarse){.play-health-bar{width:84px}.play-hint{display:none}.play-dashboard{bottom:160px;right:16px}.play-map{bottom:auto;top:70px;left:auto;right:16px;width:115px}.play-mission{width:min(280px,calc(100vw - 155px))}.play-dashboard .play-drive{display:none}}
+@media(max-height:550px){.play-top{top:10px}.play-mission{top:48px;padding:10px 12px}.play-map{width:125px}.play-task{margin:5px 0;font-size:11px}.play-dashboard{bottom:14px}}
+@media(pointer:coarse) and (max-height:550px){.play-map{top:48px;width:100px}.play-dashboard{bottom:auto;top:170px;padding:7px 10px}.play-speed{font-size:17px}.play-mission{width:260px}}
+/* PLAN-POLICE W4: wanted stars beside the health bar, and the level banner. */
+.play-wanted{display:flex;gap:2px;height:14px;margin:0 0 4px;font-size:13px;line-height:14px;visibility:hidden}.play-wanted[data-stars]:not([data-stars="0"]){visibility:visible}
+.play-wanted i{font-style:normal;color:#ffffff2e}.play-wanted i[data-on="true"]{color:#ffd23f;text-shadow:0 0 6px #ffb80088}
+.play-wanted[data-flash="true"] i[data-on="true"]{animation:play-wanted-flash .8s steps(2,jump-none) infinite}
+@keyframes play-wanted-flash{0%{opacity:1}100%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.play-wanted[data-flash="true"] i[data-on="true"]{animation:none;opacity:.6}}
+.play-radio{position:absolute;top:9%;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:2px;padding:7px 16px;background:#0b1724cc;border:1px solid #7fd1ff55;border-radius:10px;color:#dff3ff;pointer-events:none;text-align:center;white-space:nowrap;max-width:92vw}
+.play-radio[hidden]{display:none}
+.play-radio-station{font-size:16px;letter-spacing:.04em;color:#7fd1ff}
+.play-radio-song{font-size:13px;opacity:.9;overflow:hidden;text-overflow:ellipsis;max-width:88vw}
+.play-wanted-banner{position:absolute;top:18%;left:50%;transform:translateX(-50%);padding:8px 18px;background:#0b1724dd;border:1px solid #ffd23f66;border-radius:10px;color:#ffd23f;font-weight:700;font-size:20px;letter-spacing:.06em;pointer-events:none}
+
+/* PLAN-WEAPONS W2: the weapon and magazine beside the health bar, and the aim crosshair. */
+.play-weapon{display:block;margin-top:2px;color:#f6e6d6;font-weight:700;letter-spacing:.02em}
+.play-weapon[data-weapon="pistol"]{color:#ffd9a8}
+.play-crosshair{position:fixed;left:50%;top:50%;width:26px;height:26px;margin:-13px 0 0 -13px;pointer-events:none;z-index:20}
+.play-crosshair[hidden]{display:none}
+/* §9ah: the automatic's spread opens the crosshair. */
+.play-crosshair{transform:scale(calc(1 + var(--spread,0) * 1.4));transition:transform .06s linear}
+.play-crosshair::before,.play-crosshair::after{content:"";position:absolute;background:#fffc;box-shadow:0 0 2px #000}
+.play-crosshair::before{left:12px;top:0;width:2px;height:26px}
+.play-crosshair::after{left:0;top:12px;width:26px;height:2px}
+.play-crosshair i{position:absolute;left:10px;top:10px;width:6px;height:6px;border-radius:50%;background:#0000}
+.play-crosshair[data-locked="true"]::before,.play-crosshair[data-locked="true"]::after{background:#ff5a4a}
+/* Roadmap ④: locked on someone shooting at the player (or with a gun out): a ring round the cross. */
+.play-crosshair[data-threat="true"] i{left:1px;top:1px;width:20px;height:20px;border:2px solid #ff5a4a;box-shadow:0 0 3px #000}
+
+/* PLAN-PERFORMANCE P0: the ?perf= panel. */
+.perf-overlay{position:fixed;right:8px;top:64px;z-index:60;width:330px;max-height:80vh;overflow:auto;padding:8px 10px;background:#07111aee;border:1px solid #f2a25c88;border-radius:10px;color:#e8eef5;font:11px/1.45 ui-monospace,monospace}
+.perf-overlay header{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:4px}
+.perf-overlay pre{margin:0;white-space:pre-wrap}
+.perf-overlay button{padding:3px 8px;background:#152230;border:1px solid #f2a25c88;border-radius:8px;color:#f6e6d6;font:inherit;cursor:pointer}
+.perf-result{margin-top:6px;border-top:1px solid #34495a;padding-top:6px}
+.perf-result button{margin:6px 6px 0 0}
+.perf-start{margin-top:10px;width:100%}
+.gyro-settings .gyro-sens{display:grid;gap:6px}.gyro-settings input[type=range]{width:100%;accent-color:var(--primary)}
+.perf-overlay button:disabled{opacity:.45;cursor:default}
+/* Stage 1: hit marker, ammunition panel, weapon wheel */
+.play-hitmarker{position:fixed;left:50%;top:50%;width:30px;height:30px;margin:-15px 0 0 -15px;pointer-events:none;z-index:21;opacity:0}
+.play-hitmarker i{position:absolute;left:50%;top:50%;width:9px;height:2px;margin:-1px 0 0 -4.5px;background:#fff;box-shadow:0 0 2px #000c}
+.play-hitmarker i:nth-child(1){transform:rotate(45deg) translateX(-10px)}.play-hitmarker i:nth-child(2){transform:rotate(135deg) translateX(-10px)}
+.play-hitmarker i:nth-child(3){transform:rotate(225deg) translateX(-10px)}.play-hitmarker i:nth-child(4){transform:rotate(315deg) translateX(-10px)}
+.play-hitmarker[data-kind="kill"] i{background:#ff3b30;width:11px}
+.play-hitmarker.on{animation:play-hit .24s ease-out forwards}.play-hitmarker.on[data-kind="kill"]{animation-duration:.42s}
+@keyframes play-hit{0%{opacity:1;transform:scale(1.35)}35%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1)}}
+.play-ammo{position:absolute;top:64px;right:20px;min-width:128px;padding:8px 12px 9px;background:#0b1724cc;border:1px solid #ffffff22;border-radius:10px;text-align:right}
+.play-ammo[hidden]{display:none}
+.play-ammo small{display:block;color:#b8c7d0;font-size:12px;letter-spacing:.04em}
+.play-ammo b{font-size:30px;line-height:1.05;font-weight:700;color:#fff}.play-ammo span{margin-left:4px;color:#9fb3bf;font-size:15px}
+.play-ammo[data-low="true"] b{color:#ffb020}.play-ammo[data-reloading="true"] b{font-size:18px;color:#9fe0ff}
+.play-ammo-bar{display:block;margin:6px 0 0 !important;height:3px;background:#ffffff22;border-radius:2px;overflow:hidden}
+.play-ammo-bar i{display:block;height:100%;background:#e8f1f5;transition:width .12s linear}
+.play-ammo[data-reloading="true"] .play-ammo-bar i{background:#9fe0ff}
+.play-wheel{position:fixed;inset:0;display:grid;place-items:center;background:radial-gradient(circle,#0006 0,#0003 40%,transparent 70%);pointer-events:none;z-index:30}
+.play-wheel[hidden]{display:none}
+.play-wheel-ring{position:relative;width:min(340px,80vw);height:min(340px,80vw);border-radius:50%;background:#0b1724b0;border:1px solid #ffffff2a}
+.play-wheel-slot{position:absolute;left:50%;top:50%;width:104px;margin:-26px 0 0 -52px;padding:8px 6px;text-align:center;border-radius:10px;
+ transform:rotate(var(--a)) translateY(calc(min(340px,80vw) * -.34)) rotate(calc(-1 * var(--a)));background:#16263599;border:1px solid #ffffff1c}
+.play-wheel-slot b{display:block;font-size:14px}.play-wheel-slot small{display:block;min-height:14px;color:#a9bcc7;font-size:11px}
+.play-wheel-slot[data-on="true"]{background:#e8f1f5;color:#0b1724;border-color:#fff}.play-wheel-slot[data-on="true"] small{color:#334855}
+.play-wheel-centre{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center}
+.play-wheel-centre b{display:block;font-size:17px}.play-wheel-centre small{color:#a9bcc7;font-size:12px}
+@media(pointer:coarse){.play-ammo{top:auto;bottom:230px;right:16px;min-width:104px}.play-ammo b{font-size:24px}}
+/* Stage 5: the mission board, money, the shop */
+.play-mission-list{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px;pointer-events:auto}
+.play-mission-list[hidden]{display:none}
+.play-mission-list button{display:flex;justify-content:space-between;align-items:center;gap:6px;padding:7px 9px;font-size:12px;color:#eef5f6;background:#16263599;border:1px solid #ffffff26;border-radius:8px;cursor:pointer}
+.play-mission-list button small{color:#9fe0b8;font-size:11px}
+.play-mission-list button:hover{background:#24384b}
+.play-money{display:block;margin-top:4px;font-size:18px;color:#9fe0b8;letter-spacing:.02em}
+.play-armor{display:block;color:#9fc6ff;font-size:11px}
+.play-shop{position:absolute;right:22px;bottom:200px;width:min(400px,calc(100vw - 32px));padding:12px 14px;background:#0b1724ee;border:1px solid #ffd23f66;border-radius:12px;pointer-events:auto}
+.play-shop[hidden]{display:none}
+.play-shop strong{color:#ffd23f}
+.play-shop-items{display:grid;gap:6px;margin:8px 0}
+.play-shop-items button{display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto;column-gap:10px;text-align:left;padding:8px 10px;color:#eef5f6;background:#16263599;border:1px solid #ffffff26;border-radius:8px;cursor:pointer}
+.play-shop-items button b{font-size:13px}.play-shop-items button small{grid-column:1;color:#a9bcc7;font-size:11px}
+.play-shop-items button span{grid-column:2;grid-row:1 / span 2;align-self:center;color:#9fe0b8;font-weight:700}
+.play-shop-msg{min-height:16px;margin:0 0 6px;color:#ffd9a0;font-size:12px}
+.play-save{width:100%;padding:8px;color:#0b1724;background:#9fe0b8;border:0;border-radius:8px;font-weight:700;cursor:pointer}
+.play-armor[hidden]{display:none}
+/* Stage 5 on a short screen (a phone on its side): the board is one row of small chips, and the
+   shop's counter sits on the right, clear of the mission panel and the dashboard. */
+@media(max-height:550px){
+ .play-mission-list{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:4px;margin-top:4px}
+ .play-mission-list button{flex:0 0 auto;padding:4px 7px;font-size:11px}
+ .play-mission-list button small{display:none}
+ .play-shop{left:auto;right:16px;top:48px;bottom:auto;transform:none;width:min(300px,calc(100vw - 32px));padding:8px 10px}
+ .play-shop-items{gap:4px;margin:6px 0}.play-shop-items button{padding:5px 8px}.play-shop-items button small{display:none}
+}

@@ -1,0 +1,14 @@
+{
+ "url": "<local>/?tier=high&time=day&camera=scramble",
+ "waited": true,
+ "result": {
+  "panel": true,
+  "save": true,
+  "button": true
+ },
+ "console": {
+  "messages": 18,
+  "errors": 0,
+  "list": []
+ }
+}

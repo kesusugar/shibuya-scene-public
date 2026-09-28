@@ -1,0 +1,65 @@
+<!doctype html><meta charset="utf-8"><title>hit bench</title>
+<style>html,body{margin:0;background:#20242b;overflow:hidden}canvas{display:block}
+#l{position:fixed;left:8px;top:8px;color:#dfe6ef;font:11px/1.45 monospace;white-space:pre;z-index:9;text-shadow:0 1px 2px #000}</style>
+<div id="l">loading…</div>
+<!--
+  §9ai: hits that land, on the game's own figure (figure.mjs with hit-reaction.mjs and ragdoll.mjs).
+  Rows 1-3: a flinch -- a blow to the head, the chest and the legs from the front (the blow
+  travels toward the viewer's right-back), at 0, 0.06, 0.12, 0.2, 0.35 s; the blood is the game's
+  (weapon-effects.mjs). Rows 4-6: a killing blow to each, the ragdoll at 0, 0.25, 0.5, 0.9, 2.0 s.
+  Seen from the body's left side, the blow travelling from right to left of the picture.
+
+  `node qa/gta-upgrade/weaponbench-capture.mjs out.png "" hitbench.html` saves it.
+-->
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as T from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {humanoidCitizen} from '/src/player/character-asset.mjs';
+import {createPlayerFigure} from '/src/player/figure.mjs';
+import {createWeaponEffects} from '/src/player/weapon-effects.mjs';
+
+const report=await (await fetch('/public/data/character/citizen.json')).json();
+const bytes=await (await fetch('/public/data/character/citizen.glb')).arrayBuffer();
+const asset=humanoidCitizen(await new Promise((res,rej)=>new GLTFLoader().parse(bytes,'',res,rej)),report);
+const dt=1/60;
+// The body faces +Z; the blow comes from the front and a little from its right: it travels -Z, +X.
+const DIR={x:.35,z:-1};
+const ROWS=[
+ {zone:'head',kill:false,times:[0,.06,.12,.2,.35]},{zone:'body',kill:false,times:[0,.06,.12,.2,.35]},{zone:'legs',kill:false,times:[0,.06,.12,.2,.35]},
+ {zone:'head',kill:true,times:[0,.25,.5,.9,2.0]},{zone:'body',kill:true,times:[0,.25,.5,.9,2.0]},{zone:'legs',kill:true,times:[0,.25,.5,.9,2.0]}
+];
+const CELL={w:256,h:200},COLS=5,W=CELL.w*COLS,H=CELL.h*ROWS.length;
+const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
+renderer.setPixelRatio(1);renderer.setSize(W,H);renderer.setScissorTest(true);document.body.appendChild(renderer.domElement);
+const lines=['side view; the blow comes from the front-right (travels -z, +x). rows: flinch head/body/legs, then killed head/body/legs'];
+ROWS.forEach((row,r)=>{
+ const scene=new T.Scene();scene.background=new T.Color(0x20242b);
+ scene.add(new T.HemisphereLight(0xcfe0ff,0x3a3a42,1.7));
+ const key=new T.DirectionalLight(0xffffff,2.3);key.position.set(3,6,4);scene.add(key);
+ scene.add(new T.Mesh(new T.PlaneGeometry(20,20).rotateX(-Math.PI/2),new T.MeshStandardMaterial({color:0x555b66})));
+ scene.add(new T.GridHelper(20,40,0x6b7280,0x5d636e));
+ const fx=createWeaponEffects();scene.add(fx.root);
+ const figure=createPlayerFigure(asset,{top:0xc94d38});scene.add(figure.root);
+ const state={x:0,y:0,z:0,speed:0,heading:0,bodyHeading:0,alive:true,attackTime:0};
+ for(let i=0;i<30;i++)figure.update(state,dt);
+ const y=row.zone==='head'?1.6:row.zone==='legs'?.6:1.2;
+ state.hitSeq=1;state.hitAge=0;state.hitX=DIR.x;state.hitZ=DIR.z;state.hitZone=row.zone;state.hitStrength=row.kill?1.2:1;
+ if(row.kill)state.ragdoll={seq:1,dir:{x:DIR.x,z:DIR.z},zone:row.zone,strength:1.2,push:{x:DIR.x*1.5,y:.6,z:DIR.z*1.5},ground:0};
+ fx.blood(0,y,.1,{dir:{x:DIR.x,y:-.2,z:DIR.z},count:26,spread:.5});
+ const cam=new T.PerspectiveCamera(35,CELL.w/CELL.h,.05,60);cam.position.set(3.4,1.2,-.6);cam.lookAt(0,.8,-.6);
+ let t=0;const notes=[];
+ row.times.forEach((at,col)=>{
+  while(t<at-1e-6){figure.update(state,dt);fx.update(dt);t+=dt;}
+  figure.root.updateMatrixWorld(true);
+  const pelvis=figure.root.getObjectByName('pelvis').getWorldPosition(new T.Vector3());
+  notes.push(`${at}s pelvis ${pelvis.y.toFixed(2)}`);
+  const x=col*CELL.w,yy=H-(r+1)*CELL.h;
+  renderer.setViewport(x,yy,CELL.w,CELL.h);renderer.setScissor(x,yy,CELL.w,CELL.h);renderer.render(scene,cam);
+ });
+ lines.push(`${row.kill?'killed':'flinch'} ${row.zone}: ${notes.join(' | ')}${row.kill?` | asleep ${figure.ragdoll?.asleep}`:''}`);
+});
+document.getElementById('l').textContent=lines.join('\n');
+window.__BENCH__={lines,calls:renderer.info.render.calls};
+document.title='ready';
+</script>

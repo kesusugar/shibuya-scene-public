@@ -1,0 +1,100 @@
+[
+  {
+    "id": "way/54500467",
+    "name": "markCityWest",
+    "phase": "S4",
+    "builderStatus": "pending",
+    "reason": "hero-definition"
+  },
+  {
+    "id": "way/55895868",
+    "name": "109",
+    "phase": "S4",
+    "builderStatus": "pending",
+    "reason": "hero-definition"
+  },
+  {
+    "id": "way/55896465",
+    "name": "seibuA",
+    "phase": "S4",
+    "builderStatus": "pending",
+    "reason": "hero-definition"
+  },
+  {
+    "id": "way/87250190",
+    "name": "markCityEast",
+    "phase": "S4",
+    "builderStatus": "pending",
+    "reason": "hero-definition"
+  },
+  {
+    "id": "way/116806281",
+    "name": "magnet",
+    "phase": "S4",
+    "builderStatus": "pending",
+    "reason": "hero-definition"
+  },
+  {
+    "id": "way/136691386",
+    "name": "qfront",
+    "phase": "S4",
+    "builderStatus": "pending",
+    "reason": "hero-definition"
+  },
+  {
+    "id": "way/136692137",
+    "name": "seibuB",
+    "phase": "S4",
+    "builderStatus": "pending",
+    "reason": "hero-definition"
+  },
+  {
+    "id": "way/521438304",
+    "name": "stream",
+    "phase": "S4",
+    "builderStatus": "pending",
+    "reason": "hero-definition"
+  },
+  {
+    "id": "way/617560918",
+    "name": "scrambleSquare",
+    "phase": "S4",
+    "builderStatus": "pending",
+    "reason": "hero-definition"
+  },
+  {
+    "id": "way/810356690",
+    "name": "station structure",
+    "phase": "S5",
+    "builderStatus": "untouched",
+    "reason": "station-structure"
+  },
+  {
+    "id": "way/904652318",
+    "name": "Central Paid Area",
+    "phase": "S5",
+    "builderStatus": "untouched",
+    "reason": "overlaps-reserved"
+  },
+  {
+    "id": "way/904652357",
+    "name": "station",
+    "phase": "S5",
+    "builderStatus": "untouched",
+    "reason": "hero-definition"
+  },
+  {
+    "id": "way/904734439",
+    "name": "station structure",
+    "phase": "S5",
+    "builderStatus": "untouched",
+    "reason": "station-structure"
+  },
+  {
+    "id": "way/1350895889",
+    "name": "渋谷駅新南口",
+    "phase": "S5",
+    "builderStatus": "untouched",
+    "reason": "station-structure"
+  }
+]

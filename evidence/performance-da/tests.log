@@ -1,0 +1,37 @@
+✔ Task A read-only clipping queries preserve holes, edges, orientation and source arrays without slice (25.584655ms)
+✔ Task D asynchronous jobs serialize through completion and a paint boundary (1.821535ms)
+✔ Task D chunks preserve synchronous result and resume exactly once per yield (0.50469ms)
+✔ Task D disposal during asynchronous construction releases stale result (6.368849ms)
+✔ coordinate origin, east/north signs and round trip (2.521685ms)
+✔ polyline 3-4-5 length and sampling (0.389268ms)
+✔ duplicate and degenerate lines (0.26927ms)
+✔ resampling exact spacing and endpoint (0.36364ms)
+✔ offset left/right and bounded sharp corner (0.364211ms)
+✔ offset right angle intersection (0.327356ms)
+✔ extend endpoints (0.376159ms)
+✔ clipping and disconnected reentry (0.637427ms)
+✔ polygon boundary and holes (0.831355ms)
+✔ triangulation concavity and holes preserve analytical area (2.192867ms)
+✔ polygon faces point upward (1.699884ms)
+✔ extrusion positive Y height and correct XZ footprint (8.169642ms)
+✔ ribbon width and upward normals (0.455507ms)
+✔ merge mixed indexes preserves count and source (2.339494ms)
+✔ transform keeps source unchanged (0.4715ms)
+✔ seeded RNG repeatability and bounds (1.143829ms)
+✔ InstancedBuilder transforms, capacity and ownership (2.603856ms)
+✔ spatial index matches brute force for negative cells (5.432457ms)
+✔ S14 valid quality and bounded DPR retain a MEDIUM default at high device DPR (2.292795ms)
+✔ S14 frame gate skips rendering and update work while preserving elapsed simulation time (0.402157ms)
+✔ S14 build queue yields one job at a time and cancels pending work on disposal (0.451911ms)
+✔ S14 deferred quality changes coalesce rapid input before rebuilding decorative modules (0.386664ms)
+✔ S14 scheduled module cannot resurrect after disable or disposal (0.668292ms)
+✔ S14 baked wet data matches source and day/night/postprocess switches preserve pooled objects (47.444088ms)
+✔ S14 existing dynamic profile counts and far throttling retained; no later effects/gameplay (1.803739ms)
+ℹ tests 29
+ℹ suites 0
+ℹ pass 29
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 303.706337

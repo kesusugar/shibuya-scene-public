@@ -1,0 +1,84 @@
+<!doctype html><meta charset="utf-8"><title>cmu weapon bench</title>
+<style>html,body{margin:0;background:#20242b;overflow:hidden}canvas{display:block}
+#l{position:fixed;left:8px;top:8px;color:#dfe6ef;font:11px/1.45 monospace;white-space:pre;z-index:9;text-shadow:0 1px 2px #000}</style>
+<div id="l">loading…</div>
+<!--
+  The two-handed trial (docs/GTA-FIDELITY-STATUS.md §9af): CMU captures retargeted onto the
+  game's humanoid by scripts/cmu/weapon-clip.mjs, with both hands put on the weapon. NOT wired
+  into the game -- this page is the only place the clips play.
+
+  One block per clip, two rows per block (three-quarter front from the player's right, and the
+  player's right side), one column per moment. The katana is the game's own mesh
+  (weapon-mesh.mjs) and the game's submachine gun.
+  The yellow dot is the left hand's grip point.
+
+  `node qa/gta-upgrade/weaponbench-capture.mjs out.png "" cmu-weaponbench.html` saves it.
+-->
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as T from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {humanoidCitizen} from '/src/player/character-asset.mjs';
+import {createWeaponRig} from '/src/player/weapon-mesh.mjs';
+import {GRIP} from '/src/player/weapons.mjs';
+
+const report=await (await fetch('/public/data/character/citizen.json')).json();
+const bytes=await (await fetch('/public/data/character/citizen.glb')).arrayBuffer();
+const asset=humanoidCitizen(await new Promise((res,rej)=>new GLTFLoader().parse(bytes,'',res,rej)),report);
+
+const CLIPS=[
+ {id:'katana-cut',label:'katana: CMU 02_07 overhead cut (source 6.2-8.4 s, the cut replayed at 2x)',times:[.2,.45,.6,.68,.75,.82,.95,1.5]},
+ {id:'katana-guard',label:'katana: CMU 02_07 two-handed guard, looped (source 17.95-18.7 s)',times:[0,.15,.3,.45,.6,.75]},
+ {id:'rifle-raise',label:'submachine gun: CMU 80_03 low ready to shouldered aim (source 1.9-7.0 s)',times:[0,.5,.9,1.4,2.2,3.2,4.2,5.0]},
+ {id:'rifle-shouldered',label:'submachine gun: 80_03 shouldered hold, looped (source 4.2-6.8 s)',times:[0,.4,.8,1.2,1.6,2.0,2.3,2.6]}
+];
+// ?only=katana-cut&times=0.6,1.1 draws a few moments of one clip, larger, from closer.
+const Q=new URLSearchParams(location.search),ONLY=Q.get('only'),CLOSE=!!ONLY;
+if(ONLY){CLIPS.splice(0,CLIPS.length,...CLIPS.filter(c=>c.id===ONLY));if(Q.get('times'))CLIPS[0].times=Q.get('times').split(',').map(Number);}
+for(const c of CLIPS)c.data=await (await fetch(`/assets/character/cmu-weapons/${c.id}.json`)).json();
+
+const CELL=CLOSE?{w:420,h:480}:{w:160,h:250},COLS=Math.max(...CLIPS.map(c=>c.times.length));
+const W=CELL.w*COLS,H=CELL.h*2*CLIPS.length;
+const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
+renderer.setPixelRatio(1);renderer.setSize(W,H);renderer.setScissorTest(true);document.body.appendChild(renderer.domElement);
+
+const lines=['three-quarter front (player\'s right) / right side; columns are clip time'];
+CLIPS.forEach((clip,block)=>{
+ const scene=new T.Scene();scene.background=new T.Color(0x20242b);
+ scene.add(new T.HemisphereLight(0xcfe0ff,0x3a3a42,1.7));
+ const key=new T.DirectionalLight(0xffffff,2.3);key.position.set(-3,6,4);scene.add(key);
+ scene.add(new T.Mesh(new T.PlaneGeometry(30,30).rotateX(-Math.PI/2),new T.MeshStandardMaterial({color:0x555b66})));
+ scene.add(new T.GridHelper(30,30,0x6b7280,0x5d636e));
+ const inst=asset.instance({top:0xc94d38});scene.add(inst.root);
+ const d=clip.data,tracks=Object.entries(d.tracks).map(([b,v])=>new T.QuaternionKeyframeTrack(`${b}.quaternion`,d.times,v));
+ tracks.push(new T.VectorKeyframeTrack('pelvis.position',d.times,d.rootPos));
+ const mixer=new T.AnimationMixer(inst.root),action=mixer.clipAction(new T.AnimationClip(clip.id,d.duration,tracks));action.play();
+ mixer.setTime(0);inst.root.updateMatrixWorld(true);
+ const hand=inst.root.getObjectByName('hand_r'),handL=inst.root.getObjectByName('hand_l');
+ let weapon;
+ if(d.weapon==='katana'){const rig=createWeaponRig(inst.root,{carry:['katana']});rig.show('katana');weapon=rig.meshes[0];
+  // The scabbard is placed from the Idle pose in the game; on this bare clip it would float.
+  for(const m of rig.meshes)if(m!==weapon)m.visible=false;}
+ else{const rig=createWeaponRig(inst.root,{carry:['smg']});rig.show('smg');weapon=rig.meshes[0];}
+ const mark=new T.Mesh(new T.SphereGeometry(.018,10,8),new T.MeshBasicMaterial({color:0xffd23a,depthTest:false}));mark.renderOrder=9;scene.add(mark);
+ const grip=d.weapon==='katana'?GRIP.katana:GRIP.smg,atL=new T.Vector3(-grip.at[0],grip.at[1],grip.at[2]);
+ const cams=[[-2.3,1.55,2.5],[-3.3,1.35,.25]].map(p=>{const c=new T.PerspectiveCamera(CLOSE?20:32,CELL.w/CELL.h,.05,60);c.position.set(...p);return c;});
+ const notes=[];
+ clip.times.forEach((t,col)=>{
+  mixer.setTime(t);inst.root.updateMatrixWorld(true);
+  mark.position.copy(atL).applyMatrix4(handL.matrixWorld);
+  const pelvis=inst.root.getObjectByName('pelvis').getWorldPosition(new T.Vector3());
+  cams.forEach((c,row)=>{
+   if(CLOSE){const h=hand.getWorldPosition(new T.Vector3());c.position.set(...[[-2.3,1.55,2.5],[-3.3,1.35,.25]][row]).multiplyScalar(.55).add(new T.Vector3(h.x,h.y*.45,h.z));c.lookAt(h);}
+   else c.lookAt(pelvis.x,1.05,pelvis.z+.2);
+   const x=col*CELL.w,y=H-(block*2+row+1)*CELL.h;
+   renderer.setViewport(x,y,CELL.w,CELL.h);renderer.setScissor(x,y,CELL.w,CELL.h);renderer.render(scene,c);
+  });
+  notes.push(`${t.toFixed(2)}s`);
+ });
+ lines.push(`${clip.label}: ${notes.join(' ')} | measured ${JSON.stringify(d.measured)}`);
+});
+document.getElementById('l').textContent=lines.join('\n');
+window.__BENCH__={clips:CLIPS.map(c=>c.id),lines,calls:renderer.info.render.calls};
+document.title='ready';
+</script>

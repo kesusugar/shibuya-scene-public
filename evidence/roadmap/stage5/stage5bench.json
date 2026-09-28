@@ -1,0 +1,16 @@
+{
+ "url": "http://<local>/qa/gta-upgrade/stage5bench.html",
+ "ready": true,
+ "bench": {
+  "lines": [
+   "chase: complete 車を止めさせた",
+   "snatch: complete 犯人を取り押さえ、バッグを取り返した"
+  ],
+  "size": [
+   1920,
+   1600
+  ]
+ },
+ "console": [],
+ "errors": 0
+}

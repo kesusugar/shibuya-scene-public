@@ -1,0 +1,302 @@
+RUN S10 — Crowd / Life System
+Base: f47b140fd8f3e9bb19b4d37403dd2a44b36f2cc3 (Visual QA version 4).
+Current: revision containing this report; exact commit and published version are reported in delivery.
+No subagents used. S11+ and GTA remain absent.
+
+Pedestrian network: {"nodes":12860,"edges":54064,"crossingPaths":100,"scramblePaths":25,"components":571,"eligible":10460,"footwaySources":222,"rejectedCrossings":54,"generationMs":14991}
+
+HIGH
+Initial total 420; archetypes {"office":40,"student":40,"casual":40,"hoodie":39,"shopper":38,"tourist":42,"elderly":39,"jogger":40,"pastel":42,"umbrella":40,"kid":20}
+Modes {"idle":64,"milling":36,"group":54,"ambient":266}; states {"idle":64,"walking":356}; groups 18
+Hachiko 175; Center-gai 110
+Crowd: geometry 8, material 1, batches 8, triangles 69928
+Scene CPU sum: 472362 triangles / 111 mesh batches. GPU drawCalls unmeasured; S0 grid/axes and S1 diagnostics excluded.
+
+MEDIUM
+Initial total 210; archetypes {"office":19,"student":20,"casual":20,"hoodie":21,"shopper":20,"tourist":20,"elderly":20,"jogger":21,"pastel":21,"umbrella":20,"kid":8}
+Modes {"idle":30,"milling":18,"group":23,"ambient":139}; states {"idle":30,"walking":180}; groups 8
+Hachiko 86; Center-gai 51
+Crowd: geometry 8, material 1, batches 8, triangles 34940
+Scene CPU sum: 410694 triangles / 111 mesh batches. GPU drawCalls unmeasured; S0 grid/axes and S1 diagnostics excluded.
+
+LOW
+Initial total 95; archetypes {"office":10,"student":9,"casual":11,"hoodie":9,"shopper":10,"tourist":9,"elderly":9,"jogger":8,"pastel":8,"umbrella":9,"kid":3}
+Modes {"idle":12,"milling":8,"group":9,"ambient":66}; states {"idle":12,"walking":83}; groups 3
+Hachiko 37; Center-gai 22
+Crowd: geometry 8, material 1, batches 8, triangles 15814
+Scene CPU sum: 365830 triangles / 105 mesh batches. GPU drawCalls unmeasured; S0 grid/axes and S1 diagnostics excluded.
+
+180-second HIGH simulation:
+{
+  "spawned": 514,
+  "despawned": 94,
+  "reasons": {
+    "stuck": 93,
+    "invalid-route": 1
+  },
+  "recoveries": 93,
+  "stuck": 93,
+  "routeCompletions": 445,
+  "signalViolations": 0,
+  "entries": {
+    "way/355248081:1": 4,
+    "way/355248083:-1": 3,
+    "node/2253567072:1": 1,
+    "way/355248078:1": 4,
+    "way/355248078:-1": 7,
+    "way/700497155:1": 1,
+    "way/1507031455:1": 3,
+    "way/355252211:1": 2,
+    "way/664877555:1": 1,
+    "way/1151968435:-1": 5,
+    "node/1685220983:1": 1,
+    "way/1507031461:-1": 4,
+    "way/754454449:1": 4,
+    "way/355248081:-1": 7,
+    "way/754454449:-1": 4,
+    "node/10157692127:1": 2,
+    "way/1462471075:-1": 4,
+    "way/355248080:1": 5,
+    "way/906194284:-1": 1,
+    "way/1112568720:-1": 1,
+    "way/553526347:-1": 1,
+    "way/664532507:1": 1,
+    "way/1391515614:1": 1,
+    "way/647401094:-1": 2,
+    "way/355248423:-1": 1,
+    "node/2253589606:1": 2,
+    "node/10605619818:-1": 2,
+    "way/355252210:1": 2,
+    "way/372165785:1": 1,
+    "way/355248083:1": 2,
+    "way/665967927:1": 1,
+    "way/355254046:-1": 1,
+    "way/355248080:-1": 3,
+    "way/1507031455:-1": 2,
+    "node/2253567072:-1": 4,
+    "way/1462471075:1": 2,
+    "way/355252211:-1": 4,
+    "way/1151968435:1": 1,
+    "node/10157692127:-1": 1,
+    "way/1112568720:1": 1,
+    "way/754454448:1": 1,
+    "node/2253589606:-1": 1
+  },
+  "completed": {
+    "way/700497155:1": 1,
+    "way/1507031455:1": 2,
+    "node/2253567072:1": 1,
+    "node/10157692127:1": 2,
+    "way/1112568720:-1": 1,
+    "node/1685220983:1": 1,
+    "way/1151968435:-1": 5,
+    "way/355248423:-1": 1,
+    "node/2253589606:1": 2,
+    "way/1391515614:1": 1,
+    "way/647401094:-1": 2,
+    "node/10605619818:-1": 2,
+    "way/1507031461:-1": 4,
+    "way/664877555:1": 1,
+    "way/355254046:-1": 1,
+    "way/1462471075:-1": 4,
+    "way/355252211:1": 2,
+    "way/665967927:1": 1,
+    "way/355252210:1": 2,
+    "way/355248078:-1": 6,
+    "way/664532507:1": 1,
+    "way/355248080:1": 5,
+    "way/355248078:1": 2,
+    "way/553526347:-1": 1,
+    "way/372165785:1": 1,
+    "way/355248081:-1": 1,
+    "node/2253589606:-1": 1,
+    "way/355248081:1": 2,
+    "way/355252211:-1": 1,
+    "way/754454449:-1": 4,
+    "way/355248080:-1": 1,
+    "way/355248083:-1": 3,
+    "way/906194284:-1": 1,
+    "way/754454448:1": 1,
+    "way/754454449:1": 3
+  },
+  "neighborChecks": 10251411,
+  "avoidanceChecks": 654836,
+  "updateMs": 5.376470000017434,
+  "throttled": 1189734,
+  "spawnDeferred": 0,
+  "cancelledCurbAdmissions": 31,
+  "total": 420,
+  "tier": "high",
+  "archetypes": {
+    "office": 40,
+    "student": 39,
+    "casual": 44,
+    "hoodie": 41,
+    "shopper": 40,
+    "tourist": 43,
+    "elderly": 39,
+    "jogger": 40,
+    "pastel": 41,
+    "umbrella": 40,
+    "kid": 13
+  },
+  "modes": {
+    "idle": 64,
+    "milling": 36,
+    "group": 45,
+    "ambient": 275
+  },
+  "states": {
+    "idle": 64,
+    "milling": 36,
+    "walking": 231,
+    "waiting": 89
+  },
+  "lod": {
+    "far": 176,
+    "near": 161,
+    "mid": 83
+  },
+  "regions": {
+    "center-gai": 126,
+    "hachiko": 170,
+    "commercial": 112,
+    "station": 12
+  },
+  "hachiko": 177,
+  "centerGai": 122,
+  "groupCount": 18,
+  "queueSizes": {
+    "way/355248080:-1": 5,
+    "way/355248083:1": 7,
+    "way/355248081:-1": 8,
+    "way/355248078:1": 4,
+    "way/754454449:1": 6,
+    "way/372165785:1": 0,
+    "way/355248081:1": 2,
+    "node/10605619818:-1": 0,
+    "way/1507031455:-1": 2,
+    "way/355248078:-1": 1,
+    "way/754454449:-1": 7,
+    "way/355248083:-1": 1,
+    "node/1685220983:1": 0,
+    "node/10157692127:1": 1,
+    "way/1462471075:1": 3,
+    "way/1151968435:-1": 3,
+    "node/2253567072:-1": 5,
+    "way/665967927:1": 0,
+    "way/355248080:1": 0,
+    "way/355252210:1": 0,
+    "way/1462471075:-1": 1,
+    "way/355252211:-1": 4,
+    "way/906194284:-1": 1,
+    "way/700497155:1": 1,
+    "way/1507031455:1": 2,
+    "node/2253589606:1": 0,
+    "way/1112568720:1": 3,
+    "way/355252211:1": 1,
+    "way/1151968435:1": 2,
+    "way/1507031461:-1": 1,
+    "way/1112568720:-1": 1,
+    "way/1391515614:1": 0,
+    "way/647401094:-1": 0,
+    "way/355248423:-1": 0,
+    "way/664877555:1": 1,
+    "way/553526347:-1": 0,
+    "node/2253567072:1": 0,
+    "way/355254046:-1": 0,
+    "way/664532507:1": 0,
+    "node/10157692127:-1": 2,
+    "way/1391515614:-1": 2,
+    "way/647401094:1": 2,
+    "way/553526347:1": 1,
+    "way/553526351:1": 1,
+    "way/665967927:-1": 1,
+    "node/2253589606:-1": 1,
+    "way/553526349:1": 2,
+    "way/1507031461:1": 2,
+    "node/2071048416:-1": 1,
+    "way/355248423:1": 1
+  }
+}
+
+Scramble completed flow (forward / reverse):
+west way/355248078: 2 / 6
+north way/355248080: 5 / 1
+east way/355248081: 2 / 1
+south way/355248083: 0 / 3
+diagonal way/754454449: 3 / 4
+
+Crowd/traffic audit: {"major":0,"trafficMajor":0,"minor":{"stuck":93,"groupSeparation":12},"samples":[]}
+Crowd CPU ms: {"median":2.577961000002688,"p95":7.869654000009177,"max":183.5189089999767}
+Traffic CPU ms in S10: {"median":1.9102560000028461,"p95":3.9714380000077654,"max":25.979032000002917}; S9 saved reference {"median":0.8629559999972116,"p95":1.3780990000086604,"max":40.13108000000648}. Node timings vary with machine load; not browser FPS.
+S9 after S10: route-end relocations 56 (baseline 62), long-stop recoveries 20 (baseline 18). Vehicle red violations 0.
+Traffic actual crossing entries: {"junction:1:-3:NS":3,"junction:4:-2:NS":3,"junction:4:0:NS":10,"junction:1:-2:NS":3,"junction:0:2:NS":5,"scramble:NS":9,"junction:4:0:EW":3,"junction:1:5:NS":1,"junction:0:-4:EW":4,"junction:5:3:EW":5,"junction:-4:-1:EW":2,"junction:3:0:EW":8,"junction:4:-4:EW":1,"junction:-2:-3:EW":1,"junction:-3:-3:EW":1,"scramble:EW":9,"junction:-5:-4:EW":1,"junction:-5:4:EW":2,"junction:-4:-3:EW":3,"junction:4:-2:EW":3,"junction:1:-4:EW":3,"junction:1:-4:NS":4,"junction:-2:-3:NS":1}
+
+Automated tests:
+evidence/s10/tests.log
+ℹ tests 11
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ duration_ms 196266.684289
+evidence/s10/regression.log
+ℹ tests 202
+ℹ pass 202
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ duration_ms 446004.068
+
+Build: see build.txt.
+Console / WebGL / HIGH FPS / actual GPU drawCalls: UNVERIFIED; connection timeout.
+CAM-02/03/05/07 visuals and CAM-04/06 visual regression: UNVERIFIED. No screenshot is claimed.
+S7 763 signage baseline, S8 369 HIGH fixtures, S2 67 crossings and prior modules verified by regression tests.
+Visual QA: https://shibuya-scene-visual-qa.kesdemon.chatgpt.site (publication outcome and version in delivery).
+
+Known limits:
+- Conservative path cells reject narrow/ambiguous connections; rejected crossing paths 54. No elevated walking or interiors.
+- Crowd recoveries 93; maximum simultaneous stopped actors/group separations: {"stuck":93,"groupSeparation":12}. Local avoidance is approximate, not full crowd physics.
+- Pedestrian crossing completion extends vehicle red beyond nominal phase when needed. Vehicle route logic is unchanged; traffic counts therefore differ from S9.
+- Body-envelope contact is audited separately from reserved exit capacity; reservation occupancy alone is not a physical overlap.
+- Arms/accessories use simplified silhouettes; animation and interpolation have no skeletal or rigid-body simulation.
+- Visual and performance acceptance still needs a browser with a functioning connection.
+
+RUN S10 — implementation notes
+Base commit: f47b140fd8f3e9bb19b4d37403dd2a44b36f2cc3 / Visual QA version 4.
+
+Scope
+Independent procedural pedestrian simulation only. No reference assets/code copied.
+S2 ground, S3 buildings, S4 heroes, S5/S6 station, S7 signage and S8 fixtures are input geometry, not remodeled.
+S9 changes are confined to SignalController: pedestrian occupancy and two-second clearance hold force vehicle RED, and remaining green becomes zero while held. Vehicle movement/routing code is unchanged.
+
+Navigation
+Surface OSM footways and pedestrian areas plus S2 sidewalk polygons form the walkable domain.
+A 1.25m lattice produces short obstacle-checked edges. Mapped crossing paths bridge verified curb nodes in both directions; main/diagonal paths have multiple lateral tracks.
+S7 ground-level signs, generic/hero masses, structural supports, S6 ground props and HIGH S8 fixtures are obstacles.
+Conservative 0.1m cached walkability cells include extra boundary clearance. Elevated footways, station interiors and steps are excluded.
+A* paths span multiple edges; destination changes occur at route completion, not every frame.
+Disconnected tiny components are excluded from spawning. Rejected crossing connections are recorded as capacity limits.
+No pavement or map expansion is added; OSM plaza/footway walkers use the existing ground elevation convention.
+
+Crowd
+11 archetypes use eight shared procedural part geometries and one material, with per-instance colors, proportions and accessories.
+480 pooled actor objects; 420 / 210 / 95 requested citizens. HIGH starts with 64 idle, 36 milling, small family groups and ambient/crossing walkers.
+Fixed 30Hz simulation; mid 15Hz and far 5Hz movement, idle 2Hz. Distance is classified once per second. Display interpolation and reduced far animation avoid heavy full updates for every actor.
+Spatial cells bound neighbor checks. Movement candidates must pass walkability, solid, vehicle and pedestrian clearance tests. Boundary safety takes precedence over avoidance.
+TTL/stuck/invalid-route/profile changes recycle pooled states. Camera-near respawn candidates are deferred. Geometry identities persist across tiers.
+
+Signals
+New crossing admissions require the S9 crossing API to report a known crossing, vehicle clearance and WALK; admissions stop for the last five seconds.
+Existing crossing actors finish after the nominal WALK phase. Their signal group remains vehicle RED until the final actor exits plus two seconds.
+Crossing exit space is reserved against incoming non-crossers. Nearby curb waiters yield toward the sidewalk interior using the same collision and walkability checks; crossing actors never block one another solely through exit reservations. Admissions that never leave safe curb ground are released when WALK ends. Nearby vehicles are also checked before entry and each move.
+Debug shows actor IDs, archetypes, routes, destination, queues, groups, cells, radii, LOD and signal state; visual graph is debug-only.
+
+Evidence interpretation
+CPU triangles and mesh-batch counts are not measured GPU drawCalls. Node CPU timings are not browser FPS.
+S9 reference recovery counts: 62 route-end relocations and 18 long-stop recoveries / 180 seconds.
+Browser connection failures are recorded separately and do not imply console error zero or visual PASS.
+S11+ (Trains, Day/Night, Nightglow, postprocess, broad polish) and GTA mechanics remain absent.
+
+STOP after S10.

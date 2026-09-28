@@ -1,0 +1,5861 @@
+{
+  "sources": [
+    {
+      "id": "way/16688536",
+      "part": 0,
+      "family": "Ginza",
+      "tags": {
+        "bridge": "viaduct",
+        "electrified": "rail",
+        "frequency": "0",
+        "gauge": "1435",
+        "layer": "2",
+        "maxspeed": "35",
+        "name": "東京メトロ銀座線",
+        "name:en": "Tokyo Metro Ginza Line",
+        "name:es": "Línea Ginza de Tokyo Metro",
+        "name:ja": "東京メトロ銀座線",
+        "name:ja-Hira": "とうきょうめとろぎんざせん",
+        "name:ja_rm": "Tōkyō Metoro Ginza Sen",
+        "operator": "東京地下鉄",
+        "operator:en": "Tokyo Metro",
+        "operator:ja": "東京地下鉄",
+        "operator:ja_rm": "Tōkyō Chikatetsu",
+        "railway": "subway",
+        "service": "yard",
+        "source": "NRPB of MLIT Japan",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          -39.97740572077115,
+          100.03169442675832
+        ],
+        [
+          22.720190763693004,
+          89.51200254725154
+        ],
+        [
+          35.39176212306347,
+          86.85146671704895
+        ],
+        [
+          48.126646117311985,
+          83.60093758586603
+        ],
+        [
+          63.4935267331407,
+          78.9477828709071
+        ],
+        [
+          75.14305129620728,
+          75.78630933181758
+        ],
+        [
+          83.85306073240633,
+          73.63784315971134
+        ],
+        [
+          94.37200255476549,
+          71.3223977510458
+        ],
+        [
+          105.65069598023733,
+          69.50789005126718
+        ],
+        [
+          115.07523370745295,
+          67.94941718014125
+        ],
+        [
+          124.10180631290095,
+          65.99019414222217
+        ],
+        [
+          132.9836643258109,
+          63.27399856676347
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 177.03459378199727,
+      "clippedLength": 177.03459378199727
+    },
+    {
+      "id": "way/24474864",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#20a288",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-2",
+        "name": "東急田園都市線",
+        "name:en": "Tokyu Den-en-toshi Line",
+        "name:es": "Línea Tokyu Den-en-toshi",
+        "name:ja": "東急田園都市線",
+        "name:ja_rm": "Tōkyū Den-en Toshi Sen",
+        "name:ko": "도큐 덴엔토시선",
+        "oneway": "yes",
+        "operator": "東急電鉄",
+        "operator:ja": "東急電鉄",
+        "railway": "rail",
+        "railway:atc": "P",
+        "source": "KSJ2",
+        "tunnel": "yes",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          -53.81573847155419,
+          -6.278419280550402
+        ],
+        [
+          -22.412672258405674,
+          -6.6569055489247235
+        ],
+        [
+          50.16169505109946,
+          -2.827515065970918
+        ],
+        [
+          91.44153209185959,
+          -2.2486537142000182
+        ],
+        [
+          142.95088176990282,
+          -6.256155382131568
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 197.02957774493365
+    },
+    {
+      "id": "way/33477279",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#083476",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-1",
+        "level": "2",
+        "maxspeed": "90",
+        "name": "京王電鉄井の頭線",
+        "name:en": "Keio railway Inokashira Line",
+        "name:es": "Línea Keio Inokashira",
+        "name:ja": "京王電鉄井の頭線",
+        "name:ja_rm": "Keiō Inokashira Sen",
+        "note": "National-Land Numerical Information (Railway) 2007, MLIT Japan",
+        "oneway": "yes",
+        "operator": "京王電鉄",
+        "operator:en": "Keio railway",
+        "operator:ja": "京王電鉄",
+        "railway": "rail",
+        "source": "KSJ2",
+        "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-N02-v1_1.html",
+        "tunnel": "yes",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          -300,
+          169.98373997988068
+        ],
+        [
+          -282.4647920107287,
+          164.15172112394575
+        ],
+        [
+          -252.12899590340945,
+          154.05504330886
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 50.45152563364076
+    },
+    {
+      "id": "way/49888122",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#8F76D6",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-3",
+        "maxspeed": "80",
+        "name": "東京メトロ半蔵門線",
+        "name:en": "Tokyo Metro Hanzomon Line",
+        "name:es": "Línea Hanzomon de Tokyo Metro",
+        "name:ja": "東京メトロ半蔵門線",
+        "name:ja_rm": "Tōkyō Metoro Hanzōmon-sen",
+        "name:ko": "도쿄 메트로 한조몬선",
+        "name:ru": "Линия метро Хандзомон",
+        "name:zh": "东京地铁半藏门线",
+        "operator": "東京地下鉄",
+        "operator:en": "Tokyo Metro",
+        "operator:es": "Metro de Tokio",
+        "railway": "subway",
+        "railway:atc": "yes",
+        "ref": "Z",
+        "source": "KSJ2",
+        "tunnel": "yes",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          142.95088176990282,
+          -6.256155382131568
+        ],
+        [
+          183.5614138266012,
+          -11.24326857020912
+        ],
+        [
+          203.91190316447592,
+          -14.293422617995445
+        ],
+        [
+          262.74742900621055,
+          -26.304795674162623
+        ],
+        [
+          306.90346853896017,
+          -35.48865366435889
+        ],
+        [
+          365,
+          -48.251194989182956
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 226.1253137430525
+    },
+    {
+      "id": "way/144131731",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "alt_name": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "alt_name:de": "Saikyō-Linie;Shōnan-Shinjuku-Linie",
+        "alt_name:en": "Saikyo Line;Shonan Shinjuku Line",
+        "alt_name:fr": "Ligne Saikyō;Ligne Shōnan-Shinjuku",
+        "alt_name:it": "Linea Saikyō;Linea Shōnan-Shinjuku",
+        "alt_name:ja": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "level": "2",
+        "maxspeed": "75",
+        "name": "山手貨物線",
+        "name:de": "Yamanote-Güterlinie",
+        "name:en": "Yamanote Freight Line",
+        "name:es": "Línea Yamanote de carga",
+        "name:fr": "Ligne de fret Yamanote",
+        "name:ja": "山手貨物線",
+        "name:ja_rm": "Shōnan–shinjuku-rain",
+        "name:ko": "야마노테 화물선",
+        "name:zh": "山手货物线",
+        "name:zh-Hans": "山手货物线",
+        "name:zh-Hant": "山手貨物線",
+        "official_name": "山手貨物線",
+        "official_name:en": "Yamanote Freight Line",
+        "official_name:ja": "山手貨物線",
+        "official_name:ja-Hira": "やまのてかもつせん",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja-Latn": "Higashi-Nihon Ryokaku Tetsudō",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:traffic_mode": "mixed",
+        "usage": "main",
+        "voltage": "1500",
+        "wikidata": "Q693036",
+        "wikipedia": "ja:山手線"
+      },
+      "sourcePoints": [
+        [
+          182.60267966260471,
+          265.34113825503687
+        ],
+        [
+          198.04191757470247,
+          291.8129131657588
+        ],
+        [
+          203.51289782489928,
+          300
+        ]
+      ],
+      "status": "outside-target",
+      "sourceLength": 40.49197306032539,
+      "clippedLength": 0
+    },
+    {
+      "id": "way/146060261",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "bridge": "yes",
+        "colour": "#B1CB39",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "1",
+        "maxspeed": "90",
+        "name": "山手線",
+        "name:de": "Yamanote-Linie",
+        "name:en": "Yamanote Line",
+        "name:es": "Línea Yamanote",
+        "name:it": "Linea Yamanote",
+        "name:ja": "山手線",
+        "name:ja-Hira": "やまのてせん",
+        "name:ja-Latn": "Yamanote-sen",
+        "name:ko": "야마노테선",
+        "name:ru": "Линия JR Яманотэ",
+        "name:th": "สายยามาโนเตะ",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:atc": "D",
+        "railway:traffic_mode": "passenger",
+        "ref": "JY",
+        "source": "Bing",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          77.10574293629637,
+          -279.75701231275394
+        ],
+        [
+          78.26345966117668,
+          -296.6998388109516
+        ]
+      ],
+      "status": "outside-target",
+      "sourceLength": 16.982334284870717,
+      "clippedLength": 0
+    },
+    {
+      "id": "way/146060265",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "bridge": "yes",
+        "colour": "#B1CB39",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "1",
+        "level": "2",
+        "maxspeed": "90",
+        "name": "山手線",
+        "name:de": "Yamanote-Linie",
+        "name:en": "Yamanote Line",
+        "name:es": "Línea Yamanote",
+        "name:it": "Linea Yamanote",
+        "name:ja": "山手線",
+        "name:ja-Hira": "やまのてせん",
+        "name:ja-Latn": "Yamanote-sen",
+        "name:ko": "야마노테선",
+        "name:ru": "Линия JR Яманотэ",
+        "name:th": "สายยามาโนเตะ",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "operator:ko": "동일본여객철도",
+        "railway": "rail",
+        "railway:atc": "D",
+        "railway:traffic_mode": "passenger",
+        "ref": "JY",
+        "source": "Bing",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          61.10573598454043,
+          20.293543171474326
+        ],
+        [
+          59.21540164072034,
+          -11.265532467836977
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 31.6156388380687,
+      "clippedLength": 31.6156388380687
+    },
+    {
+      "id": "way/146060266",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "colour": "#B1CB39",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "maxspeed": "90",
+        "name": "山手線",
+        "name:de": "Yamanote-Linie",
+        "name:en": "Yamanote Line",
+        "name:es": "Línea Yamanote",
+        "name:it": "Linea Yamanote",
+        "name:ja": "山手線",
+        "name:ja-Hira": "やまのてせん",
+        "name:ja-Latn": "Yamanote-sen",
+        "name:ko": "야마노테선",
+        "name:ru": "Линия JR Яманотэ",
+        "name:th": "สายยามาโนเตะ",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:atc": "D",
+        "railway:traffic_mode": "passenger",
+        "ref": "JY",
+        "source": "Bing",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          78.26345966117668,
+          -296.6998388109516
+        ],
+        [
+          79.4663996981531,
+          -317.0935695245197
+        ],
+        [
+          81.27651558521448,
+          -340
+        ]
+      ],
+      "status": "outside-target",
+      "sourceLength": 43.407016899045445,
+      "clippedLength": 0
+    },
+    {
+      "id": "way/146060273",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "colour": "#B1CB39",
+        "electrified": "contact_line",
+        "embankment": "yes",
+        "frequency": "0",
+        "gauge": "1067",
+        "level": "2",
+        "maxspeed": "90",
+        "name": "山手線",
+        "name:de": "Yamanote-Linie",
+        "name:en": "Yamanote Line",
+        "name:es": "Línea Yamanote",
+        "name:it": "Linea Yamanote",
+        "name:ja": "山手線",
+        "name:ja-Hira": "やまのてせん",
+        "name:ja-Latn": "Yamanote-sen",
+        "name:ko": "야마노테선",
+        "name:ru": "Линия JR Яманотэ",
+        "name:th": "สายยามาโนเตะ",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:atc": "D",
+        "railway:traffic_mode": "passenger",
+        "ref": "JY",
+        "source": "Bing",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          59.21540164072034,
+          -11.265532467836978
+        ],
+        [
+          60.544966944882205,
+          -37.781835175396566
+        ],
+        [
+          63.176963566462405,
+          -71.34466164946463
+        ],
+        [
+          66.55966712719366,
+          -111.11911570961756
+        ],
+        [
+          72.60150129624867,
+          -192.30442034551524
+        ],
+        [
+          77.10574293629637,
+          -279.75701231275394
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 269.1118455984752,
+      "clippedLength": 239.31539031783964
+    },
+    {
+      "id": "way/146060331",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "bridge": "yes",
+        "colour": "#B1CB39",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "1",
+        "level": "2",
+        "maxspeed": "90",
+        "name": "山手線",
+        "name:de": "Yamanote-Linie",
+        "name:en": "Yamanote Line",
+        "name:es": "Línea Yamanote",
+        "name:it": "Linea Yamanote",
+        "name:ja": "山手線",
+        "name:ja-Hira": "やまのてせん",
+        "name:ja-Latn": "Yamanote-sen",
+        "name:ko": "야마노테선",
+        "name:ru": "Линия JR Яманотэ",
+        "name:th": "สายยามาโนเตะ",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:atc": "D",
+        "railway:traffic_mode": "passenger",
+        "ref": "JY",
+        "source": "Bing",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          67.82591979647749,
+          -11.855525769608267
+        ],
+        [
+          70.66594364290312,
+          19.82600131021565
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 31.80856635495983,
+      "clippedLength": 31.80856635495983
+    },
+    {
+      "id": "way/146060343",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "bridge": "yes",
+        "colour": "#B1CB39",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "1",
+        "maxspeed": "90",
+        "name": "山手線",
+        "name:de": "Yamanote-Linie",
+        "name:en": "Yamanote Line",
+        "name:es": "Línea Yamanote",
+        "name:it": "Linea Yamanote",
+        "name:ja": "山手線",
+        "name:ja-Hira": "やまのてせん",
+        "name:ja-Latn": "Yamanote-sen",
+        "name:ko": "야마노테선",
+        "name:ru": "Линия JR Яманотэ",
+        "name:th": "สายยามาโนเตะ",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:atc": "D",
+        "railway:traffic_mode": "passenger",
+        "ref": "JY",
+        "source": "Bing",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          82.41495948641159,
+          -295.60890780108434
+        ],
+        [
+          81.43813599963318,
+          -278.17627554320916
+        ]
+      ],
+      "status": "outside-target",
+      "sourceLength": 17.459978567072536,
+      "clippedLength": 0
+    },
+    {
+      "id": "way/146060379",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "colour": "#B1CB39",
+        "electrified": "contact_line",
+        "embankment": "yes",
+        "frequency": "0",
+        "gauge": "1067",
+        "level": "2",
+        "maxspeed": "90",
+        "name": "山手線",
+        "name:de": "Yamanote-Linie",
+        "name:en": "Yamanote Line",
+        "name:es": "Línea Yamanote",
+        "name:it": "Linea Yamanote",
+        "name:ja": "山手線",
+        "name:ja-Hira": "やまのてせん",
+        "name:ja-Latn": "Yamanote-sen",
+        "name:ko": "야마노테선",
+        "name:ru": "Линия JR Яманотэ",
+        "name:th": "สายยามาโนเตะ",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:atc": "D",
+        "railway:traffic_mode": "passenger",
+        "ref": "JY",
+        "source": "Bing",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          70.66594364290312,
+          19.82600131021565
+        ],
+        [
+          72.89093047618341,
+          34.0748961321644
+        ],
+        [
+          75.07973866389986,
+          45.08439377134869
+        ],
+        [
+          78.67046944947657,
+          61.57081035828805
+        ],
+        [
+          83.545542227119,
+          80.18342921891481
+        ],
+        [
+          88.6557762163504,
+          96.60305411059767
+        ],
+        [
+          93.16906252035972,
+          111.01892816831476
+        ],
+        [
+          99.51841519213139,
+          127.95062271809397
+        ],
+        [
+          113.13063139528708,
+          158.65253827856284
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 145.72953112672354,
+      "clippedLength": 145.72953112672354
+    },
+    {
+      "id": "way/146060420",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "colour": "#B1CB39",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "maxspeed": "90",
+        "name": "山手線",
+        "name:de": "Yamanote-Linie",
+        "name:en": "Yamanote Line",
+        "name:es": "Línea Yamanote",
+        "name:it": "Linea Yamanote",
+        "name:ja": "山手線",
+        "name:ja-Hira": "やまのてせん",
+        "name:ja-Latn": "Yamanote-sen",
+        "name:ko": "야마노테선",
+        "name:ru": "Линия JR Яманотэ",
+        "name:th": "สายยามาโนเตะ",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:atc": "D",
+        "railway:traffic_mode": "passenger",
+        "ref": "JY",
+        "source": "Bing",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          85.46834053655684,
+          -340
+        ],
+        [
+          83.62694418477898,
+          -316.71508325614536
+        ],
+        [
+          82.41495948641159,
+          -295.60890780108434
+        ]
+      ],
+      "status": "outside-target",
+      "sourceLength": 44.49855792156684,
+      "clippedLength": 0
+    },
+    {
+      "id": "way/146060426",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "colour": "#B1CB39",
+        "electrified": "contact_line",
+        "embankment": "yes",
+        "frequency": "0",
+        "gauge": "1067",
+        "level": "2",
+        "maxspeed": "90",
+        "name": "山手線",
+        "name:de": "Yamanote-Linie",
+        "name:en": "Yamanote Line",
+        "name:es": "Línea Yamanote",
+        "name:it": "Linea Yamanote",
+        "name:ja": "山手線",
+        "name:ja-Hira": "やまのてせん",
+        "name:ja-Latn": "Yamanote-sen",
+        "name:ko": "야마노테선",
+        "name:ru": "Линия JR Яманотэ",
+        "name:th": "สายยามาโนเตะ",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:atc": "D",
+        "railway:traffic_mode": "passenger",
+        "ref": "JY",
+        "source": "Bing",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          81.43813599963318,
+          -278.17627554320916
+        ],
+        [
+          76.30981268504918,
+          -192.01498966923432
+        ],
+        [
+          73.35220823539973,
+          -148.5113326674304
+        ],
+        [
+          70.92823883866497,
+          -111.14137960803639
+        ],
+        [
+          68.81178794721752,
+          -70.8993836858338
+        ],
+        [
+          67.51840129119016,
+          -37.781835175396566
+        ],
+        [
+          67.82591979647749,
+          -11.855525769608267
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 266.73487365213083,
+      "clippedLength": 238.50873309844602
+    },
+    {
+      "id": "way/155269553",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "alt_name": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "alt_name:de": "Saikyō-Linie;Shōnan-Shinjuku-Linie",
+        "alt_name:en": "Saikyo Line;Shonan Shinjuku Line",
+        "alt_name:fr": "Ligne Saikyō;Ligne Shōnan-Shinjuku",
+        "alt_name:it": "Linea Saikyō;Linea Shōnan-Shinjuku",
+        "alt_name:ja": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "bridge": "yes",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "1",
+        "level": "2",
+        "maxspeed": "85",
+        "name": "山手貨物線",
+        "name:de": "Yamanote-Güterlinie",
+        "name:en": "Yamanote Freight Line",
+        "name:es": "Línea Yamanote de carga",
+        "name:fr": "Ligne de fret Yamanote",
+        "name:ja": "山手貨物線",
+        "name:ja_rm": "Shōnan–shinjuku-rain",
+        "name:ko": "야마노테 화물선",
+        "name:zh": "山手货物线",
+        "name:zh-Hans": "山手货物线",
+        "name:zh-Hant": "山手貨物線",
+        "official_name": "山手貨物線",
+        "official_name:en": "Yamanote Freight Line",
+        "official_name:ja": "山手貨物線",
+        "official_name:ja-Hira": "やまのてかもつせん",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja-Latn": "Higashi-Nihon Ryokaku Tetsudō",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:traffic_mode": "mixed",
+        "usage": "main",
+        "voltage": "1500",
+        "wikidata": "Q693036",
+        "wikipedia": "ja:山手線"
+      },
+      "sourcePoints": [
+        [
+          79.84627549970944,
+          -12.167220343517064
+        ],
+        [
+          83.69930148104798,
+          17.85564632308715
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 30.26909863364888,
+      "clippedLength": 30.26909863364888
+    },
+    {
+      "id": "way/155269562",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "alt_name": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "alt_name:de": "Saikyō-Linie;Shōnan-Shinjuku-Linie",
+        "alt_name:en": "Saikyo Line;Shonan Shinjuku Line",
+        "alt_name:fr": "Ligne Saikyō;Ligne Shōnan-Shinjuku",
+        "alt_name:it": "Linea Saikyō;Linea Shōnan-Shinjuku",
+        "alt_name:ja": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "bridge": "yes",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "1",
+        "maxspeed": "70",
+        "name": "山手貨物線",
+        "name:de": "Yamanote-Güterlinie",
+        "name:en": "Yamanote Freight Line",
+        "name:es": "Línea Yamanote de carga",
+        "name:fr": "Ligne de fret Yamanote",
+        "name:ja": "山手貨物線",
+        "name:ja_rm": "Shōnan–shinjuku-rain",
+        "name:ko": "야마노테 화물선",
+        "name:zh": "山手货物线",
+        "name:zh-Hans": "山手货物线",
+        "name:zh-Hant": "山手貨物線",
+        "official_name": "山手貨物線",
+        "official_name:en": "Yamanote Freight Line",
+        "official_name:ja": "山手貨物線",
+        "official_name:ja-Hira": "やまのてかもつせん",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja-Latn": "Higashi-Nihon Ryokaku Tetsudō",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:traffic_mode": "mixed",
+        "usage": "main",
+        "voltage": "1500",
+        "wikidata": "Q693036",
+        "wikipedia": "ja:山手線"
+      },
+      "sourcePoints": [
+        [
+          85.35447461327912,
+          -277.2300598714824
+        ],
+        [
+          86.39461073493558,
+          -294.47344899517043
+        ]
+      ],
+      "status": "outside-target",
+      "sourceLength": 17.27473159335614,
+      "clippedLength": 0
+    },
+    {
+      "id": "way/155269567",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "alt_name": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "alt_name:de": "Saikyō-Linie;Shōnan-Shinjuku-Linie",
+        "alt_name:en": "Saikyo Line;Shonan Shinjuku Line",
+        "alt_name:fr": "Ligne Saikyō;Ligne Shōnan-Shinjuku",
+        "alt_name:it": "Linea Saikyō;Linea Shōnan-Shinjuku",
+        "alt_name:ja": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "bridge": "yes",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "1",
+        "maxspeed": "70",
+        "name": "山手貨物線",
+        "name:de": "Yamanote-Güterlinie",
+        "name:en": "Yamanote Freight Line",
+        "name:es": "Línea Yamanote de carga",
+        "name:fr": "Ligne de fret Yamanote",
+        "name:ja": "山手貨物線",
+        "name:ja_rm": "Shōnan–shinjuku-rain",
+        "name:ko": "야마노테 화물선",
+        "name:zh": "山手货物线",
+        "name:zh-Hans": "山手货物线",
+        "name:zh-Hant": "山手貨物線",
+        "official_name": "山手貨物線",
+        "official_name:en": "Yamanote Freight Line",
+        "official_name:ja": "山手貨物線",
+        "official_name:ja-Hira": "やまのてかもつせん",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja-Latn": "Higashi-Nihon Ryokaku Tetsudō",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:traffic_mode": "mixed",
+        "usage": "main",
+        "voltage": "1500",
+        "wikidata": "Q693036",
+        "wikipedia": "ja:山手線"
+      },
+      "sourcePoints": [
+        [
+          90.13005611047964,
+          -293.39364993451255
+        ],
+        [
+          89.29794721366859,
+          -276.3283719958023
+        ]
+      ],
+      "status": "outside-target",
+      "sourceLength": 17.085552854431825,
+      "clippedLength": 0
+    },
+    {
+      "id": "way/155269569",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "alt_name": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "alt_name:de": "Saikyō-Linie;Shōnan-Shinjuku-Linie",
+        "alt_name:en": "Saikyo Line;Shonan Shinjuku Line",
+        "alt_name:fr": "Ligne Saikyō;Ligne Shōnan-Shinjuku",
+        "alt_name:it": "Linea Saikyō;Linea Shōnan-Shinjuku",
+        "alt_name:ja": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "bridge": "yes",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "1",
+        "level": "2",
+        "maxspeed": "70",
+        "name": "山手貨物線",
+        "name:de": "Yamanote-Güterlinie",
+        "name:en": "Yamanote Freight Line",
+        "name:es": "Línea Yamanote de carga",
+        "name:fr": "Ligne de fret Yamanote",
+        "name:ja": "山手貨物線",
+        "name:ja_rm": "Shōnan–shinjuku-rain",
+        "name:ko": "야마노테 화물선",
+        "name:zh": "山手货物线",
+        "name:zh-Hans": "山手货物线",
+        "name:zh-Hant": "山手貨物線",
+        "official_name": "山手貨物線",
+        "official_name:en": "Yamanote Freight Line",
+        "official_name:ja": "山手貨物線",
+        "official_name:ja-Hira": "やまのてかもつせん",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja-Latn": "Higashi-Nihon Ryokaku Tetsudō",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:traffic_mode": "mixed",
+        "usage": "main",
+        "voltage": "1500",
+        "wikidata": "Q693036",
+        "wikipedia": "ja:山手線"
+      },
+      "sourcePoints": [
+        [
+          76.30076802365822,
+          19.057896824257586
+        ],
+        [
+          73.98533456875631,
+          -12.378727376123056
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 31.521779346985426,
+      "clippedLength": 31.521779346985426
+    },
+    {
+      "id": "way/155269586",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "alt_name": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "alt_name:de": "Saikyō-Linie;Shōnan-Shinjuku-Linie",
+        "alt_name:en": "Saikyo Line;Shonan Shinjuku Line",
+        "alt_name:fr": "Ligne Saikyō;Ligne Shōnan-Shinjuku",
+        "alt_name:it": "Linea Saikyō;Linea Shōnan-Shinjuku",
+        "alt_name:ja": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "maxspeed": "70",
+        "name": "山手貨物線",
+        "name:de": "Yamanote-Güterlinie",
+        "name:en": "Yamanote Freight Line",
+        "name:es": "Línea Yamanote de carga",
+        "name:fr": "Ligne de fret Yamanote",
+        "name:ja": "山手貨物線",
+        "name:ja_rm": "Shōnan–shinjuku-rain",
+        "name:ko": "야마노테 화물선",
+        "name:zh": "山手货物线",
+        "name:zh-Hans": "山手货物线",
+        "name:zh-Hant": "山手貨物線",
+        "official_name": "山手貨物線",
+        "official_name:en": "Yamanote Freight Line",
+        "official_name:ja": "山手貨物線",
+        "official_name:ja-Hira": "やまのてかもつせん",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja-Latn": "Higashi-Nihon Ryokaku Tetsudō",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:traffic_mode": "mixed",
+        "usage": "main",
+        "voltage": "1500",
+        "wikidata": "Q693036",
+        "wikipedia": "ja:山手線"
+      },
+      "sourcePoints": [
+        [
+          86.39461073493558,
+          -294.47344899517043
+        ],
+        [
+          87.80557799675744,
+          -316.0137704638619
+        ],
+        [
+          89.61025208564998,
+          -340
+        ]
+      ],
+      "status": "outside-target",
+      "sourceLength": 45.640507373346175,
+      "clippedLength": 0
+    },
+    {
+      "id": "way/155269587",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "alt_name": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "alt_name:de": "Saikyō-Linie;Shōnan-Shinjuku-Linie",
+        "alt_name:en": "Saikyo Line;Shonan Shinjuku Line",
+        "alt_name:fr": "Ligne Saikyō;Ligne Shōnan-Shinjuku",
+        "alt_name:it": "Linea Saikyō;Linea Shōnan-Shinjuku",
+        "alt_name:ja": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "maxspeed": "70",
+        "name": "山手貨物線",
+        "name:de": "Yamanote-Güterlinie",
+        "name:en": "Yamanote Freight Line",
+        "name:es": "Línea Yamanote de carga",
+        "name:fr": "Ligne de fret Yamanote",
+        "name:ja": "山手貨物線",
+        "name:ja_rm": "Shōnan–shinjuku-rain",
+        "name:ko": "야마노테 화물선",
+        "name:zh": "山手货物线",
+        "name:zh-Hans": "山手货物线",
+        "name:zh-Hant": "山手貨物線",
+        "official_name": "山手貨物線",
+        "official_name:en": "Yamanote Freight Line",
+        "official_name:ja": "山手貨物線",
+        "official_name:ja-Hira": "やまのてかもつせん",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja-Latn": "Higashi-Nihon Ryokaku Tetsudō",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:traffic_mode": "mixed",
+        "usage": "main",
+        "voltage": "1500",
+        "wikidata": "Q693036",
+        "wikipedia": "ja:山手線"
+      },
+      "sourcePoints": [
+        [
+          93.57824756401388,
+          -340
+        ],
+        [
+          91.69478262365983,
+          -315.5573605518126
+        ],
+        [
+          90.13005611047964,
+          -293.39364993451255
+        ]
+      ],
+      "status": "outside-target",
+      "sourceLength": 46.733974382113104,
+      "clippedLength": 0
+    },
+    {
+      "id": "way/155269600",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "alt_name": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "alt_name:de": "Saikyō-Linie;Shōnan-Shinjuku-Linie",
+        "alt_name:en": "Saikyo Line;Shonan Shinjuku Line",
+        "alt_name:fr": "Ligne Saikyō;Ligne Shōnan-Shinjuku",
+        "alt_name:it": "Linea Saikyō;Linea Shōnan-Shinjuku",
+        "alt_name:ja": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "electrified": "contact_line",
+        "embankment": "yes",
+        "frequency": "0",
+        "gauge": "1067",
+        "level": "2",
+        "maxspeed": "70",
+        "name": "山手貨物線",
+        "name:de": "Yamanote-Güterlinie",
+        "name:en": "Yamanote Freight Line",
+        "name:es": "Línea Yamanote de carga",
+        "name:fr": "Ligne de fret Yamanote",
+        "name:ja": "山手貨物線",
+        "name:ja_rm": "Shōnan–shinjuku-rain",
+        "name:ko": "야마노테 화물선",
+        "name:zh": "山手货物线",
+        "name:zh-Hans": "山手货物线",
+        "name:zh-Hant": "山手貨物線",
+        "official_name": "山手貨物線",
+        "official_name:en": "Yamanote Freight Line",
+        "official_name:ja": "山手貨物線",
+        "official_name:ja-Hira": "やまのてかもつせん",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja-Latn": "Higashi-Nihon Ryokaku Tetsudō",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:traffic_mode": "mixed",
+        "usage": "main",
+        "voltage": "1500",
+        "wikidata": "Q693036",
+        "wikipedia": "ja:山手線"
+      },
+      "sourcePoints": [
+        [
+          73.98533456875631,
+          -12.378727376123056
+        ],
+        [
+          73.53310147350162,
+          -37.24750161967236
+        ],
+        [
+          73.6145034311616,
+          -70.99957122792758
+        ],
+        [
+          85.35447461327912,
+          -277.2300598714824
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 265.18942939978353,
+      "clippedLength": 237.91528405563423
+    },
+    {
+      "id": "way/155269603",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "alt_name": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "alt_name:de": "Saikyō-Linie;Shōnan-Shinjuku-Linie",
+        "alt_name:en": "Saikyo Line;Shonan Shinjuku Line",
+        "alt_name:fr": "Ligne Saikyō;Ligne Shōnan-Shinjuku",
+        "alt_name:it": "Linea Saikyō;Linea Shōnan-Shinjuku",
+        "alt_name:ja": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "electrified": "contact_line",
+        "embankment": "yes",
+        "frequency": "0",
+        "gauge": "1067",
+        "level": "2",
+        "maxspeed": "85",
+        "name": "山手貨物線",
+        "name:de": "Yamanote-Güterlinie",
+        "name:en": "Yamanote Freight Line",
+        "name:es": "Línea Yamanote de carga",
+        "name:fr": "Ligne de fret Yamanote",
+        "name:ja": "山手貨物線",
+        "name:ja_rm": "Shōnan–shinjuku-rain",
+        "name:ko": "야마노테 화물선",
+        "name:zh": "山手货物线",
+        "name:zh-Hans": "山手货物线",
+        "name:zh-Hant": "山手貨物線",
+        "official_name": "山手貨物線",
+        "official_name:en": "Yamanote Freight Line",
+        "official_name:ja": "山手貨物線",
+        "official_name:ja-Hira": "やまのてかもつせん",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja-Latn": "Higashi-Nihon Ryokaku Tetsudō",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:traffic_mode": "mixed",
+        "usage": "main",
+        "voltage": "1500",
+        "wikidata": "Q693036",
+        "wikipedia": "ja:山手線"
+      },
+      "sourcePoints": [
+        [
+          89.29794721366859,
+          -276.3283719958023
+        ],
+        [
+          77.63937798921106,
+          -70.77693224611215
+        ],
+        [
+          77.42230610297467,
+          -36.94693899418201
+        ],
+        [
+          79.84627549970944,
+          -12.167220343517066
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 264.6104857916966,
+      "clippedLength": 238.23979876953553
+    },
+    {
+      "id": "way/169057662",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#20a288",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-2",
+        "name": "東急田園都市線",
+        "name:en": "Tokyu Den-en-toshi Line",
+        "name:es": "Línea Tokyu Den-en-toshi",
+        "name:ja": "東急田園都市線",
+        "name:ja_rm": "Tōkyū Den-en Toshi Sen",
+        "name:ko": "도큐 덴엔토시선",
+        "note": "National-Land Numerical Information (Railway) 2007, MLIT Japan",
+        "oneway": "yes",
+        "operator": "東急電鉄",
+        "operator:ja": "東急電鉄",
+        "railway": "rail",
+        "railway:atc": "P",
+        "ref": "DT",
+        "source": "KSJ2",
+        "tracks": "2",
+        "tunnel": "yes",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          -54.59357939744879,
+          6.935204276787215
+        ],
+        [
+          -64.76882406638613,
+          7.168975207021069
+        ],
+        [
+          -83.81688208684247,
+          9.640267903036499
+        ],
+        [
+          -98.37878779003302,
+          12.523442714263526
+        ],
+        [
+          -114.82198317565272,
+          16.408492943264413
+        ],
+        [
+          -226.49642399959248,
+          51.44073669557403
+        ],
+        [
+          -243.96166618151605,
+          59.27762884725036
+        ],
+        [
+          -271.6925996539985,
+          75.22971187846551
+        ],
+        [
+          -300,
+          101.17967337692212
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 267.70311900142065
+    },
+    {
+      "id": "way/184696239",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#B74D17",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-5",
+        "maxspeed": "80",
+        "name": "東京メトロ副都心線",
+        "name:en": "Tokyo Metro Fukutoshin Line",
+        "name:es": "Línea Fukutoshin de Tokyo Metro",
+        "name:ja": "東京メトロ副都心線",
+        "name:ja_rm": "Tōkyō Metro Fukutoshin Sen",
+        "name:ko": "도쿄 메트로 후쿠토신선",
+        "name:ru": "Линия метро Фукутосин",
+        "oneway": "yes",
+        "operator": "東京地下鉄",
+        "operator:en": "Tokyo Metro",
+        "operator:ja": "東京地下鉄",
+        "operator:ja_rm": "Tōkyō Chikatetsu",
+        "railway": "subway",
+        "railway:atc": "yes",
+        "railway:ato": "sto",
+        "tunnel": "yes",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          153.5609122019761,
+          -340
+        ],
+        [
+          156.0023289334003,
+          -306.6184054410596
+        ],
+        [
+          157.74794868468234,
+          -269.89410542790205
+        ],
+        [
+          160.6693744861973,
+          -157.68405870841724
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 182.48458834956443
+    },
+    {
+      "id": "way/211954197",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "colour": "#B1CB39",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "level": "2",
+        "maxspeed": "90",
+        "name": "山手線",
+        "name:de": "Yamanote-Linie",
+        "name:en": "Yamanote Line",
+        "name:es": "Línea Yamanote",
+        "name:it": "Linea Yamanote",
+        "name:ja": "山手線",
+        "name:ja-Hira": "やまのてせん",
+        "name:ja-Latn": "Yamanote-sen",
+        "name:ko": "야마노테선",
+        "name:ru": "Линия JR Яманотэ",
+        "name:th": "สายยามาโนเตะ",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:atc": "D",
+        "railway:traffic_mode": "passenger",
+        "ref": "JY",
+        "source": "Bing",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          166.2770648827795,
+          269.7382581413431
+        ],
+        [
+          179.40991400136633,
+          293.69421256000294
+        ],
+        [
+          183.0539556704054,
+          300
+        ]
+      ],
+      "status": "outside-target",
+      "sourceLength": 34.60257403013806,
+      "clippedLength": 0
+    },
+    {
+      "id": "way/211954209",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "colour": "#B1CB39",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "level": "2",
+        "maxspeed": "90",
+        "name": "山手線",
+        "name:de": "Yamanote-Linie",
+        "name:en": "Yamanote Line",
+        "name:es": "Línea Yamanote",
+        "name:it": "Linea Yamanote",
+        "name:ja": "山手線",
+        "name:ja-Hira": "やまのてせん",
+        "name:ja-Latn": "Yamanote-sen",
+        "name:ko": "야마노테선",
+        "name:ru": "Линия JR Яманотэ",
+        "name:th": "สายยามาโนเตะ",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:atc": "D",
+        "railway:traffic_mode": "passenger",
+        "ref": "JY",
+        "source": "Bing",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          174.83213719083741,
+          300
+        ],
+        [
+          170.38334139848897,
+          293.40478188372197
+        ],
+        [
+          162.08034174801912,
+          280.2022902755938
+        ],
+        [
+          128.6331819396922,
+          226.05648995377047
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 87.19513410731173,
+      "clippedLength": 28.14338267573581
+    },
+    {
+      "id": "way/211954289",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "alt_name": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "alt_name:de": "Saikyō-Linie;Shōnan-Shinjuku-Linie",
+        "alt_name:en": "Saikyo Line;Shonan Shinjuku Line",
+        "alt_name:fr": "Ligne Saikyō;Ligne Shōnan-Shinjuku",
+        "alt_name:it": "Linea Saikyō;Linea Shōnan-Shinjuku",
+        "alt_name:ja": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "electrified": "contact_line",
+        "embankment": "yes",
+        "frequency": "0",
+        "gauge": "1067",
+        "level": "2",
+        "maxspeed": "70",
+        "name": "山手貨物線",
+        "name:de": "Yamanote-Güterlinie",
+        "name:en": "Yamanote Freight Line",
+        "name:es": "Línea Yamanote de carga",
+        "name:fr": "Ligne de fret Yamanote",
+        "name:ja": "山手貨物線",
+        "name:ja_rm": "Shōnan–shinjuku-rain",
+        "name:ko": "야마노테 화물선",
+        "name:zh": "山手货物线",
+        "name:zh-Hans": "山手货物线",
+        "name:zh-Hant": "山手貨物線",
+        "official_name": "山手貨物線",
+        "official_name:en": "Yamanote Freight Line",
+        "official_name:ja": "山手貨物線",
+        "official_name:ja-Hira": "やまのてかもつせん",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja-Latn": "Higashi-Nihon Ryokaku Tetsudō",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:traffic_mode": "mixed",
+        "usage": "main",
+        "voltage": "1500",
+        "wikidata": "Q693036",
+        "wikipedia": "ja:山手線"
+      },
+      "sourcePoints": [
+        [
+          115.63600274711116,
+          157.5059475234395
+        ],
+        [
+          102.8920740914717,
+          127.02667094399504
+        ],
+        [
+          96.38896216577103,
+          108.49197572704321
+        ],
+        [
+          85.36351927467008,
+          73.10350960398712
+        ],
+        [
+          79.45735503676214,
+          42.83574005714867
+        ],
+        [
+          76.30076802365822,
+          19.057896824257586
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 144.56997614590514,
+      "clippedLength": 144.56997614590514
+    },
+    {
+      "id": "way/211954421",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "colour": "#B1CB39",
+        "electrified": "contact_line",
+        "embankment": "yes",
+        "frequency": "0",
+        "gauge": "1067",
+        "level": "2",
+        "maxspeed": "90",
+        "name": "山手線",
+        "name:de": "Yamanote-Linie",
+        "name:en": "Yamanote Line",
+        "name:es": "Línea Yamanote",
+        "name:it": "Linea Yamanote",
+        "name:ja": "山手線",
+        "name:ja-Hira": "やまのてせん",
+        "name:ja-Latn": "Yamanote-sen",
+        "name:ko": "야마노테선",
+        "name:ru": "Линия JR Яманотэ",
+        "name:th": "สายยามาโนเตะ",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:atc": "D",
+        "railway:traffic_mode": "passenger",
+        "ref": "JY",
+        "source": "Bing",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          98.2069392133221,
+          164.58586713836718
+        ],
+        [
+          78.73378208178396,
+          114.71473526233751
+        ],
+        [
+          69.03790449484487,
+          80.96266565408229
+        ],
+        [
+          64.19901036276629,
+          52.765438636466115
+        ],
+        [
+          63.068427622058884,
+          42.01197582514353
+        ],
+        [
+          61.10573598454043,
+          20.293543171474326
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 149.88435473809426,
+      "clippedLength": 149.88435473809426
+    },
+    {
+      "id": "way/211954427",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "alt_name": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "alt_name:de": "Saikyō-Linie;Shōnan-Shinjuku-Linie",
+        "alt_name:en": "Saikyo Line;Shonan Shinjuku Line",
+        "alt_name:fr": "Ligne Saikyō;Ligne Shōnan-Shinjuku",
+        "alt_name:it": "Linea Saikyō;Linea Shōnan-Shinjuku",
+        "alt_name:ja": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "electrified": "contact_line",
+        "embankment": "yes",
+        "frequency": "0",
+        "gauge": "1067",
+        "level": "2",
+        "maxspeed": "75",
+        "name": "山手貨物線",
+        "name:de": "Yamanote-Güterlinie",
+        "name:en": "Yamanote Freight Line",
+        "name:es": "Línea Yamanote de carga",
+        "name:fr": "Ligne de fret Yamanote",
+        "name:ja": "山手貨物線",
+        "name:ja_rm": "Shōnan–shinjuku-rain",
+        "name:ko": "야마노테 화물선",
+        "name:zh": "山手货物线",
+        "name:zh-Hans": "山手货物线",
+        "name:zh-Hant": "山手貨物線",
+        "official_name": "山手貨物線",
+        "official_name:en": "Yamanote Freight Line",
+        "official_name:ja": "山手貨物線",
+        "official_name:ja-Hira": "やまのてかもつせん",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja-Latn": "Higashi-Nihon Ryokaku Tetsudō",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:traffic_mode": "mixed",
+        "usage": "main",
+        "voltage": "1500",
+        "wikidata": "Q693036",
+        "wikipedia": "ja:山手線"
+      },
+      "sourcePoints": [
+        [
+          83.69930148104798,
+          17.85564632308715
+        ],
+        [
+          90.98025433264327,
+          44.03799055831911
+        ],
+        [
+          96.6060340520074,
+          69.36317471312671
+        ],
+        [
+          106.08483975271012,
+          97.1039918194846
+        ],
+        [
+          117.83385559621861,
+          122.6963427521543
+        ],
+        [
+          130.9576600534144,
+          151.68393815493835
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 142.4143517877617,
+      "clippedLength": 142.4143517877617
+    },
+    {
+      "id": "way/355250636",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "electrified": "rail",
+        "frequency": "0",
+        "gauge": "1435",
+        "layer": "1",
+        "maxspeed": "35",
+        "railway": "subway",
+        "service": "yard",
+        "tunnel": "building_passage",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          -152.33019619016363,
+          151.0828129047486
+        ],
+        [
+          -150.58457643888156,
+          149.96961799646255
+        ],
+        [
+          -142.40820205559717,
+          143.5242194801438
+        ],
+        [
+          -138.1119876403949,
+          140.0176555203082
+        ],
+        [
+          -133.1012449316054,
+          136.5333554581005
+        ],
+        [
+          -120.05884243206957,
+          128.74099110247084
+        ],
+        [
+          -113.91751698257265,
+          125.61291341100957
+        ],
+        [
+          -108.36409455947751,
+          122.85219003950418
+        ],
+        [
+          -81.42909133824222,
+          112.87796366414005
+        ],
+        [
+          -73.48787816397615,
+          110.19516393630961
+        ],
+        [
+          -65.13061054258989,
+          107.77953098634126
+        ],
+        [
+          -64.40703759018236,
+          107.56802395373526
+        ],
+        [
+          -51.85304683403574,
+          104.54013380436778
+        ],
+        [
+          -39.452815329247436,
+          102.92600118798573
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 124.39384264441605
+    },
+    {
+      "id": "way/355250638",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "electrified": "rail",
+        "frequency": "0",
+        "gauge": "1435",
+        "layer": "1",
+        "maxspeed": "35",
+        "railway": "subway",
+        "service": "yard",
+        "tunnel": "building_passage",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          -137.5331292753841,
+          144.63741438763893
+        ],
+        [
+          -134.1323363918709,
+          142.66705940051042
+        ],
+        [
+          -129.89038994758508,
+          140.65217661733524
+        ],
+        [
+          -76.13796411090891,
+          117.56451422672725
+        ],
+        [
+          -69.72529880168855,
+          114.35851289238201
+        ],
+        [
+          -63.23123153737885,
+          110.75176139045264
+        ],
+        [
+          -57.84061302960365,
+          108.36952428732158
+        ],
+        [
+          -53.924274415957704,
+          106.72199582331129
+        ],
+        [
+          -49.72755128119733,
+          105.26371049427915
+        ],
+        [
+          -44.42737938990243,
+          103.88334880813098
+        ],
+        [
+          -39.452815329247436,
+          102.92600118798573
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 106.85333686682155
+    },
+    {
+      "id": "way/356970915",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#083476",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-1",
+        "level": "2",
+        "maxspeed": "90",
+        "name": "京王電鉄井の頭線",
+        "name:en": "Keio railway Inokashira Line",
+        "name:es": "Línea Keio Inokashira",
+        "name:ja": "京王電鉄井の頭線",
+        "name:ja_rm": "Keiō Inokashira Sen",
+        "note": "National-Land Numerical Information (Railway) 2007, MLIT Japan",
+        "oneway": "yes",
+        "operator": "京王電鉄",
+        "operator:en": "Keio railway",
+        "operator:ja": "京王電鉄",
+        "railway": "rail",
+        "source": "KSJ2",
+        "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-N02-v1_1.html",
+        "tunnel": "yes",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          -251.05268113361848,
+          157.91782963944206
+        ],
+        [
+          -280.8638868494139,
+          167.86979211638737
+        ],
+        [
+          -300,
+          174.49941670645603
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 51.68046434795649
+    },
+    {
+      "id": "way/361085879",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#B74D17",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-5",
+        "maxspeed": "80",
+        "name": "東京メトロ副都心線",
+        "name:en": "Tokyo Metro Fukutoshin Line",
+        "name:es": "Línea Fukutoshin de Tokyo Metro",
+        "name:ja": "東京メトロ副都心線",
+        "name:ja_rm": "Tōkyō Metro Fukutoshin Sen",
+        "name:ko": "도쿄 메트로 후쿠토신선",
+        "name:ru": "Линия метро Фукутосин",
+        "oneway": "yes",
+        "operator": "東京地下鉄",
+        "operator:en": "Tokyo Metro",
+        "operator:ja": "東京地下鉄",
+        "operator:ja_rm": "Tōkyō Chikatetsu",
+        "railway": "subway",
+        "railway:atc": "yes",
+        "railway:ato": "sto",
+        "tunnel": "yes",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          156.25557946520053,
+          -158.47442709279412
+        ],
+        [
+          153.2527517060256,
+          -269.68259839529605
+        ],
+        [
+          148.56267314621755,
+          -340
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 181.72234396794283
+    },
+    {
+      "id": "way/361085891",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#DA0442",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-2",
+        "maxspeed": "110",
+        "name": "東急東横線",
+        "name:en": "Tokyu-Toyoko Line",
+        "name:es": "Línea Tokyu-Toyoko",
+        "name:ja": "東急東横線",
+        "name:ja_rm": "Tōkyū Tōyoko Sen",
+        "name:ko": "도큐 도요코선",
+        "name:ru": "Линия Токю Тоёко",
+        "oneway": "yes",
+        "operator": "東急電鉄",
+        "operator:en": "Tokyu Railways",
+        "railway": "rail",
+        "railway:atc": "P",
+        "ref": "TY",
+        "source": "bing",
+        "tunnel": "yes",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          335.3308409771067,
+          257.7714128812226
+        ],
+        [
+          337.2030859955741,
+          258.9291355855554
+        ],
+        [
+          350.9600167886972,
+          271.04069618381635
+        ],
+        [
+          365,
+          283.0490675252466
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 39.004931677120524
+    },
+    {
+      "id": "way/361085896",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#DA0442",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-2",
+        "maxspeed": "110",
+        "name": "東急東横線",
+        "name:en": "Tokyu-Toyoko Line",
+        "name:es": "Línea Tokyu-Toyoko",
+        "name:ja": "東急東横線",
+        "name:ja_rm": "Tōkyū Tōyoko Sen",
+        "name:ko": "도큐 도요코선",
+        "name:ru": "Линия Токю Тоёко",
+        "oneway": "yes",
+        "operator": "東急電鉄",
+        "operator:en": "Tokyu Railways",
+        "railway": "rail",
+        "railway:atc": "P",
+        "ref": "TY",
+        "source": "bing",
+        "tunnel": "yes",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          365,
+          291.65736234526344
+        ],
+        [
+          360.45691181218183,
+          287.3935293810337
+        ],
+        [
+          346.8085169634623,
+          274.4136767547209
+        ],
+        [
+          332.73502300366096,
+          261.02194201240553
+        ],
+        [
+          328.64683581330405,
+          256.91425280158927
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 50.2877191908662
+    },
+    {
+      "id": "way/664524931",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#20a288",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-1",
+        "name": "東急田園都市線",
+        "name:en": "Tokyu Den-en-toshi Line",
+        "name:es": "Línea Tokyu Den-en-toshi",
+        "name:ja": "東急田園都市線",
+        "name:ja_rm": "Tōkyū Den-en Toshi Sen",
+        "name:ko": "도큐 덴엔토시선",
+        "oneway": "yes",
+        "operator": "東急電鉄",
+        "operator:ja": "東急電鉄",
+        "railway": "rail",
+        "railway:atc": "P",
+        "source": "KSJ2",
+        "tunnel": "yes",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          143.41215952911915,
+          4.820133951518249
+        ],
+        [
+          94.14588600713816,
+          10.24139315322623
+        ],
+        [
+          49.28436284476293,
+          11.577227042536748
+        ],
+        [
+          -22.0780197663748,
+          7.7367046103735255
+        ],
+        [
+          -54.59357939744879,
+          6.935204276787215
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 198.43614826599008
+    },
+    {
+      "id": "way/671715587",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#20a288",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-3",
+        "name": "東急田園都市線",
+        "name:en": "Tokyu Den-en-toshi Line",
+        "name:es": "Línea Tokyu Den-en-toshi",
+        "name:ja": "東急田園都市線",
+        "name:ja_rm": "Tōkyū Den-en Toshi Sen",
+        "name:ko": "도큐 덴엔토시선",
+        "oneway": "yes",
+        "operator": "東急電鉄",
+        "operator:ja": "東急電鉄",
+        "railway": "rail",
+        "railway:atc": "P",
+        "ref": "DT",
+        "source": "KSJ2",
+        "tracks": "2",
+        "tunnel": "yes",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          -300,
+          94.89200861510082
+        ],
+        [
+          -273.5015320401587,
+          71.0552309731837
+        ],
+        [
+          -259.6722439507666,
+          61.20345603833217
+        ],
+        [
+          -246.20474234014893,
+          55.03635624829399
+        ],
+        [
+          -228.44102631432898,
+          46.99908901322108
+        ],
+        [
+          -181.87006204623557,
+          29.711172092695417
+        ],
+        [
+          -117.23690791099652,
+          7.458405883302007
+        ],
+        [
+          -84.81179489897346,
+          -2.5046885428527057
+        ],
+        [
+          -67.17470414033897,
+          -5.0984326777987965
+        ],
+        [
+          -53.81573847155419,
+          -6.278419280550402
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 270.12334499211005
+    },
+    {
+      "id": "way/751605908",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "alt_name": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "alt_name:de": "Saikyō-Linie;Shōnan-Shinjuku-Linie",
+        "alt_name:en": "Saikyo Line;Shonan Shinjuku Line",
+        "alt_name:fr": "Ligne Saikyō;Ligne Shōnan-Shinjuku",
+        "alt_name:it": "Linea Saikyō;Linea Shōnan-Shinjuku",
+        "alt_name:ja": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "level": "2",
+        "maxspeed": "70",
+        "name": "山手貨物線",
+        "name:de": "Yamanote-Güterlinie",
+        "name:en": "Yamanote Freight Line",
+        "name:es": "Línea Yamanote de carga",
+        "name:fr": "Ligne de fret Yamanote",
+        "name:ja": "山手貨物線",
+        "name:ja_rm": "Shōnan–shinjuku-rain",
+        "name:ko": "야마노테 화물선",
+        "name:zh": "山手货物线",
+        "name:zh-Hans": "山手货物线",
+        "name:zh-Hant": "山手貨物線",
+        "official_name": "山手貨物線",
+        "official_name:en": "Yamanote Freight Line",
+        "official_name:ja": "山手貨物線",
+        "official_name:ja-Hira": "やまのてかもつせん",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja-Latn": "Higashi-Nihon Ryokaku Tetsudō",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:traffic_mode": "mixed",
+        "usage": "main",
+        "voltage": "1500",
+        "wikidata": "Q693036",
+        "wikipedia": "ja:山手線"
+      },
+      "sourcePoints": [
+        [
+          187.4863919086082,
+          300
+        ],
+        [
+          168.8457488694817,
+          268.21318111784547
+        ]
+      ],
+      "status": "outside-target",
+      "sourceLength": 36.84936129105946,
+      "clippedLength": 0
+    },
+    {
+      "id": "way/753428043",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#DA0442",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-1",
+        "level": "-5",
+        "maxspeed": "110",
+        "name": "東急東横線",
+        "name:en": "Tokyu-Toyoko Line",
+        "name:es": "Línea Tokyu-Toyoko",
+        "name:ja": "東急東横線",
+        "name:ja_rm": "Tōkyū Tōyoko Sen",
+        "name:ko": "도큐 도요코선",
+        "name:ru": "Линия Токю Тоёко",
+        "oneway": "yes",
+        "operator": "東急電鉄",
+        "operator:en": "Tokyu Railways",
+        "railway": "rail",
+        "railway:atc": "P",
+        "railway:track_ref": "東急東横線",
+        "ref": "TY",
+        "source": "bing",
+        "tunnel": "yes",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          214.4941576191424,
+          93.80893489146402
+        ],
+        [
+          221.51281527754654,
+          110.19516393630961
+        ],
+        [
+          230.9192636819802,
+          131.2679435437424
+        ],
+        [
+          239.14086137479006,
+          147.36474191230704
+        ],
+        [
+          257.1487832735899,
+          176.40799706034718
+        ],
+        [
+          305.69148384059275,
+          225.54442029646512
+        ],
+        [
+          318.5529931020267,
+          237.310890473189
+        ],
+        [
+          335.3308409771067,
+          257.7714128812226
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 206.1135409181834
+    },
+    {
+      "id": "way/759134299",
+      "part": 0,
+      "family": "Ginza",
+      "tags": {
+        "bridge": "viaduct",
+        "colour": "#FF9500",
+        "covered": "yes",
+        "electrified": "rail",
+        "frequency": "0",
+        "gauge": "1435",
+        "layer": "2",
+        "level": "3",
+        "maxspeed": "65",
+        "name": "東京メトロ銀座線",
+        "name:en": "Tokyo Metro Ginza Line",
+        "name:es": "Línea Ginza de Tokyo Metro",
+        "name:ja": "東京メトロ銀座線",
+        "name:ja-Hira": "とうきょうめとろぎんざせん",
+        "name:ja_rm": "Tōkyō Metoro Ginza Sen",
+        "name:ko": "도쿄메트로 긴자선",
+        "operator": "東京地下鉄",
+        "operator:en": "Tokyo Metro",
+        "operator:ja": "東京地下鉄",
+        "operator:ja_rm": "Tōkyō Chikatetsu",
+        "railway": "subway",
+        "railway:atc": "yes",
+        "railway:ato": "sto",
+        "source": "GSI/KIBAN 2500;NARO;NRPB of MLIT Japan",
+        "source:ja": "国土画像情報(オルソ化空中写真)国土計画局",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          174.11878677403303,
+          48.791332814580855
+        ],
+        [
+          203.00743697139583,
+          38.96182177814818
+        ],
+        [
+          219.6677042432519,
+          33.540562576440195
+        ],
+        [
+          234.66375371891522,
+          28.82061616622475
+        ],
+        [
+          255.33985088742978,
+          22.86502340879256
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 85.27329587870629,
+      "clippedLength": 79.71633899077412
+    },
+    {
+      "id": "way/759134300",
+      "part": 0,
+      "family": "Ginza",
+      "tags": {
+        "bridge": "viaduct",
+        "colour": "#FF9500",
+        "covered": "yes",
+        "electrified": "rail",
+        "frequency": "0",
+        "gauge": "1435",
+        "layer": "2",
+        "maxspeed": "65",
+        "name": "東京メトロ銀座線",
+        "name:en": "Tokyo Metro Ginza Line",
+        "name:es": "Línea Ginza de Tokyo Metro",
+        "name:ja": "東京メトロ銀座線",
+        "name:ja-Hira": "とうきょうめとろぎんざせん",
+        "name:ja_rm": "Tōkyō Metoro Ginza Sen",
+        "name:ko": "도쿄메트로 긴자선",
+        "oneway": "yes",
+        "operator": "東京地下鉄",
+        "operator:en": "Tokyo Metro",
+        "operator:ja": "東京地下鉄",
+        "operator:ja_rm": "Tōkyō Chikatetsu",
+        "railway": "subway",
+        "railway:atc": "yes",
+        "railway:ato": "sto",
+        "source": "GSI/KIBAN 2500;NARO;NRPB of MLIT Japan",
+        "source:ja": "国土画像情報(オルソ化空中写真)国土計画局",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          255.33985088742978,
+          22.86502340879256
+        ],
+        [
+          292.02499966652067,
+          10.475164083460085
+        ],
+        [
+          328.55638919425314,
+          -2.2041259173623526
+        ],
+        [
+          365,
+          -14.711465209227702
+        ]
+      ],
+      "status": "outside-target",
+      "sourceLength": 115.92022779102255,
+      "clippedLength": 0
+    },
+    {
+      "id": "way/759134301",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "bridge": "yes",
+        "covered": "yes",
+        "electrified": "rail",
+        "layer": "2",
+        "railway": "subway",
+        "railway:atc": "yes",
+        "railway:ato": "sto",
+        "service": "crossover",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          292.6852599866208,
+          13.024380423150456
+        ],
+        [
+          288.11770571426564,
+          14.516061599810856
+        ],
+        [
+          284.70786816679083,
+          15.495673118374912
+        ],
+        [
+          278.13239894482115,
+          17.143201582385196
+        ],
+        [
+          266.0939539188073,
+          20.104300037287167
+        ],
+        [
+          261.1827024930304,
+          21.30655053766663
+        ],
+        [
+          255.33985088742978,
+          22.86502340879256
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 38.63211325843562
+    },
+    {
+      "id": "way/759134302",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "bridge": "yes",
+        "covered": "yes",
+        "electrified": "rail",
+        "layer": "2",
+        "railway": "subway",
+        "railway:atc": "yes",
+        "railway:ato": "sto",
+        "service": "crossover",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          256.6151482181046,
+          28.3753382033849
+        ],
+        [
+          262.7022056966851,
+          25.403107799273513
+        ],
+        [
+          266.8356161965674,
+          23.243509677957853
+        ],
+        [
+          278.13239894482115,
+          17.143201582385196
+        ],
+        [
+          284.2013670980491,
+          14.00399194171451
+        ],
+        [
+          287.47553471694744,
+          12.423255172960722
+        ],
+        [
+          292.02499966652067,
+          10.475164083460085
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 39.69376250808972
+    },
+    {
+      "id": "way/759134303",
+      "part": 0,
+      "family": "Ginza",
+      "tags": {
+        "bridge": "viaduct",
+        "colour": "#FF9500",
+        "covered": "yes",
+        "electrified": "rail",
+        "frequency": "0",
+        "gauge": "1435",
+        "layer": "2",
+        "maxspeed": "65",
+        "name": "東京メトロ銀座線",
+        "name:en": "Tokyo Metro Ginza Line",
+        "name:es": "Línea Ginza de Tokyo Metro",
+        "name:ja": "東京メトロ銀座線",
+        "name:ja-Hira": "とうきょうめとろぎんざせん",
+        "name:ja_rm": "Tōkyō Metoro Ginza Sen",
+        "name:ko": "도쿄메트로 긴자선",
+        "name:ru": "Линия метро Гиндза",
+        "name:zh": "東京地下鐵銀座線",
+        "oneway": "yes",
+        "operator": "東京地下鉄",
+        "operator:en": "Tokyo Metro",
+        "operator:ja": "東京地下鉄",
+        "operator:ja_rm": "Tōkyō Chikatetsu",
+        "railway": "subway",
+        "railway:atc": "yes",
+        "railway:ato": "sto",
+        "source": "NRPB of MLIT Japan;GSI/KIBAN 2500;NARO",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          365,
+          -10.470542689203363
+        ],
+        [
+          330.15729435556784,
+          1.5139450750792331
+        ],
+        [
+          292.6852599866208,
+          13.024380423150458
+        ],
+        [
+          256.6151482181046,
+          28.3753382033849
+        ]
+      ],
+      "status": "outside-target",
+      "sourceLength": 115.24706676267307,
+      "clippedLength": 0
+    },
+    {
+      "id": "way/759139125",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#B74D17",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-5",
+        "level": "-5",
+        "maxspeed": "80",
+        "name": "東京メトロ副都心線",
+        "name:en": "Tokyo Metro Fukutoshin Line",
+        "name:es": "Línea Fukutoshin de Tokyo Metro",
+        "name:ja": "東京メトロ副都心線",
+        "name:ja_rm": "Tōkyō Metro Fukutoshin Sen",
+        "name:ko": "도쿄 메트로 후쿠토신선",
+        "name:ru": "Линия метро Фукутосин",
+        "operator": "東京地下鉄",
+        "operator:en": "Tokyo Metro",
+        "operator:ja": "東京地下鉄",
+        "operator:ja_rm": "Tōkyō Chikatetsu",
+        "railway": "subway",
+        "railway:atc": "yes",
+        "railway:ato": "sto",
+        "source": "bing",
+        "tunnel": "yes",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          203.57725067244502,
+          98.1169991856769
+        ],
+        [
+          187.25163589261982,
+          55.94917607318349
+        ],
+        [
+          180.78470261505365,
+          34.030368335326735
+        ],
+        [
+          172.5088369513274,
+          -0.6679169446552606
+        ],
+        [
+          166.322288192305,
+          -44.33855318301849
+        ],
+        [
+          165.17361612624504,
+          -60.713650278654654
+        ],
+        [
+          163.89831879557022,
+          -78.7919355835572
+        ],
+        [
+          162.25219032473007,
+          -102.2469522933301
+        ],
+        [
+          162.21601167659554,
+          -123.05256512290077
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 226.7058612059974
+    },
+    {
+      "id": "way/759139126",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#B74D17",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-5",
+        "level": "-5",
+        "maxspeed": "80",
+        "name": "東京メトロ副都心線",
+        "name:en": "Tokyo Metro Fukutoshin Line",
+        "name:es": "Línea Fukutoshin de Tokyo Metro",
+        "name:ja": "東京メトロ副都心線",
+        "name:ja_rm": "Tōkyō Metro Fukutoshin Sen",
+        "name:ko": "도쿄 메트로 후쿠토신선",
+        "name:ru": "Линия метро Фукутосин",
+        "oneway": "yes",
+        "operator": "東京地下鉄",
+        "operator:en": "Tokyo Metro",
+        "operator:ja": "東京地下鉄",
+        "operator:ja_rm": "Tōkyō Chikatetsu",
+        "railway": "subway",
+        "railway:atc": "yes",
+        "railway:ato": "sto",
+        "service": "siding",
+        "tunnel": "yes",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          162.21601167659554,
+          -123.05256512290077
+        ],
+        [
+          160.8593123882608,
+          -114.8705825496874
+        ],
+        [
+          159.24031790159356,
+          -102.72562610379819
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 20.546092749661472
+    },
+    {
+      "id": "way/759139127",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#B74D17",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-5",
+        "level": "-5",
+        "maxspeed": "80",
+        "name": "東京メトロ副都心線",
+        "name:en": "Tokyo Metro Fukutoshin Line",
+        "name:es": "Línea Fukutoshin de Tokyo Metro",
+        "name:ja": "東京メトロ副都心線",
+        "name:ja_rm": "Tōkyō Metro Fukutoshin Sen",
+        "name:ko": "도쿄 메트로 후쿠토신선",
+        "name:ru": "Линия метро Фукутосин",
+        "operator": "東京地下鉄",
+        "operator:en": "Tokyo Metro",
+        "operator:ja": "東京地下鉄",
+        "operator:ja_rm": "Tōkyō Chikatetsu",
+        "railway": "subway",
+        "railway:atc": "yes",
+        "railway:ato": "sto",
+        "service": "siding",
+        "tunnel": "yes",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          160.6693744861973,
+          -157.68405870841724
+        ],
+        [
+          162.21601167659554,
+          -123.05256512290077
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 34.66601267181432
+    },
+    {
+      "id": "way/759139128",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#B74D17",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-5",
+        "level": "-5",
+        "maxspeed": "80",
+        "name": "東京メトロ副都心線",
+        "name:en": "Tokyo Metro Fukutoshin Line",
+        "name:es": "Línea Fukutoshin de Tokyo Metro",
+        "name:ja": "東京メトロ副都心線",
+        "name:ja_rm": "Tōkyō Metro Fukutoshin Sen",
+        "name:ko": "도쿄 메트로 후쿠토신선",
+        "name:ru": "Линия метро Фукутосин",
+        "oneway": "yes",
+        "operator": "東京地下鉄",
+        "operator:en": "Tokyo Metro",
+        "operator:ja": "東京地下鉄",
+        "operator:ja_rm": "Tōkyō Chikatetsu",
+        "railway": "subway",
+        "railway:atc": "yes",
+        "railway:ato": "sto",
+        "service": "siding",
+        "tunnel": "yes",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          162.25219032473007,
+          -102.2469522933301
+        ],
+        [
+          160.8593123882608,
+          -114.8705825496874
+        ],
+        [
+          158.70668284867887,
+          -121.92823826540526
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 20.078881430300115
+    },
+    {
+      "id": "way/759139129",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#B74D17",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-5",
+        "level": "-5",
+        "maxspeed": "80",
+        "name": "東京メトロ副都心線",
+        "name:en": "Tokyo Metro Fukutoshin Line",
+        "name:es": "Línea Fukutoshin de Tokyo Metro",
+        "name:ja": "東京メトロ副都心線",
+        "name:ja_rm": "Tōkyō Metro Fukutoshin Sen",
+        "name:ko": "도쿄 메트로 후쿠토신선",
+        "name:ru": "Линия метро Фукутосин",
+        "operator": "東京地下鉄",
+        "operator:en": "Tokyo Metro",
+        "operator:ja": "東京地下鉄",
+        "operator:ja_rm": "Tōkyō Chikatetsu",
+        "railway": "subway",
+        "railway:atc": "yes",
+        "railway:ato": "sto",
+        "source": "bing",
+        "tunnel": "yes",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          200.99047736296092,
+          99.14113850028765
+        ],
+        [
+          184.25785279483588,
+          58.05311444845207
+        ],
+        [
+          177.95372343258964,
+          34.865264516541295
+        ],
+        [
+          169.77734904930526,
+          -0.32282652311820925
+        ],
+        [
+          163.40990705218098,
+          -44.2272336917153
+        ],
+        [
+          161.8180465522573,
+          -60.713650278654654
+        ],
+        [
+          160.13573943328262,
+          -78.06835889285487
+        ],
+        [
+          159.24031790159356,
+          -102.72562610379819
+        ],
+        [
+          158.70668284867887,
+          -121.92823826540526
+        ],
+        [
+          156.25557946520053,
+          -158.47442709279412
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 263.39427172506157
+    },
+    {
+      "id": "way/759139131",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#DA0442",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-1",
+        "level": "-5",
+        "maxspeed": "110",
+        "name": "東急東横線",
+        "name:en": "Tokyu-Toyoko Line",
+        "name:es": "Línea Tokyu-Toyoko",
+        "name:ja": "東急東横線",
+        "name:ja_rm": "Tōkyū Tōyoko Sen",
+        "name:ko": "도큐 도요코선",
+        "name:ru": "Линия Токю Тоёко",
+        "oneway": "yes",
+        "operator": "東急電鉄",
+        "operator:en": "Tokyu Railways",
+        "railway": "rail",
+        "railway:atc": "P",
+        "railway:track_ref": "東急東横線",
+        "ref": "TY",
+        "source": "bing",
+        "tunnel": "yes",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          203.57725067244502,
+          98.1169991856769
+        ],
+        [
+          211.0843200742383,
+          115.3047285641088
+        ],
+        [
+          222.31779018761404,
+          135.88770241186404
+        ],
+        [
+          231.94131047828407,
+          153.49844585471695
+        ],
+        [
+          252.42746974730582,
+          180.51568627037253
+        ],
+        [
+          301.89272583017066,
+          227.24760850573148
+        ],
+        [
+          315.27882548312834,
+          240.10500969232262
+        ],
+        [
+          335.3308409771067,
+          257.7714128812226
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 209.51321237236647
+    },
+    {
+      "id": "way/759139132",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#DA0442",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-1",
+        "level": "-5",
+        "maxspeed": "110",
+        "name": "東急東横線",
+        "name:en": "Tokyu-Toyoko Line",
+        "name:es": "Línea Tokyu-Toyoko",
+        "name:ja": "東急東横線",
+        "name:ja_rm": "Tōkyū Tōyoko Sen",
+        "name:ko": "도큐 도요코선",
+        "name:ru": "Линия Токю Тоёко",
+        "oneway": "yes",
+        "operator": "東急電鉄",
+        "operator:en": "Tokyu Railways",
+        "railway": "rail",
+        "railway:atc": "P",
+        "railway:track_ref": "東急東横線",
+        "ref": "TY",
+        "source": "bing",
+        "tunnel": "yes",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          328.64683581330405,
+          256.91425280158927
+        ],
+        [
+          312.36644434300433,
+          241.1959407021899
+        ],
+        [
+          298.91703205516865,
+          229.88588043751525
+        ],
+        [
+          249.8768750833856,
+          182.4303815122449
+        ],
+        [
+          229.51734108154932,
+          155.43540499500818
+        ],
+        [
+          218.69992541786445,
+          137.83579350057374
+        ],
+        [
+          208.40710014313265,
+          116.60716660579106
+        ],
+        [
+          200.99047736296092,
+          99.14113850028765
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 205.4825831877382
+    },
+    {
+      "id": "way/807370560",
+      "part": 0,
+      "family": "Ginza",
+      "tags": {
+        "bridge": "viaduct",
+        "colour": "#FF9500",
+        "covered": "yes",
+        "electrified": "rail",
+        "frequency": "0",
+        "gauge": "1435",
+        "layer": "2",
+        "level": "3",
+        "maxspeed": "65",
+        "name": "東京メトロ銀座線",
+        "name:en": "Tokyo Metro Ginza Line",
+        "name:es": "Línea Ginza de Tokyo Metro",
+        "name:ja": "東京メトロ銀座線",
+        "name:ja-Hira": "とうきょうめとろぎんざせん",
+        "name:ja_rm": "Tōkyō Metoro Ginza Sen",
+        "name:ko": "도쿄메트로 긴자선",
+        "name:ru": "Линия метро Гиндза",
+        "name:zh": "東京地下鐵銀座線",
+        "operator": "東京地下鉄",
+        "operator:en": "Tokyo Metro",
+        "operator:ja": "東京地下鉄",
+        "operator:ja_rm": "Tōkyō Chikatetsu",
+        "railway": "subway",
+        "railway:atc": "yes",
+        "railway:ato": "sto",
+        "source": "NRPB of MLIT Japan;GSI/KIBAN 2500;NARO",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          138.51899742612414,
+          77.85685186103984
+        ],
+        [
+          183.07300208321203,
+          62.572685775270934
+        ],
+        [
+          199.48906348208814,
+          55.64861344769314
+        ],
+        [
+          215.9413035290988,
+          47.500026721317035
+        ],
+        [
+          237.6665814806608,
+          37.29202941571906
+        ],
+        [
+          256.6151482181046,
+          28.3753382033849
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 128.22458453934973,
+      "clippedLength": 120.91360571255183
+    },
+    {
+      "id": "way/834249968",
+      "part": 0,
+      "family": "Ginza",
+      "tags": {
+        "bridge": "viaduct",
+        "covered": "yes",
+        "electrified": "rail",
+        "frequency": "0",
+        "gauge": "1435",
+        "layer": "2",
+        "level": "3",
+        "maxspeed": "65",
+        "name": "東京メトロ銀座線",
+        "name:en": "Tokyo Metro Ginza Line",
+        "name:es": "Línea Ginza de Tokyo Metro",
+        "name:ja": "東京メトロ銀座線",
+        "name:ja-Hira": "とうきょうめとろぎんざせん",
+        "name:ja_rm": "Tōkyō Metoro Ginza Sen",
+        "name:ko": "도쿄메트로 긴자선",
+        "operator": "東京地下鉄",
+        "operator:en": "Tokyo Metro",
+        "operator:ja": "東京地下鉄",
+        "operator:ja_rm": "Tōkyō Chikatetsu",
+        "railway": "subway",
+        "railway:atc": "yes",
+        "railway:ato": "sto",
+        "source": "GSI/KIBAN 2500;NARO;NRPB of MLIT Japan",
+        "source:ja": "国土画像情報(オルソ化空中写真)国土計画局",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          132.9836643258109,
+          63.27399856676347
+        ],
+        [
+          174.11878677403303,
+          48.791332814580855
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 43.61015829046795,
+      "clippedLength": 43.61015829046795
+    },
+    {
+      "id": "way/853258586",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "alt_name": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "alt_name:de": "Saikyō-Linie;Shōnan-Shinjuku-Linie",
+        "alt_name:en": "Saikyo Line;Shonan Shinjuku Line",
+        "alt_name:fr": "Ligne Saikyō;Ligne Shōnan-Shinjuku",
+        "alt_name:it": "Linea Saikyō;Linea Shōnan-Shinjuku",
+        "alt_name:ja": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "electrified": "contact_line",
+        "embankment": "yes",
+        "frequency": "0",
+        "gauge": "1067",
+        "level": "2",
+        "maxspeed": "70",
+        "name": "山手貨物線",
+        "name:de": "Yamanote-Güterlinie",
+        "name:en": "Yamanote Freight Line",
+        "name:es": "Línea Yamanote de carga",
+        "name:fr": "Ligne de fret Yamanote",
+        "name:ja": "山手貨物線",
+        "name:ja_rm": "Shōnan–shinjuku-rain",
+        "name:ko": "야마노테 화물선",
+        "name:zh": "山手货物线",
+        "name:zh-Hans": "山手货物线",
+        "name:zh-Hant": "山手貨物線",
+        "official_name": "山手貨物線",
+        "official_name:en": "Yamanote Freight Line",
+        "official_name:ja": "山手貨物線",
+        "official_name:ja-Hira": "やまのてかもつせん",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja-Latn": "Higashi-Nihon Ryokaku Tetsudō",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:track_ref": "3 埼京線・湘南新宿ライン・成田エクスプレス",
+        "railway:traffic_mode": "mixed",
+        "usage": "main",
+        "voltage": "1500",
+        "wikidata": "Q693036",
+        "wikipedia": "ja:山手線"
+      },
+      "sourcePoints": [
+        [
+          130.98479404015796,
+          190.63462798387712
+        ],
+        [
+          115.63600274711116,
+          157.5059475234395
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 36.51157163430919,
+      "clippedLength": 36.51157163430919
+    },
+    {
+      "id": "way/853258587",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "alt_name": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "alt_name:de": "Saikyō-Linie;Shōnan-Shinjuku-Linie",
+        "alt_name:en": "Saikyo Line;Shonan Shinjuku Line",
+        "alt_name:fr": "Ligne Saikyō;Ligne Shōnan-Shinjuku",
+        "alt_name:it": "Linea Saikyō;Linea Shōnan-Shinjuku",
+        "alt_name:ja": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "electrified": "contact_line",
+        "embankment": "yes",
+        "frequency": "0",
+        "gauge": "1067",
+        "level": "2",
+        "maxspeed": "75",
+        "name": "山手貨物線",
+        "name:de": "Yamanote-Güterlinie",
+        "name:en": "Yamanote Freight Line",
+        "name:es": "Línea Yamanote de carga",
+        "name:fr": "Ligne de fret Yamanote",
+        "name:ja": "山手貨物線",
+        "name:ja_rm": "Shōnan–shinjuku-rain",
+        "name:ko": "야마노테 화물선",
+        "name:zh": "山手货物线",
+        "name:zh-Hans": "山手货物线",
+        "name:zh-Hant": "山手貨物線",
+        "official_name": "山手貨物線",
+        "official_name:en": "Yamanote Freight Line",
+        "official_name:ja": "山手貨物線",
+        "official_name:ja-Hira": "やまのてかもつせん",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja-Latn": "Higashi-Nihon Ryokaku Tetsudō",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:track_ref": "3 埼京線・湘南新宿ライン・成田エクスプレス",
+        "railway:traffic_mode": "mixed",
+        "usage": "main",
+        "voltage": "1500",
+        "wikidata": "Q693036",
+        "wikipedia": "ja:山手線"
+      },
+      "sourcePoints": [
+        [
+          130.9576600534144,
+          151.68393815493835
+        ],
+        [
+          162.1074757347627,
+          222.3050231144916
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 77.18580606462831,
+      "clippedLength": 77.18580606462831
+    },
+    {
+      "id": "way/853258588",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "colour": "#B1CB39",
+        "electrified": "contact_line",
+        "embankment": "yes",
+        "frequency": "0",
+        "gauge": "1067",
+        "level": "2",
+        "maxspeed": "90",
+        "name": "山手線",
+        "name:de": "Yamanote-Linie",
+        "name:en": "Yamanote Line",
+        "name:es": "Línea Yamanote",
+        "name:it": "Linea Yamanote",
+        "name:ja": "山手線",
+        "name:ja-Hira": "やまのてせん",
+        "name:ja-Latn": "Yamanote-sen",
+        "name:ko": "야마노테선",
+        "name:ru": "Линия JR Яманотэ",
+        "name:th": "สายยามาโนเตะ",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:atc": "D",
+        "railway:track_ref": "1 山手線 : 外回り",
+        "railway:traffic_mode": "passenger",
+        "ref": "JY",
+        "source": "Bing",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          113.99891894023263,
+          197.14681819466134
+        ],
+        [
+          98.2069392133221,
+          164.58586713836718
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 36.188425737872834,
+      "clippedLength": 36.188425737872834
+    },
+    {
+      "id": "way/853258589",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "colour": "#B1CB39",
+        "electrified": "contact_line",
+        "embankment": "yes",
+        "frequency": "0",
+        "gauge": "1067",
+        "level": "2",
+        "maxspeed": "90",
+        "name": "山手線",
+        "name:de": "Yamanote-Linie",
+        "name:en": "Yamanote Line",
+        "name:es": "Línea Yamanote",
+        "name:it": "Linea Yamanote",
+        "name:ja": "山手線",
+        "name:ja-Hira": "やまのてせん",
+        "name:ja-Latn": "Yamanote-sen",
+        "name:ko": "야마노테선",
+        "name:ru": "Линия JR Яманотэ",
+        "name:th": "สายยามาโนเตะ",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:atc": "D",
+        "railway:track_ref": "2 山手線 : 内回り",
+        "railway:traffic_mode": "passenger",
+        "ref": "JY",
+        "source": "Bing",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          113.13063139528708,
+          158.65253827856284
+        ],
+        [
+          128.82311983918504,
+          191.848010433466
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 36.71775544813191,
+      "clippedLength": 36.71775544813191
+    },
+    {
+      "id": "way/853258590",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "alt_name": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "alt_name:de": "Saikyō-Linie;Shōnan-Shinjuku-Linie",
+        "alt_name:en": "Saikyo Line;Shonan Shinjuku Line",
+        "alt_name:fr": "Ligne Saikyō;Ligne Shōnan-Shinjuku",
+        "alt_name:it": "Linea Saikyō;Linea Shōnan-Shinjuku",
+        "alt_name:ja": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "electrified": "contact_line",
+        "embankment": "yes",
+        "frequency": "0",
+        "gauge": "1067",
+        "level": "2",
+        "maxspeed": "70",
+        "name": "山手貨物線",
+        "name:de": "Yamanote-Güterlinie",
+        "name:en": "Yamanote Freight Line",
+        "name:es": "Línea Yamanote de carga",
+        "name:fr": "Ligne de fret Yamanote",
+        "name:ja": "山手貨物線",
+        "name:ja_rm": "Shōnan–shinjuku-rain",
+        "name:ko": "야마노테 화물선",
+        "name:zh": "山手货物线",
+        "name:zh-Hans": "山手货物线",
+        "name:zh-Hant": "山手貨物線",
+        "official_name": "山手貨物線",
+        "official_name:en": "Yamanote Freight Line",
+        "official_name:ja": "山手貨物線",
+        "official_name:ja-Hira": "やまのてかもつせん",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja-Latn": "Higashi-Nihon Ryokaku Tetsudō",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:traffic_mode": "mixed",
+        "usage": "main",
+        "voltage": "1500",
+        "wikidata": "Q693036",
+        "wikipedia": "ja:山手線"
+      },
+      "sourcePoints": [
+        [
+          168.8457488694817,
+          268.21318111784547
+        ],
+        [
+          138.88982856371885,
+          207.1099126208161
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 68.05120559097595,
+      "clippedLength": 47.76703809547709
+    },
+    {
+      "id": "way/853258591",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "alt_name": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "alt_name:de": "Saikyō-Linie;Shōnan-Shinjuku-Linie",
+        "alt_name:en": "Saikyo Line;Shonan Shinjuku Line",
+        "alt_name:fr": "Ligne Saikyō;Ligne Shōnan-Shinjuku",
+        "alt_name:it": "Linea Saikyō;Linea Shōnan-Shinjuku",
+        "alt_name:ja": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "electrified": "contact_line",
+        "embankment": "yes",
+        "frequency": "0",
+        "gauge": "1067",
+        "level": "2",
+        "maxspeed": "75",
+        "name": "山手貨物線",
+        "name:de": "Yamanote-Güterlinie",
+        "name:en": "Yamanote Freight Line",
+        "name:es": "Línea Yamanote de carga",
+        "name:fr": "Ligne de fret Yamanote",
+        "name:ja": "山手貨物線",
+        "name:ja_rm": "Shōnan–shinjuku-rain",
+        "name:ko": "야마노테 화물선",
+        "name:zh": "山手货物线",
+        "name:zh-Hans": "山手货物线",
+        "name:zh-Hant": "山手貨物線",
+        "official_name": "山手貨物線",
+        "official_name:en": "Yamanote Freight Line",
+        "official_name:ja": "山手貨物線",
+        "official_name:ja-Hira": "やまのてかもつせん",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja-Latn": "Higashi-Nihon Ryokaku Tetsudō",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:traffic_mode": "mixed",
+        "usage": "main",
+        "voltage": "1500",
+        "wikidata": "Q693036",
+        "wikipedia": "ja:山手線"
+      },
+      "sourcePoints": [
+        [
+          162.1074757347627,
+          222.3050231144916
+        ],
+        [
+          182.60267966260471,
+          265.34113825503687
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 47.66718567771859,
+      "clippedLength": 30.67520386611102
+    },
+    {
+      "id": "way/853258592",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "alt_name": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "alt_name:de": "Saikyō-Linie;Shōnan-Shinjuku-Linie",
+        "alt_name:en": "Saikyo Line;Shonan Shinjuku Line",
+        "alt_name:fr": "Ligne Saikyō;Ligne Shōnan-Shinjuku",
+        "alt_name:it": "Linea Saikyō;Linea Shōnan-Shinjuku",
+        "alt_name:ja": "山手線（貨物線）;埼京線;湘南新宿ライン",
+        "electrified": "contact_line",
+        "embankment": "yes",
+        "frequency": "0",
+        "gauge": "1067",
+        "level": "2",
+        "maxspeed": "70",
+        "name": "山手貨物線",
+        "name:de": "Yamanote-Güterlinie",
+        "name:en": "Yamanote Freight Line",
+        "name:es": "Línea Yamanote de carga",
+        "name:fr": "Ligne de fret Yamanote",
+        "name:ja": "山手貨物線",
+        "name:ja_rm": "Shōnan–shinjuku-rain",
+        "name:ko": "야마노테 화물선",
+        "name:zh": "山手货物线",
+        "name:zh-Hans": "山手货物线",
+        "name:zh-Hant": "山手貨物線",
+        "official_name": "山手貨物線",
+        "official_name:en": "Yamanote Freight Line",
+        "official_name:ja": "山手貨物線",
+        "official_name:ja-Hira": "やまのてかもつせん",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja-Latn": "Higashi-Nihon Ryokaku Tetsudō",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:traffic_mode": "mixed",
+        "usage": "main",
+        "voltage": "1500",
+        "wikidata": "Q693036",
+        "wikipedia": "ja:山手線"
+      },
+      "sourcePoints": [
+        [
+          138.88982856371885,
+          207.1099126208161
+        ],
+        [
+          130.98479404015796,
+          190.63462798387712
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 18.273603221227244,
+      "clippedLength": 18.273603221227244
+    },
+    {
+      "id": "way/853258593",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "colour": "#B1CB39",
+        "electrified": "contact_line",
+        "embankment": "yes",
+        "frequency": "0",
+        "gauge": "1067",
+        "level": "2",
+        "maxspeed": "90",
+        "name": "山手線",
+        "name:de": "Yamanote-Linie",
+        "name:en": "Yamanote Line",
+        "name:es": "Línea Yamanote",
+        "name:it": "Linea Yamanote",
+        "name:ja": "山手線",
+        "name:ja-Hira": "やまのてせん",
+        "name:ja-Latn": "Yamanote-sen",
+        "name:ko": "야마노테선",
+        "name:ru": "Линия JR Яманотэ",
+        "name:th": "สายยามาโนเตะ",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:atc": "D",
+        "railway:traffic_mode": "passenger",
+        "ref": "JY",
+        "source": "Bing",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          128.82311983918504,
+          191.848010433466
+        ],
+        [
+          166.2770648827795,
+          269.7382581413431
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 86.42736075643555,
+      "clippedLength": 64.52570288158209
+    },
+    {
+      "id": "way/853258594",
+      "part": 0,
+      "family": "JR",
+      "tags": {
+        "colour": "#B1CB39",
+        "electrified": "contact_line",
+        "embankment": "yes",
+        "frequency": "0",
+        "gauge": "1067",
+        "level": "2",
+        "maxspeed": "90",
+        "name": "山手線",
+        "name:de": "Yamanote-Linie",
+        "name:en": "Yamanote Line",
+        "name:es": "Línea Yamanote",
+        "name:it": "Linea Yamanote",
+        "name:ja": "山手線",
+        "name:ja-Hira": "やまのてせん",
+        "name:ja-Latn": "Yamanote-sen",
+        "name:ko": "야마노테선",
+        "name:ru": "Линия JR Яманотэ",
+        "name:th": "สายยามาโนเตะ",
+        "oneway": "yes",
+        "operator": "東日本旅客鉄道",
+        "operator:en": "East Japan Railway",
+        "operator:ja": "東日本旅客鉄道",
+        "operator:ja_rm": "Higashi-Nihon Ryokaku Tetsudō",
+        "railway": "rail",
+        "railway:atc": "D",
+        "railway:traffic_mode": "passenger",
+        "ref": "JY",
+        "source": "Bing",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          128.6331819396922,
+          226.05648995377047
+        ],
+        [
+          113.99891894023263,
+          197.14681819466134
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 32.40263530573993,
+      "clippedLength": 32.40263530573993
+    },
+    {
+      "id": "way/856683107",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#DA0442",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-2",
+        "level": "-5",
+        "maxspeed": "110",
+        "name": "東急東横線",
+        "name:en": "Tokyu-Toyoko Line",
+        "name:es": "Línea Tokyu-Toyoko",
+        "name:ja": "東急東横線",
+        "name:ja_rm": "Tōkyū Tōyoko Sen",
+        "name:ko": "도큐 도요코선",
+        "name:ru": "Линия Токю Тоёко",
+        "oneway": "yes",
+        "operator": "東急電鉄",
+        "operator:en": "Tokyu Railways",
+        "railway": "rail",
+        "railway:atc": "P",
+        "railway:track_ref": "東急東横線",
+        "ref": "TY",
+        "source": "bing",
+        "tunnel": "yes",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          328.64683581330405,
+          256.91425280158927
+        ],
+        [
+          308.9656514569205,
+          244.46873373100067
+        ],
+        [
+          296.34834806846646,
+          233.43697219339754
+        ],
+        [
+          245.28218682428695,
+          186.72731385645739
+        ],
+        [
+          221.15102879877213,
+          160.41138623308532
+        ],
+        [
+          209.61004018010902,
+          142.71158719734808
+        ],
+        [
+          197.4901931964352,
+          121.96163411303351
+        ],
+        [
+          188.34603998776336,
+          104.13938363757461
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 210.14885829109025
+    },
+    {
+      "id": "way/856683108",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-2",
+        "name": "東急東横線",
+        "name:en": "Tokyu-Toyoko Line",
+        "name:es": "Línea Tokyu-Toyoko",
+        "name:ja": "東急東横線",
+        "name:ja_rm": "Tōkyū Tōyoko Sen",
+        "name:ko": "도큐 도요코선",
+        "name:ru": "Линия Токю Тоёко",
+        "operator": "東急電鉄",
+        "operator:en": "Tokyu Railways",
+        "railway": "subway",
+        "railway:atc": "P",
+        "service": "crossover",
+        "source": "bing",
+        "tunnel": "yes",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          346.8085169634623,
+          274.4136767547209
+        ],
+        [
+          341.11037995039976,
+          265.74188842183
+        ],
+        [
+          337.2030859955741,
+          258.9291355855554
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 18.23004828594686
+    },
+    {
+      "id": "way/856683109",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-2",
+        "name": "東急東横線",
+        "name:en": "Tokyu-Toyoko Line",
+        "name:es": "Línea Tokyu-Toyoko",
+        "name:ja": "東急東横線",
+        "name:ja_rm": "Tōkyū Tōyoko Sen",
+        "name:ko": "도큐 도요코선",
+        "name:ru": "Линия Токю Тоёко",
+        "operator": "東急電鉄",
+        "operator:en": "Tokyu Railways",
+        "railway": "subway",
+        "railway:atc": "P",
+        "service": "crossover",
+        "source": "bing",
+        "tunnel": "yes",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          350.9600167886972,
+          271.04069618381635
+        ],
+        [
+          341.11037995039976,
+          265.74188842183
+        ],
+        [
+          332.73502300366096,
+          261.02194201240553
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 20.798251288217934
+    },
+    {
+      "id": "way/856683110",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#B74D17",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-5",
+        "level": "-5",
+        "maxspeed": "80",
+        "name": "東京メトロ副都心線",
+        "name:en": "Tokyo Metro Fukutoshin Line",
+        "name:es": "Línea Fukutoshin de Tokyo Metro",
+        "name:ja": "東京メトロ副都心線",
+        "name:ja_rm": "Tōkyō Metro Fukutoshin Sen",
+        "name:ko": "도쿄 메트로 후쿠토신선",
+        "name:ru": "Линия метро Фукутосин",
+        "oneway": "yes",
+        "operator": "東京地下鉄",
+        "operator:en": "Tokyo Metro",
+        "operator:ja": "東京地下鉄",
+        "operator:ja_rm": "Tōkyō Chikatetsu",
+        "railway": "subway",
+        "railway:atc": "yes",
+        "railway:ato": "sto",
+        "source": "bing",
+        "tunnel": "yes",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          160.6693744861973,
+          -157.68405870841724
+        ],
+        [
+          172.3822116841419,
+          -80.25022091258937
+        ],
+        [
+          175.34886079518233,
+          -61.69326179721872
+        ],
+        [
+          177.9627680939806,
+          -45.318164701582546
+        ],
+        [
+          185.48792681855582,
+          -2.2597856626184623
+        ],
+        [
+          194.0984449717423,
+          30.1341861579074
+        ],
+        [
+          200.31212771750825,
+          51.351681102689675
+        ],
+        [
+          214.4941576191424,
+          93.80893489146402
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 257.7913926624838
+    },
+    {
+      "id": "way/856683111",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#B74D17",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-5",
+        "level": "-5",
+        "maxspeed": "80",
+        "name": "東京メトロ副都心線",
+        "name:en": "Tokyo Metro Fukutoshin Line",
+        "name:es": "Línea Fukutoshin de Tokyo Metro",
+        "name:ja": "東京メトロ副都心線",
+        "name:ja_rm": "Tōkyō Metro Fukutoshin Sen",
+        "name:ko": "도쿄 메트로 후쿠토신선",
+        "name:ru": "Линия метро Фукутосин",
+        "oneway": "yes",
+        "operator": "東京地下鉄",
+        "operator:en": "Tokyo Metro",
+        "operator:ja": "東京地下鉄",
+        "operator:ja_rm": "Tōkyō Chikatetsu",
+        "railway": "subway",
+        "railway:atc": "yes",
+        "railway:ato": "sto",
+        "source": "bing",
+        "tunnel": "yes",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          188.34603998776336,
+          104.13938363757461
+        ],
+        [
+          171.92997858631657,
+          63.006831788901366
+        ],
+        [
+          165.1103034939376,
+          38.62786330502957
+        ],
+        [
+          156.63545526675688,
+          1.2913060932638203
+        ],
+        [
+          152.73720597589286,
+          -43.01385124212642
+        ],
+        [
+          152.14930295206173,
+          -58.54292020812958
+        ],
+        [
+          151.39859601034004,
+          -78.3021298238797
+        ],
+        [
+          156.25557946520053,
+          -158.47442709279412
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 267.99783680275294
+    },
+    {
+      "id": "way/856723664",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#8F76D6",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-3",
+        "maxspeed": "80",
+        "name": "東京メトロ半蔵門線",
+        "name:en": "Tokyo Metro Hanzomon Line",
+        "name:es": "Línea Hanzomon de Tokyo Metro",
+        "name:ja": "東京メトロ半蔵門線",
+        "name:ja_rm": "Tōkyō Metoro Hanzōmon-sen",
+        "name:ko": "도쿄 메트로 한조몬선",
+        "name:ru": "Линия метро Хандзомон",
+        "name:zh": "东京地铁半藏门线",
+        "operator": "東京地下鉄",
+        "operator:en": "Tokyo Metro",
+        "operator:es": "Metro de Tokio",
+        "railway": "subway",
+        "railway:atc": "yes",
+        "ref": "Z",
+        "source": "KSJ2",
+        "tunnel": "yes",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          365,
+          -41.71192893233104
+        ],
+        [
+          261.5083103210996,
+          -20.171091731752696
+        ],
+        [
+          206.4624978283961,
+          -9.061406550474626
+        ],
+        [
+          143.41215952911915,
+          4.820133951518249
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 226.42579739719713
+    },
+    {
+      "id": "way/1100812317",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "electrified": "rail",
+        "frequency": "0",
+        "gauge": "1435",
+        "layer": "1",
+        "maxspeed": "35",
+        "railway": "subway",
+        "service": "yard",
+        "tunnel": "building_passage",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          -142.40820205559717,
+          143.5242194801438
+        ],
+        [
+          -147.77168657919947,
+          147.13097098128222
+        ],
+        [
+          -152.5110894282655,
+          149.91395825120642
+        ],
+        [
+          -164.32341790665203,
+          155.9697385507324
+        ],
+        [
+          -181.6349008372173,
+          164.74171442492607
+        ],
+        [
+          -187.52297575234329,
+          167.5135697456409
+        ],
+        [
+          -264.95432651670893,
+          194.97608812492726
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 133.30582701267218
+    },
+    {
+      "id": "way/1100812318",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "electrified": "rail",
+        "frequency": "0",
+        "gauge": "1435",
+        "layer": "1",
+        "maxspeed": "35",
+        "railway": "subway",
+        "service": "yard",
+        "tunnel": "building_passage",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          -164.32341790665203,
+          155.9697385507324
+        ],
+        [
+          -265.9582839902309,
+          191.70329509532553
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 107.7336208764592
+    },
+    {
+      "id": "way/1100812319",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "electrified": "rail",
+        "frequency": "0",
+        "gauge": "1435",
+        "layer": "1",
+        "maxspeed": "35",
+        "railway": "subway",
+        "service": "yard",
+        "tunnel": "building_passage",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          -300,
+          192.46561860606755
+        ],
+        [
+          -285.3319498413271,
+          186.46014707859527
+        ],
+        [
+          -260.7033354110321,
+          177.1649695978868
+        ],
+        [
+          -254.97806441122603,
+          175.00537147657116
+        ],
+        [
+          -231.0730229359092,
+          165.9773607729338
+        ],
+        [
+          -229.55351973225447,
+          165.40963136958135
+        ],
+        [
+          -216.81863573800598,
+          160.60062936727252
+        ],
+        [
+          -204.21037700837223,
+          156.05879414361675
+        ],
+        [
+          -164.84800829817576,
+          141.96574660901788
+        ],
+        [
+          -156.7078125630259,
+          138.91559256123156
+        ],
+        [
+          -144.669367537012,
+          133.6613125952919
+        ],
+        [
+          -136.1854746484403,
+          129.8319221123381
+        ],
+        [
+          -125.79315809326657,
+          125.76876069835946
+        ],
+        [
+          -72.73717122482508,
+          106.06521082786544
+        ],
+        [
+          -65.60997762458814,
+          104.09485584073694
+        ],
+        [
+          -60.535922283491246,
+          102.95939703482301
+        ],
+        [
+          -56.43869043174341,
+          102.29148009016775
+        ],
+        [
+          -43.550047183565916,
+          100.53263213564526
+        ],
+        [
+          -39.97740572077115,
+          100.03169442675832
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 276.54360279529595
+    },
+    {
+      "id": "way/1100812320",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "electrified": "rail",
+        "frequency": "0",
+        "gauge": "1435",
+        "layer": "1",
+        "maxspeed": "35",
+        "railway": "subway",
+        "service": "yard",
+        "tunnel": "building_passage",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          -81.42909133824222,
+          112.87796366414005
+        ],
+        [
+          -62.344854669651355,
+          105.5642731197695
+        ],
+        [
+          -56.34824381269247,
+          103.49373059054723
+        ],
+        [
+          -50.40590092407938,
+          101.9909174646774
+        ],
+        [
+          -43.550047183565916,
+          100.53263213564526
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 39.9203366060084
+    },
+    {
+      "id": "way/1100812321",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "electrified": "rail",
+        "frequency": "0",
+        "gauge": "1435",
+        "layer": "1",
+        "maxspeed": "35",
+        "railway": "subway",
+        "service": "yard",
+        "tunnel": "building_passage",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          -300,
+          198.12785791872844
+        ],
+        [
+          -281.11713738121415,
+          190.15595417340901
+        ],
+        [
+          -267.43256388436015,
+          184.33394480490787
+        ],
+        [
+          -259.5908419931066,
+          181.1613393173999
+        ],
+        [
+          -253.2505339827259,
+          178.60099102850012
+        ],
+        [
+          -242.6863688508413,
+          174.33745453112493
+        ],
+        [
+          -229.80677026405473,
+          169.81788320509702
+        ],
+        [
+          -227.7807659942289,
+          169.10543846439506
+        ],
+        [
+          -168.84574887205233,
+          148.42227707454603
+        ],
+        [
+          -159.33076452321512,
+          144.7376019297327
+        ],
+        [
+          -150.8920949441689,
+          140.8525517007318
+        ],
+        [
+          -142.15495152122628,
+          136.58901520335658
+        ],
+        [
+          -135.26291913257833,
+          133.09358319273042
+        ],
+        [
+          -127.89151966193211,
+          129.86531795996635
+        ],
+        [
+          -108.36409455947751,
+          122.85219003950418
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 206.0525868584058
+    },
+    {
+      "id": "way/1100812322",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "electrified": "rail",
+        "frequency": "0",
+        "gauge": "1435",
+        "layer": "1",
+        "maxspeed": "35",
+        "railway": "subway",
+        "service": "yard",
+        "tunnel": "building_passage",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          -300,
+          186.9059439898819
+        ],
+        [
+          -298.1030124837102,
+          186.13732055547706
+        ],
+        [
+          -286.1640587381382,
+          181.47303389130872
+        ],
+        [
+          -269.5580594397692,
+          175.42838554099214
+        ],
+        [
+          -231.8870425099383,
+          162.11457444235174
+        ],
+        [
+          -226.05323556572876,
+          160.19987920047936
+        ],
+        [
+          -220.8435102934848,
+          158.89744115879708
+        ],
+        [
+          -213.15554765616025,
+          157.6617948107894
+        ],
+        [
+          -208.82315459282347,
+          157.00500981534353
+        ],
+        [
+          -204.21037700837223,
+          156.05879414361675
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 100.8783502834847
+    },
+    {
+      "id": "way/1100812323",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "electrified": "rail",
+        "frequency": "0",
+        "gauge": "1435",
+        "layer": "1",
+        "maxspeed": "35",
+        "railway": "subway",
+        "service": "yard",
+        "tunnel": "building_passage",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          -300,
+          183.03116798751913
+        ],
+        [
+          -299.4597117720449,
+          182.8088677806192
+        ],
+        [
+          -291.95264237282225,
+          179.78097763125172
+        ],
+        [
+          -284.364171013369,
+          176.93119866686197
+        ],
+        [
+          -255.55692277366617,
+          166.64527771758904
+        ],
+        [
+          -248.53826511783276,
+          164.36322815655177
+        ],
+        [
+          -241.43820550433935,
+          162.57098435440102
+        ],
+        [
+          -220.8435102934848,
+          158.89744115879708
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 82.99625573691203
+    },
+    {
+      "id": "way/1100812324",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "electrified": "rail",
+        "frequency": "0",
+        "gauge": "1435",
+        "layer": "1",
+        "maxspeed": "35",
+        "railway": "subway",
+        "service": "yard",
+        "tunnel": "building_passage",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          -253.2505339827259,
+          178.60099102850012
+        ],
+        [
+          -241.55578611013385,
+          172.08880081771588
+        ],
+        [
+          -229.55351973225447,
+          165.40963136958135
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 27.121218032158225
+    },
+    {
+      "id": "way/1100812325",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "electrified": "rail",
+        "frequency": "0",
+        "gauge": "1435",
+        "layer": "1",
+        "maxspeed": "35",
+        "railway": "subway",
+        "service": "yard",
+        "tunnel": "building_passage",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          -254.97806441122603,
+          175.00537147657116
+        ],
+        [
+          -241.55578611013385,
+          172.08880081771588
+        ],
+        [
+          -227.7807659942289,
+          169.10543846439506
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 27.82988216187103
+    },
+    {
+      "id": "way/1100812326",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "electrified": "rail",
+        "frequency": "0",
+        "gauge": "1435",
+        "layer": "1",
+        "railway": "subway",
+        "service": "yard",
+        "tunnel": "building_passage",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          -184.33925475249586,
+          174.58235741135914
+        ],
+        [
+          -178.99385955424611,
+          171.43201582147904
+        ],
+        [
+          -173.79317894596375,
+          167.9477157600623
+        ],
+        [
+          -168.2940244937851,
+          164.08492942948024
+        ],
+        [
+          -160.46134726392253,
+          157.85103794497653
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 29.195514296446966
+    },
+    {
+      "id": "way/1100818676",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "electrified": "rail",
+        "frequency": "0",
+        "gauge": "1435",
+        "layer": "1",
+        "maxspeed": "35",
+        "railway": "subway",
+        "service": "yard",
+        "tunnel": "building_passage",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          -262.62984840298674,
+          203.15807069814065
+        ],
+        [
+          -198.66599924666806,
+          180.53795016879135
+        ],
+        [
+          -190.20019568344895,
+          177.24289324156175
+        ],
+        [
+          -184.33925475249586,
+          174.58235741135914
+        ],
+        [
+          -178.29742058601147,
+          171.69918259934116
+        ],
+        [
+          -169.20753534825607,
+          166.91244449545115
+        ],
+        [
+          -159.44834512900957,
+          160.68968496015685
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 111.90875385276819
+    },
+    {
+      "id": "way/1100818677",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "bridge": "yes",
+        "electrified": "rail",
+        "frequency": "0",
+        "gauge": "1435",
+        "layer": "1",
+        "maxspeed": "35",
+        "railway": "subway",
+        "service": "yard",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          -159.44834512900957,
+          160.68968496015685
+        ],
+        [
+          -158.34489637247506,
+          159.98837216787337
+        ],
+        [
+          -144.81408212955003,
+          149.7915068114848
+        ],
+        [
+          -143.95483924599543,
+          149.14585376524835
+        ],
+        [
+          -140.9067881747244,
+          146.89720005104834
+        ],
+        [
+          -138.05771966947847,
+          144.97137285996655
+        ],
+        [
+          -137.5331292753841,
+          144.63741438763893
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 27.17357458660989
+    },
+    {
+      "id": "way/1100818678",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "bridge": "yes",
+        "electrified": "rail",
+        "frequency": "0",
+        "gauge": "1435",
+        "layer": "1",
+        "maxspeed": "35",
+        "railway": "subway",
+        "service": "yard",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          -160.46134726392253,
+          157.85103794497653
+        ],
+        [
+          -152.04076701022888,
+          151.12734070079532
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 10.775633458887953
+    },
+    {
+      "id": "way/1100818679",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "electrified": "rail",
+        "frequency": "0",
+        "gauge": "1435",
+        "layer": "1",
+        "maxspeed": "35",
+        "railway": "subway",
+        "service": "yard",
+        "tunnel": "building_passage",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          -263.85087776274503,
+          198.6051035244845
+        ],
+        [
+          -237.82938539598075,
+          189.46577333033494
+        ],
+        [
+          -195.8892880351205,
+          174.73820469870904
+        ],
+        [
+          -184.54728197734127,
+          170.25202921951842
+        ],
+        [
+          -177.20301649343855,
+          166.50056237944858
+        ],
+        [
+          -168.78243623717427,
+          161.64703258109307
+        ],
+        [
+          -160.84122306547889,
+          156.7601069351093
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 111.51814929764289
+    },
+    {
+      "id": "way/1100818680",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "electrified": "rail",
+        "frequency": "0",
+        "gauge": "1435",
+        "railway": "subway",
+        "service": "yard",
+        "tunnel": "building_passage",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          -152.04076701022888,
+          151.12734070079532
+        ],
+        [
+          -150.58457643888156,
+          149.96961799646255
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 1.8603260037446174
+    },
+    {
+      "id": "way/1100818681",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "bridge": "yes",
+        "electrified": "rail",
+        "frequency": "0",
+        "gauge": "1435",
+        "layer": "1",
+        "maxspeed": "35",
+        "railway": "subway",
+        "service": "yard",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          -160.84122306547889,
+          156.7601069351093
+        ],
+        [
+          -159.72872964755337,
+          156.09218999045402
+        ],
+        [
+          -152.33019619016363,
+          151.0828129047486
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 10.232479943562838
+    },
+    {
+      "id": "way/1349961220",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-1",
+        "level": "2",
+        "operator": "京王電鉄",
+        "operator:en": "Keio railway",
+        "operator:ja": "京王電鉄",
+        "railway": "rail",
+        "service": "crossover",
+        "tunnel": "yes",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          -251.89383469439116,
+          154.90107143928398
+        ],
+        [
+          -263.2267960882088,
+          159.97724021945493
+        ],
+        [
+          -280.8638868494139,
+          167.86979211638737
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 31.74037911685937
+    },
+    {
+      "id": "way/1349961221",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-1",
+        "level": "2",
+        "operator": "京王電鉄",
+        "operator:en": "Keio railway",
+        "operator:ja": "京王電鉄",
+        "railway": "rail",
+        "service": "crossover",
+        "tunnel": "yes",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          -282.4647920107287,
+          164.15172112394575
+        ],
+        [
+          -263.2267960882088,
+          159.97724021945493
+        ],
+        [
+          -251.2697530198549,
+          157.37236413450842
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 31.923193790914492
+    },
+    {
+      "id": "way/1349961229",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#083476",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-1",
+        "level": "2",
+        "maxspeed": "90",
+        "name": "京王電鉄井の頭線",
+        "name:en": "Keio railway Inokashira Line",
+        "name:es": "Línea Keio Inokashira",
+        "name:ja": "京王電鉄井の頭線",
+        "name:ja_rm": "Keiō Inokashira Sen",
+        "note": "National-Land Numerical Information (Railway) 2007, MLIT Japan",
+        "operator": "京王電鉄",
+        "operator:en": "Keio railway",
+        "operator:ja": "京王電鉄",
+        "railway": "rail",
+        "source": "KSJ2",
+        "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-N02-v1_1.html",
+        "tunnel": "yes",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          -243.9073982105996,
+          151.3277157841919
+        ],
+        [
+          -233.5512603035604,
+          147.74322818068134
+        ],
+        [
+          -226.79489784348885,
+          145.41665082359737
+        ],
+        [
+          -210.08940726210733,
+          139.271814931978
+        ],
+        [
+          -193.43818465421285,
+          133.06018734510218
+        ],
+        [
+          -180.3143801944464,
+          127.75024763469737
+        ],
+        [
+          -166.8106999382649,
+          121.33824496442496
+        ],
+        [
+          -153.2346623832437,
+          114.30285314633493
+        ],
+        [
+          -140.42742109272615,
+          107.06708624484834
+        ],
+        [
+          -128.4613333629813,
+          99.64207620917459
+        ],
+        [
+          -118.29513335543493,
+          93.07422625234325
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 138.96894513396254
+    },
+    {
+      "id": "way/1349961230",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#083476",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-1",
+        "level": "2",
+        "maxspeed": "90",
+        "name": "京王電鉄井の頭線",
+        "name:en": "Keio railway Inokashira Line",
+        "name:es": "Línea Keio Inokashira",
+        "name:ja": "京王電鉄井の頭線",
+        "name:ja_rm": "Keiō Inokashira Sen",
+        "note": "National-Land Numerical Information (Railway) 2007, MLIT Japan",
+        "operator": "京王電鉄",
+        "operator:en": "Keio railway",
+        "operator:ja": "京王電鉄",
+        "railway": "rail",
+        "source": "KSJ2",
+        "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-N02-v1_1.html",
+        "tunnel": "yes",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          -109.9921337049651,
+          112.41042180288137
+        ],
+        [
+          -135.03680258495098,
+          121.82805072410248
+        ],
+        [
+          -147.65410597340502,
+          126.57026103194576
+        ],
+        [
+          -160.4070792930061,
+          131.57963811765117
+        ],
+        [
+          -175.12274425012563,
+          136.7559944399159
+        ],
+        [
+          -188.94298767555608,
+          141.3200935619905
+        ],
+        [
+          -203.87572451891205,
+          145.43891472122522
+        ],
+        [
+          -216.81863573800598,
+          148.82302724133916
+        ],
+        [
+          -230.05097613703464,
+          152.1292161185692
+        ],
+        [
+          -245.54448202004883,
+          156.11445388887287
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 142.5966644561761
+    },
+    {
+      "id": "way/1349961231",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "level": "2",
+        "operator": "京王電鉄",
+        "operator:en": "Keio railway",
+        "operator:ja": "京王電鉄",
+        "railway": "rail",
+        "service": "crossover",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          -251.2697530198549,
+          157.37236413450842
+        ],
+        [
+          -246.06002775018158,
+          156.24803727780392
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 5.329666806300357
+    },
+    {
+      "id": "way/1349961232",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "level": "2",
+        "operator": "京王電鉄",
+        "operator:en": "Keio railway",
+        "operator:ja": "京王電鉄",
+        "railway": "rail",
+        "service": "crossover",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          -246.75646671841616,
+          152.59675797982786
+        ],
+        [
+          -251.89383469439116,
+          154.90107143928398
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 5.630489342855031
+    },
+    {
+      "id": "way/1349961233",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-1",
+        "level": "2",
+        "operator": "京王電鉄",
+        "operator:en": "Keio railway",
+        "operator:ja": "京王電鉄",
+        "railway": "rail",
+        "service": "crossover",
+        "tunnel": "yes",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          -243.9073982105996,
+          151.3277157841919
+        ],
+        [
+          -246.75646671841616,
+          152.59675797982786
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 3.1189195976389943
+    },
+    {
+      "id": "way/1349961234",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#083476",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "level": "2",
+        "maxspeed": "90",
+        "name": "京王電鉄井の頭線",
+        "name:en": "Keio railway Inokashira Line",
+        "name:es": "Línea Keio Inokashira",
+        "name:ja": "京王電鉄井の頭線",
+        "name:ja_rm": "Keiō Inokashira Sen",
+        "note": "National-Land Numerical Information (Railway) 2007, MLIT Japan",
+        "oneway": "yes",
+        "operator": "京王電鉄",
+        "operator:en": "Keio railway",
+        "operator:ja": "京王電鉄",
+        "railway": "rail",
+        "source": "KSJ2",
+        "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-N02-v1_1.html",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          -252.12899590340945,
+          154.05504330886
+        ],
+        [
+          -246.83786867607617,
+          152.2961953543375
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 5.575802494973755
+    },
+    {
+      "id": "way/1349961235",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#083476",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "level": "2",
+        "maxspeed": "90",
+        "name": "京王電鉄井の頭線",
+        "name:en": "Keio railway Inokashira Line",
+        "name:es": "Línea Keio Inokashira",
+        "name:ja": "京王電鉄井の頭線",
+        "name:ja_rm": "Keiō Inokashira Sen",
+        "note": "National-Land Numerical Information (Railway) 2007, MLIT Japan",
+        "oneway": "yes",
+        "operator": "京王電鉄",
+        "operator:en": "Keio railway",
+        "operator:ja": "京王電鉄",
+        "railway": "rail",
+        "source": "KSJ2",
+        "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-N02-v1_1.html",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          -246.06002775018158,
+          156.24803727780392
+        ],
+        [
+          -251.05268113361848,
+          157.91782963944206
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 5.264484242366867
+    },
+    {
+      "id": "way/1349961236",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#083476",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "layer": "-1",
+        "level": "2",
+        "maxspeed": "90",
+        "name": "京王電鉄井の頭線",
+        "name:en": "Keio railway Inokashira Line",
+        "name:es": "Línea Keio Inokashira",
+        "name:ja": "京王電鉄井の頭線",
+        "name:ja_rm": "Keiō Inokashira Sen",
+        "note": "National-Land Numerical Information (Railway) 2007, MLIT Japan",
+        "oneway": "yes",
+        "operator": "京王電鉄",
+        "operator:en": "Keio railway",
+        "operator:ja": "京王電鉄",
+        "railway": "rail",
+        "source": "KSJ2",
+        "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-N02-v1_1.html",
+        "tunnel": "yes",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          -246.83786867607617,
+          152.2961953543375
+        ],
+        [
+          -243.9073982105996,
+          151.3277157841919
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 3.086358667883534
+    },
+    {
+      "id": "way/1349961237",
+      "part": 0,
+      "family": "other",
+      "tags": {
+        "colour": "#083476",
+        "electrified": "contact_line",
+        "frequency": "0",
+        "gauge": "1067",
+        "level": "2",
+        "name": "京王電鉄井の頭線",
+        "name:en": "Keio railway Inokashira Line",
+        "name:es": "Línea Keio Inokashira",
+        "name:ja": "京王電鉄井の頭線",
+        "name:ja_rm": "Keiō Inokashira Sen",
+        "note": "National-Land Numerical Information (Railway) 2007, MLIT Japan",
+        "operator": "京王電鉄",
+        "operator:en": "Keio railway",
+        "operator:ja": "京王電鉄",
+        "railway": "rail",
+        "source": "KSJ2",
+        "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-N02-v1_1.html",
+        "usage": "main",
+        "voltage": "1500"
+      },
+      "sourcePoints": [
+        [
+          -245.54448202004883,
+          156.11445388887287
+        ],
+        [
+          -246.06002775018158,
+          156.24803727780392
+        ]
+      ],
+      "status": "other",
+      "sourceLength": 0.5325710484587063
+    },
+    {
+      "id": "way/1354860210",
+      "part": 0,
+      "family": "Ginza",
+      "tags": {
+        "bridge": "viaduct",
+        "electrified": "rail",
+        "frequency": "0",
+        "gauge": "1435",
+        "layer": "2",
+        "maxspeed": "35",
+        "name": "東京メトロ銀座線",
+        "name:en": "Tokyo Metro Ginza Line",
+        "name:es": "Línea Ginza de Tokyo Metro",
+        "name:ja": "東京メトロ銀座線",
+        "name:ja-Hira": "とうきょうめとろぎんざせん",
+        "name:ja_rm": "Tōkyō Metoro Ginza Sen",
+        "operator": "東京地下鉄",
+        "operator:en": "Tokyo Metro",
+        "operator:ja": "東京地下鉄",
+        "operator:ja_rm": "Tōkyō Chikatetsu",
+        "railway": "subway",
+        "service": "yard",
+        "source": "Bing",
+        "voltage": "600"
+      },
+      "sourcePoints": [
+        [
+          -11.097800184799318,
+          98.60680494456345
+        ],
+        [
+          -39.452815329247436,
+          102.92600118798573
+        ]
+      ],
+      "status": "selected",
+      "sourceLength": 28.682090928505808,
+      "clippedLength": 28.682090928505808
+    }
+  ],
+  "alignments": [
+    {
+      "family": "Ginza",
+      "group": "Ginza:東京メトロ銀座線:yard",
+      "part": 0,
+      "sourceIds": [
+        "way/1354860210"
+      ],
+      "points": [
+        [
+          -39.452815329247436,
+          102.92600118798573
+        ],
+        [
+          -11.097800184799318,
+          98.60680494456345
+        ]
+      ],
+      "length": 28.682090928505808,
+      "id": "Ginza:way/1354860210",
+      "gauge": 1.435,
+      "deckY": 14,
+      "sharpTurns": []
+    },
+    {
+      "family": "Ginza",
+      "group": "Ginza:東京メトロ銀座線:yard",
+      "part": 0,
+      "sourceIds": [
+        "way/16688536"
+      ],
+      "points": [
+        [
+          -39.97740572077115,
+          100.03169442675832
+        ],
+        [
+          22.720190763693004,
+          89.51200254725154
+        ],
+        [
+          35.39176212306347,
+          86.85146671704895
+        ],
+        [
+          48.126646117311985,
+          83.60093758586603
+        ],
+        [
+          63.4935267331407,
+          78.9477828709071
+        ],
+        [
+          75.14305129620728,
+          75.78630933181758
+        ],
+        [
+          83.85306073240633,
+          73.63784315971134
+        ],
+        [
+          94.37200255476549,
+          71.3223977510458
+        ],
+        [
+          105.65069598023733,
+          69.50789005126718
+        ],
+        [
+          115.07523370745295,
+          67.94941718014125
+        ],
+        [
+          124.10180631290095,
+          65.99019414222217
+        ],
+        [
+          132.9836643258109,
+          63.27399856676347
+        ]
+      ],
+      "length": 177.03459378199727,
+      "id": "Ginza:way/16688536",
+      "gauge": 1.435,
+      "deckY": 14,
+      "sharpTurns": []
+    },
+    {
+      "family": "Ginza",
+      "group": "Ginza:東京メトロ銀座線:main",
+      "part": 0,
+      "sourceIds": [
+        "way/759134299",
+        "way/834249968"
+      ],
+      "points": [
+        [
+          132.9836643258109,
+          63.27399856676347
+        ],
+        [
+          174.11878677403303,
+          48.791332814580855
+        ],
+        [
+          203.00743697139583,
+          38.96182177814818
+        ],
+        [
+          219.6677042432519,
+          33.540562576440195
+        ],
+        [
+          234.66375371891522,
+          28.82061616622475
+        ],
+        [
+          250,
+          24.40312690152389
+        ]
+      ],
+      "length": 123.32649728124207,
+      "id": "Ginza:way/759134299+way/834249968",
+      "gauge": 1.435,
+      "deckY": 14,
+      "sharpTurns": []
+    },
+    {
+      "family": "Ginza",
+      "group": "Ginza:東京メトロ銀座線:main",
+      "part": 0,
+      "sourceIds": [
+        "way/807370560"
+      ],
+      "points": [
+        [
+          138.51899742612414,
+          77.85685186103984
+        ],
+        [
+          183.07300208321203,
+          62.572685775270934
+        ],
+        [
+          199.48906348208814,
+          55.64861344769314
+        ],
+        [
+          215.9413035290988,
+          47.500026721317035
+        ],
+        [
+          237.6665814806608,
+          37.29202941571906
+        ],
+        [
+          250,
+          31.488250900264603
+        ]
+      ],
+      "length": 120.91360571255183,
+      "id": "Ginza:way/807370560",
+      "gauge": 1.435,
+      "deckY": 14,
+      "sharpTurns": []
+    },
+    {
+      "family": "JR",
+      "group": "JR:山手線:main",
+      "part": 0,
+      "sourceIds": [
+        "way/146060265",
+        "way/146060273",
+        "way/211954209",
+        "way/211954421",
+        "way/853258588",
+        "way/853258594"
+      ],
+      "points": [
+        [
+          75.57310941535134,
+          -250
+        ],
+        [
+          72.60150129624867,
+          -192.30442034551524
+        ],
+        [
+          66.55966712719366,
+          -111.11911570961756
+        ],
+        [
+          63.176963566462405,
+          -71.34466164946463
+        ],
+        [
+          60.544966944882205,
+          -37.781835175396566
+        ],
+        [
+          59.21540164072034,
+          -11.265532467836977
+        ],
+        [
+          61.10573598454043,
+          20.293543171474326
+        ],
+        [
+          63.068427622058884,
+          42.01197582514353
+        ],
+        [
+          64.19901036276629,
+          52.765438636466115
+        ],
+        [
+          69.03790449484487,
+          80.96266565408229
+        ],
+        [
+          78.73378208178396,
+          114.71473526233751
+        ],
+        [
+          98.2069392133221,
+          164.58586713836718
+        ],
+        [
+          113.99891894023263,
+          197.14681819466134
+        ],
+        [
+          128.6331819396922,
+          226.05648995377047
+        ],
+        [
+          143.42366249642234,
+          250
+        ]
+      ],
+      "length": 517.5498276133511,
+      "id": "JR:way/146060265+way/146060273+way/211954209+way/211954421+way/853258588+way/853258594",
+      "gauge": 1.067,
+      "deckY": 6.5,
+      "sharpTurns": []
+    },
+    {
+      "family": "JR",
+      "group": "JR:山手線:main",
+      "part": 0,
+      "sourceIds": [
+        "way/146060331",
+        "way/146060379",
+        "way/146060426",
+        "way/853258589",
+        "way/853258593"
+      ],
+      "points": [
+        [
+          79.76108290878524,
+          -250
+        ],
+        [
+          76.30981268504918,
+          -192.01498966923432
+        ],
+        [
+          73.35220823539973,
+          -148.5113326674304
+        ],
+        [
+          70.92823883866497,
+          -111.14137960803639
+        ],
+        [
+          68.81178794721752,
+          -70.8993836858338
+        ],
+        [
+          67.51840129119016,
+          -37.781835175396566
+        ],
+        [
+          67.82591979647749,
+          -11.855525769608267
+        ],
+        [
+          70.66594364290312,
+          19.82600131021565
+        ],
+        [
+          72.89093047618341,
+          34.0748961321644
+        ],
+        [
+          75.07973866389986,
+          45.08439377134869
+        ],
+        [
+          78.67046944947657,
+          61.57081035828805
+        ],
+        [
+          83.545542227119,
+          80.18342921891481
+        ],
+        [
+          88.6557762163504,
+          96.60305411059767
+        ],
+        [
+          93.16906252035972,
+          111.01892816831476
+        ],
+        [
+          99.51841519213139,
+          127.95062271809397
+        ],
+        [
+          113.13063139528708,
+          158.65253827856284
+        ],
+        [
+          128.82311983918504,
+          191.848010433466
+        ],
+        [
+          156.78581716644464,
+          250
+        ]
+      ],
+      "length": 517.2902889098434,
+      "id": "JR:way/146060331+way/146060379+way/146060426+way/853258589+way/853258593",
+      "gauge": 1.067,
+      "deckY": 6.5,
+      "sharpTurns": []
+    },
+    {
+      "family": "JR",
+      "group": "JR:山手貨物線:main",
+      "part": 0,
+      "sourceIds": [
+        "way/155269553",
+        "way/155269603",
+        "way/211954427",
+        "way/853258587",
+        "way/853258591"
+      ],
+      "points": [
+        [
+          87.8046414608404,
+          -250
+        ],
+        [
+          77.63937798921106,
+          -70.77693224611215
+        ],
+        [
+          77.42230610297467,
+          -36.94693899418201
+        ],
+        [
+          79.84627549970944,
+          -12.167220343517066
+        ],
+        [
+          83.69930148104798,
+          17.85564632308715
+        ],
+        [
+          90.98025433264327,
+          44.03799055831911
+        ],
+        [
+          96.6060340520074,
+          69.36317471312671
+        ],
+        [
+          106.08483975271012,
+          97.1039918194846
+        ],
+        [
+          117.83385559621861,
+          122.6963427521543
+        ],
+        [
+          130.9576600534144,
+          151.68393815493835
+        ],
+        [
+          162.1074757347627,
+          222.3050231144916
+        ],
+        [
+          175.29672846335305,
+          250
+        ]
+      ],
+      "length": 518.7842591216853,
+      "id": "JR:way/155269553+way/155269603+way/211954427+way/853258587+way/853258591",
+      "gauge": 1.067,
+      "deckY": 6.5,
+      "sharpTurns": []
+    },
+    {
+      "family": "JR",
+      "group": "JR:山手貨物線:main",
+      "part": 0,
+      "sourceIds": [
+        "way/155269569",
+        "way/155269600",
+        "way/211954289",
+        "way/853258586",
+        "way/853258590",
+        "way/853258592"
+      ],
+      "points": [
+        [
+          83.80436376264215,
+          -250
+        ],
+        [
+          73.6145034311616,
+          -70.99957122792758
+        ],
+        [
+          73.53310147350162,
+          -37.24750161967236
+        ],
+        [
+          73.98533456875631,
+          -12.378727376123056
+        ],
+        [
+          76.30076802365822,
+          19.057896824257586
+        ],
+        [
+          79.45735503676214,
+          42.83574005714867
+        ],
+        [
+          85.36351927467008,
+          73.10350960398712
+        ],
+        [
+          96.38896216577103,
+          108.49197572704321
+        ],
+        [
+          102.8920740914717,
+          127.02667094399504
+        ],
+        [
+          115.63600274711116,
+          157.5059475234395
+        ],
+        [
+          130.98479404015796,
+          190.63462798387712
+        ],
+        [
+          138.88982856371885,
+          207.1099126208161
+        ],
+        [
+          159.91672403168388,
+          250
+        ]
+      ],
+      "length": 516.5592524995383,
+      "id": "JR:way/155269569+way/155269600+way/211954289+way/853258586+way/853258590+way/853258592",
+      "gauge": 1.067,
+      "deckY": 6.5,
+      "sharpTurns": []
+    }
+  ],
+  "invalid": [],
+  "duplicateSegments": [],
+  "endpointAudit": [
+    {
+      "alignment": "Ginza:way/1354860210",
+      "point": [
+        -39.452815329247436,
+        102.92600118798573
+      ],
+      "status": "source-terminal",
+      "nearestOtherEndpoint": 2.941463361486204
+    },
+    {
+      "alignment": "Ginza:way/1354860210",
+      "point": [
+        -11.097800184799318,
+        98.60680494456345
+      ],
+      "status": "source-terminal",
+      "nearestOtherEndpoint": 28.914735446650806
+    },
+    {
+      "alignment": "Ginza:way/16688536",
+      "point": [
+        -39.97740572077115,
+        100.03169442675832
+      ],
+      "status": "source-terminal",
+      "nearestOtherEndpoint": 2.941463361486204
+    },
+    {
+      "alignment": "Ginza:way/16688536",
+      "point": [
+        132.9836643258109,
+        63.27399856676347
+      ],
+      "status": "source-connection",
+      "nearestOtherEndpoint": 0
+    },
+    {
+      "alignment": "Ginza:way/759134299+way/834249968",
+      "point": [
+        132.9836643258109,
+        63.27399856676347
+      ],
+      "status": "source-connection",
+      "nearestOtherEndpoint": 0
+    },
+    {
+      "alignment": "Ginza:way/759134299+way/834249968",
+      "point": [
+        250,
+        24.40312690152389
+      ],
+      "status": "target-clip",
+      "nearestOtherEndpoint": 7.085123998740713
+    },
+    {
+      "alignment": "Ginza:way/807370560",
+      "point": [
+        138.51899742612414,
+        77.85685186103984
+      ],
+      "status": "source-terminal",
+      "nearestOtherEndpoint": 15.598061505642638
+    },
+    {
+      "alignment": "Ginza:way/807370560",
+      "point": [
+        250,
+        31.488250900264603
+      ],
+      "status": "target-clip",
+      "nearestOtherEndpoint": 7.085123998740713
+    },
+    {
+      "alignment": "JR:way/146060265+way/146060273+way/211954209+way/211954421+way/853258588+way/853258594",
+      "point": [
+        75.57310941535134,
+        -250
+      ],
+      "status": "target-clip",
+      "nearestOtherEndpoint": 4.187973493433901
+    },
+    {
+      "alignment": "JR:way/146060265+way/146060273+way/211954209+way/211954421+way/853258588+way/853258594",
+      "point": [
+        143.42366249642234,
+        250
+      ],
+      "status": "target-clip",
+      "nearestOtherEndpoint": 13.362154670022306
+    },
+    {
+      "alignment": "JR:way/146060331+way/146060379+way/146060426+way/853258589+way/853258593",
+      "point": [
+        79.76108290878524,
+        -250
+      ],
+      "status": "target-clip",
+      "nearestOtherEndpoint": 4.043280853856913
+    },
+    {
+      "alignment": "JR:way/146060331+way/146060379+way/146060426+way/853258589+way/853258593",
+      "point": [
+        156.78581716644464,
+        250
+      ],
+      "status": "target-clip",
+      "nearestOtherEndpoint": 3.13090686523924
+    },
+    {
+      "alignment": "JR:way/155269553+way/155269603+way/211954427+way/853258587+way/853258591",
+      "point": [
+        87.8046414608404,
+        -250
+      ],
+      "status": "target-clip",
+      "nearestOtherEndpoint": 4.000277698198246
+    },
+    {
+      "alignment": "JR:way/155269553+way/155269603+way/211954427+way/853258587+way/853258591",
+      "point": [
+        175.29672846335305,
+        250
+      ],
+      "status": "target-clip",
+      "nearestOtherEndpoint": 15.380004431669164
+    },
+    {
+      "alignment": "JR:way/155269569+way/155269600+way/211954289+way/853258586+way/853258590+way/853258592",
+      "point": [
+        83.80436376264215,
+        -250
+      ],
+      "status": "target-clip",
+      "nearestOtherEndpoint": 4.000277698198246
+    },
+    {
+      "alignment": "JR:way/155269569+way/155269600+way/211954289+way/853258586+way/853258590+way/853258592",
+      "point": [
+        159.91672403168388,
+        250
+      ],
+      "status": "target-clip",
+      "nearestOtherEndpoint": 3.13090686523924
+    }
+  ],
+  "counts": {
+    "source": 96,
+    "JR": 33,
+    "Ginza": 7,
+    "other": 56
+  }
+}
