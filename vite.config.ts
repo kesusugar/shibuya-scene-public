@@ -19,7 +19,7 @@ const buildTimestamp = new Date().toISOString();
 const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === "seatbelt";
 const isGitHubPagesBuild =
   process.env.GITHUB_ACTIONS === "true" &&
-  process.env.GITHUB_REPOSITORY === "kesusugar/shibuya-scene";
+  process.env.GITHUB_REPOSITORY === "kesusugar/shibuya-scene-public";
 
 const localBindingConfig = {
   main: "./worker/index.ts",
@@ -57,7 +57,7 @@ export default defineConfig(async () => {
   const cloudflare = localNodePreview ? null : (await import("@cloudflare/vite-plugin")).cloudflare;
 
   return {
-    base: isGitHubPagesBuild ? "/shibuya-scene/" : "/",
+    base: isGitHubPagesBuild ? "/shibuya-scene-public/" : "/",
     define: {
       'import.meta.env.VITE_GIT_COMMIT_SHA': JSON.stringify(gitCommit),
       'import.meta.env.VITE_BUILD_TIMESTAMP': JSON.stringify(buildTimestamp),
