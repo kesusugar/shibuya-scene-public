@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const isGitHubPagesBuild =
   process.env.GITHUB_ACTIONS === "true" &&
-  process.env.GITHUB_REPOSITORY === "kesusugar/shibuya-scene";
+  process.env.GITHUB_REPOSITORY === "kesusugar/shibuya-scene-public";
 
 const nextConfig: NextConfig = {
   // Keep local development at the site root. GitHub Pages serves project sites
