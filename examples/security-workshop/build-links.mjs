@@ -11,6 +11,8 @@
  */
 const PORT = Number(process.env.PORT) || 9999;
 const BASE = `http://127.0.0.1:${PORT}`;
+/** 本番の devサーバ（vite/vinext 既定 5173）。開いた瞬間から攻撃状態なので、?attack=0 は無効化用。 */
+const REAL = 'http://localhost:5173';
 
 /**
  * ペイロード: トークン窃取 + 画面改ざん + キーロガー。
@@ -52,6 +54,12 @@ const rows = [
   ['演習5 クリックジャッキング',
    `${BASE}/attacker-frame`,
    '透明 iframe でクリックを奪う仕組み。iframe の opacity を 0→0.1 に変えると可視化できる。'],
+  ['演習6 本番ページをそのまま攻撃する（opening the real site）',
+   `${REAL}/`,
+   '本番ページを開くだけで攻撃状態（キーロガー・save data 読み・改ざんバナー）。 attack-server.mjs を起動していれば本当にデータが届く。'],
+  ['演習6b 本番ページへ本物のXSSを撃つ',
+   `${REAL}/?q=${encodeURIComponent(payload1)}`,
+   '本番ページの ?q= シンクは本物。改ざんが本番ページ上で起きる。?attack=0 でオフ。'],
 ];
 
 console.log('==============================================');

@@ -1,12 +1,15 @@
 # 社内セキュリティ勉強会用 模擬マルウェア＆脆弱デモ
 
 > **これは何？**
-> 「本番サイトには脆弱性がない（セキュリティレビュー済み）」ことを前提に、
-> *脆弱性があったらどう壊されるか* を体内で再現するための教育用モックです。
-> 意図的に脆弱にしたデモページ 1 枚と、それを攻撃する模擬マルウェア（ペイロード）を収録します。
+> **本番ページ（`app/page.tsx`）を開いた瞬間に走る「攻撃されている状態」の実装**と、
+> それを支える講義資料（旧スタンドアロンモック）です。
+> 本番への組み込みは `src/security/attack-simulation.mjs` + `app/AttackState.tsx` で行われており、
+> AGENTS.md の「Intentional security workshop vulnerability」節に明記されています。
+> `examples/security-workshop/` 配下は補助資料（収集サーバ・クリックジャッキング演習など）です。
 >
-> **本番コード（`app/`, `src/`, `worker/`, `public/`）には一切影響しません。**
-> `public/` 配下に置いていないため、GitHub Pages のビルド出力にも含まれません。
+> **本番 `public/` 静的ファイルには手を入れていません**が、`app/page.tsx` は改変済みです
+> （`<AttackState />` をマウント）。本番ビルドでも攻撃状態が走ります。
+> クリーンな状態に戻すときは `app/page.tsx` から `<AttackState />` を削除してください。
 
 ---
 
@@ -27,11 +30,15 @@ node examples/security-workshop/build-links.mjs
 
 ## 2. デモの位置づけ
 
-| | 本番サイト（ShibuyaScene） | このデモ |
+| | 本番サイト（ShibuyaScene） | このフォルダの補助資料 |
 |---|---|---|
-| 脆弱性 | なし（レビュー済み） | **意図的に多数** |
-| 目的 | 見せ合い・公開 | 勉強会での「攻撃の再現」 |
-| 収録場所 | `app/`, `public/` | `examples/security-workshop/`（配信されない） |
+| 脆弱性 | **あり（意図的・AGENTS.md 承認済み）** | 意図的に多数 |
+| 目的 | 勉強会での「攻撃されている状態」の再現 | 講義用モック・収集サーバ |
+| 場所 | `app/page.tsx` + `src/security/attack-simulation.mjs` | `examples/security-workshop/` |
+
+> ⚠ 本番ページは「開いた瞬間に攻撃されている状態」が既定です。
+> `?attack=0` を URL に付けるとその読み込みだけ完全にオフになります。
+> 永久に戻すときは `app/page.tsx` から `<AttackState />` を外してください。
 
 > ⚠ 演習後はこのブランチをマージせず削除してください（README 最後の「後片付け」参照）。
 > 「マルウェア」といっても実際のウイルスではなく、**XSS/フィッシング等の攻撃コード（ペイロード）のモック**です。
