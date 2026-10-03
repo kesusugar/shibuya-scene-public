@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>【教育用デモ】脆弱なページ — 社内セキュリティ勉強会</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin:0; font-family: system-ui, -apple-system, sans-serif; background:#0e1620; color:#dfe9f2; }
+  .demo-banner { background:#7a1f1f; color:#ffe9c8; padding:10px 18px; font-weight:700; font-size:13px; }
+  main { max-width:760px; margin:0 auto; padding:24px; }
+  section { background:#16222f; border:1px solid #2c3d4f; border-radius:10px; padding:16px 20px; margin:16px 0; }
+  h1 { font-size:20px; } h2 { font-size:16px; margin:4px 0 8px; }
+  code { background:#0a1119; padding:2px 6px; border-radius:4px; font-size:12px; }
+  .vuln { color:#ffb347; font-size:12px; }
+  .fix { color:#8fd0a0; font-size:12px; }
+  input, button { font: inherit; }
+  button { padding:6px 14px; cursor:pointer; }
+  a { color:#7fd0ff; }
+</style>
+</head>
+<body>
+<header class="demo-banner">⚠ 教育用デモ — 意図的に脆弱なページです。本番サイト（ShibuyaScene）とは無関係・独立しています。この実装を実務に転用しないこと。</header>
+<main>
+  <h1>脆弱性デモページ</h1>
+  <p>以下の各セクションに<b>意図的に</b>仕込まれた脆弱性を、<code>../README.md</code> のペイロードで攻撃します。
+     演習の後は「対策」を読み、同じ過ちを本番で書かないことがこのデモの目的です。</p>
+
+  <section>
+    <h2>1) 反射型XSS（<code>?q=</code>）</h2>
+    <form method="get" action="vulnerable-page">
+      <input name="q" size="34" placeholder='検索語（ペイロードを貼り付け可能）'>
+      <button>検索</button>
+    </form>
+    <div id="result"></div>
+    <!--
+      VULN-1: クエリを生のまま innerHTML へ連結。
+      ※仕様上、<script> タグは innerHTML 経由では実行されない。
+        攻撃者は <img src=x onerror=...> のイベントハンドラを使う（README 演習1 参照）。
+    -->
+    <p class="fix">対策: <code>textContent</code> を使うか、HTML エスケープしてから挿入する。</p>
+  </section>
+
+  <section>
+    <h2>2) DOM XSS（<code>#profile=</code>）</h2>
+    <div id="profile"></div>
+    <!-- VULN-2: location.hash を decodeURIComponent してそのまま innerHTML へ。 -->
+    <p class="fix">対策: 同上。ハッシュも「信頼できない入力」。</p>
+  </section>
+
+  <section>
+    <h2>3) デモログイン（トークンを localStorage に平文保存）</h2>
+    <button id="login">デモログイン</button>
+    <span id="login-state"></span>
+    <!--
+      VULN-3: アクセストークンを localStorage に保存。
+      XSS に一回やられるだけでトークンが全盗まれる（演習1のペイロードはまさにこれをやる）。
+    -->
+    <p class="fix">対策: トークンは HttpOnly + Secure + SameSite の Cookie で管理する。</p>
+  </section>
+
+  <section>
+    <h2>4) オープンリダイレクト（<code>?next=</code>）</h2>
+    <a id="go" href="#">続きへ進む（?next= で飛び先を指定できる）</a>
+    <!--
+      VULN-4: 「//127.0.0.1:9999/fake-login のようなプロトコル相対 URL も無検証で飛ばす。
+      偽ログインページ（フィッシング）への足掛かりになる。
+    -->
+    <p class="fix">対策: 飛び先は <code>/</code> 始まりかつ <code>//</code> で始まらない相対パスのみ許可（本番 chatgpt-auth.ts の safeRelativeReturnPath 参照）。</p>
+  </section>
+
+  <section>
+    <h2>5) CSRF（GET による状態変更・トークンなし）</h2>
+    <a href="?action=logout">ログアウト</a>
+    <!-- VULN-5: GET リクエストで状態（ログイン状態）を変更しており、CSRF トークンもない。 -->
+    <p class="fix">対策: 状態変更は POST + CSRF トークン。ログアウト後に同時押しのためリダイレクト。</p>
+  </section>
+
+  <section>
+    <h2>6) クリックジャッキング（フレーム込み込み対策なし）</h2>
+    <p>このページは <code>X-Frame-Options</code> / <code>CSP frame-ancestors</code> を出していないため、
+       <a href="/attacker-frame" target="_blank" rel="noopener">攻撃者のページ（/attacker-frame）</a>から透明 iframe にされた上で押しボタンに使われます。</p>
+    <p class="fix">対策: レスポンスヘッダで <code>X-Frame-Options: DENY</code> または <code>Content-Security-Policy: frame-ancestors 'none'</code>。</p>
+  </section>
+</main>
+
+<script>
+// ===== 注意: 以下は教育目的で「わざと」危険な実装にしてあります =====
+const params = new URLSearchParams(location.search);
+
+// VULN-1: 反射型XSS — 未エスケープの innerHTML 連結
+{
+  const q = params.get('q');
+  if (q !== null) {
+    document.getElementById('result').innerHTML =
+      '検索結果: ' + q + ' <small>（未エスケープで挿入しています）</small>';
+  }
+}
+
+// VULN-2: DOM XSS — ハッシュ由来の文字列をそのまま innerHTML
+if (location.hash.startsWith('#profile=')) {
+  document.getElementById('profile').innerHTML =
+    decodeURIComponent(location.hash.slice('#profile='.length));
+}
+
+// VULN-3: トークンを localStorage に平文保存（XSS で全終わり）
+document.getElementById('login').addEventListener('click', () => {
+  const token = 'demo-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
+  try { localStorage.setItem('shibuya.demo.token', token); } catch {}
+  document.getElementById('login-state').textContent =
+    'ログイン中（トークンを localStorage に保存しました: ' + token + '）';
+});
+
+// VULN-4: オープンリダイレクト — 飛び先を無検証で location へ
+{
+  const next = params.get('next');
+  if (next) {
+    try { location.href = next; } catch {} // ← 「//evil」や javascript: すら通る
+  }
+  document.getElementById('go').href =
+    '?next=' + encodeURIComponent('//127.0.0.1:9999/fake-login');
+}
+
+// VULN-5: CSRF — GET でログイン状態を変更
+if (params.get('action') === 'logout') {
+  try { localStorage.removeItem('shibuya.demo.token'); } catch {}
+  document.getElementById('login-state').textContent = '（ログアウト済み）';
+}
+
+// ※ VULN-6（クリックジャッキング）はページ単独では直せない。サーバが
+//   X-Frame-Options / frame-ancestors を送らない「こと自体」が脆弱性。
+</script>
+</body>
+</html>
