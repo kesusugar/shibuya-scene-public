@@ -2,7 +2,9 @@
 /**
  * 【社内勉強会用】攻撃者シミュレータ＆意図的に脆弱なデモサーバ
  *
- * 本番コード（app/, src/, worker/）には一切影響しません。
+ * 本番ページ（src/security/attack-simulation.mjs）は意図的にこのサーバを「攻撃者」として
+ * 使う：ビーコン（/collect）の受け口・フィッシング資格情報の回収・強制リダイレクト先
+ * （/owned）。サーバが動いていない場合、本番側の遷移段階は自動的に省略される。
  * 127.0.0.1 のみで待ち受け、外部ネットワークへの通信は発生しません。
  *
  * 使い方:
@@ -61,7 +63,20 @@ button{width:100%;padding:10px;background:#1a73e8;color:#fff;border:0;border-rad
   <p style="font-size:11px;color:#a00">※これは偽サイトです。社内勉強会用のモック。</p>
 </body></html>`;
 
-const panelPage = () => `<!doctype html><html lang="ja"><head><meta charset="utf-8"><title>攻撃者パネル（教育用）</title>
+const ownedPage = () => `<!doctype html><html lang="ja"><head><meta charset="utf-8"><title>乗っ取られました（教育用）</title>
+<style>body{font-family:system-ui,sans-serif;background:#140a0a;color:#ffdada;max-width:640px;margin:10vh auto;padding:0 20px}
+a{color:#7fd0ff}code{color:#ffb3b3}h1{font-size:22px}li{margin:6px 0;word-break:break-all;font-family:monospace;font-size:13px}</style></head>
+<body>
+<h1>☠ あなたのブラウザは攻撃者のサイトへ到達しました</h1>
+<p>本番ページで動いていたペイロードが <code>location.href</code> を書き換え、
+ここ（<code>127.0.0.1:9999/owned</code>）へ強制遷移させました。これが「勝手に飛ばされる」攻撃の本体です。</p>
+<p>遷移までの間に攻撃者へ送られたデータ（<a href="/panel">/panel</a> でも見られます）:</p>
+<ul>${captures.length ? captures.map((c) => `<li>${esc(c.via)}: ${esc(c.data)}</li>`).join('') : '<li>（なし）</li>'}</ul>
+<p><a href="#" onclick="history.back();return false">← 本物のサイトへ戻る（履歴を戻る）</a></p>
+<p style="font-size:11px;color:#a88">※教育用デモ。外部ネットワークへの通信はありません。</p>
+</body></html>`;
+
+const panelPage = () => `<!doctype html><html lang="ja"><head><meta charset="utf-8"><title>攻撃者パネル（教育用）</title>>
 <style>body{font-family:monospace;background:#0b0f14;color:#9fe88f;padding:24px}
 li{margin:6px 0;word-break:break-all}a{color:#7fd0ff}h1{font-size:18px}</style></head>
 <body>
@@ -101,6 +116,7 @@ createServer((req, res) => {
       return;
     }
     if (pathname === '/panel') return html(res, panelPage());
+    if (pathname === '/owned') return html(res, ownedPage());
     if (pathname === '/fake-login') return html(res, fakeLoginPage);
     if (pathname === '/redirect') {
       // 教育ポイント: 飛び先の無検証リダイレクト（オープンリダイレクト）。
@@ -118,6 +134,7 @@ createServer((req, res) => {
   console.log(`[教育用デモ] 待受け開始: http://${HOST}:${PORT}/  （Ctrl+C で終了）`);
   console.log(`  脆弱ページ   : http://${HOST}:${PORT}/vulnerable-page`);
   console.log(`  攻撃者パネル : http://${HOST}:${PORT}/panel`);
+  console.log(`  強制リダイレクト先（本番ページ用）: http://${HOST}:${PORT}/owned`);
   console.log(`  攻撃URL生成  : node examples/security-workshop/build-links.mjs`);
   console.log('  ※ 127.0.0.1 のみで待ち受け。外部への送信はありません。');
 });

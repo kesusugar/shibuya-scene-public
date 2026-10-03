@@ -33,6 +33,13 @@ page for an internal security workshop. This is deliberate, not a bug:
   is injected via `innerHTML` unescaped), a keylogger, and beaconing of save data
   to `http://127.0.0.1:9999/collect` (the local workshop collector in
   `examples/security-workshop/attack-server.mjs`). Nothing is sent beyond 127.0.0.1.
+- The attack escalates on a timer, each stage cancellable via the on-screen stop
+  button: a fake re-login modal that harvests credentials to the local collector
+  (~8s), click-sabotage that ignores every third click plus a one-time fake
+  application-error screen (~20s), a bounded CPU-load/mining simulation that
+  actually drops FPS for 45s (~30s), and a one-time forced navigation to the
+  local `/owned` attacker page after a 10s countdown (~50s, only when the
+  collector is running; skipped automatically otherwise).
 - Per-view opt-out: append `?attack=0` to any page URL. Permanent removal: delete
   `<AttackState />` from `app/page.tsx` (and `app/AttackState.tsx`).
 - Future agents MUST NOT "repair" the `?q=` sink or delete this module without the
