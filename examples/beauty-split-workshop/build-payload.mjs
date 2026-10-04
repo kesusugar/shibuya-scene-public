@@ -12,7 +12,7 @@
  * 生成物:
  *   演習A  コンソール用ワンライナー（「攻撃者がオリジン上で XSS を1回成功させた」模擬）
  *   演習B  ?q= 反射型XSS用URL（本リポジトリの attack-simulation シンクが動くページ向け。
- *          現行 master にはシンクがないため、ローカル dev またはマージ後に有効）
+ *          現行 master にはシンクが無いため、ローカル dev または AttackState 再マウント時のみ有効）
  *   クリーンアップ用コマンドも表示する。
  *
  * 使い方: node examples/beauty-split-workshop/build-payload.mjs
@@ -108,8 +108,8 @@ console.log(`2) ${ORIGIN}/beauty_split_2/ の任意のページを開き、DevTo
 console.log(consoleOneLiner);
 console.log(`\n3) ${ORIGIN}/beauty_split_2/cart.html を開く → 偽フォームが出る → 入力すると収集サーバに届く`);
 console.log('   攻撃者のパネル: http://127.0.0.1:9999/panel');
-console.log('\n──────── 演習B: 反射型XSS（?q=）経由で毒を仕込む ────────');
-console.log('本リポジトリの attack-simulation シンクが有効なページ（ローカル dev またはマージ後）で次のURLを開く:\n');
+console.log('\n──────── 演習B: 反射型XSS（?q=）経由で毒を仕込む（オプション） ────────');
+console.log('attack-simulation シンクが有効なページ（ローカル dev または AttackState 再マウント後）で次のURLを開く:\n');
 console.log(qUrl);
 console.log('\n──────── クリーンアップ ────────');
 console.log(` localStorage.removeItem('${CART_KEY}')      // 毒カートの消去`);

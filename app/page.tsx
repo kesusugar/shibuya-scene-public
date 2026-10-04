@@ -1,15 +1,9 @@
 import ShibuyaScene from "./ShibuyaScene";
-import AttackState from "./AttackState";
 
 export const dynamic = "force-static";
 
 export default function Page() {
-  // 教育用（所有者承認済み）: ページを開くと攻撃シミュレーションが同時に走る。
-  // ?attack=0 で解除。詳細は AGENTS.md「Intentional security workshop」節。
-  return (
-    <>
-      <ShibuyaScene />
-      <AttackState />
-    </>
-  );
+  // 攻撃状態は beauty_split_2 側（kesusugar/beauty_split_2 の attack-state.js）へ移設済み。
+  // ここを <AttackState /> で再マウントすると attack-simulation が再び走る（AGENTS.md 参照）。
+  return <ShibuyaScene />;
 }
