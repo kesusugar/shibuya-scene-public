@@ -74,6 +74,10 @@ node examples/security-workshop/build-links.mjs
 | 5 | CSRF（GET ログアウト） | 何もしていないのに他人の URL を踏むだけで状態が変わる | 状態変更は POST + CSRF トークン |
 | 6 | クリックジャッキング | 透明 iframe でクリックを奪う | `X-Frame-Options` / `frame-ancestors` ヘッダ |
 
+> 📎 **追加演習**: 別リポジトリ [beauty_split_2](https://kesusugar.github.io/beauty_split_2/) を対象にした
+> 実サイト攻撃チェーン（オリジン共有 × localStorage 毒化 × DOM XSS）は
+> [examples/beauty-split-workshop/README.md](../beauty-split-workshop/README.md) を参照。
+
 ### ペイロードの基礎知識（演習1 のコード解説）
 
 攻撃URLに含まれるのは概ね次の処理です（`build-links.mjs` で生成）。
