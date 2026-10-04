@@ -54,13 +54,14 @@ node examples/security-workshop/attack-server.mjs
 node examples/beauty-split-workshop/build-payload.mjs
 ```
 
-表示される **演習A（コンソール貼り付け）** か **演習B（?q= URL・マージ後のみ有効）** を実行し、
+表示される **演習A（コンソール貼り付け）** を実行し、
 `https://kesusugar.github.io/beauty_split_2/cart.html` を開きます。偽フォームが出るので
 入力して `/panel` で回収を確認します。
 
-- `?q=` による毒入れは本リポジトリの attack-simulation シンクが必要です
-  （`claude/security-workshop` ブランチのローカル dev またはマージ後）
+- 毒入れは beauty_split_2 のページ上のコンソールだけで完結します（shibuya-scene は不要）
 - 終わったらコンソールで `localStorage.removeItem('lumiere_cart')` で毒を除去
+- なお beauty_split_2 自体に組み込み済みの攻撃状態（`attack-state.js`）は本演習とは独立しており、
+  同時に動いても競合しません（両方とも 127.0.0.1:9999 宛のみ）
 
 ## 対策（このサイトの場合）
 
