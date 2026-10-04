@@ -32,28 +32,30 @@ node examples/security-workshop/build-links.mjs
 
 ## 2. デモの位置づけ
 
-| | 本番サイト（ShibuyaScene） | このフォルダの補助資料 |
+| | beauty_split_2（所有者の別サイト） | このフォルダの補助資料 |
 |---|---|---|
-| 脆弱性 | **あり（意図的・AGENTS.md 承認済み）** | 意図的に多数 |
-| 目的 | 勉強会での「攻撃されている状態」の再現 | 講義用モック・収集サーバ |
-| 場所 | `app/page.tsx` + `src/security/attack-simulation.mjs` | `examples/security-workshop/` |
+| 脆弱性 | **攻撃状態を組み込み済み（所有者承認済み）**＋本来の脆弱性（localStorage未エスケープ） | 意図的に多数 |
+| 目的 | 勉強会での「攻撃されている状態」の再現（本番） | 講義用モック・収集サーバ |
+| 場所 | `kesusugar/beauty_split_2` リポジトリの `attack-state.js` | `examples/security-workshop/` |
 
-> ⚠ 本番ページは「開いた瞬間に攻撃されている状態」が既定です。
-> `?attack=0` を URL に付けるとその読み込みだけ完全にオフになります。
-> 永久に戻すときは `app/page.tsx` から `<AttackState />` を外してください。
+> 本リポジトリ（shibuya-scene-public）の本番ページはクリーンです。
+> 以前マージした `<AttackState />` は `app/AttackState.tsx` に残置しており、`app/page.tsx` へ
+> 再マウントすると同じ攻撃状態を再現できます（詳細は AGENTS.md）。
 
-### 本番ページで走る攻撃のタイムライン（**master にマージ済み・GitHub Pages 公開サイトで発動**）
+## 攻撃状態のタイムライン（**beauty_split_2 に組み込み済み・公開サイトで発動**）
 
-ページを開いてからの経過時間で攻撃がエスカレートします。
-バナーの「攻撃を終了する」ボタンを押すと**今後走るはずの全段階（リダイレクト含む）もキャンセル**されます。
+攻撃状態の本体は、所有者の別サイト **https://kesusugar.github.io/beauty_split_2/** （`attack-state.js`）に
+組み込まれています。本リポジトリの `app/AttackState.tsx` + `src/security/attack-simulation.mjs` は
+同型のシミュレーション（教材として残置・本番ページには未マウント。再マウントするとこちらでも走ります）。
 
-> ⚠ 本番 URL: https://kesusugar.github.io/shibuya-scene-public/ （PR #14 をマージ済み。
-> 訪問者にも同じ攻撃状態が見えます。リダイレクト段階は訪問者環境では収集サーバが無いため自動的に省略されます。）
+タイムライン（beauty_split_2 の全ページ共通。バナーの「攻撃を終了する」ボタンで全段階キャンセル）:
+
+> ⚠ 対象 URL: https://kesusugar.github.io/beauty_split_2/ （PR kesusugar/beauty_split_2#1 をマージ済み。
+> リダイレクト段階は訪問者環境では収集サーバが無いため自動的に省略されます。無効化は URL に `?attack=0`。）
 
 | 時間 | 攻撃 | 実際に起きること |
 |---|---|---|
-| 0秒 | 改ざん・盗み見 | 赤バナー＋画面減光、`shibuya.save`/`shibuya.pad` を読んでビーコン送信、キーロガー開始 |
-| 0秒 | （URLに `?q=` がある時）| 反射型XSS — ペイロードが本物の `innerHTML` シンクで実行される |
+| 0秒 | 改ざん・盗み見 | 赤バナー＋画面減光、`lumiere_cart` を読んでビーコン送信、キーロガー開始 |
 | 8秒 | フィッシング | 偽「再サインイン」モーダル。入力すると資格情報がローカル収集サーバへ送信される |
 | 20秒 | 操作妨害 | 3回に1回クリックを横取りして無効化＋偽「アプリケーションエラー」画面（再読み込みは1回だけ本物） |
 | 30秒 | CPU高負荷 | マイニングの模倣 — 実際にFPSが落ちる（45秒で自動停止） |
