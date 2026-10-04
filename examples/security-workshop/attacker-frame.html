@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>（教育用）攻撃者のページ — クリックジャッキング</title>
+<style>
+  body { font-family: system-ui, sans-serif; background:#0e1620; color:#dfe9f2; display:flex; align-items:center; justify-content:center; height:100vh; margin:0; }
+  .bait { position:relative; width:440px; padding:36px; border-radius:12px; background:#1d2b3a; text-align:center; }
+  .bait button { font-size:18px; padding:14px 28px; border:0; border-radius:8px; background:#2ecc71; color:#08321b; font-weight:700; cursor:pointer; }
+  .bait iframe { position:absolute; left:0; top:0; width:100%; height:100%; opacity:0; border:0; z-index:2; }
+  .note { color:#ffb347; font-size:12px; margin-top:18px; text-align:left; }
+</style>
+</head>
+<body>
+<div class="bait">
+  <h2>🎁 毎日スタンプで当選チャンス！</h2>
+  <p>下のボタンを押すと特典がもらえます。</p>
+  <!--
+    VULN: 脆弱なページを透明（opacity:0）な iframe でボタンの上に重ねている。
+    ユーザは「受け取る」を押したつもりが、実際にはその下の脆弱ページの
+    「ログアウト」リンク（または任意の要素）を押させられる。
+    ※位置合わせの実演では、iframe の opacity を 0 → 0.1 に変えると仕組みが見える。
+  -->
+  <iframe src="/vulnerable-page" title="透明なiframe（デモ用）"></iframe>
+  <button type="button">受け取る</button>
+  <p class="note">
+    【仕組み】iframe が最前面に重なり、クリックは iframe 内へ奪われる。<br>
+    【対策（守る側）】X-Frame-Options: DENY ／ CSP: frame-ancestors 'none' をレスポンスヘッダで返す。<br>
+    ※ このページ自体が「攻撃者のWEBサイト」を模した教育用モックです。
+  </p>
+</div>
+</body>
+</html>
